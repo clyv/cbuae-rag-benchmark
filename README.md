@@ -94,7 +94,8 @@ TODO after Phase 3.
 
 Each question records the sections that must be retrieved, why each one is
 required, how long labelling took, and the labeller's confidence. Format is
-defined in `benchmark/schema.json`.
+defined in `benchmark/schema.json`; the target mix, the construction rule for
+cross-document items, and the labelling protocol are in `benchmark/PLAN.md`.
 
 **Labelling honesty.** Low-confidence items are excluded from headline metrics
 by default. The count of excluded items is reported here: TODO.
@@ -200,6 +201,7 @@ pytest
 
 | Phase | Deliverable |
 |---|---|
+| 0 | Calibration: difficulty and question mix decided (`benchmark/PLAN.md`) |
 | 1 | Registry populated, corpus downloading, licensing recorded |
 | 2 | Parsing and chunking; sections carry citable identifiers |
 | 3 | 50 labelled benchmark questions |
