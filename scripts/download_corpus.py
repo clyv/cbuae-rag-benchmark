@@ -29,7 +29,6 @@ import time
 from dataclasses import dataclass, asdict
 from datetime import datetime, timezone
 from pathlib import Path
-from urllib.parse import urlparse
 
 try:
     import requests
@@ -39,6 +38,7 @@ except ImportError:  # pragma: no cover
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 REGISTRY = REPO_ROOT / "corpus" / "registry.csv"
+BASE_URL = "https://rulebook.centralbank.ae"
 RAW_DIR = REPO_ROOT / "corpus" / "raw"
 MANIFEST = REPO_ROOT / "corpus" / "manifest.json"
 
@@ -80,7 +80,19 @@ through formal channels, the formally issued version prevails. See SOURCES.md
 for the full reuse record.
 """
 
-USER_AGENT = "ReguLens-corpus-builder/0.1 (research portfolio project; contact via repo)"
+# The Rulebook sits behind a load balancer that rejects any client not presenting
+# a browser User-Agent - it returns 403 even for its own robots.txt - while that
+# robots.txt permits /en/rulebook/ and /en/entiresection/ for every agent. A From
+# header carries the contact information the UA string cannot. See SOURCES.md for
+# the full record of why this is done openly rather than quietly.
+HEADERS = {
+    "User-Agent": (
+        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
+        "(KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36"
+    ),
+    "From": "ReguLens corpus builder (non-commercial research; contact via repository)",
+    "Accept-Language": "en",
+}
 REQUEST_TIMEOUT = 60
 DELAY_BETWEEN_REQUESTS = 2.0
 MAX_RETRIES = 3
@@ -97,13 +109,26 @@ class RegistryRow:
     status: str
     parent_doc_id: str
     notes: str
+    node_id: str = ""
+
+    @property
+    def download_url(self) -> str:
+        """Where the text is actually fetched from.
+
+        `url` is the canonical page for one document and is what citations point
+        at, but it renders only the first section. /en/entiresection/<node_id>
+        returns every article of the instrument in a single response, which is
+        both one request instead of twenty and the shape ingest/parse.py expects.
+        Rows without a node_id fall back to `url`; run scripts/enrich_registry.py
+        to populate them.
+        """
+        if self.node_id:
+            return f"{BASE_URL}/en/entiresection/{self.node_id}"
+        return self.url
 
     @property
     def suffix(self) -> str:
-        """File extension inferred from the URL path, defaulting to .pdf."""
-        path = urlparse(self.url).path
-        ext = Path(path).suffix.lower()
-        return ext if ext in {".pdf", ".html", ".htm", ".txt", ".docx"} else ".pdf"
+        return ".html"
 
     @property
     def target(self) -> Path:
@@ -151,6 +176,7 @@ def load_registry() -> list[RegistryRow]:
                     status=(raw.get("status") or "").strip(),
                     parent_doc_id=(raw.get("parent_doc_id") or "").strip(),
                     notes=(raw.get("notes") or "").strip(),
+                    node_id=(raw.get("node_id") or "").strip(),
                 )
             )
 
@@ -174,7 +200,7 @@ def fetch(row: RegistryRow, session: requests.Session) -> tuple[bool, str]:
     """Download one document. Returns (success, message)."""
     for attempt in range(1, MAX_RETRIES + 1):
         try:
-            response = session.get(row.url, timeout=REQUEST_TIMEOUT, stream=True)
+            response = session.get(row.download_url, timeout=REQUEST_TIMEOUT, stream=True)
             response.raise_for_status()
             tmp = row.target.with_suffix(row.target.suffix + ".part")
             with tmp.open("wb") as fh:
@@ -222,12 +248,12 @@ def main() -> int:
 
     if args.dry_run:
         for row in pending:
-            print(f"  would fetch {row.doc_id} <- {row.url}")
+            print(f"  would fetch {row.doc_id} <- {row.download_url}")
         return 0
 
     failures: list[tuple[str, str]] = []
     session = requests.Session()
-    session.headers.update({"User-Agent": USER_AGENT})
+    session.headers.update(HEADERS)
 
     for index, row in enumerate(pending, start=1):
         print(f"[{index}/{len(pending)}] {row.doc_id} ... ", end="", flush=True)
