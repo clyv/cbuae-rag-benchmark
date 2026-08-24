@@ -51,10 +51,36 @@ extra to label here, because the graded ground truth is *which sections were
 required*, not *what number comes out*. Questions where several limits must be
 reconciled are therefore good value: hard to retrieve, cheap to label.
 
+## Where section labels come from
+
+Added after Phase 2, because a label that does not match the corpus scores zero
+no matter how good the retriever is.
+
+`corpus/processed/sections.jsonl` is the authoritative vocabulary. Every record
+has a `doc_id` and a `section`, and `doc_id::section` is exactly the string
+`required_evidence` is scored against. **Cite from that file, not from memory of
+the web page.** The conventions it follows:
+
+| printed heading | label to use |
+|---|---|
+| `Article (3): Effective Risk Management System` | `Article 3` |
+| `Article 2 Scope of Application` | `Article 2` |
+| `Schedule No. (1)` | `Schedule 1` |
+| `1. Definitions` | `1` |
+| `Definitions` (no number printed) | `Definitions` |
+| an article inside a numbered Part | `Section 2, Article 3` |
+
+That last row matters for INS-FIN-001 and INS-FIN-002, which restart article
+numbering in each part. A bare `Article 3` names two different provisions in
+those instruments and will not match anything.
+
 ## Labelling protocol
 
 Non-negotiable, because violating it silently poisons every metric:
 
+- **Check the label against `corpus/processed/sections.jsonl`** before writing
+  it into a question. `python scripts/validate_benchmark.py` checks the schema;
+  it does not yet check that an evidence id exists in the corpus.
 - **Read the article. Do not label from a summary** — not from an LLM's, not
   from this file's, not from a secondary source. Every specific figure produced
   during calibration by chatbots (retention periods, tenor caps, stress-test

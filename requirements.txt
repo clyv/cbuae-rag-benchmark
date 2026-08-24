@@ -1,9 +1,11 @@
 # Phase 1 - corpus collection
 requests>=2.31
 
-# Phase 2 - parsing (uncomment as you reach the phase)
-# pdfplumber>=0.11
-# pymupdf>=1.24
+# Phase 2 - parsing
+# The Rulebook publishes structured HTML, so no PDF toolchain is needed.
+# See the Corpus section of the README for why that route was taken.
+beautifulsoup4>=4.12
+lxml>=5.0
 
 # Phase 4 - retrieval
 # rank-bm25>=0.2.2
