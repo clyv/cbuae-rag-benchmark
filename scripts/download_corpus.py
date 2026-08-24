@@ -55,6 +55,31 @@ REQUIRED_COLUMNS = {
 }
 
 # Be a good citizen: identify the client and don't hammer the server.
+NOTICE_FILENAME = "NOTICE.txt"
+
+# CBUAE terms of use (Intellectual Property, clause 2.3) require the copyright
+# symbol to appear on material reproduced, saved, printed or otherwise
+# distributed from the site. Downloading the corpus counts as saving it, so the
+# notice is written alongside the files rather than left implicit. See SOURCES.md.
+CORPUS_NOTICE = """Source documents in this directory were downloaded from the Central Bank of the
+UAE Rulebook (https://rulebook.centralbank.ae) by scripts/download_corpus.py.
+
+(c) Central Bank of the UAE
+
+They are reproduced here for non-commercial research use only, under the CBUAE
+website Terms and Conditions:
+https://www.centralbank.ae/en/footer/terms-and-conditions/
+
+Do not redistribute these files or commit them to version control. They are
+gitignored deliberately. Re-fetch them with:
+
+    python scripts/download_corpus.py
+
+The Rulebook is an access aid. Where it differs from the instruments issued
+through formal channels, the formally issued version prevails. See SOURCES.md
+for the full reuse record.
+"""
+
 USER_AGENT = "ReguLens-corpus-builder/0.1 (research portfolio project; contact via repo)"
 REQUEST_TIMEOUT = 60
 DELAY_BETWEEN_REQUESTS = 2.0
@@ -167,6 +192,14 @@ def fetch(row: RegistryRow, session: requests.Session) -> tuple[bool, str]:
     return False, "exhausted retries"
 
 
+def write_corpus_notice() -> None:
+    """Drop the attribution notice into corpus/raw/ - required by CBUAE clause 2.3."""
+    notice = RAW_DIR / NOTICE_FILENAME
+    if notice.exists() and notice.read_text(encoding="utf-8") == CORPUS_NOTICE:
+        return
+    notice.write_text(CORPUS_NOTICE, encoding="utf-8")
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--force", action="store_true", help="re-download existing files")
@@ -181,6 +214,7 @@ def main() -> int:
             sys.exit(f"No registry entry with doc_id {args.only!r}.")
 
     RAW_DIR.mkdir(parents=True, exist_ok=True)
+    write_corpus_notice()
 
     pending = [r for r in rows if args.force or not r.target.exists()]
     skipped = len(rows) - len(pending)
