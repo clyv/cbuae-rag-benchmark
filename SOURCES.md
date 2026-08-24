@@ -98,7 +98,14 @@ this file supersedes it.
       Data Documents area. If so, those specific documents carry the more
       permissive grant, and that should be recorded per-row rather than assumed
       corpus-wide.
-- [ ] `status` and `effective_date` are unpopulated for all 46 rows. Superseded
-      instruments must be marked before any question is labelled against them.
+- [x] `status` and `effective_date` are now populated by
+      `scripts/enrich_registry.py`. All 46 rows report `in_force`; four publish
+      no effective date on their page (INS-GOV-005, INS-GOV-007, INS-GOV-008,
+      INS-OTH-004).
+- [ ] Several instruments show `in_force` while carrying a commencement date in
+      the future - INS-TAK-006, INS-TAK-007 and INS-TAK-008 all commence
+      2027-07-15. Decide whether these belong in the corpus at all before
+      labelling against them; a question answered from an instrument whose
+      obligations have not started is a temporal trap, not a retrieval test.
 - [ ] Terms may change without notice (disclaimer 3.1). Re-check this page before
       the repository is made public, and record the date here.

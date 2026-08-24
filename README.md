@@ -43,27 +43,67 @@ regulatory, or compliance advice.**
 
 ## Corpus
 
-TODO after Phase 1.
-
 | | |
 |---|---|
-| Source | TODO |
-| Documents | TODO |
-| Sections after parsing | TODO |
-| Chunks indexed | TODO |
-| Date collected | TODO |
+| Source | CBUAE Rulebook, Insurance section |
+| Documents | 46 |
+| Sections after parsing | 763 |
+| Chunks indexed | 954 (512-word budget, 64-word overlap) |
+| Words | 206,705 |
+| Date collected | 2026-08-24 |
+
+Every document is an instrument in its own right - regulations, standards, board
+decisions and resolutions - covering licensing, governance and risk management,
+financial and solvency regulation, reporting, Takaful, conduct, sanctions, motor
+insurance and reinsurance.
 
 Source documents are **not committed to this repository**. `corpus/registry.csv`
-lists every document with its URL and metadata, and
-`scripts/download_corpus.py` fetches them:
+lists every document with its URL and metadata, and the pipeline rebuilds the
+corpus from scratch:
 
 ```bash
 pip install -r requirements.txt
+python scripts/enrich_registry.py
 python scripts/download_corpus.py
+python scripts/build_corpus.py
 ```
 
-The script writes `corpus/manifest.json` with a SHA-256 for every file, so a
-run can be tied to an exact corpus state.
+`download_corpus.py` writes `corpus/manifest.json` with a SHA-256 for every
+file, so a run can be tied to an exact corpus state. `build_corpus.py` writes
+`corpus/processed/sections.jsonl`, `chunks.jsonl` and an `ingest_report.json`
+recording the chunking parameters and every parser warning.
+
+### How the documents are parsed
+
+Worth stating plainly, because it is the decision that removed most of the
+project's schedule risk: **there is no PDF parsing here.**
+
+The Rulebook publishes every instrument as HTML in which each section is an
+`h2.page-title` followed by a `div.field--name-body`, and each instrument has an
+`/en/entiresection/<node_id>` view returning all of its articles in one request.
+Section structure is therefore read from the document's own markup rather than
+inferred from font sizes or heading regexes over extracted text. Official PDFs
+exist and their URLs are recorded in the registry for provenance, but nothing in
+the pipeline reads them.
+
+Every chunk carries `doc_id` and the section identifier as printed, which
+together form the `evidence_id` that benchmark labels are scored against. Three
+things about that mapping are worth knowing before labelling questions:
+
+- **Labels are normalised, not invented.** `Article (3): Effective Risk
+  Management System` becomes `Article 3`; `Schedule No. (1)` becomes
+  `Schedule 1`. The full heading survives in chunk metadata.
+- **Compound instruments are qualified by their own addressing.** INS-FIN-001
+  restarts its article numbering in each part, so its sections are
+  `Section 1, Article 3` and `Section 2, Article 3` rather than a bare
+  `Article 3` that would name two different provisions.
+- **Sections without a printed identifier keep their heading as the label** -
+  `Definitions`, `General Provisions`. 113 of the 763 sections are labelled this
+  way; the other 650 carry a number.
+
+One genuine ambiguity survives: INS-CON-001 prints `Article (14)` twice. It is
+stored as `Article 14` and `Article 14 (2)` and flagged in the ingest report,
+rather than silently collapsed.
 
 ### Licensing and attribution
 
@@ -204,14 +244,14 @@ pytest
 
 ## Build order
 
-| Phase | Deliverable |
-|---|---|
-| 0 | Calibration: difficulty and question mix decided (`benchmark/PLAN.md`) |
-| 1 | Registry populated, corpus downloading, licensing recorded |
-| 2 | Parsing and chunking; sections carry citable identifiers |
-| 3 | 50 labelled benchmark questions |
-| 4 | Four systems built and measured; results tables filled |
-| 5 | Grounded answering, citation validation, API and UI |
-| 6 | *Optional:* cross-reference graph expansion |
+| Phase | Deliverable | Status |
+|---|---|---|
+| 0 | Calibration: difficulty and question mix decided (`benchmark/PLAN.md`) | done |
+| 1 | Registry populated, corpus downloading, licensing recorded | done |
+| 2 | Parsing and chunking; sections carry citable identifiers | done |
+| 3 | 50 labelled benchmark questions | next |
+| 4 | Four systems built and measured; results tables filled | |
+| 5 | Grounded answering, citation validation, API and UI | |
+| 6 | *Optional:* cross-reference graph expansion | |
 
 Phase 6 is optional and should not be started until 1–5 are complete.
