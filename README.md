@@ -65,16 +65,21 @@ python scripts/download_corpus.py
 The script writes `corpus/manifest.json` with a SHA-256 for every file, so a
 run can be tied to an exact corpus state.
 
-### Licensing
+### Licensing and attribution
 
-TODO before making this repository public. Record here:
+Corpus documents are © Central Bank of the UAE, retrieved from the CBUAE
+Rulebook and reproduced locally for non-commercial research use only under the
+CBUAE website [Terms and Conditions](https://www.centralbank.ae/en/footer/terms-and-conditions/)
+(clause 2.3). This project is not affiliated with, endorsed by, or connected to
+the Central Bank of the UAE.
 
-- the reuse terms published by each source, quoted and linked
-- the attribution the terms require, and where this repo provides it
-- confirmation that redistribution-by-download-script is consistent with those
-  terms
+Those terms permit download for non-commercial use with attribution, but **not
+redistribution** — which is why no source document is committed here and why the
+Phase 5 demo links to the Rulebook rather than mirroring it. The CBUAE Open Data
+policy is more permissive but its stated scope is reports and studies, not the
+Rulebook's regulatory text, so the more restrictive reading is the one applied.
 
-See `SOURCES.md`.
+Full record, including what was checked and when: `SOURCES.md`.
 
 ---
 
