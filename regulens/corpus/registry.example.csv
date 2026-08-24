@@ -1,0 +1,4 @@
+doc_id,title,doc_type,authority,url,effective_date,status,parent_doc_id,notes
+EXAMPLE-001,PLACEHOLDER - Replace with a real document title,regulation,CBUAE,https://example.invalid/placeholder-1.pdf,2022-01-01,in_force,,"Every value in this file is fake. Do not cite it."
+EXAMPLE-002,PLACEHOLDER - Replace with a real document title,standard,CBUAE,https://example.invalid/placeholder-2.pdf,2023-06-15,in_force,EXAMPLE-001,"Shows how to link a child doc to its parent."
+EXAMPLE-003,PLACEHOLDER - Replace with a real document title,guidance,CBUAE,https://example.invalid/placeholder-3.pdf,2019-03-01,superseded,EXAMPLE-001,"status=superseded lets you build version-aware eval questions later."

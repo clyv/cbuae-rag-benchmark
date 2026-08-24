@@ -1,0 +1,109 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "regulens/benchmark/question",
+  "title": "ReguLens benchmark question",
+  "description": "One evaluation item. The gradeable ground truth is required_evidence - the set of document sections that must be retrieved for the question to be answerable. answer_sketch is a human aid, not a scored field.",
+  "type": "object",
+  "required": ["id", "question", "category", "difficulty", "required_evidence", "provenance"],
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^Q[0-9]{3}$",
+      "description": "Stable identifier, e.g. Q001. Never reuse an id after retiring a question."
+    },
+    "question": {
+      "type": "string",
+      "minLength": 15,
+      "description": "The question as a user would ask it. Avoid quoting the regulation verbatim - that turns the task into string matching."
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "single_hop",
+        "cross_section",
+        "cross_document",
+        "temporal",
+        "comparative",
+        "adversarial",
+        "unanswerable"
+      ],
+      "description": "unanswerable items have an empty required_evidence list and test whether the system abstains instead of confabulating."
+    },
+    "difficulty": {
+      "type": "string",
+      "enum": ["easy", "medium", "hard"]
+    },
+    "required_evidence": {
+      "type": "array",
+      "description": "Every section that MUST be retrieved. Recall is measured against this set. Keep it minimal - include only sections without which the question cannot be answered.",
+      "items": {
+        "type": "object",
+        "required": ["doc_id", "section"],
+        "additionalProperties": false,
+        "properties": {
+          "doc_id": {
+            "type": "string",
+            "description": "Must match a doc_id in corpus/registry.csv."
+          },
+          "section": {
+            "type": "string",
+            "description": "Section or article identifier as printed in the document, e.g. 'Article 5' or '6.1.6'."
+          },
+          "why": {
+            "type": "string",
+            "description": "One line on what this section contributes. Forces you to justify each label."
+          }
+        }
+      }
+    },
+    "helpful_evidence": {
+      "type": "array",
+      "description": "Sections that add useful context but are not strictly required. Not scored for recall; used to check whether extra retrievals are relevant or noise.",
+      "items": {
+        "type": "object",
+        "required": ["doc_id", "section"],
+        "additionalProperties": false,
+        "properties": {
+          "doc_id": { "type": "string" },
+          "section": { "type": "string" },
+          "why": { "type": "string" }
+        }
+      }
+    },
+    "answer_sketch": {
+      "type": "string",
+      "description": "Your own plain-language note on what the evidence says. NOT scored, NOT a legal opinion, and never presented as one."
+    },
+    "provenance": {
+      "type": "object",
+      "required": ["source", "labelled_on", "minutes_to_label"],
+      "additionalProperties": false,
+      "properties": {
+        "source": {
+          "type": "string",
+          "enum": ["hand_written", "derived_from_document_structure", "llm_drafted_human_verified"],
+          "description": "Be honest here. If an LLM drafted it, say so - and it still requires human verification of required_evidence before it counts."
+        },
+        "labelled_on": {
+          "type": "string",
+          "format": "date"
+        },
+        "minutes_to_label": {
+          "type": "number",
+          "description": "How long it took to establish the evidence set by hand. Useful signal: items taking over ~20 minutes are probably too ambiguous to label reliably."
+        },
+        "confidence": {
+          "type": "string",
+          "enum": ["high", "medium", "low"],
+          "description": "Your confidence that required_evidence is complete and correct. Report the distribution in the README; consider excluding low-confidence items from headline metrics."
+        }
+      }
+    },
+    "retired": {
+      "type": "boolean",
+      "default": false,
+      "description": "Set true instead of deleting, so results stay reproducible across runs."
+    }
+  }
+}

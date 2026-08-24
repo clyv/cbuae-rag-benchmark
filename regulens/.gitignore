@@ -1,0 +1,20 @@
+# Source documents are fetched by scripts/download_corpus.py, never committed.
+corpus/raw/*
+!corpus/raw/.gitkeep
+corpus/processed/*
+!corpus/processed/.gitkeep
+corpus/manifest.json
+
+# Indexes are rebuilt from the corpus
+*.faiss
+*.index
+indexes/
+
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.env
+.pytest_cache/
+.ipynb_checkpoints/
+.DS_Store

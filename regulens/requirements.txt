@@ -1,0 +1,18 @@
+# Phase 1 - corpus collection
+requests>=2.31
+
+# Phase 2 - parsing (uncomment as you reach the phase)
+# pdfplumber>=0.11
+# pymupdf>=1.24
+
+# Phase 4 - retrieval
+# rank-bm25>=0.2.2
+# sentence-transformers>=3.0
+# faiss-cpu>=1.8
+
+# Phase 5 - serving
+# fastapi>=0.111
+# uvicorn>=0.30
+
+# Dev
+pytest>=8.0
