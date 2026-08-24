@@ -56,7 +56,7 @@ DELAY_BETWEEN_REQUESTS = 2.0
 MAX_RETRIES = 3
 
 # Columns this script adds to the registry, in the order they are appended.
-ADDED_COLUMNS = ["node_id", "code", "rulebook_section", "pdf_url"]
+ADDED_COLUMNS = ["node_id", "code", "rulebook_section", "pdf_url", "fetch_mode"]
 
 # Columns this script is allowed to write into.
 MANAGED_COLUMNS = ["effective_date", "status"] + ADDED_COLUMNS
@@ -79,6 +79,7 @@ class PageFacts:
     status: str = ""
     rulebook_section: str = ""
     pdf_url: str = ""
+    fetch_mode: str = ""
     problems: tuple[str, ...] = ()
 
 
@@ -148,6 +149,69 @@ def extract(html: str) -> PageFacts:
         rulebook_section=section,
         pdf_url=pdf_url,
         problems=tuple(problems),
+    )
+
+
+# How much of the registry title must appear in the entire-section heading for
+# the two to be considered the same instrument.
+TITLE_OVERLAP_THRESHOLD = 0.8
+
+
+def title_tokens(value: str) -> set[str]:
+    return set(re.sub(r"[^a-z0-9]+", " ", value.lower()).split())
+
+
+def titles_agree(registry_title: str, page_heading: str) -> float:
+    """Fraction of the registry title's words that appear in the page heading.
+
+    Exact matching is too strict here. The registry stores working titles while
+    the Rulebook prints the full formal one, so the same instrument appears as
+    "Decision No. (14) of 2018 Pertinent to the Application of Financial Solvency
+    Requirements" in one place and the same text plus "Stipulated in Chapter Two
+    of the Financial Regulations for..." in the other. Both should match. What
+    must not match is a document title against its *category* title, which shares
+    only incidental words.
+    """
+    wanted = title_tokens(registry_title)
+    if not wanted:
+        return 0.0
+    return len(wanted & title_tokens(page_heading)) / len(wanted)
+
+
+def resolve_fetch_mode(title: str, node_id: str, session: requests.Session) -> tuple[str, str]:
+    """Decide whether /en/entiresection/<node_id> is scoped to this document.
+
+    The Rulebook models each instrument as a Drupal book. entiresection returns
+    the whole book rooted at the node, which for a multi-article regulation is
+    exactly the document. But a few instruments are single leaf pages hanging
+    inside a *category* book - Operational Risk and Climate-related Financial
+    Risk Management sit under 'Governance, Risk Management and Internal Control'
+    - and for those, entiresection walks up and returns all 120 sections of the
+    category instead.
+
+    Left unchecked that is corpus poison: the same article would be indexed under
+    several doc_ids, so a retriever could satisfy an evidence label by returning
+    a duplicate under the wrong document, and evidence recall would stop meaning
+    anything. Compare the first heading with the document's own title and fall
+    back to the canonical page when they disagree.
+    """
+    if not node_id:
+        return "page", "no node id"
+    url = f"{BASE}/en/entiresection/{node_id}"
+    html = fetch(url, session)
+    if html is None:
+        return "page", "entire-section fetch failed"
+    soup = BeautifulSoup(html, "lxml")
+    heading = soup.select_one("h2.page-title")
+    if heading is None:
+        return "page", "entire-section had no headings"
+    text = heading.get_text(strip=True)
+    overlap = titles_agree(title, text)
+    if overlap >= TITLE_OVERLAP_THRESHOLD:
+        return "entire_section", ""
+    return "page", (
+        f"entire-section is scoped to {text[:70]!r} "
+        f"(only {overlap:.0%} of the title matches)"
     )
 
 
@@ -236,6 +300,13 @@ def main() -> int:
             continue
 
         facts = extract(html)
+        time.sleep(DELAY_BETWEEN_REQUESTS)
+        facts.fetch_mode, scope_note = resolve_fetch_mode(
+            row["title"], facts.node_id, session
+        )
+        if scope_note:
+            anomalies.append(f"{doc_id}: fetching canonical page - {scope_note}")
+
         updates: dict[str, str] = {}
         for column in MANAGED_COLUMNS:
             value = getattr(facts, column, "")
@@ -261,7 +332,8 @@ def main() -> int:
             f"code={facts.code or '-'} "
             f"eff={facts.effective_date or '-'} "
             f"status={facts.status or '-'} "
-            f"section={facts.rulebook_section or '?'}"
+            f"section={facts.rulebook_section or '?'} "
+            f"mode={facts.fetch_mode}"
         )
         print(summary)
 

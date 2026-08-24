@@ -110,6 +110,7 @@ class RegistryRow:
     parent_doc_id: str
     notes: str
     node_id: str = ""
+    fetch_mode: str = ""
 
     @property
     def download_url(self) -> str:
@@ -122,7 +123,7 @@ class RegistryRow:
         Rows without a node_id fall back to `url`; run scripts/enrich_registry.py
         to populate them.
         """
-        if self.node_id:
+        if self.node_id and self.fetch_mode != "page":
             return f"{BASE_URL}/en/entiresection/{self.node_id}"
         return self.url
 
@@ -177,6 +178,7 @@ def load_registry() -> list[RegistryRow]:
                     parent_doc_id=(raw.get("parent_doc_id") or "").strip(),
                     notes=(raw.get("notes") or "").strip(),
                     node_id=(raw.get("node_id") or "").strip(),
+                    fetch_mode=(raw.get("fetch_mode") or "").strip(),
                 )
             )
 
@@ -233,9 +235,13 @@ def main() -> int:
     parser.add_argument("--only", metavar="DOC_ID", help="fetch a single document")
     args = parser.parse_args()
 
-    rows = load_registry()
+    # The manifest always describes the whole registry. --only narrows what is
+    # fetched, not what is recorded: rebuilding it from a filtered list would
+    # silently drop every other document from the corpus's provenance record.
+    all_rows = load_registry()
+    rows = all_rows
     if args.only:
-        rows = [r for r in rows if r.doc_id == args.only]
+        rows = [r for r in all_rows if r.doc_id == args.only]
         if not rows:
             sys.exit(f"No registry entry with doc_id {args.only!r}.")
 
@@ -269,7 +275,7 @@ def main() -> int:
         "registry_sha256": sha256_of(REGISTRY),
         "documents": [],
     }
-    for row in rows:
+    for row in all_rows:
         entry = asdict(row)
         if row.target.exists():
             entry["local_path"] = str(row.target.relative_to(REPO_ROOT))
@@ -281,7 +287,7 @@ def main() -> int:
 
     MANIFEST.write_text(json.dumps(manifest, indent=2, ensure_ascii=False), encoding="utf-8")
     present = sum(1 for d in manifest["documents"] if d["local_path"])
-    print(f"\nManifest written to {MANIFEST.relative_to(REPO_ROOT)} ({present}/{len(rows)} present)")
+    print(f"\nManifest written to {MANIFEST.relative_to(REPO_ROOT)} ({present}/{len(all_rows)} present)")
 
     if failures:
         print("\nFailed:")
