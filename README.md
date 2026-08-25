@@ -105,6 +105,53 @@ One genuine ambiguity survives: INS-CON-001 prints `Article (14)` twice. It is
 stored as `Article 14` and `Article 14 (2)` and flagged in the ingest report,
 rather than silently collapsed.
 
+### In the index, not in the ground truth
+
+Four instruments are retrievable but may never be cited as required evidence.
+`corpus/registry.csv` marks them `labelling_eligible=false`, and
+`scripts/validate_benchmark.py` rejects any question whose `required_evidence`
+names one.
+
+They are the three Takaful standards commencing 2027-07-15 and the Takaful
+Insurance Regulation commencing 2026-09-14 - all four listed by the Rulebook as
+In-Force while carrying a commencement date after the corpus was collected.
+
+**What that pairing means is not stated on the page, and this project does not
+assert an interpretation.** It may be that an instrument is validly issued and
+part of the current Rulebook with obligations phased in later; that is a
+plausible reading, not a documented fact, so only the observation and the
+handling are recorded here.
+
+The handling follows from what this project already declines to claim.
+Determining which instrument governs a given obligation *today* is a legal
+judgement about commencement and transition. This benchmark measures retrieval.
+So:
+
+- **They stay in the index.** Three Takaful standards on adjacent subject matter
+  are precisely the near-miss distractors that separate a good retriever from a
+  bad one. Removing the hardest negatives would make every system look better
+  than it is.
+- **They stay out of the answer key**, because a label naming one would be an
+  assertion about which instrument currently governs.
+- They are the natural material for the `temporal` category if it is ever built.
+
+`helpful_evidence` may still reference them: it is not scored for recall.
+
+### Documents the Rulebook lists but has not published
+
+Four entries - INS-GOV-005, INS-GOV-007, INS-GOV-009 and INS-TAK-007 - parse to
+a title and nothing else. Three have no PDF in the Rulebook file store either.
+They are kept in the registry and reported by `build_corpus.py` so the gap reads
+as a finding about the source rather than a parser failure, but they contain no
+citable text.
+
+A separate observation, recorded because it is a limitation rather than a bug:
+INS-GOV-008 publishes no effective date on its page, and its 17-page PDF
+contains no date anywhere either. `effective_date_source` is `not_published` for
+it and for three others. A missing effective date has no bearing on whether an
+article is the right retrieval target, so those documents remain fully
+labelling-eligible.
+
 ### Licensing and attribution
 
 Corpus documents are © Central Bank of the UAE, retrieved from the CBUAE

@@ -30,6 +30,7 @@ import re
 import sys
 import time
 from dataclasses import dataclass
+from datetime import date
 from pathlib import Path
 
 import requests
@@ -56,7 +57,17 @@ DELAY_BETWEEN_REQUESTS = 2.0
 MAX_RETRIES = 3
 
 # Columns this script adds to the registry, in the order they are appended.
-ADDED_COLUMNS = ["node_id", "code", "rulebook_section", "pdf_url", "fetch_mode"]
+ADDED_COLUMNS = [
+    "node_id",
+    "code",
+    "rulebook_section",
+    "pdf_url",
+    "fetch_mode",
+    "commencement_date",
+    "effective_date_source",
+    "labelling_eligible",
+    "labelling_note",
+]
 
 # Columns this script is allowed to write into.
 MANAGED_COLUMNS = ["effective_date", "status"] + ADDED_COLUMNS
@@ -80,6 +91,10 @@ class PageFacts:
     rulebook_section: str = ""
     pdf_url: str = ""
     fetch_mode: str = ""
+    commencement_date: str = ""
+    effective_date_source: str = ""
+    labelling_eligible: str = ""
+    labelling_note: str = ""
     problems: tuple[str, ...] = ()
 
 
@@ -133,13 +148,21 @@ def extract(html: str) -> PageFacts:
     if not section:
         problems.append("could not determine rulebook section")
 
+    # The instrument's own PDF lives in the Rulebook file store and is named
+    # after the node. Matching any .pdf anchor instead picks up the site-wide
+    # Code of Conduct linked from the page footer, which is how four different
+    # documents ended up sharing one 7.8 MB PDF url.
     pdf_url = ""
-    for anchor in soup.find_all("a", href=True):
-        if anchor["href"].lower().endswith(".pdf"):
-            pdf_url = anchor["href"]
-            if pdf_url.startswith("/"):
-                pdf_url = BASE + pdf_url
-            break
+    candidates = [a["href"] for a in soup.find_all("a", href=True) if a["href"].lower().endswith(".pdf")]
+    store = [h for h in candidates if "en_net_file_store" in h]
+    preferred = [h for h in store if node_id and node_id in h]
+    chosen = preferred or store
+    if chosen:
+        pdf_url = chosen[0]
+        if pdf_url.startswith("/"):
+            pdf_url = BASE + pdf_url
+    elif candidates:
+        problems.append("no document PDF in the Rulebook file store; footer PDFs ignored")
 
     return PageFacts(
         node_id=node_id,
@@ -148,6 +171,8 @@ def extract(html: str) -> PageFacts:
         status=status,
         rulebook_section=section,
         pdf_url=pdf_url,
+        commencement_date=effective_date,
+        effective_date_source="page" if effective_date else "not_published",
         problems=tuple(problems),
     )
 
@@ -155,6 +180,39 @@ def extract(html: str) -> PageFacts:
 # How much of the registry title must appear in the entire-section heading for
 # the two to be considered the same instrument.
 TITLE_OVERLAP_THRESHOLD = 0.8
+
+
+def assess_labelling_eligibility(commencement: str, today: date) -> tuple[str, str]:
+    """Decide whether an instrument may appear in a benchmark answer key.
+
+    Some instruments are listed In-Force while carrying a commencement date in
+    the future - three Takaful standards commence 2027-07-15. What CBUAE means
+    by that pairing is not stated on the page, and this project does not assert
+    an interpretation: it may be that the instrument is validly issued and part
+    of the current Rulebook with obligations phased in later, but that is a
+    reading, not a documented fact.
+
+    The handling follows from what the README already declines to claim. Working
+    out which instrument governs an obligation *today* is a legal judgement
+    about commencement and transition, and this project measures retrieval, not
+    legal correctness. So a future-commencement instrument stays in the
+    retrieval index - three Takaful standards on adjacent subject matter are
+    exactly the near-miss distractors that separate a good retriever from a bad
+    one, and deleting the hardest negatives would flatter every system - but it
+    must never appear in required_evidence.
+
+    These are also the natural material for the `temporal` category if it is
+    ever built; see benchmark/PLAN.md.
+    """
+    if not commencement:
+        return "true", ""
+    try:
+        when = date.fromisoformat(commencement)
+    except ValueError:
+        return "true", ""
+    if when > today:
+        return "false", f"commences {commencement}, after the corpus was collected"
+    return "true", ""
 
 
 def title_tokens(value: str) -> set[str]:
@@ -284,6 +342,7 @@ def main() -> int:
 
     session = requests.Session()
     session.headers.update(HEADERS)
+    today = date.today()
 
     changed = 0
     failures: list[str] = []
@@ -300,6 +359,11 @@ def main() -> int:
             continue
 
         facts = extract(html)
+        facts.labelling_eligible, facts.labelling_note = assess_labelling_eligibility(
+            facts.commencement_date, today
+        )
+        if facts.labelling_eligible == "false":
+            anomalies.append(f"{doc_id}: not labelling-eligible - {facts.labelling_note}")
         time.sleep(DELAY_BETWEEN_REQUESTS)
         facts.fetch_mode, scope_note = resolve_fetch_mode(
             row["title"], facts.node_id, session
@@ -310,9 +374,16 @@ def main() -> int:
         updates: dict[str, str] = {}
         for column in MANAGED_COLUMNS:
             value = getattr(facts, column, "")
-            if value and (args.force or not row.get(column, "").strip()):
-                if row.get(column, "").strip() != value:
+            current = row.get(column, "").strip()
+            # --force means "this fetch is authoritative", which has to include
+            # clearing a value that is no longer supported by the page. Writing
+            # only truthy values left four rows holding a stale PDF url that a
+            # previous, buggier extraction had put there.
+            if args.force:
+                if current != value:
                     updates[column] = value
+            elif value and not current:
+                updates[column] = value
 
         if facts.rulebook_section and facts.rulebook_section != "insurance":
             anomalies.append(

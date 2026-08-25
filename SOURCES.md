@@ -102,10 +102,22 @@ this file supersedes it.
       `scripts/enrich_registry.py`. All 46 rows report `in_force`; four publish
       no effective date on their page (INS-GOV-005, INS-GOV-007, INS-GOV-008,
       INS-OTH-004).
-- [ ] Several instruments show `in_force` while carrying a commencement date in
-      the future - INS-TAK-006, INS-TAK-007 and INS-TAK-008 all commence
-      2027-07-15. Decide whether these belong in the corpus at all before
-      labelling against them; a question answered from an instrument whose
-      obligations have not started is a temporal trap, not a retrieval test.
+- [x] Several instruments show `in_force` while carrying a commencement date in
+      the future: INS-TAK-006, INS-TAK-007 and INS-TAK-008 commence 2027-07-15,
+      and INS-TAK-001 commences 2026-09-14. **Observation recorded, no
+      interpretation asserted** - the Rulebook does not explain what In-Force
+      plus a future commencement date means, and this file does not guess.
+      Handling: they stay in the retrieval index as distractors and are marked
+      `labelling_eligible=false` so they cannot enter an answer key. See the
+      README section "In the index, not in the ground truth".
+- [x] Four documents publish no effective date. INS-GOV-008 was checked against
+      its PDF directly: 17 pages, no date anywhere, so `not_published` reflects
+      the source rather than a scraping gap. The other three have no PDF in the
+      Rulebook file store at all. These remain labelling-eligible.
+- [ ] `pdf_url` was wrong before 2026-08-25: it matched the first `.pdf` anchor
+      on the page, which is the site-wide Code of Conduct linked from the
+      footer, so several documents shared one url. Now restricted to the
+      Rulebook file store and preferring the node id. Worth re-checking if the
+      site's page furniture changes.
 - [ ] Terms may change without notice (disclaimer 3.1). Re-check this page before
       the repository is made public, and record the date here.

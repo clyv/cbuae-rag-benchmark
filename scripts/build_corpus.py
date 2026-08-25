@@ -52,7 +52,18 @@ CARRIED_COLUMNS = [
     "status",
     "code",
     "parent_doc_id",
+    # Carried so a retrieval result can be shown with the right caveat, and so
+    # anything reading chunks.jsonl can tell an indexed-but-not-citable
+    # instrument from a citable one without joining back to the registry.
+    "commencement_date",
+    "effective_date_source",
+    "labelling_eligible",
 ]
+
+# A document with less text than this has no substantive content - the Rulebook
+# lists it but has not published the instrument. Flagged rather than dropped, so
+# the gap stays visible instead of looking like a parser failure.
+PLACEHOLDER_WORD_LIMIT = 50
 
 
 @dataclass
@@ -126,6 +137,12 @@ def main() -> int:
     write("sections.jsonl", all_sections)
     write("chunks.jsonl", all_chunks)
 
+    placeholders = [s.doc_id for s in stats if s.words < PLACEHOLDER_WORD_LIMIT]
+    ineligible = sorted(
+        row["doc_id"] for row in rows
+        if (row.get("labelling_eligible") or "").strip() == "false"
+    )
+
     words = sum(s.words for s in stats)
     section_words = [count_tokens(s.text) for s in all_sections]
     oversized = sum(1 for w in section_words if w > args.max_tokens)
@@ -147,6 +164,8 @@ def main() -> int:
         "largest_section_words": max(section_words) if section_words else 0,
         "section_label_kinds": dict(label_kinds),
         "duplicate_evidence_ids": len(all_sections) - len({s.evidence_id for s in all_sections}),
+        "placeholder_documents": placeholders,
+        "labelling_ineligible_documents": ineligible,
         "warnings": warnings,
         "per_document": [asdict(s) for s in stats],
     }
@@ -163,6 +182,17 @@ def main() -> int:
     print(f"sections > budget  {oversized}")
     print(f"label kinds        {dict(label_kinds)}")
     print(f"duplicate evidence ids {report['duplicate_evidence_ids']}")
+    if placeholders:
+        print(
+            f"\n{len(placeholders)} placeholder document(s) with no substantive "
+            f"text: {', '.join(placeholders)}"
+        )
+        print("  The Rulebook lists these but has not published their content.")
+    if ineligible:
+        print(f"\n{len(ineligible)} indexed but not labelling-eligible:")
+        for doc_id in ineligible:
+            print(f"    {doc_id}")
+        print("  Retrievable as distractors; must not appear in required_evidence.")
     if missing:
         print(f"\nNo raw file for: {', '.join(missing)}")
     if warnings:

@@ -24,7 +24,7 @@ discriminating items beat fifty where thirty are free wins for every system.
 | `comparative` | 5 | Contrasts obligations across entity types. Cheap, because both sides sit in parallel instruments. |
 | `adversarial` | 3 | False or unsupported premise. |
 | `unanswerable` | 6 | Not covered by the corpus. Fills the abstention table in the README, which cannot be populated without these. |
-| `temporal` | 0 | Deferred from v1. The Rulebook has revision-history pages but they have not been checked for clean before/after pairs. Add only if that check passes. |
+| `temporal` | 0 | Deferred from v1. The Rulebook has revision-history pages but they have not been checked for clean before/after pairs. If this category is ever built, the four future-commencement Takaful instruments below are its natural material. |
 
 ## Construction rule for `cross_document`
 
@@ -74,13 +74,36 @@ That last row matters for INS-FIN-001 and INS-FIN-002, which restart article
 numbering in each part. A bare `Article 3` names two different provisions in
 those instruments and will not match anything.
 
+## Four documents you may not cite
+
+`INS-TAK-001`, `INS-TAK-006`, `INS-TAK-007` and `INS-TAK-008` are in the
+retrieval index but marked `labelling_eligible=false` in the registry. They are
+listed In-Force while commencing after the corpus was collected, and deciding
+which instrument governs an obligation today is a legal judgement this project
+does not make. Keeping them indexed is deliberate - they are hard negatives on
+adjacent subject matter, and deleting the best distractors flatters every
+system.
+
+`scripts/validate_benchmark.py` rejects any question naming one in
+`required_evidence`. `helpful_evidence` may reference them, since it is not
+scored for recall.
+
+Four further documents - `INS-GOV-005`, `INS-GOV-007`, `INS-GOV-009`,
+`INS-TAK-007` - parse to a title and no body: the Rulebook lists them but has
+not published their text. There is nothing in them to cite.
+
+That leaves **39 documents** with substantive, citable text.
+
 ## Labelling protocol
 
 Non-negotiable, because violating it silently poisons every metric:
 
-- **Check the label against `corpus/processed/sections.jsonl`** before writing
-  it into a question. `python scripts/validate_benchmark.py` checks the schema;
-  it does not yet check that an evidence id exists in the corpus.
+- **Run `python scripts/validate_benchmark.py` as you go.** It now checks three
+  things that would otherwise fail silently: the schema, that every
+  `doc_id::section` actually exists in `corpus/processed/sections.jsonl`, and
+  that no answer key names a labelling-ineligible instrument. A mistyped section
+  label is indistinguishable from a retrieval failure once results are being
+  measured - the question just scores zero forever and the system gets blamed.
 - **Read the article. Do not label from a summary** — not from an LLM's, not
   from this file's, not from a secondary source. Every specific figure produced
   during calibration by chatbots (retention periods, tenor caps, stress-test
