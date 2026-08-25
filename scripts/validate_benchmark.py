@@ -10,6 +10,7 @@ Usage:
 
 from __future__ import annotations
 
+import argparse
 import csv
 import json
 import sys
@@ -72,6 +73,19 @@ def corpus_evidence_ids() -> set[str]:
 
 
 def main() -> int:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument(
+        "--file",
+        type=Path,
+        default=BENCHMARK,
+        help=(
+            "questions file to validate (default: benchmark/questions.jsonl). "
+            "Point it at benchmark/drafts.jsonl to check drafts before promoting."
+        ),
+    )
+    args = parser.parse_args()
+    globals()["BENCHMARK"] = args.file
+
     if not BENCHMARK.exists() or not BENCHMARK.read_text(encoding="utf-8").strip():
         print(f"{BENCHMARK.relative_to(REPO_ROOT)} is empty - nothing to validate yet.")
         return 0
