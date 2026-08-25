@@ -32,6 +32,7 @@ retrieval baseline. The real BM25 system is built and measured in Phase 4.
 from __future__ import annotations
 
 import argparse
+import csv
 import json
 import re
 import sys
@@ -40,6 +41,10 @@ from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 SECTIONS = REPO_ROOT / "corpus" / "processed" / "sections.jsonl"
+REGISTRY = REPO_ROOT / "corpus" / "registry.csv"
+DRAFTS = REPO_ROOT / "benchmark" / "drafts.jsonl"
+BENCHMARK = REPO_ROOT / "benchmark" / "questions.jsonl"
+BASE_URL = "https://rulebook.centralbank.ae"
 
 # Matches build_corpus.PLACEHOLDER_WORD_LIMIT. A document under this is one the
 # Rulebook lists without publishing, so it holds nothing to cite even though it
@@ -162,6 +167,83 @@ def find(records: list[dict], query: str, limit: int, only_citable: bool) -> Non
         )
 
 
+def load_item(item_id: str) -> dict:
+    """Find one question by id in drafts.jsonl or questions.jsonl."""
+    for path in (DRAFTS, BENCHMARK):
+        if not path.exists():
+            continue
+        for line in path.read_text(encoding="utf-8").splitlines():
+            if line.strip():
+                item = json.loads(line)
+                if item.get("id", "").upper() == item_id.upper():
+                    return item
+    sys.exit(f"No question {item_id!r} in drafts.jsonl or questions.jsonl.")
+
+
+def node_ids() -> dict[str, str]:
+    if not REGISTRY.exists():
+        return {}
+    with REGISTRY.open(newline="", encoding="utf-8") as fh:
+        return {r["doc_id"]: r.get("node_id", "") for r in csv.DictReader(fh)}
+
+
+def verify(records: list[dict], item_id: str) -> None:
+    """Print everything needed to check one question, in one place."""
+    item = load_item(item_id)
+    index = {(r["doc_id"], r["section"]): r for r in records}
+    nodes = node_ids()
+
+    print("=" * 74)
+    print(f"{item['id']}   {item['category']}   ({item['difficulty']})")
+    print("=" * 74)
+    print(f"\nQUESTION\n  {item['question']}\n")
+    if item.get("answer_sketch"):
+        print(f"DRAFTER'S READING (not scored, and may be wrong)\n  {item['answer_sketch']}\n")
+
+    evidence = item.get("required_evidence", [])
+    if not evidence:
+        print("REQUIRED EVIDENCE\n  (none - this is an unanswerable item)")
+        print(
+            "\n  To verify: satisfy yourself the corpus really does not cover this.\n"
+            "  Try scripts/browse_corpus.py --find with a few phrasings, and skim\n"
+            "  the most likely document with --toc. An unanswerable item that is\n"
+            "  actually answerable will punish every system for being right."
+        )
+    for number, entry in enumerate(evidence, start=1):
+        doc_id, section = entry["doc_id"], entry["section"]
+        record = index.get((doc_id, section))
+        print("-" * 74)
+        print(f"REQUIRED EVIDENCE {number} of {len(evidence)}:  {doc_id}::{section}")
+        print(f"  claimed role : {entry.get('why', '(none given)')}")
+        if record is None:
+            print("  !! this section does not exist in the parsed corpus")
+            continue
+        meta = record["metadata"]
+        print(f"  document     : {meta.get('title', '')}")
+        print(f"  heading      : {meta.get('section_title', '')}")
+        node = nodes.get(doc_id, "")
+        if node:
+            print(f"  check online : {BASE_URL}/en/entiresection/{node}")
+            print(f"                 (one page; find {meta.get('section_heading', section)!r})")
+        print(f"  document page: {meta.get('url', '')}")
+        print("-" * 74)
+        print(record["text"])
+        print()
+
+    print("=" * 74)
+    print("VERIFY, then record the result in benchmark/drafts.jsonl:")
+    print("  1. Does each cited section genuinely support the question?")
+    print("     Merely on-topic belongs in helpful_evidence, not required_evidence.")
+    print("  2. Is anything required missing? A short label reads as a retrieval")
+    print("     failure later, and the system takes the blame.")
+    print("  3. Is the set minimal? Extra sections make recall easy and the")
+    print("     benchmark less discriminating.")
+    print()
+    print('  Set "minutes_to_label" to the real figure and add')
+    print('  "confidence": "high" | "medium" | "low" in the provenance block.')
+    print("  Then: python scripts/promote_drafts.py")
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     group = parser.add_mutually_exclusive_group(required=True)
@@ -169,6 +251,11 @@ def main() -> int:
     group.add_argument("--toc", metavar="DOC_ID", help="list one document's sections")
     group.add_argument("--show", nargs=2, metavar=("DOC_ID", "SECTION"), help="print one section")
     group.add_argument("--find", metavar="QUERY", help="sections containing every term")
+    group.add_argument(
+        "--verify",
+        metavar="ID",
+        help="print a question with the full text of every section it cites",
+    )
     parser.add_argument("-k", type=int, default=10, help="results for --find")
     parser.add_argument(
         "--citable-only",
@@ -187,6 +274,8 @@ def main() -> int:
         table_of_contents(records, args.toc)
     elif args.show:
         show(records, args.show[0], args.show[1])
+    elif args.verify:
+        verify(records, args.verify)
     else:
         find(records, args.find, args.k, args.citable_only)
     return 0

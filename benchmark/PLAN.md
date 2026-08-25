@@ -101,12 +101,17 @@ is the benchmark. `scripts/promote_drafts.py` is the only thing that moves an
 item between them, and it refuses anything a person has not checked.
 
 ```bash
-python scripts/browse_corpus.py --toc INS-GOV-003     # read the document
-python scripts/browse_corpus.py --show INS-GOV-003 "Article 3"
-python scripts/validate_benchmark.py --file benchmark/drafts.jsonl
-python scripts/promote_drafts.py --list               # what is still unverified
-python scripts/promote_drafts.py                      # move the verified ones
+python scripts/promote_drafts.py --list          # what is still unverified
+python scripts/browse_corpus.py --verify D001    # the whole item, ready to check
+# edit benchmark/drafts.jsonl: set minutes_to_label and add confidence
+python scripts/promote_drafts.py                 # move the verified ones
+python scripts/validate_benchmark.py
 ```
+
+`--verify` prints the question, the full text of every section it cites, and a
+direct Rulebook link for checking against the published source. That is the
+whole verification packet in one command, so the answer to "what is D001?" never
+requires reconstructing it from an id.
 
 A draft carries `minutes_to_label: 0` and no `confidence`. Those are the two
 fields only a person can honestly supply, so they are the gate. Verifying means
