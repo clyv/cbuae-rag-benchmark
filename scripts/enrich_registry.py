@@ -56,6 +56,14 @@ REQUEST_TIMEOUT = 60
 DELAY_BETWEEN_REQUESTS = 2.0
 MAX_RETRIES = 3
 
+# Labelling eligibility is judged against the date the corpus was collected, not
+# against today. Using today would make the benchmark change under its own feet:
+# INS-TAK-001 commences 2026-09-14, so a re-run after that date would silently
+# promote it to citable and start accepting questions that were rejected the day
+# before, with no change to the questions or the corpus. Override with --as-of
+# only when deliberately re-basing the corpus.
+CORPUS_AS_OF = "2026-08-24"
+
 # Columns this script adds to the registry, in the order they are appended.
 ADDED_COLUMNS = [
     "node_id",
@@ -211,7 +219,7 @@ def assess_labelling_eligibility(commencement: str, today: date) -> tuple[str, s
     except ValueError:
         return "true", ""
     if when > today:
-        return "false", f"commences {commencement}, after the corpus was collected"
+        return "false", f"commences {commencement}, after {today.isoformat()}"
     return "true", ""
 
 
@@ -317,6 +325,15 @@ def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--dry-run", action="store_true", help="report, write nothing")
     parser.add_argument(
+        "--as-of",
+        default=CORPUS_AS_OF,
+        metavar="YYYY-MM-DD",
+        help=(
+            "date used to decide whether an instrument has commenced "
+            f"(default: {CORPUS_AS_OF}, the date the corpus was collected)"
+        ),
+    )
+    parser.add_argument(
         "--force",
         action="store_true",
         help="overwrite values already present, not just fill blanks",
@@ -342,7 +359,7 @@ def main() -> int:
 
     session = requests.Session()
     session.headers.update(HEADERS)
-    today = date.today()
+    today = date.fromisoformat(args.as_of)
 
     changed = 0
     failures: list[str] = []

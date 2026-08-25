@@ -94,6 +94,44 @@ not published their text. There is nothing in them to cite.
 
 That leaves **39 documents** with substantive, citable text.
 
+## How Phase 3 runs
+
+Two files. `benchmark/drafts.jsonl` holds candidates; `benchmark/questions.jsonl`
+is the benchmark. `scripts/promote_drafts.py` is the only thing that moves an
+item between them, and it refuses anything a person has not checked.
+
+```bash
+python scripts/browse_corpus.py --toc INS-GOV-003     # read the document
+python scripts/browse_corpus.py --show INS-GOV-003 "Article 3"
+python scripts/validate_benchmark.py --file benchmark/drafts.jsonl
+python scripts/promote_drafts.py --list               # what is still unverified
+python scripts/promote_drafts.py                      # move the verified ones
+```
+
+A draft carries `minutes_to_label: 0` and no `confidence`. Those are the two
+fields only a person can honestly supply, so they are the gate. Verifying means
+opening each cited section and checking that it genuinely supports the question,
+that nothing required is missing, and that the set is minimal - then recording
+the real time and a confidence level.
+
+**Drafted evidence is not verified evidence.** Every draft in the file resolves
+to a real section, which is not the same as being right. Whether a section is
+*required* is a judgement about the regulation, and the project's one
+substantive claim is that a human made it. A benchmark drafted and approved by
+the same model measures the model's reading, not the regulation.
+
+## Do not write questions by searching
+
+`browse_corpus.py --find` exists for looking things up, not for choosing what to
+ask. Questions discovered by typing a phrase and taking what comes back produce
+evidence sets that are exactly the passages containing that phrase, and BM25
+then scores well on the benchmark because the benchmark was built through a
+lexical lens - not because it is good.
+
+That failure is invisible in the results table. It shows up as "hybrid retrieval
+adds little", which is precisely the finding this project exists to test. Browse
+by document structure to choose the question; read the article to label it.
+
 ## Labelling protocol
 
 Non-negotiable, because violating it silently poisons every metric:
