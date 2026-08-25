@@ -244,6 +244,61 @@ def verify(records: list[dict], item_id: str) -> None:
     print("  Then: python scripts/promote_drafts.py")
 
 
+def coverage(records: list[dict]) -> None:
+    """Group every draft by the document it cites, for document-first verification.
+
+    Verifying draft by draft re-opens the same instrument once per question.
+    Verifying document by document opens it once and settles every question that
+    depends on it, which is both faster and better: judging whether an evidence
+    set is complete needs the whole instrument in your head at once, not one
+    article at a time.
+    """
+    items = []
+    for path in (DRAFTS, BENCHMARK):
+        if path.exists():
+            items += [
+                json.loads(line)
+                for line in path.read_text(encoding="utf-8").splitlines()
+                if line.strip()
+            ]
+    if not items:
+        sys.exit("No drafts or questions found.")
+
+    index = {(r["doc_id"], r["section"]): r for r in records}
+    by_doc: dict[str, dict[str, list[str]]] = {}
+    for item in items:
+        for entry in item.get("required_evidence", []):
+            by_doc.setdefault(entry["doc_id"], {}).setdefault(entry["section"], []).append(item["id"])
+
+    def verified(item: dict) -> bool:
+        prov = item.get("provenance", {})
+        minutes = prov.get("minutes_to_label")
+        return isinstance(minutes, (int, float)) and minutes > 0 and prov.get("confidence")
+
+    done = {item["id"] for item in items if verified(item)}
+
+    for doc_id in sorted(by_doc):
+        sample = index.get((doc_id, next(iter(by_doc[doc_id]))))
+        title = sample["metadata"].get("title", "") if sample else ""
+        sections = by_doc[doc_id]
+        ids = {qid for refs in sections.values() for qid in refs}
+        outstanding = sorted(ids - done)
+        print(f"{doc_id}  {title[:56]}")
+        print(f"  {len(sections)} section(s) cited by {len(ids)} question(s); "
+              f"{len(outstanding)} still unverified")
+        for section in sorted(sections):
+            refs = sorted(set(sections[section]))
+            marks = " ".join(f"{r}{'*' if r in done else ''}" for r in refs)
+            print(f"    {section:<26} {marks}")
+        print()
+
+    unanswerable = [i["id"] for i in items if not i.get("required_evidence")]
+    if unanswerable:
+        print(f"No document to read (unanswerable): {', '.join(sorted(unanswerable))}")
+        print("  Verify these by trying to prove the corpus does cover them.")
+    print("\n* = already verified")
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     group = parser.add_mutually_exclusive_group(required=True)
@@ -255,6 +310,11 @@ def main() -> int:
         "--verify",
         metavar="ID",
         help="print a question with the full text of every section it cites",
+    )
+    group.add_argument(
+        "--coverage",
+        action="store_true",
+        help="group every draft by the document it cites, for document-first review",
     )
     parser.add_argument("-k", type=int, default=10, help="results for --find")
     parser.add_argument(
@@ -276,6 +336,8 @@ def main() -> int:
         show(records, args.show[0], args.show[1])
     elif args.verify:
         verify(records, args.verify)
+    elif args.coverage:
+        coverage(records)
     else:
         find(records, args.find, args.k, args.citable_only)
     return 0
