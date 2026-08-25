@@ -19,6 +19,7 @@ from pathlib import Path
 REPO_ROOT = Path(__file__).resolve().parents[1]
 BENCHMARK = REPO_ROOT / "benchmark" / "questions.jsonl"
 REGISTRY = REPO_ROOT / "corpus" / "registry.csv"
+SECTIONS = REPO_ROOT / "corpus" / "processed" / "sections.jsonl"
 
 VALID_CATEGORIES = {
     "single_hop", "cross_section", "cross_document",
@@ -35,12 +36,49 @@ def known_doc_ids() -> set[str]:
         return {row["doc_id"].strip() for row in csv.DictReader(fh) if row.get("doc_id")}
 
 
+def labelling_eligibility() -> dict[str, str]:
+    """doc_id -> reason it may not appear in an answer key, for ineligible rows.
+
+    Some instruments are in the retrieval index but must not be cited as
+    required evidence - see the registry's labelling_eligible column and
+    SOURCES.md for why. Absent column means everything is eligible, so an older
+    registry still validates.
+    """
+    if not REGISTRY.exists():
+        return {}
+    with REGISTRY.open(newline="", encoding="utf-8") as fh:
+        return {
+            row["doc_id"].strip(): (row.get("labelling_note") or "").strip()
+            for row in csv.DictReader(fh)
+            if row.get("doc_id") and (row.get("labelling_eligible") or "").strip() == "false"
+        }
+
+
+def corpus_evidence_ids() -> set[str]:
+    """Every doc_id::section that actually exists after parsing.
+
+    Without this, a mistyped or misremembered section label is indistinguishable
+    from a retrieval failure: the question simply scores zero for ever, and the
+    system gets blamed for it.
+    """
+    if not SECTIONS.exists():
+        return set()
+    ids: set[str] = set()
+    for line in SECTIONS.read_text(encoding="utf-8").splitlines():
+        if line.strip():
+            record = json.loads(line)
+            ids.add(f"{record['doc_id']}::{record['section']}")
+    return ids
+
+
 def main() -> int:
     if not BENCHMARK.exists() or not BENCHMARK.read_text(encoding="utf-8").strip():
         print(f"{BENCHMARK.relative_to(REPO_ROOT)} is empty - nothing to validate yet.")
         return 0
 
     doc_ids = known_doc_ids()
+    ineligible = labelling_eligibility()
+    corpus_ids = corpus_evidence_ids()
     errors: list[str] = []
     warnings: list[str] = []
     seen_ids: set[str] = set()
@@ -86,12 +124,37 @@ def main() -> int:
         if category == "cross_document" and len({e.get("doc_id") for e in evidence}) < 2:
             warnings.append(f"{qid}: category cross_document but evidence spans one document")
 
-        for entry in evidence + item.get("helpful_evidence", []):
+        for entry, scored in [(e, True) for e in evidence] + [
+            (e, False) for e in item.get("helpful_evidence", [])
+        ]:
             did = entry.get("doc_id", "")
+            section = entry.get("section", "")
             if doc_ids and did not in doc_ids:
                 errors.append(f"{qid}: doc_id {did!r} is not in corpus/registry.csv")
-            if not entry.get("section"):
+            if not section:
                 errors.append(f"{qid}: an evidence entry has no section")
+                continue
+
+            # An ineligible instrument still belongs in the index - it is a
+            # useful near-miss distractor - but naming it as required evidence
+            # would make the answer key assert which instrument governs an
+            # obligation today, which is a legal judgement this project does not
+            # make. helpful_evidence is not scored, so it may reference them.
+            if scored and did in ineligible:
+                errors.append(
+                    f"{qid}: doc_id {did!r} is not labelling-eligible "
+                    f"({ineligible[did] or 'see registry'}) - it belongs in the "
+                    "index, not the ground truth"
+                )
+
+            if corpus_ids:
+                key = f"{did}::{section}"
+                if key not in corpus_ids:
+                    errors.append(
+                        f"{qid}: evidence {key!r} does not exist in the parsed "
+                        "corpus - check corpus/processed/sections.jsonl for the "
+                        "exact label"
+                    )
 
         prov = item.get("provenance", {})
         if prov.get("source") and prov["source"] not in VALID_SOURCES:
