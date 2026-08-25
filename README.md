@@ -296,7 +296,7 @@ pytest
 | 0 | Calibration: difficulty and question mix decided (`benchmark/PLAN.md`) | done |
 | 1 | Registry populated, corpus downloading, licensing recorded | done |
 | 2 | Parsing and chunking; sections carry citable identifiers | done |
-| 3 | 50 labelled benchmark questions | in progress: 23 drafted, 0 verified |
+| 3 | 50 labelled benchmark questions | in progress: 50 drafted, 5 verified |
 | 4 | Four systems built and measured; results tables filled | |
 | 5 | Grounded answering, citation validation, API and UI | |
 | 6 | *Optional:* cross-reference graph expansion | |
