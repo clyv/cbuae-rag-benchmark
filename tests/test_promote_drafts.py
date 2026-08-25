@@ -113,9 +113,26 @@ def test_ids_continue_from_the_existing_benchmark(promote):
     assert promote.next_question_number([{"id": "Q005"}, {"id": "Q003"}]) == 6
 
 
-def test_every_current_draft_is_blocked(promote):
-    """Nothing in the repo's drafts file may be promotable without verification."""
+def test_no_unverified_draft_in_the_repo_can_promote(promote):
+    """The invariant, checked against the real drafts file.
+
+    An earlier version of this asserted that *every* draft was blocked, which
+    was true only until the first one was verified. That is a snapshot, not an
+    invariant, and it fails the moment the workflow is used as intended. What
+    must always hold is narrower: a draft promotes if and only if a human
+    recorded both how long verification took and how confident they are.
+    """
     drafts = promote.read_jsonl(REPO_ROOT / "benchmark" / "drafts.jsonl")
     assert drafts, "drafts.jsonl is empty"
     for item in drafts:
-        assert promote.blocking_reasons(item), f"{item['id']} would promote unverified"
+        prov = item.get("provenance", {})
+        minutes = prov.get("minutes_to_label")
+        human_checked = (
+            isinstance(minutes, (int, float))
+            and minutes > 0
+            and prov.get("confidence") in promote.VALID_CONFIDENCE
+        )
+        blocked = bool(promote.blocking_reasons(item))
+        assert blocked != human_checked, (
+            f"{item['id']}: human_checked={human_checked} but blocked={blocked}"
+        )
