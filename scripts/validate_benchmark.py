@@ -29,6 +29,23 @@ VALID_CATEGORIES = {
 VALID_DIFFICULTY = {"easy", "medium", "hard"}
 VALID_SOURCES = {"hand_written", "derived_from_document_structure", "llm_drafted_human_verified"}
 
+# The mix decided in benchmark/PLAN.md. Kept here so drift is caught while the
+# set is being built rather than discovered when the results tables are drawn:
+# the by-category recall table is the one the project's question turns on, and a
+# category that quietly ends up with two items cannot support a column in it.
+TARGET_MIX = {
+    "single_hop": 10,
+    "cross_section": 18,
+    "cross_document": 8,
+    "comparative": 5,
+    "adversarial": 3,
+    "unanswerable": 6,
+    "temporal": 0,
+}
+
+# Confidence levels excluded from headline metrics, per PLAN.md.
+EXCLUDED_CONFIDENCE = {"low"}
+
 
 def known_doc_ids() -> set[str]:
     if not REGISTRY.exists():
@@ -196,6 +213,25 @@ def main() -> int:
         print(f"\nMedian labelling time: {sorted(label_minutes)[len(label_minutes)//2]:.0f} min")
     if not doc_ids:
         print("\nNote: registry is empty, so doc_id references were not checked.")
+
+    total = sum(categories.values())
+    print("\nAgainst the target mix in benchmark/PLAN.md:")
+    print(f"  {'category':<16}{'have':>6}{'target':>8}{'gap':>7}")
+    for name, target in TARGET_MIX.items():
+        have = categories.get(name, 0)
+        print(f"  {name:<16}{have:>6}{target:>8}{have - target:>+7}")
+    print(f"  {'TOTAL':<16}{total:>6}{sum(TARGET_MIX.values()):>8}")
+
+    scored = total - sum(confidences.get(c, 0) for c in EXCLUDED_CONFIDENCE)
+    print(
+        f"\nHeadline metrics would score {scored} of {total} item(s); "
+        f"{total - scored} excluded as low confidence."
+    )
+    if total and total < sum(TARGET_MIX.values()):
+        print(
+            f"Benchmark is incomplete ({total}/{sum(TARGET_MIX.values())}). "
+            "Results computed now would not reflect the planned mix."
+        )
 
     if warnings:
         print(f"\n{len(warnings)} warning(s):")

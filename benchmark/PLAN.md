@@ -162,18 +162,27 @@ Non-negotiable, because violating it silently poisons every metric:
 - Set `confidence` low without embarrassment. Low-confidence items are excluded
   from headline metrics and the count is reported.
 
-## Rough labelling budget
+## Labelling budget, measured rather than guessed
 
-Based on shape, not on any chatbot's self-reported timing:
+The original estimate here was about four times too pessimistic. It is kept
+alongside the measured figures because being wrong about your own process in a
+recorded way is worth more than a tidy table.
 
-| category | est. per item | subtotal |
-|---|---:|---:|
-| `single_hop` | 3 min | 30 min |
-| `cross_section` | 8 min | 2 h 24 |
-| `cross_document` | 20 min | 2 h 40 |
-| `comparative` | 10 min | 50 min |
-| `adversarial` | 10 min | 30 min |
-| `unanswerable` | 10 min | 1 h |
+| category | first estimate | measured | source |
+|---|---:|---:|---|
+| `single_hop` | 3 min | **2.4 min** | 5 items: 3, 2, 3, 2, 2 |
+| `cross_section` | 8 min | **3 min** | 1 item |
+| `cross_document` | 20 min | **5 min** | 1 item |
+| `comparative` | 10 min | not yet measured | |
+| `adversarial` | 10 min | not yet measured | |
+| `unanswerable` | 10 min | not yet measured | |
 
-Roughly **8 hours** of focused reading, and establishing that something is
-genuinely *not* covered is slower than it looks. Budget two weekends.
+Estimated total fell from **8 hours to roughly 3**. Two reasons, both worth
+knowing: verifying a draft is faster than authoring a label from nothing, and
+reading document-by-document rather than question-by-question means each
+instrument is opened once instead of once per question.
+
+The unanswerable items are the exception and may still run long. Establishing
+that something is genuinely *not* covered means proving a negative, and an
+unanswerable item that turns out to be answerable penalises every system for
+retrieving correctly.
