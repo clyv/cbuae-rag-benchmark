@@ -1,0 +1,70 @@
+{
+  "seed": 20260825,
+  "sample": 16,
+  "items": {
+    "Q005": {
+      "corrupted": true,
+      "how": "swapped INS-REP-004::Article 5 for its neighbour INS-REP-004::Article 4"
+    },
+    "Q018": {
+      "corrupted": true,
+      "how": "swapped INS-OTH-003::Article 4 for its neighbour INS-OTH-003::Article 5"
+    },
+    "Q041": {
+      "corrupted": true,
+      "how": "dropped a required section: INS-REP-004::Article 5"
+    },
+    "Q012": {
+      "corrupted": true,
+      "how": "swapped INS-FIN-002::Section 2, Article 1 for its neighbour INS-FIN-002::Section 1, Addendum (5)"
+    },
+    "Q022": {
+      "corrupted": true,
+      "how": "added a superfluous neighbour: INS-GOV-004::13"
+    },
+    "Q028": {
+      "corrupted": true,
+      "how": "swapped INS-GOV-003::Article 9 for its neighbour INS-GOV-003::Article 8"
+    },
+    "Q050": {
+      "corrupted": true,
+      "how": "gave an unanswerable item evidence: INS-SAN-001::Article 4"
+    },
+    "Q001": {
+      "corrupted": true,
+      "how": "swapped INS-GOV-003::Article 3 for its neighbour INS-GOV-003::Article 2"
+    },
+    "Q013": {
+      "corrupted": false,
+      "how": ""
+    },
+    "Q049": {
+      "corrupted": false,
+      "how": ""
+    },
+    "Q021": {
+      "corrupted": false,
+      "how": ""
+    },
+    "Q007": {
+      "corrupted": false,
+      "how": ""
+    },
+    "Q004": {
+      "corrupted": false,
+      "how": ""
+    },
+    "Q023": {
+      "corrupted": false,
+      "how": ""
+    },
+    "Q015": {
+      "corrupted": false,
+      "how": ""
+    },
+    "Q011": {
+      "corrupted": false,
+      "how": ""
+    }
+  }
+}
