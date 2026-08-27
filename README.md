@@ -322,6 +322,46 @@ missed.
 At two seconds per query on CPU, a system that is two points better and fifty
 times slower is a trade-off, not an improvement.
 
+### Questions no system could answer
+
+**4 of the 44 answerable questions scored recall@10 = 0 on all four systems**:
+Q001, Q003, Q028, Q042. A further **9 were never answered completely** by any
+system — at least one required section always missing: Q006, Q009, Q016, Q019,
+Q037, Q039, Q040, Q041, Q044.
+
+Those 13 were re-checked against their cited articles after the results came in,
+on the theory that a question no system can answer is either genuinely hard or
+mislabelled. No label changed.
+
+### Why the absolute numbers are lower than they look
+
+The questions are **paraphrases, not quotations**. `benchmark/schema.json`
+requires it — "avoid quoting the regulation verbatim, that turns the task into
+string matching" — so a question asks about "exposure beyond the level its board
+signed off on" where the regulation says "deviation from the Risk Appetite".
+
+That choice costs a great deal of measured recall, and it is worth seeing how
+much. Taking the four questions no system could answer, and re-querying BM25
+with the regulation's own vocabulary instead of the question as written:
+
+| Question | rank of the required section, as written | with keywords |
+|---|---|---|
+| Q001 | not in top 50 | **2** |
+| Q003 | 46 | **1** |
+| Q028 | 26 | **2** |
+| Q042 | not in top 50 | **2** |
+
+Every one of them is trivially retrievable by keyword. The systems are not
+failing to find these sections; they are failing to connect a paraphrase to
+them.
+
+This matters when comparing these figures to published benchmarks. A recall@10
+of 0.659 for BM25 looks weak next to numbers from datasets where questions were
+generated from the passage they answer, and those are not measuring the same
+thing. It also explains why the dense system was expected to win and did not:
+paraphrase is where embeddings should help, and on this corpus the gain did not
+outweigh what was lost on exact regulatory terminology.
+
 ### Abstention
 
 Not measured here. Retrieval always returns its top k, so a retriever has no
@@ -358,6 +398,13 @@ omission — the review reliably judged whether a listed section belonged, and
 less reliably noticed what was absent. Those two shapes were re-checked across
 the whole benchmark as a result.
 
+A second review pass ran after the results, targeted at the two shapes the
+control showed slipping through and at the 13 questions no system answered
+completely. It changed nothing either. That does not prove the labels are
+correct — it is the same reviewer, and the control measured what this reviewer
+catches — but it is the second independent opportunity the errors had to
+surface.
+
 Read the ground truth as *checked, with a known detection rate*, not as
 *independently established*.
 
@@ -382,6 +429,12 @@ general.
 **Evidence labels reflect one reading.** Another reader could reasonably include
 a section this benchmark treats as merely helpful, or drop one it treats as
 required.
+
+**Questions are paraphrases, so absolute recall is not comparable to benchmarks
+built from quoted text.** The schema requires it, and the cost is measurable:
+the four questions no system answered all have their required section in BM25's
+top 2 when queried with the regulation's own words. See "Why the absolute
+numbers are lower than they look".
 
 **The corpus is a snapshot.** Collected 2026-08-24 from a live site.
 `corpus/manifest.json` pins a SHA-256 per document so a result ties to an exact
