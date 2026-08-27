@@ -364,14 +364,67 @@ outweigh what was lost on exact regulatory terminology.
 
 ### Abstention
 
-Not measured here. Retrieval always returns its top k, so a retriever has no
-abstention decision to make: on an item with no required evidence, recall is 1.0
-because nothing can be missed and precision is 0.0 because nothing retrieved can
-be required. Neither varies between systems.
+Not a retrieval property. Retrieval always returns its top k, so on an item with
+no required evidence recall is 1.0 because nothing can be missed and precision is
+0.0 because nothing retrieved can be required — neither varies between systems.
+Abstention belongs to the answering stage and is measured there. See below.
 
-The 6 `unanswerable` questions are held for Phase 5, where the answering stage
-either declines or confabulates. Reporting a figure for them now would be
-reporting an artefact of the metric definition.
+---
+
+## Answering: citations and abstention
+
+Measured by `scripts/run_answering.py` over hybrid+reranker at k=5. Full write-up
+in `results/abstention.md`.
+
+### Citation validity
+
+| | |
+|---|---|
+| Citations grounded — the cited section was in the retrieved context | **1.000** |
+| Citations supported — the quoted text appears in that section | **1.000** |
+
+**Both are 1.0 by construction, not by achievement.** The default answerer is
+extractive: it quotes retrieved sections and attributes each quote, so it cannot
+cite a section it did not retrieve or attribute words that are not there. It
+cannot hallucinate, which is the right default for a regulatory tool.
+
+The figure is reported because it is the bar an abstractive generator must
+clear. A model that paraphrases is more readable and can score below 1.0 on
+either row, and that gap is the price of fluency. It is only visible if the
+extractive number is on the page.
+
+### Abstention does not work reliably, and the reason is the interesting part
+
+| | min | median | max |
+|---|---|---|---|
+| Answerable (n=44) | −2.92 | 2.17 | 6.44 |
+| Unanswerable (n=6) | −9.96 | −1.14 | 4.21 |
+
+**AUC = 0.761, 95% interval 0.492 – 0.962.** The interval includes 0.5 — the
+value meaning no separation at all. Six negatives cannot establish that the
+relevance score distinguishes an unanswerable question from an answerable one.
+
+Declining 5 of the 6 unanswerable costs **14 of 44 answerable questions wrongly
+refused**. For a compliance tool that may still be the right trade, since a
+refusal is recoverable and a confident wrong answer is not. `answer_question`
+ships with no default threshold, because choosing the value that looks best on
+these six questions would be fitting a parameter to the test set.
+
+**Why it fails is diagnosable.** The worst case scores 4.21 — higher than most
+answerable questions:
+
+> *"What are the capital adequacy requirements for a finance company?"*
+> → top hit `INS-FIN-001::Section 2, Article 3`, titled **Group Capital Adequacy**
+
+A cross-encoder trained on topical relevance is *right* that the passage is
+about capital adequacy. What it cannot see is that the passage governs a
+different kind of entity. **That is a scope question, not a relevance question**,
+and no threshold on a relevance score will answer it. Every document in this
+corpus has a Scope of Application section, so the material for a real check
+exists — that is the obvious next experiment.
+
+The two hardest unanswerable questions are the two closest to the corpus subject
+matter, which is exactly what the category was designed to produce.
 
 ---
 

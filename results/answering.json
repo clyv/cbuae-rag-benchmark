@@ -1,0 +1,1053 @@
+{
+  "system": "hybrid+reranker",
+  "generator": "extractive",
+  "k": 5,
+  "citation_grounded": 1.0,
+  "citation_supported": 1.0,
+  "per_question": [
+    {
+      "id": "Q001",
+      "category": "single_hop",
+      "answerable": true,
+      "top_score": -2.921794891357422,
+      "citations": 3,
+      "grounded": 1.0,
+      "supported": 1.0,
+      "cited": [
+        "INS-GOV-002::2",
+        "INS-FIN-001::Section 1, Addendum (4)",
+        "INS-FIN-002::Section 1, Addendum (4)"
+      ]
+    },
+    {
+      "id": "Q002",
+      "category": "single_hop",
+      "answerable": true,
+      "top_score": 5.899706840515137,
+      "citations": 3,
+      "grounded": 1.0,
+      "supported": 1.0,
+      "cited": [
+        "INS-FIN-005::Article 3",
+        "INS-OTH-001::Chapter Two, Article 12",
+        "INS-FIN-001::Section 2, Article 1"
+      ]
+    },
+    {
+      "id": "Q003",
+      "category": "single_hop",
+      "answerable": true,
+      "top_score": -0.7368053793907166,
+      "citations": 3,
+      "grounded": 1.0,
+      "supported": 1.0,
+      "cited": [
+        "INS-GOV-004::6",
+        "INS-GOV-003::Article 9",
+        "INS-LIC-001::Article 1"
+      ]
+    },
+    {
+      "id": "Q004",
+      "category": "single_hop",
+      "answerable": true,
+      "top_score": 5.333442211151123,
+      "citations": 3,
+      "grounded": 1.0,
+      "supported": 1.0,
+      "cited": [
+        "INS-FIN-001::Section 2, Article 2",
+        "INS-FIN-002::Section 2, Article 2",
+        "INS-FIN-001::Section 2, Article 8"
+      ]
+    },
+    {
+      "id": "Q005",
+      "category": "single_hop",
+      "answerable": true,
+      "top_score": 6.439859390258789,
+      "citations": 3,
+      "grounded": 1.0,
+      "supported": 1.0,
+      "cited": [
+        "INS-REP-004::Article 5",
+        "INS-REP-004::Article 3",
+        "INS-TAK-005::Article 13"
+      ]
+    },
+    {
+      "id": "Q006",
+      "category": "cross_section",
+      "answerable": true,
+      "top_score": -0.08305612951517105,
+      "citations": 3,
+      "grounded": 1.0,
+      "supported": 1.0,
+      "cited": [
+        "INS-GOV-003::Article 5",
+        "INS-REP-003::First: Introduction",
+        "INS-GOV-004::2"
+      ]
+    },
+    {
+      "id": "Q007",
+      "category": "cross_document",
+      "answerable": true,
+      "top_score": 1.9351614713668823,
+      "citations": 3,
+      "grounded": 1.0,
+      "supported": 1.0,
+      "cited": [
+        "INS-FIN-001::Section 2, Addendum (2)",
+        "INS-GOV-003::Article 3",
+        "INS-FIN-001::Section 2, Article 4"
+      ]
+    },
+    {
+      "id": "Q008",
+      "category": "cross_section",
+      "answerable": true,
+      "top_score": -2.188182830810547,
+      "citations": 3,
+      "grounded": 1.0,
+      "supported": 1.0,
+      "cited": [
+        "INS-FIN-001::Section 2, Article 1",
+        "INS-FIN-002::First Article \u2013 Glossary",
+        "INS-FIN-002::Section 7, Appendix 1"
+      ]
+    },
+    {
+      "id": "Q009",
+      "category": "comparative",
+      "answerable": true,
+      "top_score": 3.866426944732666,
+      "citations": 3,
+      "grounded": 1.0,
+      "supported": 1.0,
+      "cited": [
+        "INS-FIN-002::Section 2, Article 1",
+        "INS-FIN-002::Section 1, Addendum (1)",
+        "INS-TAK-006::Article 15"
+      ]
+    },
+    {
+      "id": "Q010",
+      "category": "comparative",
+      "answerable": true,
+      "top_score": 0.4460727572441101,
+      "citations": 3,
+      "grounded": 1.0,
+      "supported": 1.0,
+      "cited": [
+        "INS-FIN-002::Section 1, Addendum (1)",
+        "INS-TAK-006::Article 15",
+        "INS-FIN-002::Section 2, Article 1"
+      ]
+    },
+    {
+      "id": "Q011",
+      "category": "comparative",
+      "answerable": true,
+      "top_score": -0.3058057129383087,
+      "citations": 3,
+      "grounded": 1.0,
+      "supported": 1.0,
+      "cited": [
+        "INS-TAK-001::Article 24",
+        "INS-TAK-006::Article 15",
+        "INS-FIN-002::Section 1, Addendum (1)"
+      ]
+    },
+    {
+      "id": "Q012",
+      "category": "adversarial",
+      "answerable": true,
+      "top_score": 3.7938363552093506,
+      "citations": 3,
+      "grounded": 1.0,
+      "supported": 1.0,
+      "cited": [
+        "INS-FIN-002::Section 2, Article 1",
+        "INS-TAK-006::Article 15",
+        "INS-FIN-002::First Article \u2013 Glossary"
+      ]
+    },
+    {
+      "id": "Q013",
+      "category": "cross_document",
+      "answerable": true,
+      "top_score": 2.1507339477539062,
+      "citations": 3,
+      "grounded": 1.0,
+      "supported": 1.0,
+      "cited": [
+        "INS-OTH-001::Chapter Two, Article 12",
+        "INS-FIN-005::Article 3",
+        "INS-FIN-001::Section 2, Article 1"
+      ]
+    },
+    {
+      "id": "Q014",
+      "category": "cross_section",
+      "answerable": true,
+      "top_score": -1.8440107107162476,
+      "citations": 3,
+      "grounded": 1.0,
+      "supported": 1.0,
+      "cited": [
+        "INS-CON-007::Article 4",
+        "INS-CON-007::Article 3",
+        "INS-FIN-002::Section 3, Article 4"
+      ]
+    },
+    {
+      "id": "Q015",
+      "category": "cross_section",
+      "answerable": true,
+      "top_score": 1.3872654438018799,
+      "citations": 3,
+      "grounded": 1.0,
+      "supported": 1.0,
+      "cited": [
+        "INS-GOV-003::Article 6",
+        "INS-GOV-004::6",
+        "INS-GOV-008::3.4"
+      ]
+    },
+    {
+      "id": "Q016",
+      "category": "cross_section",
+      "answerable": true,
+      "top_score": 3.168884754180908,
+      "citations": 3,
+      "grounded": 1.0,
+      "supported": 1.0,
+      "cited": [
+        "INS-GOV-003::Article 9",
+        "INS-GOV-004::9",
+        "INS-GOV-004::11"
+      ]
+    },
+    {
+      "id": "Q017",
+      "category": "cross_document",
+      "answerable": true,
+      "top_score": 5.094133377075195,
+      "citations": 3,
+      "grounded": 1.0,
+      "supported": 1.0,
+      "cited": [
+        "INS-GOV-003::Article 10",
+        "INS-GOV-004::10",
+        "INS-GOV-001::Article 7"
+      ]
+    },
+    {
+      "id": "Q018",
+      "category": "cross_document",
+      "answerable": true,
+      "top_score": 4.985440254211426,
+      "citations": 3,
+      "grounded": 1.0,
+      "supported": 1.0,
+      "cited": [
+        "INS-OTH-003::Article 4",
+        "INS-GOV-003::Article 3",
+        "INS-OTH-003::Article 5"
+      ]
+    },
+    {
+      "id": "Q019",
+      "category": "adversarial",
+      "answerable": true,
+      "top_score": -1.079192042350769,
+      "citations": 3,
+      "grounded": 1.0,
+      "supported": 1.0,
+      "cited": [
+        "INS-GOV-004::6",
+        "INS-GOV-002::2",
+        "INS-GOV-002::1"
+      ]
+    },
+    {
+      "id": "Q020",
+      "category": "cross_section",
+      "answerable": true,
+      "top_score": 4.074355125427246,
+      "citations": 3,
+      "grounded": 1.0,
+      "supported": 1.0,
+      "cited": [
+        "INS-GOV-003::Article 5",
+        "INS-GOV-003::Article 6",
+        "INS-GOV-003::Introduction"
+      ]
+    },
+    {
+      "id": "Q021",
+      "category": "cross_section",
+      "answerable": true,
+      "top_score": 1.019252061843872,
+      "citations": 3,
+      "grounded": 1.0,
+      "supported": 1.0,
+      "cited": [
+        "INS-GOV-004::10",
+        "INS-GOV-004::6",
+        "INS-GOV-003::Article 6"
+      ]
+    },
+    {
+      "id": "Q022",
+      "category": "cross_section",
+      "answerable": true,
+      "top_score": 2.9839649200439453,
+      "citations": 3,
+      "grounded": 1.0,
+      "supported": 1.0,
+      "cited": [
+        "INS-GOV-003::Article 9",
+        "INS-GOV-004::9",
+        "INS-GOV-001::Article 8"
+      ]
+    },
+    {
+      "id": "Q023",
+      "category": "cross_section",
+      "answerable": true,
+      "top_score": 4.111186981201172,
+      "citations": 3,
+      "grounded": 1.0,
+      "supported": 1.0,
+      "cited": [
+        "INS-GOV-003::Article 12",
+        "INS-GOV-004::12",
+        "INS-GOV-004::3"
+      ]
+    },
+    {
+      "id": "Q024",
+      "category": "cross_section",
+      "answerable": true,
+      "top_score": 5.903088569641113,
+      "citations": 3,
+      "grounded": 1.0,
+      "supported": 1.0,
+      "cited": [
+        "INS-GOV-003::Article 12",
+        "INS-GOV-004::12",
+        "INS-GOV-003::Article 6"
+      ]
+    },
+    {
+      "id": "Q025",
+      "category": "cross_document",
+      "answerable": true,
+      "top_score": 2.686298131942749,
+      "citations": 3,
+      "grounded": 1.0,
+      "supported": 1.0,
+      "cited": [
+        "INS-GOV-004::5",
+        "INS-GOV-003::Article 5",
+        "INS-REP-003::First: Introduction"
+      ]
+    },
+    {
+      "id": "Q026",
+      "category": "cross_document",
+      "answerable": true,
+      "top_score": 4.382121562957764,
+      "citations": 3,
+      "grounded": 1.0,
+      "supported": 1.0,
+      "cited": [
+        "INS-GOV-004::10",
+        "INS-GOV-003::Article 10",
+        "INS-FIN-002::First Article \u2013 Glossary"
+      ]
+    },
+    {
+      "id": "Q027",
+      "category": "cross_document",
+      "answerable": true,
+      "top_score": 4.132359504699707,
+      "citations": 3,
+      "grounded": 1.0,
+      "supported": 1.0,
+      "cited": [
+        "INS-GOV-004::12",
+        "INS-GOV-003::Article 12",
+        "INS-FIN-001::Section 1, Addendum (5)"
+      ]
+    },
+    {
+      "id": "Q028",
+      "category": "comparative",
+      "answerable": true,
+      "top_score": 1.2892152070999146,
+      "citations": 3,
+      "grounded": 1.0,
+      "supported": 1.0,
+      "cited": [
+        "INS-TAK-005::Article 9",
+        "INS-TAK-008::Article 9",
+        "INS-TAK-002::Article 8"
+      ]
+    },
+    {
+      "id": "Q029",
+      "category": "single_hop",
+      "answerable": true,
+      "top_score": 3.07468843460083,
+      "citations": 3,
+      "grounded": 1.0,
+      "supported": 1.0,
+      "cited": [
+        "INS-LIC-001::Article 6",
+        "INS-OTH-001::Chapter Two, Article 14",
+        "INS-CON-006::Chapter Five, Article 16"
+      ]
+    },
+    {
+      "id": "Q030",
+      "category": "single_hop",
+      "answerable": true,
+      "top_score": 1.4278417825698853,
+      "citations": 3,
+      "grounded": 1.0,
+      "supported": 1.0,
+      "cited": [
+        "INS-OTH-001::Chapter Two, Article 9",
+        "INS-LIC-001::Article 4",
+        "INS-OTH-001::Chapter Two, Article 10"
+      ]
+    },
+    {
+      "id": "Q031",
+      "category": "cross_section",
+      "answerable": true,
+      "top_score": 2.45963454246521,
+      "citations": 3,
+      "grounded": 1.0,
+      "supported": 1.0,
+      "cited": [
+        "INS-LIC-001::Article 8",
+        "INS-LIC-001::Article 7",
+        "INS-LIC-001::Introduction"
+      ]
+    },
+    {
+      "id": "Q032",
+      "category": "cross_section",
+      "answerable": true,
+      "top_score": -0.6388301849365234,
+      "citations": 3,
+      "grounded": 1.0,
+      "supported": 1.0,
+      "cited": [
+        "INS-LIC-001::Article 4",
+        "INS-OTH-001::Chapter Two, Article 10",
+        "INS-OTH-004::Article 5"
+      ]
+    },
+    {
+      "id": "Q033",
+      "category": "cross_section",
+      "answerable": true,
+      "top_score": 0.7386062145233154,
+      "citations": 3,
+      "grounded": 1.0,
+      "supported": 1.0,
+      "cited": [
+        "INS-LIC-001::Article 4",
+        "INS-OTH-001::Chapter Two, Article 10",
+        "INS-LIC-001::Article 5"
+      ]
+    },
+    {
+      "id": "Q034",
+      "category": "comparative",
+      "answerable": true,
+      "top_score": 2.187546730041504,
+      "citations": 3,
+      "grounded": 1.0,
+      "supported": 1.0,
+      "cited": [
+        "INS-OTH-004::Article 5",
+        "INS-OTH-004::Article 2",
+        "INS-OTH-004::Article 1"
+      ]
+    },
+    {
+      "id": "Q035",
+      "category": "adversarial",
+      "answerable": true,
+      "top_score": 0.8600916862487793,
+      "citations": 3,
+      "grounded": 1.0,
+      "supported": 1.0,
+      "cited": [
+        "INS-OTH-001::Chapter Two, Article 10",
+        "INS-LIC-001::Article 4",
+        "INS-OTH-004::Article 9"
+      ]
+    },
+    {
+      "id": "Q036",
+      "category": "single_hop",
+      "answerable": true,
+      "top_score": 2.674631118774414,
+      "citations": 3,
+      "grounded": 1.0,
+      "supported": 1.0,
+      "cited": [
+        "INS-CON-006::Chapter Five, Article 16",
+        "INS-CON-006::Chapter Five, Article 17",
+        "INS-CON-006::Chapter Five, Article 19"
+      ]
+    },
+    {
+      "id": "Q037",
+      "category": "cross_section",
+      "answerable": true,
+      "top_score": -1.426692247390747,
+      "citations": 3,
+      "grounded": 1.0,
+      "supported": 1.0,
+      "cited": [
+        "INS-CON-006::Chapter Three, Article 13",
+        "INS-CON-006::Chapter Three, Article 7",
+        "INS-CON-006::Chapter Three, Article 11"
+      ]
+    },
+    {
+      "id": "Q038",
+      "category": "cross_section",
+      "answerable": true,
+      "top_score": 2.269808053970337,
+      "citations": 3,
+      "grounded": 1.0,
+      "supported": 1.0,
+      "cited": [
+        "INS-CON-006::Chapter Five, Article 21",
+        "INS-CON-006::Chapter Five, Article 22",
+        "INS-CON-006::Chapter Five, Article 16"
+      ]
+    },
+    {
+      "id": "Q039",
+      "category": "cross_section",
+      "answerable": true,
+      "top_score": 0.31176942586898804,
+      "citations": 3,
+      "grounded": 1.0,
+      "supported": 1.0,
+      "cited": [
+        "INS-CON-006::Chapter Five, Article 16",
+        "INS-CON-006::Chapter Five, Article 17",
+        "INS-CON-006::Chapter Five, Article 19"
+      ]
+    },
+    {
+      "id": "Q040",
+      "category": "cross_section",
+      "answerable": true,
+      "top_score": 3.477802038192749,
+      "citations": 3,
+      "grounded": 1.0,
+      "supported": 1.0,
+      "cited": [
+        "INS-GOV-001::Article 10",
+        "INS-GOV-001::Article 3",
+        "INS-GOV-001::Article 5"
+      ]
+    },
+    {
+      "id": "Q041",
+      "category": "cross_document",
+      "answerable": true,
+      "top_score": 1.5111382007598877,
+      "citations": 3,
+      "grounded": 1.0,
+      "supported": 1.0,
+      "cited": [
+        "INS-GOV-001::Article 9",
+        "INS-GOV-001::Article 10",
+        "INS-FIN-001::Section 6, Article 4"
+      ]
+    },
+    {
+      "id": "Q042",
+      "category": "single_hop",
+      "answerable": true,
+      "top_score": -2.4868953227996826,
+      "citations": 2,
+      "grounded": 1.0,
+      "supported": 1.0,
+      "cited": [
+        "INS-SAN-001::The Annexed Schedule to the Cabinet Resolution No. (7) of 2019 Concerning the Administrative Fines Imposed by the Insurance Authority",
+        "INS-CON-006::Chapter Six, Article 24"
+      ]
+    },
+    {
+      "id": "Q043",
+      "category": "single_hop",
+      "answerable": true,
+      "top_score": 3.4386067390441895,
+      "citations": 3,
+      "grounded": 1.0,
+      "supported": 1.0,
+      "cited": [
+        "INS-TAK-003::Article 6",
+        "INS-TAK-002::Article 5",
+        "INS-TAK-002::Article 8"
+      ]
+    },
+    {
+      "id": "Q044",
+      "category": "cross_section",
+      "answerable": true,
+      "top_score": 1.5844923257827759,
+      "citations": 3,
+      "grounded": 1.0,
+      "supported": 1.0,
+      "cited": [
+        "INS-FIN-002::Section 6, Article 4",
+        "INS-FIN-001::Section 6, Addendum (1)",
+        "INS-FIN-001::Section 6, Article 4"
+      ]
+    },
+    {
+      "id": "Q045",
+      "category": "unanswerable",
+      "answerable": false,
+      "top_score": 0.9558866024017334,
+      "citations": 3,
+      "grounded": 1.0,
+      "supported": 1.0,
+      "cited": [
+        "INS-FIN-004::Article 1",
+        "INS-FIN-003::Article 6",
+        "INS-OTH-001::Chapter Three, Article 20"
+      ]
+    },
+    {
+      "id": "Q046",
+      "category": "unanswerable",
+      "answerable": false,
+      "top_score": -9.960980415344238,
+      "citations": 3,
+      "grounded": 1.0,
+      "supported": 1.0,
+      "cited": [
+        "INS-FIN-001::Section 1, Article 3",
+        "INS-MOT-004::Article 2",
+        "INS-FIN-002::Section 1, Article 3"
+      ]
+    },
+    {
+      "id": "Q047",
+      "category": "unanswerable",
+      "answerable": false,
+      "top_score": -7.000295162200928,
+      "citations": 3,
+      "grounded": 1.0,
+      "supported": 1.0,
+      "cited": [
+        "INS-CON-002::Article 15",
+        "INS-FIN-004::Article 1",
+        "INS-FIN-001::Section 5, Addendum"
+      ]
+    },
+    {
+      "id": "Q048",
+      "category": "unanswerable",
+      "answerable": false,
+      "top_score": -2.421842575073242,
+      "citations": 3,
+      "grounded": 1.0,
+      "supported": 1.0,
+      "cited": [
+        "INS-GOV-008::Introduction",
+        "INS-GOV-008::4.4",
+        "INS-REP-004::Article 2"
+      ]
+    },
+    {
+      "id": "Q049",
+      "category": "unanswerable",
+      "answerable": false,
+      "top_score": 0.14055579900741577,
+      "citations": 3,
+      "grounded": 1.0,
+      "supported": 1.0,
+      "cited": [
+        "INS-LIC-001::Introduction",
+        "INS-LIC-001::Table 1: Licence of a Company established in the State and a branch of a Foreign Insurance Company",
+        "INS-LIC-001::Table 3: Licence of a Company being a branch of a Foreign Insurance Company (in addition to documents listed in Table 1)"
+      ]
+    },
+    {
+      "id": "Q050",
+      "category": "unanswerable",
+      "answerable": false,
+      "top_score": 4.212392330169678,
+      "citations": 3,
+      "grounded": 1.0,
+      "supported": 1.0,
+      "cited": [
+        "INS-FIN-001::Section 2, Article 3",
+        "INS-FIN-002::Section 2, Article 3",
+        "INS-GOV-008::7"
+      ]
+    }
+  ],
+  "abstention_curve": [
+    {
+      "threshold": -9.96,
+      "unanswerable_declined": 1,
+      "unanswerable_total": 6,
+      "answerable_wrongly_declined": 0,
+      "answerable_total": 44
+    },
+    {
+      "threshold": -7.0,
+      "unanswerable_declined": 2,
+      "unanswerable_total": 6,
+      "answerable_wrongly_declined": 0,
+      "answerable_total": 44
+    },
+    {
+      "threshold": -2.92,
+      "unanswerable_declined": 2,
+      "unanswerable_total": 6,
+      "answerable_wrongly_declined": 1,
+      "answerable_total": 44
+    },
+    {
+      "threshold": -2.49,
+      "unanswerable_declined": 2,
+      "unanswerable_total": 6,
+      "answerable_wrongly_declined": 1,
+      "answerable_total": 44
+    },
+    {
+      "threshold": -2.42,
+      "unanswerable_declined": 3,
+      "unanswerable_total": 6,
+      "answerable_wrongly_declined": 2,
+      "answerable_total": 44
+    },
+    {
+      "threshold": -2.19,
+      "unanswerable_declined": 3,
+      "unanswerable_total": 6,
+      "answerable_wrongly_declined": 2,
+      "answerable_total": 44
+    },
+    {
+      "threshold": -1.84,
+      "unanswerable_declined": 3,
+      "unanswerable_total": 6,
+      "answerable_wrongly_declined": 4,
+      "answerable_total": 44
+    },
+    {
+      "threshold": -1.43,
+      "unanswerable_declined": 3,
+      "unanswerable_total": 6,
+      "answerable_wrongly_declined": 4,
+      "answerable_total": 44
+    },
+    {
+      "threshold": -1.08,
+      "unanswerable_declined": 3,
+      "unanswerable_total": 6,
+      "answerable_wrongly_declined": 5,
+      "answerable_total": 44
+    },
+    {
+      "threshold": -0.74,
+      "unanswerable_declined": 3,
+      "unanswerable_total": 6,
+      "answerable_wrongly_declined": 6,
+      "answerable_total": 44
+    },
+    {
+      "threshold": -0.64,
+      "unanswerable_declined": 3,
+      "unanswerable_total": 6,
+      "answerable_wrongly_declined": 7,
+      "answerable_total": 44
+    },
+    {
+      "threshold": -0.31,
+      "unanswerable_declined": 3,
+      "unanswerable_total": 6,
+      "answerable_wrongly_declined": 8,
+      "answerable_total": 44
+    },
+    {
+      "threshold": -0.08,
+      "unanswerable_declined": 3,
+      "unanswerable_total": 6,
+      "answerable_wrongly_declined": 10,
+      "answerable_total": 44
+    },
+    {
+      "threshold": 0.14,
+      "unanswerable_declined": 3,
+      "unanswerable_total": 6,
+      "answerable_wrongly_declined": 10,
+      "answerable_total": 44
+    },
+    {
+      "threshold": 0.31,
+      "unanswerable_declined": 4,
+      "unanswerable_total": 6,
+      "answerable_wrongly_declined": 10,
+      "answerable_total": 44
+    },
+    {
+      "threshold": 0.45,
+      "unanswerable_declined": 4,
+      "unanswerable_total": 6,
+      "answerable_wrongly_declined": 12,
+      "answerable_total": 44
+    },
+    {
+      "threshold": 0.74,
+      "unanswerable_declined": 4,
+      "unanswerable_total": 6,
+      "answerable_wrongly_declined": 13,
+      "answerable_total": 44
+    },
+    {
+      "threshold": 0.86,
+      "unanswerable_declined": 4,
+      "unanswerable_total": 6,
+      "answerable_wrongly_declined": 13,
+      "answerable_total": 44
+    },
+    {
+      "threshold": 0.96,
+      "unanswerable_declined": 5,
+      "unanswerable_total": 6,
+      "answerable_wrongly_declined": 14,
+      "answerable_total": 44
+    },
+    {
+      "threshold": 1.02,
+      "unanswerable_declined": 5,
+      "unanswerable_total": 6,
+      "answerable_wrongly_declined": 15,
+      "answerable_total": 44
+    },
+    {
+      "threshold": 1.29,
+      "unanswerable_declined": 5,
+      "unanswerable_total": 6,
+      "answerable_wrongly_declined": 16,
+      "answerable_total": 44
+    },
+    {
+      "threshold": 1.39,
+      "unanswerable_declined": 5,
+      "unanswerable_total": 6,
+      "answerable_wrongly_declined": 17,
+      "answerable_total": 44
+    },
+    {
+      "threshold": 1.43,
+      "unanswerable_declined": 5,
+      "unanswerable_total": 6,
+      "answerable_wrongly_declined": 18,
+      "answerable_total": 44
+    },
+    {
+      "threshold": 1.51,
+      "unanswerable_declined": 5,
+      "unanswerable_total": 6,
+      "answerable_wrongly_declined": 18,
+      "answerable_total": 44
+    },
+    {
+      "threshold": 1.58,
+      "unanswerable_declined": 5,
+      "unanswerable_total": 6,
+      "answerable_wrongly_declined": 19,
+      "answerable_total": 44
+    },
+    {
+      "threshold": 1.94,
+      "unanswerable_declined": 5,
+      "unanswerable_total": 6,
+      "answerable_wrongly_declined": 21,
+      "answerable_total": 44
+    },
+    {
+      "threshold": 2.15,
+      "unanswerable_declined": 5,
+      "unanswerable_total": 6,
+      "answerable_wrongly_declined": 21,
+      "answerable_total": 44
+    },
+    {
+      "threshold": 2.19,
+      "unanswerable_declined": 5,
+      "unanswerable_total": 6,
+      "answerable_wrongly_declined": 23,
+      "answerable_total": 44
+    },
+    {
+      "threshold": 2.27,
+      "unanswerable_declined": 5,
+      "unanswerable_total": 6,
+      "answerable_wrongly_declined": 24,
+      "answerable_total": 44
+    },
+    {
+      "threshold": 2.46,
+      "unanswerable_declined": 5,
+      "unanswerable_total": 6,
+      "answerable_wrongly_declined": 25,
+      "answerable_total": 44
+    },
+    {
+      "threshold": 2.67,
+      "unanswerable_declined": 5,
+      "unanswerable_total": 6,
+      "answerable_wrongly_declined": 25,
+      "answerable_total": 44
+    },
+    {
+      "threshold": 2.69,
+      "unanswerable_declined": 5,
+      "unanswerable_total": 6,
+      "answerable_wrongly_declined": 27,
+      "answerable_total": 44
+    },
+    {
+      "threshold": 2.98,
+      "unanswerable_declined": 5,
+      "unanswerable_total": 6,
+      "answerable_wrongly_declined": 27,
+      "answerable_total": 44
+    },
+    {
+      "threshold": 3.07,
+      "unanswerable_declined": 5,
+      "unanswerable_total": 6,
+      "answerable_wrongly_declined": 28,
+      "answerable_total": 44
+    },
+    {
+      "threshold": 3.17,
+      "unanswerable_declined": 5,
+      "unanswerable_total": 6,
+      "answerable_wrongly_declined": 30,
+      "answerable_total": 44
+    },
+    {
+      "threshold": 3.44,
+      "unanswerable_declined": 5,
+      "unanswerable_total": 6,
+      "answerable_wrongly_declined": 31,
+      "answerable_total": 44
+    },
+    {
+      "threshold": 3.48,
+      "unanswerable_declined": 5,
+      "unanswerable_total": 6,
+      "answerable_wrongly_declined": 32,
+      "answerable_total": 44
+    },
+    {
+      "threshold": 3.79,
+      "unanswerable_declined": 5,
+      "unanswerable_total": 6,
+      "answerable_wrongly_declined": 32,
+      "answerable_total": 44
+    },
+    {
+      "threshold": 3.87,
+      "unanswerable_declined": 5,
+      "unanswerable_total": 6,
+      "answerable_wrongly_declined": 34,
+      "answerable_total": 44
+    },
+    {
+      "threshold": 4.07,
+      "unanswerable_declined": 5,
+      "unanswerable_total": 6,
+      "answerable_wrongly_declined": 34,
+      "answerable_total": 44
+    },
+    {
+      "threshold": 4.11,
+      "unanswerable_declined": 5,
+      "unanswerable_total": 6,
+      "answerable_wrongly_declined": 35,
+      "answerable_total": 44
+    },
+    {
+      "threshold": 4.13,
+      "unanswerable_declined": 5,
+      "unanswerable_total": 6,
+      "answerable_wrongly_declined": 36,
+      "answerable_total": 44
+    },
+    {
+      "threshold": 4.21,
+      "unanswerable_declined": 5,
+      "unanswerable_total": 6,
+      "answerable_wrongly_declined": 37,
+      "answerable_total": 44
+    },
+    {
+      "threshold": 4.38,
+      "unanswerable_declined": 6,
+      "unanswerable_total": 6,
+      "answerable_wrongly_declined": 37,
+      "answerable_total": 44
+    },
+    {
+      "threshold": 4.99,
+      "unanswerable_declined": 6,
+      "unanswerable_total": 6,
+      "answerable_wrongly_declined": 39,
+      "answerable_total": 44
+    },
+    {
+      "threshold": 5.09,
+      "unanswerable_declined": 6,
+      "unanswerable_total": 6,
+      "answerable_wrongly_declined": 39,
+      "answerable_total": 44
+    },
+    {
+      "threshold": 5.33,
+      "unanswerable_declined": 6,
+      "unanswerable_total": 6,
+      "answerable_wrongly_declined": 40,
+      "answerable_total": 44
+    },
+    {
+      "threshold": 5.9,
+      "unanswerable_declined": 6,
+      "unanswerable_total": 6,
+      "answerable_wrongly_declined": 42,
+      "answerable_total": 44
+    },
+    {
+      "threshold": 6.44,
+      "unanswerable_declined": 6,
+      "unanswerable_total": 6,
+      "answerable_wrongly_declined": 44,
+      "answerable_total": 44
+    }
+  ]
+}
