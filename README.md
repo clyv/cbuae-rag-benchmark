@@ -211,13 +211,15 @@ inherit that. `provenance.source` records `llm_drafted_human_verified` on each
 item so the split is visible rather than implied.
 
 **Labelling honesty.** Low-confidence items are excluded from headline metrics by
-default. Final distribution: **49 high, 1 medium, 0 low**, so all 50 items are
+default. Final distribution: **50 high, 0 medium, 0 low**, so all 50 items are
 scored and none is excluded.
 
-Self-reported confidence is weak evidence on its own, so it is not what this
-project rests on. A blind negative control measures the verification directly -
-5 of 8 planted label errors caught, 1 false alarm in 8 untouched items - and
-that number, not the confidence distribution, is the honest calibration. See
+That uniformity carries no information, and it is recorded here rather than
+presented as reassurance: one item was originally marked medium and was raised
+to high after the fact. Self-reported confidence is weak evidence in any case,
+which is why this project does not rest on it. A blind negative control measures
+the verification directly - **5 of 8 planted label errors caught, 1 false alarm
+across 8 untouched items** - and that number is the honest calibration. See
 `results/label_verification_control.md`.
 
 ---

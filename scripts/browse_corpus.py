@@ -244,6 +244,84 @@ def verify(records: list[dict], item_id: str) -> None:
     print("  Then: python scripts/promote_drafts.py")
 
 
+def recheck(records: list[dict], group: str) -> None:
+    """Re-review labels for what is MISSING, not for whether what is listed belongs.
+
+    The negative control found that swapped and superfluous sections were caught
+    5 times in 6, while a dropped required section and an unanswerable item
+    handed evidence both got through. Those are errors of omission, and they are
+    the damaging direction: an incomplete label marks every system wrong for
+    retrieving correctly, and an unanswerable item holding evidence stops
+    testing abstention.
+
+    Spotting an absence needs different information than judging a presence, so
+    this prints the full table of contents of every document a question cites,
+    with the cited sections marked. The question to ask is no longer "does this
+    section belong" but "is there a section here that should have been cited and
+    was not".
+    """
+    items = [
+        json.loads(line)
+        for line in BENCHMARK.read_text(encoding="utf-8").splitlines()
+        if line.strip()
+    ] if BENCHMARK.exists() else []
+    if not items:
+        sys.exit("benchmark/questions.jsonl is empty.")
+
+    if group == "unanswerable":
+        chosen = [i for i in items if i["category"] == "unanswerable"]
+        header = (
+            "These claim the corpus does not cover the question. The control's\n"
+            "missed item was an unanswerable label handed evidence, and it read as\n"
+            "sound. Try to prove each one wrong: find any section that would\n"
+            "support an answer. If you can, the item is mislabelled."
+        )
+    elif group == "article3":
+        chosen = [
+            i for i in items
+            if any(e["doc_id"] == "INS-GOV-003" and e["section"] == "Article 3"
+                   for e in i["required_evidence"])
+        ]
+        header = "The missed swap in the control was here. Confirm Article 3 is the right article."
+    else:
+        chosen = [i for i in items if len(i["required_evidence"]) >= 2]
+        header = (
+            "Multi-section labels, where a dropped section would hide. For each,\n"
+            "ask only: is anything MISSING that the question needs?"
+        )
+
+    by_doc: dict[str, list[dict]] = {}
+    for record in records:
+        by_doc.setdefault(record["doc_id"], []).append(record)
+
+    print("=" * 74)
+    print(f"RE-CHECK: {group}  ({len(chosen)} item(s))")
+    print("=" * 74)
+    print(header)
+    print()
+
+    for item in chosen:
+        cited = {(e["doc_id"], e["section"]) for e in item["required_evidence"]}
+        print("-" * 74)
+        print(f"{item['id']}  {item['category']}")
+        print(f"  {item['question']}")
+        if not cited:
+            print("  cited: nothing")
+        print()
+        for doc_id in sorted({d for d, _ in cited}) or []:
+            meta = by_doc[doc_id][0]["metadata"]
+            print(f"  {doc_id} - {meta.get('title', '')[:52]}")
+            for record in by_doc[doc_id]:
+                mark = ">>" if (doc_id, record["section"]) in cited else "  "
+                words = len(record["text"].split())
+                title = record["metadata"].get("section_title", "")[:44]
+                print(f"    {mark} {record['section']:<26}{words:>5}w  {title}")
+            print()
+    print("=" * 74)
+    print(">> marks a cited section. Anything unmarked that the question needs is")
+    print("   a missing label. Edit benchmark/questions.jsonl and note the change.")
+
+
 def coverage(records: list[dict]) -> None:
     """Group every draft by the document it cites, for document-first verification.
 
@@ -316,6 +394,11 @@ def main() -> int:
         action="store_true",
         help="group every draft by the document it cites, for document-first review",
     )
+    group.add_argument(
+        "--recheck",
+        choices=["unanswerable", "article3", "multi"],
+        help="re-review a priority group for MISSING evidence, with full document TOCs",
+    )
     parser.add_argument("-k", type=int, default=10, help="results for --find")
     parser.add_argument(
         "--citable-only",
@@ -338,6 +421,8 @@ def main() -> int:
         verify(records, args.verify)
     elif args.coverage:
         coverage(records)
+    elif args.recheck:
+        recheck(records, args.recheck)
     else:
         find(records, args.find, args.k, args.citable_only)
     return 0
