@@ -6,9 +6,9 @@ Most RAG projects ship a chatbot and assert that it works. This one ships a
 benchmark and measures four retrieval architectures against it. The chatbot is
 the demo; the evaluation is the project.
 
-> **Status:** in development. Corpus and benchmark are complete; the results
-> tables are empty and no results are claimed until they contain real measured
-> numbers.
+> **Status:** Phases 1-4 complete. Corpus, benchmark and the four-system
+> comparison are measured and reported below. Phase 5 (grounded answering,
+> citation validation, API and UI) is not built.
 
 ---
 
@@ -229,9 +229,9 @@ across 8 untouched items** - and that number is the honest calibration. See
 | # | System | Description |
 |---|---|---|
 | 1 | BM25 | Lexical baseline |
-| 2 | Dense | Local embedding model, TODO which |
-| 3 | Hybrid | Reciprocal rank fusion of 1 and 2 |
-| 4 | Hybrid + reranker | Local cross-encoder over a wide candidate set |
+| 2 | Dense | `BAAI/bge-small-en-v1.5`, 384 dimensions, normalised, CPU |
+| 3 | Hybrid | Reciprocal rank fusion of 1 and 2, untuned k=60 |
+| 4 | Hybrid + reranker | `cross-encoder/ms-marco-MiniLM-L-6-v2` over 50 candidates |
 
 Everything runs locally with no paid API keys.
 
@@ -239,35 +239,99 @@ Everything runs locally with no paid API keys.
 
 ## Results
 
-TODO after Phase 4. **Do not populate these tables with anything but measured
-output from `scripts/run_eval.py`.**
+Measured by `scripts/run_eval.py` over the 44 answerable questions, on CPU.
+Regenerate the tables with `scripts/report_results.py`; raw per-question output
+is in `results/`.
 
 ### Overall
 
 | System | recall@5 | recall@10 | full_recall@10 | nDCG@10 | MRR | median latency |
 |---|---|---|---|---|---|---|
-| BM25 | | | | | | |
-| Dense | | | | | | |
-| Hybrid | | | | | | |
-| Hybrid + reranker | | | | | | |
+| BM25 | 0.545 | 0.659 | 0.545 | 0.498 | 0.493 | 4 ms |
+| Dense | 0.477 | 0.625 | 0.432 | 0.500 | 0.575 | 28 ms |
+| Hybrid (RRF) | 0.614 | 0.705 | 0.568 | 0.562 | 0.593 | 39 ms |
+| Hybrid + reranker | 0.625 | **0.727** | 0.568 | **0.599** | **0.653** | 1996 ms |
+
+### The honest answer to the question this project asks
+
+The ordering matches the hypothesis. **The statistics mostly do not support it.**
+
+| Comparison | difference in recall@10 | 95% interval | separates? |
+|---|---|---|---|
+| Dense vs BM25 | −0.034 | −0.159 – +0.091 | no |
+| Hybrid vs BM25 | +0.045 | −0.045 – +0.125 | no |
+| Hybrid vs Dense | +0.080 | +0.000 – +0.170 | no |
+| Hybrid + reranker vs Hybrid | +0.023 | −0.057 – +0.102 | no |
+| Hybrid + reranker vs BM25 | +0.068 | −0.034 – +0.170 | no |
+| Hybrid + reranker vs Dense | +0.102 | +0.023 – +0.193 | **yes** |
+
+Paired bootstrap, 10,000 resamples, seeded per comparison so the intervals are
+reproducible. Pairing matters here: both systems answer the same questions, so
+the interval on the difference is much tighter than the overlap between two
+per-system intervals would suggest.
+
+**Only one comparison clears zero.** Hybrid retrieval with reranking beats dense
+retrieval alone. Everything else — including hybrid against BM25, the comparison
+the project was built to make — is inside the range this benchmark could produce
+by chance at n = 44. The point estimates all move in the expected direction and
+never once do so by enough to be sure.
+
+That is the result. Forty-four questions cannot resolve a four-point recall
+difference, and saying so is the finding rather than a failure to find one.
 
 ### By question category — recall@10
 
-| System | single_hop | cross_section | cross_document | temporal | comparative |
+| System | single_hop | cross_section | cross_document | comparative | adversarial |
 |---|---|---|---|---|---|
-| BM25 | | | | | |
-| Dense | | | | | |
-| Hybrid | | | | | |
-| Hybrid + reranker | | | | | |
+| BM25 | 0.700 | 0.583 | 0.688 | 0.700 | 0.833 |
+| Dense | 0.600 | 0.639 | 0.812 | 0.400 | 0.500 |
+| Hybrid (RRF) | 0.600 | 0.694 | **0.938** | 0.600 | 0.667 |
+| Hybrid + reranker | 0.700 | **0.778** | 0.875 | 0.400 | 0.667 |
 
-This second table is the interesting one. If the systems separate anywhere, it
-will be on the multi-hop categories.
+n: single_hop 10, cross_section 18, cross_document 8, comparative 5,
+adversarial 3.
+
+This is the interesting table, and it says what the overall numbers hide.
+
+**On `cross_document` questions, BM25 reaches 0.688 and hybrid reaches 0.938.**
+That is the project's hypothesis on its home ground: questions whose evidence
+spans two instruments are exactly where combining lexical and dense retrieval
+helps, and single-hop questions are where it does not — BM25 is as good there or
+better. Eight questions cannot establish it, but the effect is large and lands
+precisely where the argument predicted.
+
+The reverse also shows: **dense retrieval is the weakest system on `comparative`
+and `adversarial` questions** and the strongest single system on
+`cross_document`. Regulatory text is full of exact terms — "Solvency Capital
+Requirement", "Minimum Guarantee Fund" — that lexical search matches perfectly
+and embeddings blur.
+
+### What the reranker actually buys
+
+**+0.023 recall@10 for 51× the latency**, and `full_recall@10` does not move at
+all: 0.568 with and without it. The reranker reorders what hybrid retrieval
+already found and does not find more complete evidence sets, which is the
+ceiling its own design implies — a second stage cannot recover a section the
+first stage never retrieved.
+
+Where it does earn its cost is ranking quality: MRR rises 0.593 → 0.653 and
+nDCG@10 0.562 → 0.599. It is better at putting the right section first, which
+matters for a reader, and close to useless for finding sections that were
+missed.
+
+At two seconds per query on CPU, a system that is two points better and fifty
+times slower is a trade-off, not an improvement.
 
 ### Abstention
 
-| System | correctly declined on unanswerable items |
-|---|---|
-| | |
+Not measured here. Retrieval always returns its top k, so a retriever has no
+abstention decision to make: on an item with no required evidence, recall is 1.0
+because nothing can be missed and precision is 0.0 because nothing retrieved can
+be required. Neither varies between systems.
+
+The 6 `unanswerable` questions are held for Phase 5, where the answering stage
+either declines or confabulates. Reporting a figure for them now would be
+reporting an artefact of the metric definition.
 
 ---
 
@@ -380,8 +444,8 @@ pytest
 | 1 | Registry populated, corpus downloading, licensing recorded | done |
 | 2 | Parsing and chunking; sections carry citable identifiers | done |
 | 3 | 50 labelled benchmark questions | done |
-| 4 | Four systems built and measured; results tables filled | |
-| 5 | Grounded answering, citation validation, API and UI | |
+| 4 | Four systems built and measured; results tables filled | done |
+| 5 | Grounded answering, citation validation, API and UI | next |
 | 6 | *Optional:* cross-reference graph expansion | |
 
 Phase 6 is optional and should not be started until 1–5 are complete.
