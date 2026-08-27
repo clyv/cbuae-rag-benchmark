@@ -123,7 +123,10 @@ def test_no_unverified_draft_in_the_repo_can_promote(promote):
     recorded both how long verification took and how confident they are.
     """
     drafts = promote.read_jsonl(REPO_ROOT / "benchmark" / "drafts.jsonl")
-    assert drafts, "drafts.jsonl is empty"
+    # An empty drafts file is the finished state, not a broken one. The previous
+    # version asserted the file was non-empty, which made this test fail the
+    # moment the last draft was promoted - the second time a snapshot was
+    # mistaken for an invariant in this file.
     for item in drafts:
         prov = item.get("provenance", {})
         minutes = prov.get("minutes_to_label")
