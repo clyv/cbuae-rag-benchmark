@@ -6,9 +6,10 @@ Most RAG projects ship a chatbot and assert that it works. This one ships a
 benchmark and measures four retrieval architectures against it. The chatbot is
 the demo; the evaluation is the project.
 
-> **Status:** Phases 1-4 complete. Corpus, benchmark and the four-system
-> comparison are measured and reported below. Phase 5 (grounded answering,
-> citation validation, API and UI) is not built.
+> **Status:** Phases 1-5 complete. Corpus, benchmark, the four-system
+> comparison, and grounded answering with citation validation and abstention are
+> all measured and reported below. Phase 6 (cross-reference graph) is optional
+> and not built.
 
 ---
 
@@ -426,6 +427,29 @@ exists — that is the obvious next experiment.
 The two hardest unanswerable questions are the two closest to the corpus subject
 matter, which is exactly what the category was designed to produce.
 
+### Running it
+
+```bash
+python -m uvicorn regulens.api.app:app --app-dir src
+# then open http://127.0.0.1:8000
+```
+
+The index builds on the first request - loading the embedding model, embedding
+954 chunks and loading the cross-encoder takes about ninety seconds - so
+`/health` reports whether that cost has been paid. Everything runs on CPU with
+no API keys.
+
+`POST /ask` takes a question, `k`, `rerank`, and an optional `threshold`, and
+returns citations with a short excerpt, a relevance score and a deep link.
+
+**The demo returns citations and excerpts, never full articles.** That is a
+licensing boundary rather than a design preference: CBUAE terms permit download
+for non-commercial use but not redistribution, so a service that returned the
+full text of any article on request would be a mirror of the Rulebook with a
+search box on it. `MAX_EXCERPT_CHARS` is enforced at the API layer, which is
+where text leaves the machine, and every response carries a link to read the
+provision at the source.
+
 ---
 
 ## Limitations
@@ -551,7 +575,7 @@ pytest
 | 2 | Parsing and chunking; sections carry citable identifiers | done |
 | 3 | 50 labelled benchmark questions | done |
 | 4 | Four systems built and measured; results tables filled | done |
-| 5 | Grounded answering, citation validation, API and UI | next |
+| 5 | Grounded answering, citation validation, API and UI | done |
 | 6 | *Optional:* cross-reference graph expansion | |
 
 Phase 6 is optional and should not be started until 1–5 are complete.

@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ReguLens — CBUAE insurance regulation retrieval</title>
+<style>
+  :root {
+    --bg: #fbfaf8; --fg: #1c1a17; --muted: #6b6560; --line: #e2ddd6;
+    --card: #ffffff; --accent: #7a5c2e; --warn: #8a5a2b; --warnbg: #fdf4e7;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #161513; --fg: #eae6e0; --muted: #9a938b; --line: #302d29;
+      --card: #1e1d1a; --accent: #d4a960; --warn: #d4a960; --warnbg: #2a2317;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; padding: 2rem 1rem 4rem; background: var(--bg); color: var(--fg);
+    font: 16px/1.6 ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  }
+  main { max-width: 46rem; margin: 0 auto; }
+  h1 { font-size: 1.5rem; margin: 0 0 .25rem; letter-spacing: -.01em; }
+  .sub { color: var(--muted); margin: 0 0 1.5rem; font-size: .95rem; }
+  form { display: flex; gap: .5rem; flex-wrap: wrap; }
+  input[type=text] {
+    flex: 1 1 22rem; padding: .7rem .9rem; font: inherit; color: var(--fg);
+    background: var(--card); border: 1px solid var(--line); border-radius: .5rem;
+  }
+  button {
+    padding: .7rem 1.2rem; font: inherit; font-weight: 600; cursor: pointer;
+    background: var(--accent); color: #fff; border: 0; border-radius: .5rem;
+  }
+  button:disabled { opacity: .55; cursor: progress; }
+  .opts { display: flex; gap: 1.2rem; align-items: center; margin: .75rem 0 0;
+          color: var(--muted); font-size: .85rem; flex-wrap: wrap; }
+  .opts label { display: flex; gap: .35rem; align-items: center; }
+  #status { margin: 1.25rem 0 0; color: var(--muted); font-size: .9rem; }
+  .cite {
+    background: var(--card); border: 1px solid var(--line); border-left: 3px solid var(--accent);
+    border-radius: .4rem; padding: .85rem 1rem; margin: .75rem 0;
+  }
+  .cite h3 { margin: 0 0 .15rem; font-size: .95rem; font-family: ui-monospace, monospace; }
+  .cite .doc { color: var(--muted); font-size: .8rem; margin: 0 0 .5rem; }
+  .cite p.q { margin: 0 0 .6rem; }
+  .cite a { color: var(--accent); font-size: .85rem; }
+  .score { float: right; color: var(--muted); font-size: .78rem; font-family: ui-monospace, monospace; }
+  .note {
+    background: var(--warnbg); border: 1px solid var(--line); color: var(--warn);
+    border-radius: .4rem; padding: .8rem 1rem; margin: 1rem 0; font-size: .9rem;
+  }
+  footer { margin-top: 2.5rem; padding-top: 1rem; border-top: 1px solid var(--line);
+           color: var(--muted); font-size: .8rem; }
+  code { font-family: ui-monospace, monospace; font-size: .85em; }
+</style>
+</head>
+<body>
+<main>
+  <h1>ReguLens</h1>
+  <p class="sub">Retrieval over a snapshot of the CBUAE Rulebook, insurance section.</p>
+
+  <form id="f">
+    <input id="q" type="text" required minlength="5" maxlength="500"
+           placeholder="e.g. Who must approve a deviation from the risk appetite?">
+    <button id="go" type="submit">Search</button>
+  </form>
+  <div class="opts">
+    <label><input id="rr" type="checkbox" checked> rerank (slower, better ranked)</label>
+    <label>abstain below <input id="th" type="number" step="0.5" placeholder="off"
+           style="width:5.5rem;padding:.25rem;background:var(--card);color:var(--fg);
+                  border:1px solid var(--line);border-radius:.3rem"></label>
+  </div>
+
+  <p id="status"></p>
+  <div id="out"></div>
+
+  <footer>
+    Excerpts are shown to identify a provision, not to reproduce it &mdash; read the
+    text at the linked source. Corpus &copy; Central Bank of the UAE, used for
+    non-commercial research. Not affiliated with or endorsed by the CBUAE.
+    <strong>Nothing here is legal, regulatory or compliance advice.</strong>
+  </footer>
+</main>
+
+<script>
+const $ = (id) => document.getElementById(id);
+const esc = (s) => s.replace(/[&<>"']/g, c => (
+  {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+
+$('f').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const question = $('q').value.trim();
+  const raw = $('th').value.trim();
+  $('go').disabled = true;
+  $('out').innerHTML = '';
+  $('status').textContent = $('rr').checked
+    ? 'Searching… the first request loads the models and can take about a minute.'
+    : 'Searching…';
+
+  try {
+    const res = await fetch('/ask', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({
+        question, k: 5, rerank: $('rr').checked,
+        threshold: raw === '' ? null : Number(raw)
+      })
+    });
+    if (!res.ok) throw new Error((await res.json()).detail || res.statusText);
+    const data = await res.json();
+
+    $('status').textContent =
+      `${data.citations.length} section(s) · ${Math.round(data.elapsed_ms)} ms` +
+      (data.top_score !== null ? ` · top relevance ${data.top_score}` : '');
+
+    let html = '';
+    if (data.abstained) {
+      html += `<div class="note"><strong>Declined.</strong> Nothing retrieved was
+               judged relevant enough to answer from.<br><small>${esc(data.reason)}</small></div>`;
+    }
+    if (data.reason && !data.abstained) {
+      html += `<div class="note"><small>${esc(data.reason)}</small></div>`;
+    }
+    for (const c of data.citations) {
+      html += `<div class="cite">
+        <span class="score">${c.score}</span>
+        <h3>${esc(c.doc_id)} · ${esc(c.section)}</h3>
+        <p class="doc">${esc(c.document)}</p>
+        <p class="q">${esc(c.excerpt)}…</p>
+        ${c.url ? `<a href="${esc(c.url)}" target="_blank" rel="noopener noreferrer">
+                    Read this provision at the CBUAE Rulebook →</a>` : ''}
+      </div>`;
+    }
+    $('out').innerHTML = html;
+  } catch (err) {
+    $('status').textContent = '';
+    $('out').innerHTML = `<div class="note"><strong>Error.</strong> ${esc(String(err.message))}</div>`;
+  } finally {
+    $('go').disabled = false;
+  }
+});
+</script>
+</body>
+</html>

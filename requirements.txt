@@ -16,8 +16,8 @@ numpy>=1.26
 sentence-transformers>=3.0
 
 # Phase 5 - serving
-# fastapi>=0.111
-# uvicorn>=0.30
+fastapi>=0.111
+uvicorn>=0.30
 
 # Dev
 pytest>=8.0
