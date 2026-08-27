@@ -8,9 +8,12 @@ beautifulsoup4>=4.12
 lxml>=5.0
 
 # Phase 4 - retrieval
-# rank-bm25>=0.2.2
-# sentence-transformers>=3.0
-# faiss-cpu>=1.8
+# No FAISS: 954 chunks by 384 dimensions is a 1.4 MB matrix that numpy searches
+# by brute force in about a millisecond. An approximate index would add a
+# dependency and a recall-versus-speed knob to defend, for nothing measurable.
+rank-bm25>=0.2.2
+numpy>=1.26
+sentence-transformers>=3.0
 
 # Phase 5 - serving
 # fastapi>=0.111
