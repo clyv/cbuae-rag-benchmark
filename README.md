@@ -212,8 +212,13 @@ item so the split is visible rather than implied.
 
 **Labelling honesty.** Low-confidence items are excluded from headline metrics by
 default. Final distribution: **49 high, 1 medium, 0 low**, so all 50 items are
-scored and none is excluded. See Limitations for why that distribution is itself
-worth treating with suspicion.
+scored and none is excluded.
+
+Self-reported confidence is weak evidence on its own, so it is not what this
+project rests on. A blind negative control measures the verification directly -
+5 of 8 planted label errors caught, 1 false alarm in 8 untouched items - and
+that number, not the confidence distribution, is the honest calibration. See
+`results/label_verification_control.md`.
 
 ---
 
@@ -269,14 +274,26 @@ will be on the multi-hop categories.
 Written before the results, not after.
 
 **Every question was LLM-drafted and human-verified, and verification changed
-nothing.** All 50 evidence sets stand exactly as drafted: no section added, none
-removed, no category or difficulty revised. 49 of 50 are marked high confidence.
-Two readings fit that record — the drafts were genuinely sound, or the check was
-confirmatory rather than adversarial — and this repository cannot distinguish
-them. A zero percent correction rate over 50 LLM-drafted regulatory labels is
-better treated as a claim about the verification process than as a compliment to
-the drafting. Read the ground truth as *checked*, not as *independently
-established*.
+nothing** — so the verification itself was measured rather than asserted. A
+blind negative control planted deliberate errors in 8 of 16 sampled labels:
+**5 of 8 were caught, with 1 false alarm on the 8 untouched items**
+(`results/label_verification_control.md`).
+
+At a detection rate near 62%, the fact that no correction was made across the
+real 50 labels rules out four or more undetected errors at the 5% level, but not
+zero to three. **The defensible claim is therefore that the benchmark contains
+at most about three label errors, probably fewer** — a measured bound rather
+than an assurance, and a weaker claim than the project would like.
+
+The control also showed *which* errors get through. Swapped and superfluous
+sections were caught 5 of 6 times; the two misses were a **dropped required
+section** and an **unanswerable item given evidence**. Both are errors of
+omission — the review reliably judged whether a listed section belonged, and
+less reliably noticed what was absent. Those two shapes were re-checked across
+the whole benchmark as a result.
+
+Read the ground truth as *checked, with a known detection rate*, not as
+*independently established*.
 
 **Ground truth is labelled by one non-expert author.** There is no second
 labeller and no inter-rater agreement figure, so a systematic misreading would
