@@ -1,0 +1,2354 @@
+{
+ "system": "hybrid+reranker",
+ "generator": "extractive",
+ "k": 5,
+ "demo_threshold": 5.0,
+ "excerpt_cap": 320,
+ "questions": [
+  {
+   "id": "Q001",
+   "question": "An insurer wants to take on exposure beyond the level its board signed off on. Who has to approve that departure, and what must be in place for it to happen?",
+   "category": "single_hop",
+   "difficulty": "easy",
+   "required": [
+    "INS-GOV-003::Article 3"
+   ],
+   "found": [],
+   "complete": false,
+   "top_score": -2.92,
+   "would_decline": true,
+   "citations": [
+    {
+     "id": "INS-GOV-002::2",
+     "doc_id": "INS-GOV-002",
+     "section": "2",
+     "document": "Corporate Governance Standards for Insurance Companies",
+     "excerpt": "of Conflicts of Interests by the Board or an ethics committee, where one exists; Exceptions to policies, processes and limits must be reported to the appropriate level of the Company's Senior Management and, if necessary, to the Board for timely action, based on the stipulations of the policy. Transactions with Related",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/corporate-governance-standards-insurance-companies",
+     "score": -2.92,
+     "required": false
+    },
+    {
+     "id": "INS-FIN-001::Section 1, Addendum (4)",
+     "doc_id": "INS-FIN-001",
+     "section": "Section 1, Addendum (4)",
+     "document": "Insurance Authority Board Decision Number (25) of 2014 Pertinent to Financial Regulations for Insurance Companies",
+     "excerpt": "The Company must avoid excessive risk exposure to a single counterparty and to other derivative operations. Approved policies, systems and procedures that are commensurate with the level and nature of derivative activities to be undertaken by the Company are in place and have been clearly communicated to all levels of",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/insurance-authority-board-decision-number-25-2014-pertinent-financial-regulations",
+     "score": -4.15,
+     "required": false
+    },
+    {
+     "id": "INS-FIN-002::Section 1, Addendum (4)",
+     "doc_id": "INS-FIN-002",
+     "section": "Section 1, Addendum (4)",
+     "document": "Insurance Authority Board Decision Number (26) of 2014 Pertinent to Financial Regulations for Takaful Insurance Companies",
+     "excerpt": "The Company must avoid excessive risk exposure to a single counterparty and to other derivative operations. c) Approved policies, systems and procedures that are commensurate with the level and nature of derivative activities to be undertaken by the Company are in place and have been clearly communicated to all levels",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/insurance-authority-board-decision-number-26-2014-pertinent-financial-regulations-takaful",
+     "score": -5.45,
+     "required": false
+    }
+   ]
+  },
+  {
+   "id": "Q002",
+   "question": "What is the smallest amount of subscribed and paid up capital a reinsurance company is allowed to have?",
+   "category": "single_hop",
+   "difficulty": "easy",
+   "required": [
+    "INS-FIN-001::Section 2, Article 1"
+   ],
+   "found": [
+    "INS-FIN-001::Section 2, Article 1"
+   ],
+   "complete": true,
+   "top_score": 5.9,
+   "would_decline": false,
+   "citations": [
+    {
+     "id": "INS-FIN-005::Article 3",
+     "doc_id": "INS-FIN-005",
+     "section": "Article 3",
+     "document": "Cabinet Resolution No. 42 of 2009 Concerning Insurance Company Minimum Capital Regulations",
+     "excerpt": "The subscribed and paid up capital of a company may not be less than AED 100,000,000 (One Hundred Million UAE Dirhams). The subscribed and paid up capital of a reinsurance company may not be less than AED 250,000,000 (Two Hundred And Fifty Million UAE Dirham).",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/cabinet-resolution-no-42-2009-concerning-insurance-company-minimum-capital-regulations",
+     "score": 5.9,
+     "required": false
+    },
+    {
+     "id": "INS-OTH-001::Chapter Two, Article 12",
+     "doc_id": "INS-OTH-001",
+     "section": "Chapter Two, Article 12",
+     "document": "Insurance Authority's Board of Directors Decision No. (23) of 2019 Concerning Instructions Organizing Reinsurance Operations",
+     "excerpt": "The subscribed and paid up capital of the reinsurance company shall not be less than AED 250,000,000 (only two hundred and fifty million dirhams). The Authority may determine a minimum capital for the Company greater than that stipulated in the aforementioned sub-Article (1), if the Feasibility Study indicates that the",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/insurance-authority%E2%80%99s-board-directors-decision-no23-2019-concerning-instructions",
+     "score": 5.63,
+     "required": false
+    },
+    {
+     "id": "INS-FIN-001::Section 2, Article 1",
+     "doc_id": "INS-FIN-001",
+     "section": "Section 2, Article 1",
+     "document": "Insurance Authority Board Decision Number (25) of 2014 Pertinent to Financial Regulations for Insurance Companies",
+     "excerpt": "The Minimum Subscribed and Paid Up Capital of each Company should not be less than the following: AED 100 million for an insurance Company. AED 250 million for a reinsurance Company.",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/insurance-authority-board-decision-number-25-2014-pertinent-financial-regulations",
+     "score": 5.05,
+     "required": true
+    }
+   ]
+  },
+  {
+   "id": "Q003",
+   "question": "Can the person heading an insurer's compliance function also carry responsibility for underwriting decisions?",
+   "category": "single_hop",
+   "difficulty": "easy",
+   "required": [
+    "INS-GOV-003::Article 5"
+   ],
+   "found": [],
+   "complete": false,
+   "top_score": -0.74,
+   "would_decline": true,
+   "citations": [
+    {
+     "id": "INS-GOV-004::6",
+     "doc_id": "INS-GOV-004",
+     "section": "6",
+     "document": "Risk Management and Internal Controls Standards for Insurance Companies",
+     "excerpt": "The Risk Management function must have responsibility for the following, at a minimum: Not have a decision-making role in the Company's risk-taking functions, including underwriting or other equivalent function. Not be the Chief Executive Officer of the Company, or the head of underwriting or reinsurance, or the head o",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/risk-management-and-internal-controls-standards-insurance-companies",
+     "score": -0.74,
+     "required": false
+    },
+    {
+     "id": "INS-GOV-003::Article 9",
+     "doc_id": "INS-GOV-003",
+     "section": "Article 9",
+     "document": "Risk Management and Internal Controls Regulation for Insurance Companies",
+     "excerpt": "A Company must have an effective compliance function in order to fulfil its legal and regulatory obligations and to promote and sustain a compliance culture. The compliance function must establish and maintain appropriate mechanisms and activities to identify, assess, report on and address key legal and regulatory obli",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/risk-management-and-internal-controls-regulation-insurance-companies",
+     "score": -1.8,
+     "required": false
+    },
+    {
+     "id": "INS-LIC-001::Article 1",
+     "doc_id": "INS-LIC-001",
+     "section": "Article 1",
+     "document": "Insurance Company Licensing Regulation",
+     "excerpt": "a Person licensed or authorized by the Central Bank to determine the value and price of Insurance Policies, and to assess technical provisions, accounts and all matters related thereto. any juridical Person licensed to carry on insurance business and activities in the State, including Takaful Insurance companies. funct",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/insurance-company-licensing-regulation",
+     "score": -3.52,
+     "required": false
+    }
+   ]
+  },
+  {
+   "id": "Q004",
+   "question": "How is the floor on the Minimum Guarantee Fund expressed in relation to the Solvency Capital Requirement?",
+   "category": "single_hop",
+   "difficulty": "easy",
+   "required": [
+    "INS-FIN-001::Section 2, Article 2"
+   ],
+   "found": [
+    "INS-FIN-001::Section 2, Article 2"
+   ],
+   "complete": true,
+   "top_score": 5.33,
+   "would_decline": false,
+   "citations": [
+    {
+     "id": "INS-FIN-001::Section 2, Article 2",
+     "doc_id": "INS-FIN-001",
+     "section": "Section 2, Article 2",
+     "document": "Insurance Authority Board Decision Number (25) of 2014 Pertinent to Financial Regulations for Insurance Companies",
+     "excerpt": "The Minimum Guarantee Fund shall not be at any point in time less than (1/3) of the Solvency Capital Requirement. The Minimum Guarantee Fund shall be calculated based on a minimum amount of funds required to support each type of business written by the Company. The minimum funds for each type of business shall include",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/insurance-authority-board-decision-number-25-2014-pertinent-financial-regulations",
+     "score": 5.33,
+     "required": true
+    },
+    {
+     "id": "INS-FIN-002::Section 2, Article 2",
+     "doc_id": "INS-FIN-002",
+     "section": "Section 2, Article 2",
+     "document": "Insurance Authority Board Decision Number (26) of 2014 Pertinent to Financial Regulations for Takaful Insurance Companies",
+     "excerpt": "The Minimum Guarantee Fund shall not be at any point in time less than (1/3) of the Solvency Capital Requirement. The Minimum Guarantee Fund shall be calculated based on a minimum amount of funds required to support each type of business written by the Company. The minimum funds for each type of business shall include",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/insurance-authority-board-decision-number-26-2014-pertinent-financial-regulations-takaful",
+     "score": 5.31,
+     "required": false
+    },
+    {
+     "id": "INS-FIN-001::Section 2, Article 8",
+     "doc_id": "INS-FIN-001",
+     "section": "Section 2, Article 8",
+     "document": "Insurance Authority Board Decision Number (25) of 2014 Pertinent to Financial Regulations for Insurance Companies",
+     "excerpt": "The Company shall immediately report to the Authority the event of non-compliance with maintaining the Minimum Capital Requirement or Solvency Capital Requirement. In this case, the Company shall submit a realistic recovery plan to re-establish the level of Own Funds covering the Minimum Capital Requirement or Solvency",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/insurance-authority-board-decision-number-25-2014-pertinent-financial-regulations",
+     "score": 3.98,
+     "required": false
+    }
+   ]
+  },
+  {
+   "id": "Q005",
+   "question": "An external auditor discovers during the audit that the company has breached Central Bank regulations. What are they required to do?",
+   "category": "single_hop",
+   "difficulty": "easy",
+   "required": [
+    "INS-REP-004::Article 5"
+   ],
+   "found": [
+    "INS-REP-004::Article 5"
+   ],
+   "complete": true,
+   "top_score": 6.44,
+   "would_decline": false,
+   "citations": [
+    {
+     "id": "INS-REP-004::Article 5",
+     "doc_id": "INS-REP-004",
+     "section": "Article 5",
+     "document": "Financial Reporting and External Audit Regulation",
+     "excerpt": "External Auditors must promptly report to the Central Bank violations of the Central Bank Laws, Regulations, instructions and any Matters of Significance arising from their audit of the Company. Any material reservations of the External Auditor in relation to finalisation of accounts and issuing of a clean audit opinio",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/financial-reporting-and-external-audit-regulation",
+     "score": 6.44,
+     "required": true
+    },
+    {
+     "id": "INS-REP-004::Article 3",
+     "doc_id": "INS-REP-004",
+     "section": "Article 3",
+     "document": "Financial Reporting and External Audit Regulation",
+     "excerpt": "The External Auditor must comply with the independence requirements laid down in the Central Bank Laws and this Regulation. The Central Bank may require a Company to rescind the appointment of an External Auditor when the Central Bank determines that the External Auditor has not adhered to established professional stan",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/financial-reporting-and-external-audit-regulation",
+     "score": 5.62,
+     "required": false
+    },
+    {
+     "id": "INS-TAK-005::Article 13",
+     "doc_id": "INS-TAK-005",
+     "section": "Article 13",
+     "document": "Standard Re External Shari'ah Audit for Takaful Insurance Companies",
+     "excerpt": "External Shari'ah Auditors must promptly report to the Central Bank regarding any violations of relevant laws, regulations, instructions and any matters of significance arising from their audit of the Company. The Company must promptly notify the Central Bank in case of resignation of their External Shari'ah Auditor an",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/standard-re-external-shari%E2%80%99ah-audit-takaful-insurance-companies",
+     "score": 5.53,
+     "required": false
+    }
+   ]
+  },
+  {
+   "id": "Q006",
+   "question": "Which control functions must an insurer maintain, and who is responsible for judging whether they are working?",
+   "category": "cross_section",
+   "difficulty": "medium",
+   "required": [
+    "INS-GOV-003::Article 5",
+    "INS-GOV-003::Article 3"
+   ],
+   "found": [
+    "INS-GOV-003::Article 5"
+   ],
+   "complete": false,
+   "top_score": -0.08,
+   "would_decline": true,
+   "citations": [
+    {
+     "id": "INS-GOV-003::Article 5",
+     "doc_id": "INS-GOV-003",
+     "section": "Article 5",
+     "document": "Risk Management and Internal Controls Regulation for Insurance Companies",
+     "excerpt": "A Company must have effective Control Functions with the necessary independence, authority and resources covering Risk Management, internal audit, compliance and actuarial. The effectiveness of the Control Functions must be assessed periodically by the Board. Control functions must be well resourced, with qualified sta",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/risk-management-and-internal-controls-regulation-insurance-companies",
+     "score": -0.08,
+     "required": true
+    },
+    {
+     "id": "INS-REP-003::First: Introduction",
+     "doc_id": "INS-REP-003",
+     "section": "First: Introduction",
+     "document": "A Guide to the Regulatory Information, Data and Reports to be Provided by Insurance Companies and Insurance-Related Professions",
+     "excerpt": "The procedures and operations of the internal control, compliance and risk management have developed from the traditional to the modern methods emanating from the global professional associations, which laid down the international standards of the internal control, compliance, risk management operations in terms of pla",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/guide-regulatory-information-data-and-reports-be-provided-insurance-companies-and",
+     "score": -0.81,
+     "required": false
+    },
+    {
+     "id": "INS-GOV-004::2",
+     "doc_id": "INS-GOV-004",
+     "section": "2",
+     "document": "Risk Management and Internal Controls Standards for Insurance Companies",
+     "excerpt": "A Company must establish, implement and maintain systems of Risk Management and Internal Controls that enable it to identify, assess, measure, monitor, control, mitigate and report on risk. The Board is responsible for the implementation of an effective Risk Culture and Internal Controls across the Company and its Subs",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/risk-management-and-internal-controls-standards-insurance-companies",
+     "score": -0.85,
+     "required": false
+    }
+   ]
+  },
+  {
+   "id": "Q007",
+   "question": "An insurer's risk management system has to cover the risks that feed the solvency capital calculation. Where is the confidence level and time horizon for that calculation actually fixed, and what are they?",
+   "category": "cross_document",
+   "difficulty": "hard",
+   "required": [
+    "INS-GOV-003::Article 3",
+    "INS-FIN-001::Section 2, Article 4"
+   ],
+   "found": [
+    "INS-GOV-003::Article 3",
+    "INS-FIN-001::Section 2, Article 4"
+   ],
+   "complete": true,
+   "top_score": 1.94,
+   "would_decline": true,
+   "citations": [
+    {
+     "id": "INS-FIN-001::Section 2, Addendum (2)",
+     "doc_id": "INS-FIN-001",
+     "section": "Section 2, Addendum (2)",
+     "document": "Insurance Authority Board Decision Number (25) of 2014 Pertinent to Financial Regulations for Insurance Companies",
+     "excerpt": "The risk management strategy shall cover not only the identification, assessment, control and monitoring of risks but also contingency plans to deal with risks should they materialize, or adverse developments in important areas of risk. The Company shall have in place an effective risk management framework consisting o",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/insurance-authority-board-decision-number-25-2014-pertinent-financial-regulations",
+     "score": 1.94,
+     "required": false
+    },
+    {
+     "id": "INS-GOV-003::Article 3",
+     "doc_id": "INS-GOV-003",
+     "section": "Article 3",
+     "document": "Risk Management and Internal Controls Regulation for Insurance Companies",
+     "excerpt": "A Company's Risk Management system must be designed to operate at all levels to allow for the identification, assessment, monitoring, measuring, controlling, reporting and mitigating of all risks of the Company in a timely manner. It must also cover the risks to be included in the calculation of the Solvency Capital Re",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/risk-management-and-internal-controls-regulation-insurance-companies",
+     "score": 1.06,
+     "required": true
+    },
+    {
+     "id": "INS-FIN-001::Section 2, Article 4",
+     "doc_id": "INS-FIN-001",
+     "section": "Section 2, Article 4",
+     "document": "Insurance Authority Board Decision Number (25) of 2014 Pertinent to Financial Regulations for Insurance Companies",
+     "excerpt": "The Solvency Capital Requirement shall be calibrated so as to ensure that all quantifiable risks to which each Company is exposed are taken into account. It shall correspond to the Value-at-Risk of the Basic Own Funds of a Company subject to a confidence level of 99.5% over a one year period. The Solvency Capital Requi",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/insurance-authority-board-decision-number-25-2014-pertinent-financial-regulations",
+     "score": 0.16,
+     "required": true
+    }
+   ]
+  },
+  {
+   "id": "Q008",
+   "question": "An insurer is checking its capital position. What is the minimum capital it must hold, and what separate fund floor applies alongside it?",
+   "category": "cross_section",
+   "difficulty": "medium",
+   "required": [
+    "INS-FIN-001::Section 2, Article 1",
+    "INS-FIN-001::Section 2, Article 2"
+   ],
+   "found": [
+    "INS-FIN-001::Section 2, Article 1"
+   ],
+   "complete": false,
+   "top_score": -2.19,
+   "would_decline": true,
+   "citations": [
+    {
+     "id": "INS-FIN-001::Section 2, Article 1",
+     "doc_id": "INS-FIN-001",
+     "section": "Section 2, Article 1",
+     "document": "Insurance Authority Board Decision Number (25) of 2014 Pertinent to Financial Regulations for Insurance Companies",
+     "excerpt": "The Minimum Subscribed and Paid Up Capital of each Company should not be less than the following: AED 100 million for an insurance Company. AED 250 million for a reinsurance Company.",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/insurance-authority-board-decision-number-25-2014-pertinent-financial-regulations",
+     "score": -2.19,
+     "required": true
+    },
+    {
+     "id": "INS-FIN-002::First Article – Glossary",
+     "doc_id": "INS-FIN-002",
+     "section": "First Article – Glossary",
+     "document": "Insurance Authority Board Decision Number (26) of 2014 Pertinent to Financial Regulations for Takaful Insurance Companies",
+     "excerpt": "Funds that the Company is required to maintain to fulfill the obligations of the Minimum Capital Requirement, Minimum Guarantee Fund and Solvency Capital Requirement. Minimum Capital Requirement The minimum capital required to be maintained by a Company at all times as directed by the Authority.",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/insurance-authority-board-decision-number-26-2014-pertinent-financial-regulations-takaful",
+     "score": -3.28,
+     "required": false
+    },
+    {
+     "id": "INS-FIN-002::Section 7, Appendix 1",
+     "doc_id": "INS-FIN-002",
+     "section": "Section 7, Appendix 1",
+     "document": "Insurance Authority Board Decision Number (26) of 2014 Pertinent to Financial Regulations for Takaful Insurance Companies",
+     "excerpt": "The table below summarizes the Minimum Capital Requirement, Minimum Guarantee Fund and Solvency Capital Requirement of the Company and the total capital held to meet these required Solvency Margins. December 31, 20XX 20YY AED AED Minimum Capital Requirement (MCR) Solvency Capital Requirement (SCR) Minimum Guarantee Fun",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/insurance-authority-board-decision-number-26-2014-pertinent-financial-regulations-takaful",
+     "score": -3.43,
+     "required": false
+    }
+   ]
+  },
+  {
+   "id": "Q009",
+   "question": "Does a Takaful operator have to hold a different amount of minimum paid up capital than a conventional insurer?",
+   "category": "comparative",
+   "difficulty": "medium",
+   "required": [
+    "INS-FIN-001::Section 2, Article 1",
+    "INS-FIN-002::Section 2, Article 1"
+   ],
+   "found": [
+    "INS-FIN-002::Section 2, Article 1"
+   ],
+   "complete": false,
+   "top_score": 3.87,
+   "would_decline": true,
+   "citations": [
+    {
+     "id": "INS-FIN-002::Section 2, Article 1",
+     "doc_id": "INS-FIN-002",
+     "section": "Section 2, Article 1",
+     "document": "Insurance Authority Board Decision Number (26) of 2014 Pertinent to Financial Regulations for Takaful Insurance Companies",
+     "excerpt": "The Minimum Subscribed and Paid Up Capital of each Company should not be less than the following: AED 100 million for Takaful operators. AED 250 million for Re-Takaful operators.",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/insurance-authority-board-decision-number-26-2014-pertinent-financial-regulations-takaful",
+     "score": 3.87,
+     "required": true
+    },
+    {
+     "id": "INS-FIN-002::Section 1, Addendum (1)",
+     "doc_id": "INS-FIN-002",
+     "section": "Section 1, Addendum (1)",
+     "document": "Insurance Authority Board Decision Number (26) of 2014 Pertinent to Financial Regulations for Takaful Insurance Companies",
+     "excerpt": "The investment portfolio shall consider the type of business carried out by the Company, in particular the nature, amount and duration of expected claim payments, in such a way as to secure the sufficiency, liquidity, security, quality, profitability and matching of its assets . With respect to the whole portfolio of a",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/insurance-authority-board-decision-number-26-2014-pertinent-financial-regulations-takaful",
+     "score": -0.1,
+     "required": false
+    },
+    {
+     "id": "INS-TAK-006::Article 15",
+     "doc_id": "INS-TAK-006",
+     "section": "Article 15",
+     "document": "Standard Re the Operational Model of Takaful Insurance",
+     "excerpt": "The Company may cover some of the risks of the Takaful Insurance Fund to conventional reinsurance companies according to specific controls: The Company should prioritize Re takaful insurance companies before approaching conventional reinsurance. There are no Takaful Insurance Companies or Re-takaful insurance companies",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/standard-re-operational-model-takaful-insurance",
+     "score": -0.45,
+     "required": false
+    }
+   ]
+  },
+  {
+   "id": "Q010",
+   "question": "Is the Minimum Guarantee Fund floor set differently for Takaful operators than for conventional insurers?",
+   "category": "comparative",
+   "difficulty": "medium",
+   "required": [
+    "INS-FIN-001::Section 2, Article 2",
+    "INS-FIN-002::Section 2, Article 2"
+   ],
+   "found": [],
+   "complete": false,
+   "top_score": 0.45,
+   "would_decline": true,
+   "citations": [
+    {
+     "id": "INS-FIN-002::Section 1, Addendum (1)",
+     "doc_id": "INS-FIN-002",
+     "section": "Section 1, Addendum (1)",
+     "document": "Insurance Authority Board Decision Number (26) of 2014 Pertinent to Financial Regulations for Takaful Insurance Companies",
+     "excerpt": "With respect to the whole portfolio of assets, Takaful operators shall only invest in assets and instruments whose risks can be properly identified, measured, monitored, managed, controlled and reported thereof, and appropriately take into account in the assessment of its overall solvency needs as detailed in the Solve",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/insurance-authority-board-decision-number-26-2014-pertinent-financial-regulations-takaful",
+     "score": 0.45,
+     "required": false
+    },
+    {
+     "id": "INS-TAK-006::Article 15",
+     "doc_id": "INS-TAK-006",
+     "section": "Article 15",
+     "document": "Standard Re the Operational Model of Takaful Insurance",
+     "excerpt": "The Takaful Insurance Fund must have an approved Re-takaful insurance policy. The Company may cover some risks of the Takaful Insurance Fund by Re takaful Insurance Companies. The Company may cover some of the risks of the Takaful Insurance Fund to conventional reinsurance companies according to specific controls:",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/standard-re-operational-model-takaful-insurance",
+     "score": 0.35,
+     "required": false
+    },
+    {
+     "id": "INS-FIN-002::Section 2, Article 1",
+     "doc_id": "INS-FIN-002",
+     "section": "Section 2, Article 1",
+     "document": "Insurance Authority Board Decision Number (26) of 2014 Pertinent to Financial Regulations for Takaful Insurance Companies",
+     "excerpt": "The Minimum Subscribed and Paid Up Capital of each Company should not be less than the following: AED 100 million for Takaful operators. AED 250 million for Re-Takaful operators.",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/insurance-authority-board-decision-number-26-2014-pertinent-financial-regulations-takaful",
+     "score": -0.25,
+     "required": false
+    }
+   ]
+  },
+  {
+   "id": "Q011",
+   "question": "Do Takaful operators face a different solvency confidence level from conventional insurers?",
+   "category": "comparative",
+   "difficulty": "medium",
+   "required": [
+    "INS-FIN-001::Section 2, Article 4",
+    "INS-FIN-002::Section 2, Article 4"
+   ],
+   "found": [
+    "INS-FIN-002::Section 2, Article 4"
+   ],
+   "complete": false,
+   "top_score": -0.31,
+   "would_decline": true,
+   "citations": [
+    {
+     "id": "INS-TAK-001::Article 24",
+     "doc_id": "INS-TAK-001",
+     "section": "Article 24",
+     "document": "Regulation Regarding Takaful Insurance",
+     "excerpt": "The Company must comply with the solvency requirements stated in the Financial Regulations for Takaful Insurance Companies. For the purpose of regulatory solvency reporting, the solvency assessment shall be conducted at the level of the Company, on a consolidated basis, encompassing both the Shareholders' Account and t",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/regulation-regarding-takaful-insurance-0",
+     "score": -0.31,
+     "required": false
+    },
+    {
+     "id": "INS-TAK-006::Article 15",
+     "doc_id": "INS-TAK-006",
+     "section": "Article 15",
+     "document": "Standard Re the Operational Model of Takaful Insurance",
+     "excerpt": "The Company may cover some of the risks of the Takaful Insurance Fund to conventional reinsurance companies according to specific controls: The Company should prioritize Re takaful insurance companies before approaching conventional reinsurance. There are no Takaful Insurance Companies or Re-takaful insurance companies",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/standard-re-operational-model-takaful-insurance",
+     "score": -0.42,
+     "required": false
+    },
+    {
+     "id": "INS-FIN-002::Section 1, Addendum (1)",
+     "doc_id": "INS-FIN-002",
+     "section": "Section 1, Addendum (1)",
+     "document": "Insurance Authority Board Decision Number (26) of 2014 Pertinent to Financial Regulations for Takaful Insurance Companies",
+     "excerpt": "With respect to the whole portfolio of assets, Takaful operators shall only invest in assets and instruments whose risks can be properly identified, measured, monitored, managed, controlled and reported thereof, and appropriately take into account in the assessment of its overall solvency needs as detailed in the Solve",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/insurance-authority-board-decision-number-26-2014-pertinent-financial-regulations-takaful",
+     "score": -0.47,
+     "required": false
+    }
+   ]
+  },
+  {
+   "id": "Q012",
+   "question": "Takaful operators are allowed a lower minimum paid up capital than conventional insurers. What is that reduced figure?",
+   "category": "adversarial",
+   "difficulty": "medium",
+   "required": [
+    "INS-FIN-001::Section 2, Article 1",
+    "INS-FIN-002::Section 2, Article 1"
+   ],
+   "found": [
+    "INS-FIN-002::Section 2, Article 1"
+   ],
+   "complete": false,
+   "top_score": 3.79,
+   "would_decline": true,
+   "citations": [
+    {
+     "id": "INS-FIN-002::Section 2, Article 1",
+     "doc_id": "INS-FIN-002",
+     "section": "Section 2, Article 1",
+     "document": "Insurance Authority Board Decision Number (26) of 2014 Pertinent to Financial Regulations for Takaful Insurance Companies",
+     "excerpt": "The Minimum Subscribed and Paid Up Capital of each Company should not be less than the following: AED 100 million for Takaful operators. AED 250 million for Re-Takaful operators.",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/insurance-authority-board-decision-number-26-2014-pertinent-financial-regulations-takaful",
+     "score": 3.79,
+     "required": true
+    },
+    {
+     "id": "INS-TAK-006::Article 15",
+     "doc_id": "INS-TAK-006",
+     "section": "Article 15",
+     "document": "Standard Re the Operational Model of Takaful Insurance",
+     "excerpt": "The Company may cover some of the risks of the Takaful Insurance Fund to conventional reinsurance companies according to specific controls: The Company should prioritize Re takaful insurance companies before approaching conventional reinsurance. There are no Takaful Insurance Companies or Re-takaful insurance companies",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/standard-re-operational-model-takaful-insurance",
+     "score": -0.85,
+     "required": false
+    },
+    {
+     "id": "INS-FIN-002::First Article – Glossary",
+     "doc_id": "INS-FIN-002",
+     "section": "First Article – Glossary",
+     "document": "Insurance Authority Board Decision Number (26) of 2014 Pertinent to Financial Regulations for Takaful Insurance Companies",
+     "excerpt": "Funds that the Company is required to maintain to fulfill the obligations of the Minimum Capital Requirement, Minimum Guarantee Fund and Solvency Capital Requirement. Minimum Capital Requirement The minimum capital required to be maintained by a Company at all times as directed by the Authority.",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/insurance-authority-board-decision-number-26-2014-pertinent-financial-regulations-takaful",
+     "score": -1.3,
+     "required": false
+    }
+   ]
+  },
+  {
+   "id": "Q013",
+   "question": "Two different instruments set a minimum capital figure for a reinsurance company. What are they, and do they agree?",
+   "category": "cross_document",
+   "difficulty": "medium",
+   "required": [
+    "INS-FIN-001::Section 2, Article 1",
+    "INS-OTH-001::Chapter Two, Article 12"
+   ],
+   "found": [
+    "INS-FIN-001::Section 2, Article 1",
+    "INS-OTH-001::Chapter Two, Article 12"
+   ],
+   "complete": true,
+   "top_score": 2.15,
+   "would_decline": true,
+   "citations": [
+    {
+     "id": "INS-OTH-001::Chapter Two, Article 12",
+     "doc_id": "INS-OTH-001",
+     "section": "Chapter Two, Article 12",
+     "document": "Insurance Authority's Board of Directors Decision No. (23) of 2019 Concerning Instructions Organizing Reinsurance Operations",
+     "excerpt": "The subscribed and paid up capital of the reinsurance company shall not be less than AED 250,000,000 (only two hundred and fifty million dirhams). The Authority may determine a minimum capital for the Company greater than that stipulated in the aforementioned sub-Article (1), if the Feasibility Study indicates that the",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/insurance-authority%E2%80%99s-board-directors-decision-no23-2019-concerning-instructions",
+     "score": 2.15,
+     "required": true
+    },
+    {
+     "id": "INS-FIN-005::Article 3",
+     "doc_id": "INS-FIN-005",
+     "section": "Article 3",
+     "document": "Cabinet Resolution No. 42 of 2009 Concerning Insurance Company Minimum Capital Regulations",
+     "excerpt": "The subscribed and paid up capital of a company may not be less than AED 100,000,000 (One Hundred Million UAE Dirhams). The subscribed and paid up capital of a reinsurance company may not be less than AED 250,000,000 (Two Hundred And Fifty Million UAE Dirham).",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/cabinet-resolution-no-42-2009-concerning-insurance-company-minimum-capital-regulations",
+     "score": 1.79,
+     "required": false
+    },
+    {
+     "id": "INS-FIN-001::Section 2, Article 1",
+     "doc_id": "INS-FIN-001",
+     "section": "Section 2, Article 1",
+     "document": "Insurance Authority Board Decision Number (25) of 2014 Pertinent to Financial Regulations for Insurance Companies",
+     "excerpt": "The Minimum Subscribed and Paid Up Capital of each Company should not be less than the following: AED 100 million for an insurance Company. AED 250 million for a reinsurance Company.",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/insurance-authority-board-decision-number-25-2014-pertinent-financial-regulations",
+     "score": 1.0,
+     "required": true
+    }
+   ]
+  },
+  {
+   "id": "Q014",
+   "question": "Who does an insurer's actuarial function report to, and what restriction applies to the person heading it?",
+   "category": "cross_section",
+   "difficulty": "medium",
+   "required": [
+    "INS-GOV-003::Article 10",
+    "INS-GOV-003::Article 5"
+   ],
+   "found": [
+    "INS-GOV-003::Article 10"
+   ],
+   "complete": false,
+   "top_score": -1.84,
+   "would_decline": true,
+   "citations": [
+    {
+     "id": "INS-CON-007::Article 4",
+     "doc_id": "INS-CON-007",
+     "section": "Article 4",
+     "document": "Insurance Authority Board of Directors Resolution No. (11) of 2016 Concerning the Revision of the Pricing Policy Applied by a Company in the Classes of Property and Liability Insurance",
+     "excerpt": "If required, the other provisions and requirements set forth in the Financial Instructions for Insurance Companies concerning the Actuarial Report shall be adhered to.",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/insurance-authority-board-directors-resolution-no-11-2016-concerning-revision-pricing",
+     "score": -1.84,
+     "required": false
+    },
+    {
+     "id": "INS-CON-007::Article 3",
+     "doc_id": "INS-CON-007",
+     "section": "Article 3",
+     "document": "Insurance Authority Board of Directors Resolution No. (11) of 2016 Concerning the Revision of the Pricing Policy Applied by a Company in the Classes of Property and Liability Insurance",
+     "excerpt": "The Actuary must submit his report to both the Insurance Authority, the company's Board of Directors and management within 15 days from the date of its preparation. The management of the company must provide the Insurance Authority and the company's Board of Directors with its views concerning the comments and suggesti",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/insurance-authority-board-directors-resolution-no-11-2016-concerning-revision-pricing",
+     "score": -2.63,
+     "required": false
+    },
+    {
+     "id": "INS-FIN-002::Section 3, Article 4",
+     "doc_id": "INS-FIN-002",
+     "section": "Section 3, Article 4",
+     "document": "Insurance Authority Board Decision Number (26) of 2014 Pertinent to Financial Regulations for Takaful Insurance Companies",
+     "excerpt": "The following provisions apply to the actuarial requirements for technical provision: The Actuary's report can cover any aspect, which in the Actuary's opinion constitutes a contravention of the insurer's ability or prejudices the insurer's ability to meet its liabilities and capital adequacy currently or in the future",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/insurance-authority-board-decision-number-26-2014-pertinent-financial-regulations-takaful",
+     "score": -2.73,
+     "required": false
+    }
+   ]
+  },
+  {
+   "id": "Q015",
+   "question": "What is an insurer's risk management function responsible for, who must lead it, and how is its independence protected?",
+   "category": "cross_section",
+   "difficulty": "medium",
+   "required": [
+    "INS-GOV-003::Article 6",
+    "INS-GOV-003::Article 5"
+   ],
+   "found": [
+    "INS-GOV-003::Article 6"
+   ],
+   "complete": false,
+   "top_score": 1.39,
+   "would_decline": true,
+   "citations": [
+    {
+     "id": "INS-GOV-003::Article 6",
+     "doc_id": "INS-GOV-003",
+     "section": "Article 6",
+     "document": "Risk Management and Internal Controls Regulation for Insurance Companies",
+     "excerpt": "A Company must have an effective Risk Management function to identify, assess, measure monitor, control, report and mitigate its key risks in a timely manner and to promote and sustain a sound Risk Culture. The Risk Management function is responsible for assisting the Board, Board committees and Senior Management with",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/risk-management-and-internal-controls-regulation-insurance-companies",
+     "score": 1.39,
+     "required": true
+    },
+    {
+     "id": "INS-GOV-004::6",
+     "doc_id": "INS-GOV-004",
+     "section": "6",
+     "document": "Risk Management and Internal Controls Standards for Insurance Companies",
+     "excerpt": "The Risk Management function must have responsibility for the following, at a minimum: The Board must ensure that the Risk Management function is properly staffed, resourced and carries out its responsibilities independently and effectively. This includes unrestrained access to all information needed for the Risk Manag",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/risk-management-and-internal-controls-standards-insurance-companies",
+     "score": 0.19,
+     "required": false
+    },
+    {
+     "id": "INS-GOV-008::3.4",
+     "doc_id": "INS-GOV-008",
+     "section": "3.4",
+     "document": "Standards re Enterprise Risk Management for Solvency Purposes for Insurance Companies",
+     "excerpt": "The Risk Management function must provide support to the Board, risk committee and Senior Management in establishing and implementing appropriate policies and procedures in relation to the ERM framework. The scope of support must include solvency, capital and liquidity planning, product management, business planning, r",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/standards-re-enterprise-risk-management-solvency-purposes-insurance-companies",
+     "score": 0.03,
+     "required": false
+    }
+   ]
+  },
+  {
+   "id": "Q016",
+   "question": "What must an insurer's compliance function be set up to do, and where does ultimate responsibility for compliance culture sit?",
+   "category": "cross_section",
+   "difficulty": "medium",
+   "required": [
+    "INS-GOV-003::Article 9",
+    "INS-GOV-003::Article 5"
+   ],
+   "found": [
+    "INS-GOV-003::Article 9"
+   ],
+   "complete": false,
+   "top_score": 3.17,
+   "would_decline": true,
+   "citations": [
+    {
+     "id": "INS-GOV-003::Article 9",
+     "doc_id": "INS-GOV-003",
+     "section": "Article 9",
+     "document": "Risk Management and Internal Controls Regulation for Insurance Companies",
+     "excerpt": "A Company must have an effective compliance function in order to fulfil its legal and regulatory obligations and to promote and sustain a compliance culture. The compliance function must establish and maintain appropriate mechanisms and activities to identify, assess, report on and address key legal and regulatory obli",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/risk-management-and-internal-controls-regulation-insurance-companies",
+     "score": 3.17,
+     "required": true
+    },
+    {
+     "id": "INS-GOV-004::9",
+     "doc_id": "INS-GOV-004",
+     "section": "9",
+     "document": "Risk Management and Internal Controls Standards for Insurance Companies",
+     "excerpt": "The compliance function must have access to any member of Staff and all records and data of the Company, and if applicable, the Company's Affiliates and Subsidiaries, which are required to comply with the Central Bank's requirements. The compliance function must be assigned responsibility for the following, at a minimu",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/risk-management-and-internal-controls-standards-insurance-companies",
+     "score": 2.0,
+     "required": false
+    },
+    {
+     "id": "INS-GOV-004::11",
+     "doc_id": "INS-GOV-004",
+     "section": "11",
+     "document": "Risk Management and Internal Controls Standards for Insurance Companies",
+     "excerpt": "The internal audit function must be responsible for the following matters, at a minimum: Where necessary, the internal audit function may carry out audits which are not included in the audit plan. Disclosing any adverse matters affecting the function's independence.",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/risk-management-and-internal-controls-standards-insurance-companies",
+     "score": -0.33,
+     "required": false
+    }
+   ]
+  },
+  {
+   "id": "Q017",
+   "question": "The actuarial function has to satisfy requirements set outside the risk management regulation. Which of those instruments governs solvency, and what does it require?",
+   "category": "cross_document",
+   "difficulty": "hard",
+   "required": [
+    "INS-GOV-003::Article 10",
+    "INS-FIN-001::Section 2, Article 4"
+   ],
+   "found": [
+    "INS-GOV-003::Article 10"
+   ],
+   "complete": false,
+   "top_score": 5.09,
+   "would_decline": false,
+   "citations": [
+    {
+     "id": "INS-GOV-003::Article 10",
+     "doc_id": "INS-GOV-003",
+     "section": "Article 10",
+     "document": "Risk Management and Internal Controls Regulation for Insurance Companies",
+     "excerpt": "A Company must have an effective and independent actuarial function capable of evaluating and providing advice regarding, at a minimum, technical provisions, premium and pricing adequacy, solvency, capital adequacy and reinsurance, so as to contribute to the effective implementation of the risk management system to sat",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/risk-management-and-internal-controls-regulation-insurance-companies",
+     "score": 5.09,
+     "required": true
+    },
+    {
+     "id": "INS-GOV-004::10",
+     "doc_id": "INS-GOV-004",
+     "section": "10",
+     "document": "Risk Management and Internal Controls Standards for Insurance Companies",
+     "excerpt": "An effective actuarial function must be well resourced and properly authorised and staffed as it plays a major role in the Company's overall system of Risk Management and Internal Controls. The actuarial function conducts all the actuarial undertakings per Article (10) of the Regulation, which must include, among other",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/risk-management-and-internal-controls-standards-insurance-companies",
+     "score": 3.91,
+     "required": false
+    },
+    {
+     "id": "INS-GOV-001::Article 7",
+     "doc_id": "INS-GOV-001",
+     "section": "Article 7",
+     "document": "Corporate Governance Regulation for Insurance Companies",
+     "excerpt": "A Company must have an appropriate Risk Governance Framework that provides a Company-wide and, if applicable, Group-wide view of all material risks pursuant to the Financial Regulation and Takaful Regulation, as the case may be. The Company's risk management function must be independent of the management and decision-m",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/corporate-governance-regulation-insurance-companies",
+     "score": 1.74,
+     "required": false
+    }
+   ]
+  },
+  {
+   "id": "Q018",
+   "question": "A parent company in an insurance group is preparing its risk concentration report. What must it take into account at group level, and what must each company's own risk system already cover?",
+   "category": "cross_document",
+   "difficulty": "medium",
+   "required": [
+    "INS-OTH-003::Article 4",
+    "INS-GOV-003::Article 3"
+   ],
+   "found": [
+    "INS-OTH-003::Article 4",
+    "INS-GOV-003::Article 3"
+   ],
+   "complete": true,
+   "top_score": 4.99,
+   "would_decline": true,
+   "citations": [
+    {
+     "id": "INS-OTH-003::Article 4",
+     "doc_id": "INS-OTH-003",
+     "section": "Article 4",
+     "document": "Insurance Group Supervision Regulation",
+     "excerpt": "The Parent must report to the Central Bank any significant risk concentration at the level of the Group, at the frequency and within deadlines determined by the Central Bank. For the purposes of identifying significant risk concentrations, the Parent must consider, at least, direct and indirect exposures of Companies i",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/insurance-group-supervision-regulation",
+     "score": 4.99,
+     "required": true
+    },
+    {
+     "id": "INS-GOV-003::Article 3",
+     "doc_id": "INS-GOV-003",
+     "section": "Article 3",
+     "document": "Risk Management and Internal Controls Regulation for Insurance Companies",
+     "excerpt": "Risk Management system must specifically take into account risks arising from the Group relationship and clearly identify: a. Linkages and any significant differences between the Company's and the Group's Risk Governance System. As part of its Risk Management system the Company shall conduct its Own Risk and Solvency A",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/risk-management-and-internal-controls-regulation-insurance-companies",
+     "score": -0.32,
+     "required": true
+    },
+    {
+     "id": "INS-OTH-003::Article 5",
+     "doc_id": "INS-OTH-003",
+     "section": "Article 5",
+     "document": "Insurance Group Supervision Regulation",
+     "excerpt": "The Parent must report to the Central Bank significant Intragroup Transactions, at the frequency and within deadlines determined by the Central Bank. Intragroup Transactions that materially influence the solvency or liquidity position of the Group, or of one of the Companies involved in these Intragroup Transactions mu",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/insurance-group-supervision-regulation",
+     "score": -0.01,
+     "required": false
+    }
+   ]
+  },
+  {
+   "id": "Q019",
+   "question": "Since an insurer's Chief Risk Officer must also head underwriting, how is that conflict of interest managed?",
+   "category": "adversarial",
+   "difficulty": "medium",
+   "required": [
+    "INS-GOV-003::Article 6",
+    "INS-GOV-003::Article 5"
+   ],
+   "found": [
+    "INS-GOV-003::Article 6"
+   ],
+   "complete": false,
+   "top_score": -1.08,
+   "would_decline": true,
+   "citations": [
+    {
+     "id": "INS-GOV-004::6",
+     "doc_id": "INS-GOV-004",
+     "section": "6",
+     "document": "Risk Management and Internal Controls Standards for Insurance Companies",
+     "excerpt": "The Risk Management function must have responsibility for the following, at a minimum: Not have a decision-making role in the Company's risk-taking functions, including underwriting or other equivalent function. Not be the Chief Executive Officer of the Company, or the head of underwriting or reinsurance, or the head o",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/risk-management-and-internal-controls-standards-insurance-companies",
+     "score": -1.08,
+     "required": false
+    },
+    {
+     "id": "INS-GOV-002::2",
+     "doc_id": "INS-GOV-002",
+     "section": "2",
+     "document": "Corporate Governance Standards for Insurance Companies",
+     "excerpt": "A Board review and approval process applicable to members of the Board before they engage in specific activities, such as serving on another Board, to ensure that such activities will not create a Conflict of Interest; A member of the Board's duty to promptly disclose any matter that may result, or has already resulted",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/corporate-governance-standards-insurance-companies",
+     "score": -2.35,
+     "required": false
+    },
+    {
+     "id": "INS-GOV-002::1",
+     "doc_id": "INS-GOV-002",
+     "section": "1",
+     "document": "Corporate Governance Standards for Insurance Companies",
+     "excerpt": "Chief Executive Officer: Conflict of Interest: A situation of actual or perceived conflict between the duty and private interests of a person, which could improperly influence the performance of his/her duties and responsibilities.",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/corporate-governance-standards-insurance-companies",
+     "score": -2.61,
+     "required": false
+    }
+   ]
+  },
+  {
+   "id": "Q020",
+   "question": "What authority must an insurer's control functions have over the rest of the business, and what specifically is the risk management function responsible for producing?",
+   "category": "cross_section",
+   "difficulty": "medium",
+   "required": [
+    "INS-GOV-004::5",
+    "INS-GOV-004::6"
+   ],
+   "found": [],
+   "complete": false,
+   "top_score": 4.07,
+   "would_decline": true,
+   "citations": [
+    {
+     "id": "INS-GOV-003::Article 5",
+     "doc_id": "INS-GOV-003",
+     "section": "Article 5",
+     "document": "Risk Management and Internal Controls Regulation for Insurance Companies",
+     "excerpt": "A Company must have effective Control Functions with the necessary independence, authority and resources covering Risk Management, internal audit, compliance and actuarial. The existence of a control function does not relieve the Board and Senior Management of their responsibilities. The Board must approve and document",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/risk-management-and-internal-controls-regulation-insurance-companies",
+     "score": 4.07,
+     "required": false
+    },
+    {
+     "id": "INS-GOV-003::Article 6",
+     "doc_id": "INS-GOV-003",
+     "section": "Article 6",
+     "document": "Risk Management and Internal Controls Regulation for Insurance Companies",
+     "excerpt": "A Company must have an effective Risk Management function to identify, assess, measure monitor, control, report and mitigate its key risks in a timely manner and to promote and sustain a sound Risk Culture. The Risk Management function is responsible for assisting the Board, Board committees and Senior Management with",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/risk-management-and-internal-controls-regulation-insurance-companies",
+     "score": 3.48,
+     "required": false
+    },
+    {
+     "id": "INS-GOV-003::Introduction",
+     "doc_id": "INS-GOV-003",
+     "section": "Introduction",
+     "document": "Risk Management and Internal Controls Regulation for Insurance Companies",
+     "excerpt": "To this end, Companies are required to have a comprehensive approach to Risk Management and effective Internal Controls, including Board and Senior Management oversight, to ensure their resiliency and enhance overall financial stability. Risk Management, internal audit, compliance, and actuarial functions constitute ke",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/risk-management-and-internal-controls-regulation-insurance-companies",
+     "score": 2.95,
+     "required": false
+    }
+   ]
+  },
+  {
+   "id": "Q021",
+   "question": "Which function assesses whether an insurer's liabilities are sufficient, and which one maintains the aggregated view of its risk profile?",
+   "category": "cross_section",
+   "difficulty": "medium",
+   "required": [
+    "INS-GOV-004::10",
+    "INS-GOV-004::6"
+   ],
+   "found": [
+    "INS-GOV-004::10",
+    "INS-GOV-004::6"
+   ],
+   "complete": true,
+   "top_score": 1.02,
+   "would_decline": true,
+   "citations": [
+    {
+     "id": "INS-GOV-004::10",
+     "doc_id": "INS-GOV-004",
+     "section": "10",
+     "document": "Risk Management and Internal Controls Standards for Insurance Companies",
+     "excerpt": "An effective actuarial function must be well resourced and properly authorised and staffed as it plays a major role in the Company's overall system of Risk Management and Internal Controls. The progressive tendency of a portfolio of insurance contracts to attract or retain insured persons with a higher risk profile (an",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/risk-management-and-internal-controls-standards-insurance-companies",
+     "score": 1.02,
+     "required": true
+    },
+    {
+     "id": "INS-GOV-004::6",
+     "doc_id": "INS-GOV-004",
+     "section": "6",
+     "document": "Risk Management and Internal Controls Standards for Insurance Companies",
+     "excerpt": "The Risk Management function must have responsibility for the following, at a minimum: Gaining and maintain an aggregated view of the Risk Profile of the Company on an entity and/or Group-wide basis; Establishing a process for conducting forward-looking assessments of the Risk Profile on a regular basis;",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/risk-management-and-internal-controls-standards-insurance-companies",
+     "score": 0.76,
+     "required": true
+    },
+    {
+     "id": "INS-GOV-003::Article 6",
+     "doc_id": "INS-GOV-003",
+     "section": "Article 6",
+     "document": "Risk Management and Internal Controls Regulation for Insurance Companies",
+     "excerpt": "A Company must have an effective Risk Management function to identify, assess, measure monitor, control, report and mitigate its key risks in a timely manner and to promote and sustain a sound Risk Culture. The Risk Management function is responsible for assisting the Board, Board committees and Senior Management with",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/risk-management-and-internal-controls-regulation-insurance-companies",
+     "score": -1.82,
+     "required": false
+    }
+   ]
+  },
+  {
+   "id": "Q022",
+   "question": "What must an insurer's compliance staff be trained on, and what must a Board-approved policy cover before a material function is outsourced?",
+   "category": "cross_section",
+   "difficulty": "medium",
+   "required": [
+    "INS-GOV-004::9",
+    "INS-GOV-004::12"
+   ],
+   "found": [
+    "INS-GOV-004::9",
+    "INS-GOV-004::12"
+   ],
+   "complete": true,
+   "top_score": 2.98,
+   "would_decline": true,
+   "citations": [
+    {
+     "id": "INS-GOV-003::Article 9",
+     "doc_id": "INS-GOV-003",
+     "section": "Article 9",
+     "document": "Risk Management and Internal Controls Regulation for Insurance Companies",
+     "excerpt": "A Company must have a Board-approved compliance policy that is communicated to all members of Staff specifying the purpose, standing, and authority of the compliance function within the Company, and if applicable the Group. The compliance function must have access to and provide written reports to the Board and Senior",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/risk-management-and-internal-controls-regulation-insurance-companies",
+     "score": 2.98,
+     "required": false
+    },
+    {
+     "id": "INS-GOV-004::9",
+     "doc_id": "INS-GOV-004",
+     "section": "9",
+     "document": "Risk Management and Internal Controls Standards for Insurance Companies",
+     "excerpt": "The compliance function must have access to any member of Staff and all records and data of the Company, and if applicable, the Company's Affiliates and Subsidiaries, which are required to comply with the Central Bank's requirements. A consistent approach to compliance across the Group may be achieved through the estab",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/risk-management-and-internal-controls-standards-insurance-companies",
+     "score": 1.8,
+     "required": true
+    },
+    {
+     "id": "INS-GOV-001::Article 8",
+     "doc_id": "INS-GOV-001",
+     "section": "Article 8",
+     "document": "Corporate Governance Regulation for Insurance Companies",
+     "excerpt": "A Company must have a Board-approved compensation system that supports sound Corporate Governance and risk management, including appropriate incentives aligned with prudent risk-taking. The compensation of Staff in the control functions of risk management, compliance and internal audit must be predominantly fixed, to r",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/corporate-governance-regulation-insurance-companies",
+     "score": 1.08,
+     "required": false
+    }
+   ]
+  },
+  {
+   "id": "Q023",
+   "question": "An insurer is preparing to outsource a material activity. What must its risk governance system already contain, and which listed element of the risk management system does that fall under?",
+   "category": "cross_section",
+   "difficulty": "hard",
+   "required": [
+    "INS-GOV-003::Article 12",
+    "INS-GOV-003::Article 3"
+   ],
+   "found": [
+    "INS-GOV-003::Article 12"
+   ],
+   "complete": false,
+   "top_score": 4.11,
+   "would_decline": true,
+   "citations": [
+    {
+     "id": "INS-GOV-003::Article 12",
+     "doc_id": "INS-GOV-003",
+     "section": "Article 12",
+     "document": "Risk Management and Internal Controls Regulation for Insurance Companies",
+     "excerpt": "The Risk Governance System must address the following matters: The Risk Governance System must provide an entity-wide or, if applicable, Group-wide view of the risks associated with Outsourcing, including any services the Company provides to, or receives from, other Group members. The Board and Senior Management must c",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/risk-management-and-internal-controls-regulation-insurance-companies",
+     "score": 4.11,
+     "required": true
+    },
+    {
+     "id": "INS-GOV-004::12",
+     "doc_id": "INS-GOV-004",
+     "section": "12",
+     "document": "Risk Management and Internal Controls Standards for Insurance Companies",
+     "excerpt": "The Risk Governance System must, at a minimum, provide for the following with respect to Outsourcing: A Board-approved policy that sets out how the materiality of a proposed Outsourcing arrangement is assessed and requiring any material Outsourcing arrangements to be approved by the Board, or the risk/audit committee o",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/risk-management-and-internal-controls-standards-insurance-companies",
+     "score": 3.48,
+     "required": false
+    },
+    {
+     "id": "INS-GOV-004::3",
+     "doc_id": "INS-GOV-004",
+     "section": "3",
+     "document": "Risk Management and Internal Controls Standards for Insurance Companies",
+     "excerpt": "The Risk Management system must address the following: Qualitative and quantitative assessments of all reasonably foreseeable and relevant material risks and risk interdependencies for risk and capital management. Must explain the relationship between the Risk Management system and how it addresses risks according to t",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/risk-management-and-internal-controls-standards-insurance-companies",
+     "score": 2.52,
+     "required": false
+    }
+   ]
+  },
+  {
+   "id": "Q024",
+   "question": "When an insurer outsources, what must the risk governance system provide for, and which function is responsible for identifying the resulting risks?",
+   "category": "cross_section",
+   "difficulty": "medium",
+   "required": [
+    "INS-GOV-003::Article 12",
+    "INS-GOV-003::Article 6"
+   ],
+   "found": [
+    "INS-GOV-003::Article 12",
+    "INS-GOV-003::Article 6"
+   ],
+   "complete": true,
+   "top_score": 5.9,
+   "would_decline": false,
+   "citations": [
+    {
+     "id": "INS-GOV-003::Article 12",
+     "doc_id": "INS-GOV-003",
+     "section": "Article 12",
+     "document": "Risk Management and Internal Controls Regulation for Insurance Companies",
+     "excerpt": "The Risk Governance System must address the following matters: Companies' Risk Governance Systems must include policies and procedures for the assessment of any proposed Outsourcing and the identification, assessment measurement, monitoring, controlling, reporting and mitigating of any risks associated with existing an",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/risk-management-and-internal-controls-regulation-insurance-companies",
+     "score": 5.9,
+     "required": true
+    },
+    {
+     "id": "INS-GOV-004::12",
+     "doc_id": "INS-GOV-004",
+     "section": "12",
+     "document": "Risk Management and Internal Controls Standards for Insurance Companies",
+     "excerpt": "The Risk Governance System must, at a minimum, provide for the following with respect to Outsourcing: A Board-approved policy that sets out how the materiality of a proposed Outsourcing arrangement is assessed and requiring any material Outsourcing arrangements to be approved by the Board, or the risk/audit committee o",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/risk-management-and-internal-controls-standards-insurance-companies",
+     "score": 5.58,
+     "required": false
+    },
+    {
+     "id": "INS-GOV-003::Article 6",
+     "doc_id": "INS-GOV-003",
+     "section": "Article 6",
+     "document": "Risk Management and Internal Controls Regulation for Insurance Companies",
+     "excerpt": "A Company must have an effective Risk Management function to identify, assess, measure monitor, control, report and mitigate its key risks in a timely manner and to promote and sustain a sound Risk Culture. The Risk Management function is responsible for assisting the Board, Board committees and Senior Management with",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/risk-management-and-internal-controls-regulation-insurance-companies",
+     "score": 4.55,
+     "required": true
+    }
+   ]
+  },
+  {
+   "id": "Q025",
+   "question": "An insurer must maintain control functions. Where is the requirement to set out their authority in writing, and where does the obligation to have them at all come from?",
+   "category": "cross_document",
+   "difficulty": "hard",
+   "required": [
+    "INS-GOV-003::Article 5",
+    "INS-GOV-004::5"
+   ],
+   "found": [
+    "INS-GOV-003::Article 5",
+    "INS-GOV-004::5"
+   ],
+   "complete": true,
+   "top_score": 2.69,
+   "would_decline": true,
+   "citations": [
+    {
+     "id": "INS-GOV-004::5",
+     "doc_id": "INS-GOV-004",
+     "section": "5",
+     "document": "Risk Management and Internal Controls Standards for Insurance Companies",
+     "excerpt": "The authority and responsibilities of each control function must be set out in writing and made part of the Company's governance documentation. Staff who perform Control Functions must be suitable for their role and meet any applicable professional qualifications and standards. Each control function must have the autho",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/risk-management-and-internal-controls-standards-insurance-companies",
+     "score": 2.69,
+     "required": true
+    },
+    {
+     "id": "INS-GOV-003::Article 5",
+     "doc_id": "INS-GOV-003",
+     "section": "Article 5",
+     "document": "Risk Management and Internal Controls Regulation for Insurance Companies",
+     "excerpt": "A Company must have effective Control Functions with the necessary independence, authority and resources covering Risk Management, internal audit, compliance and actuarial. Control Functions must an have appropriate level of authority. The Board must approve and document the authority and responsibilities of Control Fu",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/risk-management-and-internal-controls-regulation-insurance-companies",
+     "score": 0.61,
+     "required": true
+    },
+    {
+     "id": "INS-REP-003::First: Introduction",
+     "doc_id": "INS-REP-003",
+     "section": "First: Introduction",
+     "document": "A Guide to the Regulatory Information, Data and Reports to be Provided by Insurance Companies and Insurance-Related Professions",
+     "excerpt": "The Authority assures that the higher management has the responsibility for taking all necessary actions that would ensure objective and professional work performed by the staff of the Internal Control, Compliance and Risk Management Departments, especially in relation to providing the information and data and facilita",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/guide-regulatory-information-data-and-reports-be-provided-insurance-companies-and",
+     "score": -0.42,
+     "required": false
+    }
+   ]
+  },
+  {
+   "id": "Q026",
+   "question": "What must an insurer's actuarial function actually do about the sufficiency of liabilities, and which instrument sets the undertakings it is carrying out?",
+   "category": "cross_document",
+   "difficulty": "hard",
+   "required": [
+    "INS-GOV-003::Article 10",
+    "INS-GOV-004::10"
+   ],
+   "found": [
+    "INS-GOV-003::Article 10",
+    "INS-GOV-004::10"
+   ],
+   "complete": true,
+   "top_score": 4.38,
+   "would_decline": true,
+   "citations": [
+    {
+     "id": "INS-GOV-004::10",
+     "doc_id": "INS-GOV-004",
+     "section": "10",
+     "document": "Risk Management and Internal Controls Standards for Insurance Companies",
+     "excerpt": "An effective actuarial function must be well resourced and properly authorised and staffed as it plays a major role in the Company's overall system of Risk Management and Internal Controls. The actuarial function conducts all the actuarial undertakings per Article (10) of the Regulation, which must include, among other",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/risk-management-and-internal-controls-standards-insurance-companies",
+     "score": 1.94,
+     "required": true
+    },
+    {
+     "id": "INS-GOV-003::Article 10",
+     "doc_id": "INS-GOV-003",
+     "section": "Article 10",
+     "document": "Risk Management and Internal Controls Regulation for Insurance Companies",
+     "excerpt": "a. A Company must have an effective and independent actuarial function capable of evaluating and providing advice regarding, at a minimum, technical provisions, premium and pricing adequacy, solvency, capital adequacy and reinsurance, so as to contribute to the effective implementation of the risk management system to",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/risk-management-and-internal-controls-regulation-insurance-companies",
+     "score": -0.86,
+     "required": true
+    },
+    {
+     "id": "INS-FIN-002::First Article – Glossary",
+     "doc_id": "INS-FIN-002",
+     "section": "First Article – Glossary",
+     "document": "Insurance Authority Board Decision Number (26) of 2014 Pertinent to Financial Regulations for Takaful Insurance Companies",
+     "excerpt": "Technical Provisions The provisions which the insurer (the Company) must deduct and maintain to meet the insured's accrued financial liabilities as per Law's stipulations. The act of investing, laying out money or capital by a Company with the expectation of profit. To invest in a manner that reduces the risks related",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/insurance-authority-board-decision-number-26-2014-pertinent-financial-regulations-takaful",
+     "score": -2.5,
+     "required": false
+    }
+   ]
+  },
+  {
+   "id": "Q027",
+   "question": "Who must approve a material outsourcing arrangement at an insurer, and where is the underlying duty to manage outsourcing risk imposed?",
+   "category": "cross_document",
+   "difficulty": "hard",
+   "required": [
+    "INS-GOV-003::Article 12",
+    "INS-GOV-004::12"
+   ],
+   "found": [
+    "INS-GOV-003::Article 12",
+    "INS-GOV-004::12"
+   ],
+   "complete": true,
+   "top_score": 4.13,
+   "would_decline": true,
+   "citations": [
+    {
+     "id": "INS-GOV-004::12",
+     "doc_id": "INS-GOV-004",
+     "section": "12",
+     "document": "Risk Management and Internal Controls Standards for Insurance Companies",
+     "excerpt": "A Board-approved policy that sets out how the materiality of a proposed Outsourcing arrangement is assessed and requiring any material Outsourcing arrangements to be approved by the Board, or the risk/audit committee of the Board; Key non-risk related data, such as the details of the Outsourcing service provider, start",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/risk-management-and-internal-controls-standards-insurance-companies",
+     "score": 2.11,
+     "required": true
+    },
+    {
+     "id": "INS-GOV-003::Article 12",
+     "doc_id": "INS-GOV-003",
+     "section": "Article 12",
+     "document": "Risk Management and Internal Controls Regulation for Insurance Companies",
+     "excerpt": "Companies' Risk Governance Systems must include policies and procedures for the assessment of any proposed Outsourcing and the identification, assessment measurement, monitoring, controlling, reporting and mitigating of any risks associated with existing and proposed Outsourcing arrangements. The Risk Governance System",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/risk-management-and-internal-controls-regulation-insurance-companies",
+     "score": 2.12,
+     "required": true
+    },
+    {
+     "id": "INS-FIN-001::Section 1, Addendum (5)",
+     "doc_id": "INS-FIN-001",
+     "section": "Section 1, Addendum (5)",
+     "document": "Insurance Authority Board Decision Number (25) of 2014 Pertinent to Financial Regulations for Insurance Companies",
+     "excerpt": "The Company must establish comprehensive policies and procedures to govern the strategic investment policy of any outsourced insurance funds, establish an effective risk management system to monitor and continuously assess material risks, and for the insurance funds to be segregated and not co-mingled with other funds",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/insurance-authority-board-decision-number-25-2014-pertinent-financial-regulations",
+     "score": 1.65,
+     "required": false
+    }
+   ]
+  },
+  {
+   "id": "Q028",
+   "question": "How does responsibility for compliance differ between a conventional insurer and a Takaful operator?",
+   "category": "comparative",
+   "difficulty": "hard",
+   "required": [
+    "INS-GOV-003::Article 9",
+    "INS-TAK-002::Article 6"
+   ],
+   "found": [],
+   "complete": false,
+   "top_score": 1.29,
+   "would_decline": true,
+   "citations": [
+    {
+     "id": "INS-TAK-005::Article 9",
+     "doc_id": "INS-TAK-005",
+     "section": "Article 9",
+     "document": "Standard Re External Shari'ah Audit for Takaful Insurance Companies",
+     "excerpt": "9.1 The Company must comply with the requirements stated in this Standard and the relevant Shari'ah governance standards. The Board has the ultimate responsibility in this regard and it may delegate some relevant tasks to the audit committee.",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/standard-re-external-shari%E2%80%99ah-audit-takaful-insurance-companies",
+     "score": 1.29,
+     "required": false
+    },
+    {
+     "id": "INS-TAK-008::Article 9",
+     "doc_id": "INS-TAK-008",
+     "section": "Article 9",
+     "document": "Standard Re Controls and Procedures Establishing Takaful Insurance Fund",
+     "excerpt": "Assigning the Company the responsibility for determining the conditions for participating in Takaful insurance. Authorizing the Company to enter into contracts with Re-takaful Insurance Companies or conventional reinsurance companies (as needed) on behalf of the Fund, paying Contribution that relates to Re Takaful Insu",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/standard-re-controls-and-procedures-establishing-takaful-insurance-fund",
+     "score": 1.17,
+     "required": false
+    },
+    {
+     "id": "INS-TAK-002::Article 8",
+     "doc_id": "INS-TAK-002",
+     "section": "Article 8",
+     "document": "Standard re Shari'ah Governance for Takaful Insurance Companies",
+     "excerpt": "Reviewing the Takaful Insurance operating model, underlying contracts and supporting materials (e.g. Reviewing and approving the policy and procedures that govern Takaful Insurance Accounts (e.g. segregation of accounts and transparent financial resources flow between the accounts etc.), surplus distribution, and defic",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/standard-re-shari%E2%80%99ah-governance-takaful-insurance-companies",
+     "score": 0.66,
+     "required": false
+    }
+   ]
+  },
+  {
+   "id": "Q029",
+   "question": "An insurer has just been entered on the register. How long does it have before it must write its first policy, and what counts as having started?",
+   "category": "single_hop",
+   "difficulty": "easy",
+   "required": [
+    "INS-LIC-001::Article 6"
+   ],
+   "found": [
+    "INS-LIC-001::Article 6"
+   ],
+   "complete": true,
+   "top_score": 3.07,
+   "would_decline": true,
+   "citations": [
+    {
+     "id": "INS-LIC-001::Article 6",
+     "doc_id": "INS-LIC-001",
+     "section": "Article 6",
+     "document": "Insurance Company Licensing Regulation",
+     "excerpt": "The Company must commence the insurance activities within sixty (60) business days from the date of its registration in the Register. The date of commencement of the insurance activities is the date of conclusion of the first Insurance Policy. If the Company does not commence the insurance activities within the approve",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/insurance-company-licensing-regulation",
+     "score": 3.07,
+     "required": true
+    },
+    {
+     "id": "INS-OTH-001::Chapter Two, Article 14",
+     "doc_id": "INS-OTH-001",
+     "section": "Chapter Two, Article 14",
+     "document": "Insurance Authority's Board of Directors Decision No. (23) of 2019 Concerning Instructions Organizing Reinsurance Operations",
+     "excerpt": "1- The registration period shall be for one year ending at the end of December. In case of obtaining the registration during the year, the first registration period shall commence from the date of the registration and ends at the end of the same year. 2.",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/insurance-authority%E2%80%99s-board-directors-decision-no23-2019-concerning-instructions",
+     "score": -3.3,
+     "required": false
+    },
+    {
+     "id": "INS-CON-006::Chapter Five, Article 16",
+     "doc_id": "INS-CON-006",
+     "section": "Chapter Five, Article 16",
+     "document": "Insurance Authority Board of Directors' Resolution No. (18) of 2020 Concerning the Electronic Insurance Regulations",
+     "excerpt": "The Company and the Insurance Agent, prior to selling or issuing any insurance policy through its website, shall verify the identity of its customers and the documents submitted by them and develop the necessary procedures in this regard. The Company and the Insurance Agent shall apply what is included in the legislati",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/insurance-authority-board-directors-resolution-no-18-2020-concerning-electronic-insurance",
+     "score": -4.04,
+     "required": false
+    }
+   ]
+  },
+  {
+   "id": "Q030",
+   "question": "A licence application arrives missing several documents. How long does the applicant get to put it right, and what happens if they miss that deadline?",
+   "category": "single_hop",
+   "difficulty": "easy",
+   "required": [
+    "INS-LIC-001::Article 4"
+   ],
+   "found": [
+    "INS-LIC-001::Article 4"
+   ],
+   "complete": true,
+   "top_score": 1.43,
+   "would_decline": true,
+   "citations": [
+    {
+     "id": "INS-OTH-001::Chapter Two, Article 9",
+     "doc_id": "INS-OTH-001",
+     "section": "Chapter Two, Article 9",
+     "document": "Insurance Authority's Board of Directors Decision No. (23) of 2019 Concerning Instructions Organizing Reinsurance Operations",
+     "excerpt": "The pertinent department in the Authority shall consider the application for the license and in case the application does not meet any of the required conditions, data or documents, it may request through the Electronic Means or other means adopted by the Authority the concerned parties to complete it within (60) sixty",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/insurance-authority%E2%80%99s-board-directors-decision-no23-2019-concerning-instructions",
+     "score": 1.43,
+     "required": false
+    },
+    {
+     "id": "INS-LIC-001::Article 4",
+     "doc_id": "INS-LIC-001",
+     "section": "Article 4",
+     "document": "Insurance Company Licensing Regulation",
+     "excerpt": "The application for a Licence is regarded as formally received by the Central Bank after a complete application with all required documents and statements is submitted to the Central Bank. If the application does not satisfy any of the applicable requirements, does not include the required statements or documents, or i",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/insurance-company-licensing-regulation",
+     "score": 0.7,
+     "required": true
+    },
+    {
+     "id": "INS-OTH-001::Chapter Two, Article 10",
+     "doc_id": "INS-OTH-001",
+     "section": "Chapter Two, Article 10",
+     "document": "Insurance Authority's Board of Directors Decision No. (23) of 2019 Concerning Instructions Organizing Reinsurance Operations",
+     "excerpt": "In the event that the period stipulated in the preceding Article lapsed without completing the conditions, data or documents required by the applicant, the competent department shall refer the matter to the Director General. The Director General shall consider the matter and issue his decision either by giving the appl",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/insurance-authority%E2%80%99s-board-directors-decision-no23-2019-concerning-instructions",
+     "score": -0.58,
+     "required": false
+    }
+   ]
+  },
+  {
+   "id": "Q031",
+   "question": "An insurer plans to open one branch inside the UAE and another abroad. What must it file in each case?",
+   "category": "cross_section",
+   "difficulty": "medium",
+   "required": [
+    "INS-LIC-001::Article 7",
+    "INS-LIC-001::Article 8"
+   ],
+   "found": [
+    "INS-LIC-001::Article 7",
+    "INS-LIC-001::Article 8"
+   ],
+   "complete": true,
+   "top_score": 2.46,
+   "would_decline": true,
+   "citations": [
+    {
+     "id": "INS-LIC-001::Article 8",
+     "doc_id": "INS-LIC-001",
+     "section": "Article 8",
+     "document": "Insurance Company Licensing Regulation",
+     "excerpt": "If a Company intends to open a Branch in the State, the Company must submit an application in the form determined by the Central Bank for that purpose. The Company must attach the following documents to the application to open a Branch in the State: A resolution of the Board, in case of a Company established in the Sta",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/insurance-company-licensing-regulation",
+     "score": 2.46,
+     "required": true
+    },
+    {
+     "id": "INS-LIC-001::Article 7",
+     "doc_id": "INS-LIC-001",
+     "section": "Article 7",
+     "document": "Insurance Company Licensing Regulation",
+     "excerpt": "If a Company established in the State intends to open a Branch outside the State or in a Financial Free Zone, or a subsidiary within or outside the State, the Company must submit an application in the form determined by the Central Bank for that purpose. The Company must attach the following documents to the applicatio",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/insurance-company-licensing-regulation",
+     "score": -0.02,
+     "required": true
+    },
+    {
+     "id": "INS-LIC-001::Introduction",
+     "doc_id": "INS-LIC-001",
+     "section": "Introduction",
+     "document": "Insurance Company Licensing Regulation",
+     "excerpt": "The Central Bank is seeking to enhance the organization, development and regulation of the insurance sector in the United Arab Emirates (UAE) in the context of the overall organization of the financial sector. issued by the Central Bank of the UAE through Circular 24/2022; and accompanying Standards issued by the Centr",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/insurance-company-licensing-regulation",
+     "score": -0.4,
+     "required": false
+    }
+   ]
+  },
+  {
+   "id": "Q032",
+   "question": "Trace the deadlines an applicant faces from submitting an incomplete licence application through to having to write its first policy.",
+   "category": "cross_section",
+   "difficulty": "medium",
+   "required": [
+    "INS-LIC-001::Article 4",
+    "INS-LIC-001::Article 6"
+   ],
+   "found": [
+    "INS-LIC-001::Article 4"
+   ],
+   "complete": false,
+   "top_score": -0.64,
+   "would_decline": true,
+   "citations": [
+    {
+     "id": "INS-LIC-001::Article 4",
+     "doc_id": "INS-LIC-001",
+     "section": "Article 4",
+     "document": "Insurance Company Licensing Regulation",
+     "excerpt": "The application for a Licence is regarded as formally received by the Central Bank after a complete application with all required documents and statements is submitted to the Central Bank. If the application does not satisfy any of the applicable requirements, does not include the required statements or documents, or i",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/insurance-company-licensing-regulation",
+     "score": -0.64,
+     "required": true
+    },
+    {
+     "id": "INS-OTH-001::Chapter Two, Article 10",
+     "doc_id": "INS-OTH-001",
+     "section": "Chapter Two, Article 10",
+     "document": "Insurance Authority's Board of Directors Decision No. (23) of 2019 Concerning Instructions Organizing Reinsurance Operations",
+     "excerpt": "In the event that the period stipulated in the preceding Article lapsed without completing the conditions, data or documents required by the applicant, the competent department shall refer the matter to the Director General. The Director General shall consider the matter and issue his decision either by giving the appl",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/insurance-authority%E2%80%99s-board-directors-decision-no23-2019-concerning-instructions",
+     "score": -2.68,
+     "required": false
+    },
+    {
+     "id": "INS-OTH-004::Article 5",
+     "doc_id": "INS-OTH-004",
+     "section": "Article 5",
+     "document": "Representation Offices Regulation",
+     "excerpt": "without the prior written consent of the Central Bank. The documents submitted must be certified by the competent authorities in the country of origin of the Applicant and translated into Arabic and English if the documents submitted are in a language other than Arabic and English. The Central Bank may request any othe",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/representation-offices-regulation",
+     "score": -3.4,
+     "required": false
+    }
+   ]
+  },
+  {
+   "id": "Q033",
+   "question": "Who is entitled to submit a licence application for a new insurer, and once licensed how long does the registration last before something must be done about it?",
+   "category": "cross_section",
+   "difficulty": "medium",
+   "required": [
+    "INS-LIC-001::Article 3",
+    "INS-LIC-001::Article 5"
+   ],
+   "found": [
+    "INS-LIC-001::Article 5"
+   ],
+   "complete": false,
+   "top_score": 0.74,
+   "would_decline": true,
+   "citations": [
+    {
+     "id": "INS-LIC-001::Article 4",
+     "doc_id": "INS-LIC-001",
+     "section": "Article 4",
+     "document": "Insurance Company Licensing Regulation",
+     "excerpt": "The application for a Licence is regarded as formally received by the Central Bank after a complete application with all required documents and statements is submitted to the Central Bank. If the application does not satisfy any of the applicable requirements, does not include the required statements or documents, or i",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/insurance-company-licensing-regulation",
+     "score": 0.74,
+     "required": false
+    },
+    {
+     "id": "INS-OTH-001::Chapter Two, Article 10",
+     "doc_id": "INS-OTH-001",
+     "section": "Chapter Two, Article 10",
+     "document": "Insurance Authority's Board of Directors Decision No. (23) of 2019 Concerning Instructions Organizing Reinsurance Operations",
+     "excerpt": "The Director General shall consider the matter and issue his decision either by giving the applicant additional period of time or rejecting the application. The applicant shall be entitled to submit a new application that meets the requirements after lapse of three months as of the Director General's decision to reject",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/insurance-authority%E2%80%99s-board-directors-decision-no23-2019-concerning-instructions",
+     "score": 0.28,
+     "required": false
+    },
+    {
+     "id": "INS-LIC-001::Article 5",
+     "doc_id": "INS-LIC-001",
+     "section": "Article 5",
+     "document": "Insurance Company Licensing Regulation",
+     "excerpt": "A Company must apply for registration in the Register in the form determined by the Central Bank, with the proof of payment of the applicable fees. The Company must apply for renewal of its registration annually at least one month before the date of its expiration in the form determined by the Central Bank, with the pr",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/insurance-company-licensing-regulation",
+     "score": -0.3,
+     "required": true
+    }
+   ]
+  },
+  {
+   "id": "Q034",
+   "question": "What does an applicant have to supply to open a representation office, compared with applying to licence a full insurance company?",
+   "category": "comparative",
+   "difficulty": "hard",
+   "required": [
+    "INS-OTH-004::Article 5",
+    "INS-LIC-001::Article 3"
+   ],
+   "found": [
+    "INS-OTH-004::Article 5",
+    "INS-LIC-001::Article 3"
+   ],
+   "complete": true,
+   "top_score": 2.19,
+   "would_decline": true,
+   "citations": [
+    {
+     "id": "INS-OTH-004::Article 5",
+     "doc_id": "INS-OTH-004",
+     "section": "Article 5",
+     "document": "Representation Offices Regulation",
+     "excerpt": "The Applicant wishing to obtain a License to open a Representation Office in the State must submit the following documents and information: name and address of the relevant authority responsible for regulatory supervision of the Applicant and a statement from that authority that it does not object the establishment of",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/representation-offices-regulation",
+     "score": -2.43,
+     "required": true
+    },
+    {
+     "id": "INS-OTH-004::Article 2",
+     "doc_id": "INS-OTH-004",
+     "section": "Article 2",
+     "document": "Representation Offices Regulation",
+     "excerpt": "No Person is allowed to conduct the business of a Representation Office within the State without being licensed by the Central Bank.",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/representation-offices-regulation",
+     "score": -1.81,
+     "required": false
+    },
+    {
+     "id": "INS-OTH-004::Article 1",
+     "doc_id": "INS-OTH-004",
+     "section": "Article 1",
+     "document": "Representation Offices Regulation",
+     "excerpt": "An insurance company established outside the State that has, or is applying for, a Licence of a Representation Office in the State, as the case may be. A reinsurance company or an insurance pool or reinsurance pool, or syndicates of underwriting insurance groups that accept cessions, established outside the State that",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/representation-offices-regulation",
+     "score": -2.38,
+     "required": false
+    }
+   ]
+  },
+  {
+   "id": "Q035",
+   "question": "An applicant whose licence application lapsed can submit a fresh one straight away. What does that resubmission process involve?",
+   "category": "adversarial",
+   "difficulty": "medium",
+   "required": [
+    "INS-LIC-001::Article 4"
+   ],
+   "found": [
+    "INS-LIC-001::Article 4"
+   ],
+   "complete": true,
+   "top_score": 0.86,
+   "would_decline": true,
+   "citations": [
+    {
+     "id": "INS-OTH-001::Chapter Two, Article 10",
+     "doc_id": "INS-OTH-001",
+     "section": "Chapter Two, Article 10",
+     "document": "Insurance Authority's Board of Directors Decision No. (23) of 2019 Concerning Instructions Organizing Reinsurance Operations",
+     "excerpt": "In the event that the period stipulated in the preceding Article lapsed without completing the conditions, data or documents required by the applicant, the competent department shall refer the matter to the Director General. The Director General shall consider the matter and issue his decision either by giving the appl",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/insurance-authority%E2%80%99s-board-directors-decision-no23-2019-concerning-instructions",
+     "score": 0.86,
+     "required": false
+    },
+    {
+     "id": "INS-LIC-001::Article 4",
+     "doc_id": "INS-LIC-001",
+     "section": "Article 4",
+     "document": "Insurance Company Licensing Regulation",
+     "excerpt": "The application for a Licence is regarded as formally received by the Central Bank after a complete application with all required documents and statements is submitted to the Central Bank. If the application does not satisfy any of the applicable requirements, does not include the required statements or documents, or i",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/insurance-company-licensing-regulation",
+     "score": -2.94,
+     "required": true
+    },
+    {
+     "id": "INS-OTH-004::Article 9",
+     "doc_id": "INS-OTH-004",
+     "section": "Article 9",
+     "document": "Representation Offices Regulation",
+     "excerpt": "the Representation Office violates any of the requirements of this Regulation or does not comply with any condition of the License; the Central Bank is provided with false, misleading or inaccurate information by or on behalf of the Representation Office, or the Applicant failed to disclose material facts in the applic",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/representation-offices-regulation",
+     "score": -3.94,
+     "required": false
+    }
+   ]
+  },
+  {
+   "id": "Q036",
+   "question": "An insurer sells policies through its own website. Where is it allowed to keep the customer data it collects there?",
+   "category": "single_hop",
+   "difficulty": "medium",
+   "required": [
+    "INS-CON-006::Chapter Three, Article 9"
+   ],
+   "found": [
+    "INS-CON-006::Chapter Three, Article 9"
+   ],
+   "complete": true,
+   "top_score": 2.67,
+   "would_decline": true,
+   "citations": [
+    {
+     "id": "INS-CON-006::Chapter Five, Article 16",
+     "doc_id": "INS-CON-006",
+     "section": "Chapter Five, Article 16",
+     "document": "Insurance Authority Board of Directors' Resolution No. (18) of 2020 Concerning the Electronic Insurance Regulations",
+     "excerpt": "The Company and the Insurance Agent, prior to selling or issuing any insurance policy through its website, shall verify the identity of its customers and the documents submitted by them and develop the necessary procedures in this regard. The Company and the Insurance Agent shall apply what is included in the legislati",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/insurance-authority-board-directors-resolution-no-18-2020-concerning-electronic-insurance",
+     "score": 2.67,
+     "required": false
+    },
+    {
+     "id": "INS-CON-006::Chapter Five, Article 17",
+     "doc_id": "INS-CON-006",
+     "section": "Chapter Five, Article 17",
+     "document": "Insurance Authority Board of Directors' Resolution No. (18) of 2020 Concerning the Electronic Insurance Regulations",
+     "excerpt": "The Company and Insurance Agent shall enable the customer to view, print and download a complete electronic copy of the policy through his electronic account on the Company's website at any time. The Company and Insurance Agent shall provide the customer at his request with a paper copy of the insurance policy issued e",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/insurance-authority-board-directors-resolution-no-18-2020-concerning-electronic-insurance",
+     "score": 1.26,
+     "required": false
+    },
+    {
+     "id": "INS-CON-006::Chapter Five, Article 19",
+     "doc_id": "INS-CON-006",
+     "section": "Chapter Five, Article 19",
+     "document": "Insurance Authority Board of Directors' Resolution No. (18) of 2020 Concerning the Electronic Insurance Regulations",
+     "excerpt": "The Company and the Insurance Agent –as case may be - shall abide by all legislations in force related to the electronic operations in the State, when selling any insurance policy through its website. The Insurance Broker shall comply with the aforementioned rules when issuing the insurance certificate. The Company, Th",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/insurance-authority-board-directors-resolution-no-18-2020-concerning-electronic-insurance",
+     "score": 1.2,
+     "required": false
+    }
+   ]
+  },
+  {
+   "id": "Q037",
+   "question": "An insurer hands website management to an external provider. What must the contract commit that provider to, and what restriction still applies to the data it will handle?",
+   "category": "cross_section",
+   "difficulty": "medium",
+   "required": [
+    "INS-CON-006::Chapter Three, Article 13",
+    "INS-CON-006::Chapter Three, Article 9"
+   ],
+   "found": [
+    "INS-CON-006::Chapter Three, Article 13"
+   ],
+   "complete": false,
+   "top_score": -1.43,
+   "would_decline": true,
+   "citations": [
+    {
+     "id": "INS-CON-006::Chapter Three, Article 13",
+     "doc_id": "INS-CON-006",
+     "section": "Chapter Three, Article 13",
+     "document": "Insurance Authority Board of Directors' Resolution No. (18) of 2020 Concerning the Electronic Insurance Regulations",
+     "excerpt": "The Company and Insurance -Related Professions, after satisfying the procedures set forth in the Regulations herein- when outsourcing the electronic insurance operations to other party, outsourcing the development, management or maintenance of its website or outsourcing any other operations related to its website, shal",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/insurance-authority-board-directors-resolution-no-18-2020-concerning-electronic-insurance",
+     "score": -1.43,
+     "required": true
+    },
+    {
+     "id": "INS-CON-006::Chapter Three, Article 7",
+     "doc_id": "INS-CON-006",
+     "section": "Chapter Three, Article 7",
+     "document": "Insurance Authority Board of Directors' Resolution No. (18) of 2020 Concerning the Electronic Insurance Regulations",
+     "excerpt": "The Company shall obtain the Authority's prior approval before assigning the management of the website to any other party, and must verify the compliance of the contracting party with the provisions of the Regulations herein and related legislation. The Company shall appoint of a Communication Officer with the organiza",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/insurance-authority-board-directors-resolution-no-18-2020-concerning-electronic-insurance",
+     "score": -1.69,
+     "required": false
+    },
+    {
+     "id": "INS-CON-006::Chapter Three, Article 11",
+     "doc_id": "INS-CON-006",
+     "section": "Chapter Three, Article 11",
+     "document": "Insurance Authority Board of Directors' Resolution No. (18) of 2020 Concerning the Electronic Insurance Regulations",
+     "excerpt": "The Company shall illustrate its website with a description of the nature of the products that the company sells and markets electronically, and with self-assessment tools which enable the Insurance Proposer to assess his insurance needs, and eventually enable him to make an informed decision to conclude the contract.",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/insurance-authority-board-directors-resolution-no-18-2020-concerning-electronic-insurance",
+     "score": -3.27,
+     "required": false
+    }
+   ]
+  },
+  {
+   "id": "Q038",
+   "question": "A customer wants to complain about a claim handled online. What must the insurer's website give them, and what must happen when they submit the claim itself?",
+   "category": "cross_section",
+   "difficulty": "medium",
+   "required": [
+    "INS-CON-006::Chapter Five, Article 21",
+    "INS-CON-006::Chapter Five, Article 22"
+   ],
+   "found": [
+    "INS-CON-006::Chapter Five, Article 21",
+    "INS-CON-006::Chapter Five, Article 22"
+   ],
+   "complete": true,
+   "top_score": 2.27,
+   "would_decline": true,
+   "citations": [
+    {
+     "id": "INS-CON-006::Chapter Five, Article 21",
+     "doc_id": "INS-CON-006",
+     "section": "Chapter Five, Article 21",
+     "document": "Insurance Authority Board of Directors' Resolution No. (18) of 2020 Concerning the Electronic Insurance Regulations",
+     "excerpt": "Without prejudice to the provisions of the Code of Professional Practice and the legislations in force, the Company, the Insurance Agent and the Insurance Broker shall provide through their website, all the information necessary to the customer or the third party (the injured third party) to lodge complaints and follow",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/insurance-authority-board-directors-resolution-no-18-2020-concerning-electronic-insurance",
+     "score": 2.27,
+     "required": true
+    },
+    {
+     "id": "INS-CON-006::Chapter Five, Article 22",
+     "doc_id": "INS-CON-006",
+     "section": "Chapter Five, Article 22",
+     "document": "Insurance Authority Board of Directors' Resolution No. (18) of 2020 Concerning the Electronic Insurance Regulations",
+     "excerpt": "The company shall provide electronic claim forms for submitting claims and uploading electronic copies of the claim documents. After accepting the electronic claim, the company shall provide the claimant with a reference number of his claim. Before reimbursement of the claim submitted online, the Company may require th",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/insurance-authority-board-directors-resolution-no-18-2020-concerning-electronic-insurance",
+     "score": -0.36,
+     "required": true
+    },
+    {
+     "id": "INS-CON-006::Chapter Five, Article 16",
+     "doc_id": "INS-CON-006",
+     "section": "Chapter Five, Article 16",
+     "document": "Insurance Authority Board of Directors' Resolution No. (18) of 2020 Concerning the Electronic Insurance Regulations",
+     "excerpt": "The Company and the Insurance Agent, prior to selling or issuing any insurance policy through its website, shall verify the identity of its customers and the documents submitted by them and develop the necessary procedures in this regard. The Insurance Broker shall comply with the aforementioned rules when issuing the",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/insurance-authority-board-directors-resolution-no-18-2020-concerning-electronic-insurance",
+     "score": -2.14,
+     "required": false
+    }
+   ]
+  },
+  {
+   "id": "Q039",
+   "question": "Before someone buys a policy online and after something goes wrong with it, what must the insurer's website provide?",
+   "category": "cross_section",
+   "difficulty": "medium",
+   "required": [
+    "INS-CON-006::Chapter Three, Article 11",
+    "INS-CON-006::Chapter Five, Article 21"
+   ],
+   "found": [],
+   "complete": false,
+   "top_score": 0.31,
+   "would_decline": true,
+   "citations": [
+    {
+     "id": "INS-CON-006::Chapter Five, Article 16",
+     "doc_id": "INS-CON-006",
+     "section": "Chapter Five, Article 16",
+     "document": "Insurance Authority Board of Directors' Resolution No. (18) of 2020 Concerning the Electronic Insurance Regulations",
+     "excerpt": "The Company and the Insurance Agent, prior to selling or issuing any insurance policy through its website, shall verify the identity of its customers and the documents submitted by them and develop the necessary procedures in this regard. The Company and the Insurance Agent shall apply what is included in the legislati",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/insurance-authority-board-directors-resolution-no-18-2020-concerning-electronic-insurance",
+     "score": 0.31,
+     "required": false
+    },
+    {
+     "id": "INS-CON-006::Chapter Five, Article 17",
+     "doc_id": "INS-CON-006",
+     "section": "Chapter Five, Article 17",
+     "document": "Insurance Authority Board of Directors' Resolution No. (18) of 2020 Concerning the Electronic Insurance Regulations",
+     "excerpt": "They shall provide the customer with a copy of the entire policy in all available ways and means. Additionally, they must provide the customer with a thorough electronic copy of the policy in (PDF) format, which shall be sent by e-mail or other electronic means as soon as they are issued. In the event that the format o",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/insurance-authority-board-directors-resolution-no-18-2020-concerning-electronic-insurance",
+     "score": -0.07,
+     "required": false
+    },
+    {
+     "id": "INS-CON-006::Chapter Five, Article 19",
+     "doc_id": "INS-CON-006",
+     "section": "Chapter Five, Article 19",
+     "document": "Insurance Authority Board of Directors' Resolution No. (18) of 2020 Concerning the Electronic Insurance Regulations",
+     "excerpt": "The Company and the Insurance Agent –as case may be - shall abide by all legislations in force related to the electronic operations in the State, when selling any insurance policy through its website. The Insurance Broker shall comply with the aforementioned rules when issuing the insurance certificate. The Company, Th",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/insurance-authority-board-directors-resolution-no-18-2020-concerning-electronic-insurance",
+     "score": -0.3,
+     "required": false
+    }
+   ]
+  },
+  {
+   "id": "Q040",
+   "question": "What must an insurer's board ensure about its governance arrangements, and what must the company publish each year?",
+   "category": "cross_section",
+   "difficulty": "medium",
+   "required": [
+    "INS-GOV-001::Article 3",
+    "INS-GOV-001::Article 9"
+   ],
+   "found": [
+    "INS-GOV-001::Article 3"
+   ],
+   "complete": false,
+   "top_score": 3.48,
+   "would_decline": true,
+   "citations": [
+    {
+     "id": "INS-GOV-001::Article 10",
+     "doc_id": "INS-GOV-001",
+     "section": "Article 10",
+     "document": "Corporate Governance Regulation for Insurance Companies",
+     "excerpt": "The Company's Corporate Governance policies and processes must ensure effective engagement with the Central Bank, and that timely and accurate disclosure is made on all material matters regarding the Company, including the financial situation, performance, ownership, and governance of the Company. A Company must publis",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/corporate-governance-regulation-insurance-companies",
+     "score": 3.48,
+     "required": false
+    },
+    {
+     "id": "INS-GOV-001::Article 3",
+     "doc_id": "INS-GOV-001",
+     "section": "Article 3",
+     "document": "Corporate Governance Regulation for Insurance Companies",
+     "excerpt": "The Board must ensure that a Company and, if applicable, Group has in place robust Corporate Governance policies and processes commensurate with its risk profile and the nature and scale of activity. The Board must oversee Senior Management and their performance in order to ensure that the Company's activities are carr",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/corporate-governance-regulation-insurance-companies",
+     "score": 2.1,
+     "required": true
+    },
+    {
+     "id": "INS-GOV-001::Article 5",
+     "doc_id": "INS-GOV-001",
+     "section": "Article 5",
+     "document": "Corporate Governance Regulation for Insurance Companies",
+     "excerpt": "A Company's Board must be sufficiently diverse in its composition. Collectively, the Board must have knowledge of all significant businesses of the Company and, if applicable, the Group. A Company's Board must be comprised of at least seven (7) members and a maximum of eleven (11) members, each with a maximum three (3)",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/corporate-governance-regulation-insurance-companies",
+     "score": 2.05,
+     "required": false
+    }
+   ]
+  },
+  {
+   "id": "Q041",
+   "question": "An insurer must publish audited annual accounts. Which instrument places that governance obligation on the company, and which one obliges the auditor to report breaches to the regulator?",
+   "category": "cross_document",
+   "difficulty": "medium",
+   "required": [
+    "INS-GOV-001::Article 9",
+    "INS-REP-004::Article 5"
+   ],
+   "found": [
+    "INS-GOV-001::Article 9"
+   ],
+   "complete": false,
+   "top_score": 1.51,
+   "would_decline": true,
+   "citations": [
+    {
+     "id": "INS-GOV-001::Article 9",
+     "doc_id": "INS-GOV-001",
+     "section": "Article 9",
+     "document": "Corporate Governance Regulation for Insurance Companies",
+     "excerpt": "A Company must maintain appropriate records; and publish annual financial statements bearing the opinion of an external auditor approved by the Central Bank. Governance requirements for financial reporting and external audit must be adhered to according to the accompanying Standards, Financial Regulations, and",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/corporate-governance-regulation-insurance-companies",
+     "score": 1.51,
+     "required": true
+    },
+    {
+     "id": "INS-GOV-001::Article 10",
+     "doc_id": "INS-GOV-001",
+     "section": "Article 10",
+     "document": "Corporate Governance Regulation for Insurance Companies",
+     "excerpt": "A Company must publish a comprehensive Corporate Governance statement in a clearly identifiable section of its annual report. In this regard, Corporate Governance statement refers to a periodic, integrated report that clarifies the relations between the operational and functional units of the Company and the resources",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/corporate-governance-regulation-insurance-companies",
+     "score": 0.34,
+     "required": false
+    },
+    {
+     "id": "INS-FIN-001::Section 6, Article 4",
+     "doc_id": "INS-FIN-001",
+     "section": "Section 6, Article 4",
+     "document": "Insurance Authority Board Decision Number (25) of 2014 Pertinent to Financial Regulations for Insurance Companies",
+     "excerpt": "The Company shall appoint one or more qualified and experienced External Auditors for its accounts for every financial year. If a Company fails to appoint an External Auditor within four months from the beginning of the financial year, the Authority shall appoint such External Auditor at the Company's expense. The Comp",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/insurance-authority-board-decision-number-25-2014-pertinent-financial-regulations",
+     "score": -0.45,
+     "required": false
+    }
+   ]
+  },
+  {
+   "id": "Q042",
+   "question": "A company has been fined by the regulator and wants to challenge it. How long does it have, and who decides?",
+   "category": "single_hop",
+   "difficulty": "easy",
+   "required": [
+    "INS-SAN-001::Article 4"
+   ],
+   "found": [],
+   "complete": false,
+   "top_score": -2.49,
+   "would_decline": true,
+   "citations": [
+    {
+     "id": "INS-SAN-001::The Annexed Schedule to the Cabinet Resolution No. (7) of 2019 Concerning the Administrative Fines Imposed by the Insurance Authority",
+     "doc_id": "INS-SAN-001",
+     "section": "The Annexed Schedule to the Cabinet Resolution No. (7) of 2019 Concerning the Administrative Fines Imposed by the Insurance Authority",
+     "document": "Cabinet Resolution No. (7) of 2019 Concerning the Administrative Fines Imposed by the Insurance Authority",
+     "excerpt": "Failure of the Company's Board of Directors to provide the Authority with copies of the minutes of the Board's meetings and its resolutions related to the electing the company's chairman, his deputy, and the board's members authorized to sign on behalf of the company and their specimen signatures within seven days as f",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/cabinet-resolution-no-7-2019-concerning-administrative-fines-imposed-insurance-authority",
+     "score": -3.68,
+     "required": false
+    },
+    {
+     "id": "INS-CON-006::Chapter Six, Article 24",
+     "doc_id": "INS-CON-006",
+     "section": "Chapter Six, Article 24",
+     "document": "Insurance Authority Board of Directors' Resolution No. (18) of 2020 Concerning the Electronic Insurance Regulations",
+     "excerpt": "If it was substantiated by evidence to the Authority and any other competent authorities, that the Company, Insurance Agent or Insurance Broker committed a violation, then the Authority may take one of the following actions and penalties: a. Warning that appropriate measures shall be taken to rectify conditions within",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/insurance-authority-board-directors-resolution-no-18-2020-concerning-electronic-insurance",
+     "score": -3.67,
+     "required": false
+    }
+   ]
+  },
+  {
+   "id": "Q043",
+   "question": "Within a Takaful operator, where does ultimate responsibility for compliance with Islamic Shari'ah provisions sit?",
+   "category": "single_hop",
+   "difficulty": "easy",
+   "required": [
+    "INS-TAK-002::Article 6"
+   ],
+   "found": [],
+   "complete": false,
+   "top_score": 3.44,
+   "would_decline": true,
+   "citations": [
+    {
+     "id": "INS-TAK-003::Article 6",
+     "doc_id": "INS-TAK-003",
+     "section": "Article 6",
+     "document": "Standard Re Annual Shari'ah Report of Internal Shari'ah Supervision Committee for Takaful Insurance Companies",
+     "excerpt": "determine Shari'ah parameters necessary for the Company's Activities, and the Company's compliance with Islamic Shari'ah Provisions within the framework of the rules, principles, and standards set by the Higher Shari'ah Authority (\"HSA\") to ascertain compliance of the Company with Islamic Shari'ah Provisions. The senio",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/standard-re-annual-shari%E2%80%99ah-report-internal-shari%E2%80%99ah-supervision-committee-takaful",
+     "score": 3.44,
+     "required": false
+    },
+    {
+     "id": "INS-TAK-002::Article 5",
+     "doc_id": "INS-TAK-002",
+     "section": "Article 5",
+     "document": "Standard re Shari'ah Governance for Takaful Insurance Companies",
+     "excerpt": "The Company must have in place governance controls and mechanisms in accordance to its size and complexity of its operations to ensure compliance with Islamic Shari'ah Provisions in all of its objectives, activities, operations and code of conduct. Stating the responsibility of the Board in regards to the Company's com",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/standard-re-shari%E2%80%99ah-governance-takaful-insurance-companies",
+     "score": 3.43,
+     "required": false
+    },
+    {
+     "id": "INS-TAK-002::Article 8",
+     "doc_id": "INS-TAK-002",
+     "section": "Article 8",
+     "document": "Standard re Shari'ah Governance for Takaful Insurance Companies",
+     "excerpt": "operations, products, services investments, and financial securities that the Company executes, issues, manages, promotes, or offers to its customers (Participants and potential Participants) in order to ensure the compliance with the Islamic Shari'ah provisions. The ISSC must issue an annual Shari'ah report stating th",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/standard-re-shari%E2%80%99ah-governance-takaful-insurance-companies",
+     "score": 2.88,
+     "required": false
+    }
+   ]
+  },
+  {
+   "id": "Q044",
+   "question": "Who chooses an insurer's external auditor, and in what circumstances must that auditor go directly to the regulator?",
+   "category": "cross_section",
+   "difficulty": "medium",
+   "required": [
+    "INS-REP-004::Article 3",
+    "INS-REP-004::Article 5"
+   ],
+   "found": [
+    "INS-REP-004::Article 3"
+   ],
+   "complete": false,
+   "top_score": 1.58,
+   "would_decline": true,
+   "citations": [
+    {
+     "id": "INS-FIN-002::Section 6, Article 4",
+     "doc_id": "INS-FIN-002",
+     "section": "Section 6, Article 4",
+     "document": "Insurance Authority Board Decision Number (26) of 2014 Pertinent to Financial Regulations for Takaful Insurance Companies",
+     "excerpt": "If a Company fails to appoint an External Auditor within four months from the beginning of the financial year, the Authority shall appoint such External Auditor at the Company's expense. The External Auditor shall review actuarial reports that represent immediate or future risks facing the Company, and the Authority sh",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/insurance-authority-board-decision-number-26-2014-pertinent-financial-regulations-takaful",
+     "score": 1.58,
+     "required": false
+    },
+    {
+     "id": "INS-FIN-001::Section 6, Addendum (1)",
+     "doc_id": "INS-FIN-001",
+     "section": "Section 6, Addendum (1)",
+     "document": "Insurance Authority Board Decision Number (25) of 2014 Pertinent to Financial Regulations for Insurance Companies",
+     "excerpt": "Additional Tasks for the External Auditor: The Authority may request additional duties from the External Auditor, including: If any of the circumstances referred to in the paragraph (2) occurs after the appointment of the External Auditor, the Company must appoint another External Auditor.",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/insurance-authority-board-decision-number-25-2014-pertinent-financial-regulations",
+     "score": 1.51,
+     "required": false
+    },
+    {
+     "id": "INS-FIN-001::Section 6, Article 4",
+     "doc_id": "INS-FIN-001",
+     "section": "Section 6, Article 4",
+     "document": "Insurance Authority Board Decision Number (25) of 2014 Pertinent to Financial Regulations for Insurance Companies",
+     "excerpt": "If a Company fails to appoint an External Auditor within four months from the beginning of the financial year, the Authority shall appoint such External Auditor at the Company's expense. The External Auditor shall review actuarial reports that represent immediate or future risks facing the Company, and the Authority sh",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/insurance-authority-board-decision-number-25-2014-pertinent-financial-regulations",
+     "score": 1.49,
+     "required": false
+    }
+   ]
+  },
+  {
+   "id": "Q045",
+   "question": "What minimum bank guarantee must an insurance broker maintain in order to be licensed?",
+   "category": "unanswerable",
+   "difficulty": "medium",
+   "required": [],
+   "found": [],
+   "complete": false,
+   "top_score": 0.96,
+   "would_decline": true,
+   "citations": [
+    {
+     "id": "INS-FIN-004::Article 1",
+     "doc_id": "INS-FIN-004",
+     "section": "Article 1",
+     "document": "Board of Directors' Decision No. (22) of 2017 Concerning the Application of the Investment Limits Stipulated in the Financial Regulations",
+     "excerpt": "on Establishment of the Insurance Authority and Organization of the insurance Operations and its amendments. The insurance company incorporated in the state or a branch of a foreign insurance company, licensed to carry out insurance operations in the State either through a branch or an insurance agent, including Takafu",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/board-directors-decision-no-22-2017-concerning-application-investment-limits-stipulated",
+     "score": 0.96,
+     "required": false
+    },
+    {
+     "id": "INS-FIN-003::Article 6",
+     "doc_id": "INS-FIN-003",
+     "section": "Article 6",
+     "document": "Insurance Authority Board of Directors' Decision No. (14) of 2018 Pertinent to the Application of Financial Solvency Requirements",
+     "excerpt": "All branches of foreign insurance companies operating in the State shall comply with the following: To maintain at all times sufficient admissible assets to fulfil its liabilities inside the State, at a minimum. (b) To register all documents subscribed by the foreign branch in the financial statements of the foreign co",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/insurance-authority-board-directors-decision-no-14-2018-pertinent-application-financial",
+     "score": 0.32,
+     "required": false
+    },
+    {
+     "id": "INS-OTH-001::Chapter Three, Article 20",
+     "doc_id": "INS-OTH-001",
+     "section": "Chapter Three, Article 20",
+     "document": "Insurance Authority's Board of Directors Decision No. (23) of 2019 Concerning Instructions Organizing Reinsurance Operations",
+     "excerpt": "In order to obtain the initial approval of the Board: A copy of the license to practice the reinsurance business in the state which the parent company is holding its nationality issued by a regulatory and supervisory governmental body and duly authenticated and attested and including the approved types and classes of r",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/insurance-authority%E2%80%99s-board-directors-decision-no23-2019-concerning-instructions",
+     "score": -1.27,
+     "required": false
+    }
+   ]
+  },
+  {
+   "id": "Q046",
+   "question": "What is the highest debt burden ratio a bank may apply when granting a residential mortgage?",
+   "category": "unanswerable",
+   "difficulty": "easy",
+   "required": [],
+   "found": [],
+   "complete": false,
+   "top_score": -9.96,
+   "would_decline": true,
+   "citations": [
+    {
+     "id": "INS-FIN-001::Section 1, Article 3",
+     "doc_id": "INS-FIN-001",
+     "section": "Section 1, Article 3",
+     "document": "Insurance Authority Board Decision Number (25) of 2014 Pertinent to Financial Regulations for Insurance Companies",
+     "excerpt": "For asset distribution and allocation limits, the following apply: As an exception to what is stated in paragraph (1) of this Article, the Authority may allow, in specific cases, insurance companies to invest in real estate with a maximum of up to 40% on the basis of a request from the Company stating the reasons for t",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/insurance-authority-board-decision-number-25-2014-pertinent-financial-regulations",
+     "score": -9.96,
+     "required": false
+    },
+    {
+     "id": "INS-MOT-004::Article 2",
+     "doc_id": "INS-MOT-004",
+     "section": "Article 2",
+     "document": "Insurance Authority Board of Directors' Decision No. (30) of 2016 Concerning issuing Regulation for Motor Vehicle Insurance Tariffs",
+     "excerpt": "(6) The company may grant a reduction for the vehicles running by gas or by electricity at the renewal time of not more than 25% of the insurance premium taking into account the accidents caused by the vehicle and led to claims. Nevertheless, when there is more than one reason for reduction, only the highest rate of re",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/insurance-authority-board-directors%E2%80%99-decision-no-30-2016-concerning-issuing-regulation",
+     "score": -10.16,
+     "required": false
+    },
+    {
+     "id": "INS-FIN-002::Section 1, Article 3",
+     "doc_id": "INS-FIN-002",
+     "section": "Section 1, Article 3",
+     "document": "Insurance Authority Board Decision Number (26) of 2014 Pertinent to Financial Regulations for Takaful Insurance Companies",
+     "excerpt": "For asset distribution and allocation limits, the following apply: As an exception to what is stated in paragraph (1) of this Article, the Authority may allow, in specific cases, Takaful operators to invest in real estate with a maximum of up to 40% on the basis of a request from the Company stating the reasons for the",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/insurance-authority-board-decision-number-26-2014-pertinent-financial-regulations-takaful",
+     "score": -10.26,
+     "required": false
+    }
+   ]
+  },
+  {
+   "id": "Q047",
+   "question": "Which benefits must a health insurance policy cover as a minimum for a resident of Dubai?",
+   "category": "unanswerable",
+   "difficulty": "easy",
+   "required": [],
+   "found": [],
+   "complete": false,
+   "top_score": -7.0,
+   "would_decline": true,
+   "citations": [
+    {
+     "id": "INS-CON-002::Article 15",
+     "doc_id": "INS-CON-002",
+     "section": "Article 15",
+     "document": "Insurance Authority Board Resolution No. 3 of 2010 Instructions Concerning the Code of Conduct and Ethics",
+     "excerpt": "These Instructions shall replace the Rules for Insurance Companies' Transactions in the UAE Insurance Market issued under the Ministerial Resolution No. 296 of 2004 by HE the Minister of Economy.",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/insurance-authority-board-resolution-no-3-2010-instructions-concerning-code-conduct-and",
+     "score": -7.0,
+     "required": false
+    },
+    {
+     "id": "INS-FIN-004::Article 1",
+     "doc_id": "INS-FIN-004",
+     "section": "Article 1",
+     "document": "Board of Directors' Decision No. (22) of 2017 Concerning the Application of the Investment Limits Stipulated in the Financial Regulations",
+     "excerpt": "on Establishment of the Insurance Authority and Organization of the insurance Operations and its amendments. The Insurance Authority. The Insurance Authority Board of Directors.",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/board-directors-decision-no-22-2017-concerning-application-investment-limits-stipulated",
+     "score": -7.45,
+     "required": false
+    },
+    {
+     "id": "INS-FIN-001::Section 5, Addendum",
+     "doc_id": "INS-FIN-001",
+     "section": "Section 5, Addendum",
+     "document": "Insurance Authority Board Decision Number (25) of 2014 Pertinent to Financial Regulations for Insurance Companies",
+     "excerpt": "The Company shall maintain the following as a minimum for Policy Issuance, Underwriting and Policy Servicing records: Insurance policy; Copy of the insurance policy and procedures;",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/insurance-authority-board-decision-number-25-2014-pertinent-financial-regulations",
+     "score": -7.47,
+     "required": false
+    }
+   ]
+  },
+  {
+   "id": "Q048",
+   "question": "What capital adequacy ratio must a UAE bank maintain under the Basel framework?",
+   "category": "unanswerable",
+   "difficulty": "easy",
+   "required": [],
+   "found": [],
+   "complete": false,
+   "top_score": -2.42,
+   "would_decline": true,
+   "citations": [
+    {
+     "id": "INS-GOV-008::Introduction",
+     "doc_id": "INS-GOV-008",
+     "section": "Introduction",
+     "document": "Standards re Enterprise Risk Management for Solvency Purposes for Insurance Companies",
+     "excerpt": "The Central Bank of the UAE has issued assess the adequacy of their Risk Management and their current and prospective solvency positions; The Central Bank notes the importance of Enterprise Risk Management for Solvency Purposes (ERM) as the coordination of Risk Management, strategic planning, Capital Adequacy and finan",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/standards-re-enterprise-risk-management-solvency-purposes-insurance-companies",
+     "score": -2.42,
+     "required": false
+    },
+    {
+     "id": "INS-GOV-008::4.4",
+     "doc_id": "INS-GOV-008",
+     "section": "4.4",
+     "document": "Standards re Enterprise Risk Management for Solvency Purposes for Insurance Companies",
+     "excerpt": "The ERM framework must reflect the following: how the Company's systems of Risk Management coordinates with strategic planning and management of capital in terms of level and quality; how the Company's systems of Risk Management aligns with, supports and is integrated with its corporate objectives, strategy and current",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/standards-re-enterprise-risk-management-solvency-purposes-insurance-companies",
+     "score": -2.95,
+     "required": false
+    },
+    {
+     "id": "INS-REP-004::Article 2",
+     "doc_id": "INS-REP-004",
+     "section": "Article 2",
+     "document": "Financial Reporting and External Audit Regulation",
+     "excerpt": "2-4 The Central Bank will determine the frequency and deadlines of submitting reports according to Article (2.3). Companies must refrain from any action that may disclose or reveal their intentions regarding distribution or repatriation of profits, retained earnings, reserves, or other component of regulatory capital,",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/financial-reporting-and-external-audit-regulation",
+     "score": -2.96,
+     "required": false
+    }
+   ]
+  },
+  {
+   "id": "Q049",
+   "question": "What licence does an insurance intermediary need in order to operate from the Dubai International Financial Centre?",
+   "category": "unanswerable",
+   "difficulty": "medium",
+   "required": [],
+   "found": [],
+   "complete": false,
+   "top_score": 0.14,
+   "would_decline": true,
+   "citations": [
+    {
+     "id": "INS-LIC-001::Introduction",
+     "doc_id": "INS-LIC-001",
+     "section": "Introduction",
+     "document": "Insurance Company Licensing Regulation",
+     "excerpt": "The Central Bank is seeking to enhance the organization, development and regulation of the insurance sector in the United Arab Emirates (UAE) in the context of the overall organization of the financial sector. (6) of 2025 Regarding the Central Bank, Regulation of Financial Institutions and Activities, and Insurance Bus",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/insurance-company-licensing-regulation",
+     "score": 0.14,
+     "required": false
+    },
+    {
+     "id": "INS-LIC-001::Table 1: Licence of a Company established in the State and a branch of a Foreign Insurance Company",
+     "doc_id": "INS-LIC-001",
+     "section": "Table 1: Licence of a Company established in the State and a branch of a Foreign Insurance Company",
+     "document": "Insurance Company Licensing Regulation",
+     "excerpt": "Expected costs of initiating the insurance business and financial resources intended to meet those costs f. The forecast statements of the: financial position, profit or loss, and cash flows g. Evidence that the founders or the Foreign Insurance Company, as the case may be, possess financial resources free from encumbr",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/insurance-company-licensing-regulation",
+     "score": -3.43,
+     "required": false
+    },
+    {
+     "id": "INS-LIC-001::Table 3: Licence of a Company being a branch of a Foreign Insurance Company (in addition to documents listed in Table 1)",
+     "doc_id": "INS-LIC-001",
+     "section": "Table 3: Licence of a Company being a branch of a Foreign Insurance Company (in addition to documents listed in Table 1)",
+     "document": "Insurance Company Licensing Regulation",
+     "excerpt": "A copy of the licence of the Foreign Insurance Company to carry out insurance operations in the country of its origin, issued by a relevant authority and duly certified, including lines of business that the Foreign Insurance Company is licensed to carry out A certificate from the supervisory authority responsible for s",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/insurance-company-licensing-regulation",
+     "score": -2.55,
+     "required": false
+    }
+   ]
+  },
+  {
+   "id": "Q050",
+   "question": "What are the capital adequacy requirements for a finance company?",
+   "category": "unanswerable",
+   "difficulty": "easy",
+   "required": [],
+   "found": [],
+   "complete": false,
+   "top_score": 4.21,
+   "would_decline": true,
+   "citations": [
+    {
+     "id": "INS-FIN-001::Section 2, Article 3",
+     "doc_id": "INS-FIN-001",
+     "section": "Section 2, Article 3",
+     "document": "Insurance Authority Board Decision Number (25) of 2014 Pertinent to Financial Regulations for Insurance Companies",
+     "excerpt": "A Group consists of insurance or reinsurance companies and any other regulated entities where the Group owns 100% of the companies' shares or a controlling interest (as per IFRS) of the companies' shares. The Group capital requirement is the sum of the capital requirements calculated on the consolidated insurance Compa",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/insurance-authority-board-decision-number-25-2014-pertinent-financial-regulations",
+     "score": 4.21,
+     "required": false
+    },
+    {
+     "id": "INS-FIN-002::Section 2, Article 3",
+     "doc_id": "INS-FIN-002",
+     "section": "Section 2, Article 3",
+     "document": "Insurance Authority Board Decision Number (26) of 2014 Pertinent to Financial Regulations for Takaful Insurance Companies",
+     "excerpt": "A Group consists of Takaful or Re-Takaful operators and any other regulated entities where the Group owns 100% of the companies' shares or a controlling interest (as per IFRS) of the companies' shares. The Group capital requirement is the sum of the capital requirements calculated on the consolidated Takaful operators/",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/insurance-authority-board-decision-number-26-2014-pertinent-financial-regulations-takaful",
+     "score": 3.67,
+     "required": false
+    },
+    {
+     "id": "INS-GOV-008::7",
+     "doc_id": "INS-GOV-008",
+     "section": "7",
+     "document": "Standards re Enterprise Risk Management for Solvency Purposes for Insurance Companies",
+     "excerpt": "The ORSA report must include the Company's year-end solvency position as well as the projected solvency positions for the subsequent (12) quarters (at least) following the year-end, indicating the solvency ratios and the Company's ability to meet regulatory capital requirements. A detailed information on the actual out",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/standards-re-enterprise-risk-management-solvency-purposes-insurance-companies",
+     "score": 1.33,
+     "required": false
+    }
+   ]
+  }
+ ]
+}
