@@ -11,6 +11,19 @@ The abstention threshold is computed in the browser from each question's stored
 score, rather than baked in. That matters: the interesting result is the
 trade-off, and a page that fixes one threshold shows a verdict where the honest
 answer is a curve. Moving the control shows what refusing more costs.
+
+## Theme
+
+Palette and typefaces are direction D, Oxblood, from the HireHouse theme
+directions - muted oxblood on parchment set in Literata, described there as
+institutional in the old sense: universities, law firms, records that matter.
+Both light and dark values are taken from that source rather than derived.
+
+Theme resolution has three states, and a manual toggle sits on top of them.
+Bare :root carries the light palette; the prefers-color-scheme block applies the
+dark one only when the reader has not explicitly chosen light; and .dark applies
+it when they have chosen dark. With no stored choice the page follows the host,
+including when the host changes it mid-session.
 """
 
 from __future__ import annotations
@@ -22,118 +35,144 @@ from pathlib import Path
 REPO_ROOT = Path(__file__).resolve().parents[1]
 DATA = REPO_ROOT / "results" / "demo.json"
 
+# Direction D - Oxblood. Light and dark values both from the theme source.
+LIGHT = """
+  --primary:#7b2e36; --on-primary:#ffffff;
+  --ink:#1f1416; --body:#4e4143; --muted:#8b7e80;
+  --canvas:#faf6f2; --surface:#ffffff; --raise:#fcf9f6; --hairline:#ede4de;
+  --pi-bg:#f3eaea; --pi-fg:#7b2e36;
+  --po-bg:#e8efe6; --po-fg:#3f5f42;
+  --pw-bg:#f8eede; --pw-fg:#8a6015;
+"""
+
+DARK = """
+  --primary:#dd9195; --on-primary:#2a1214;
+  --ink:#f3eae7; --body:#c8b9b6; --muted:#8e7f7d;
+  --canvas:#16100f; --surface:#20181a; --raise:#271e20; --hairline:rgba(255,255,255,.09);
+  --pi-bg:rgba(221,145,149,.16); --pi-fg:#e5aaad;
+  --po-bg:rgba(143,180,144,.16); --po-fg:#a6c4a7;
+  --pw-bg:rgba(219,176,105,.16); --pw-fg:#e2c088;
+"""
+
 HEAD = """<title>ReguLens</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:wght@400;600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Literata:opsz,wght@7..72,400;7..72,500;7..72,600&family=Work+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <style>
-:root{
-  --paper:#f6f7f9; --surface:#fff; --raise:#fbfcfd;
-  --ink:#111820; --soft:#4a5561; --faint:#78838f; --rule:#dfe3e8;
-  --accent:#1f6b66; --accent-dim:#e3efee; --on-accent:#ffffff;
-  --yes:#2c6349; --yes-bg:#e6f0ea; --no:#8a6a1c; --no-bg:#f6eedb;
-  --f-display:Spectral,"Iowan Old Style",Georgia,serif;
-  --f-body:"IBM Plex Sans",ui-sans-serif,system-ui,-apple-system,sans-serif;
+:root{__LIGHT__
+  --f-display:Literata,Georgia,"Times New Roman",serif;
+  --f-ui:"Work Sans",ui-sans-serif,system-ui,-apple-system,sans-serif;
   --f-mono:"IBM Plex Mono",ui-monospace,Consolas,monospace;
 }
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
-  --paper:#0f141a; --surface:#161d25; --raise:#1b232c;
-  --ink:#e6eaee; --soft:#a4b0bb; --faint:#74808c; --rule:#27313b;
-  --accent:#5fb3ab; --accent-dim:#15292a; --on-accent:#0f141a;
-  --yes:#74c49b; --yes-bg:#14251d; --no:#d5aa5c; --no-bg:#262015;
-}}
-:root[data-theme="dark"]{
-  --paper:#0f141a; --surface:#161d25; --raise:#1b232c;
-  --ink:#e6eaee; --soft:#a4b0bb; --faint:#74808c; --rule:#27313b;
-  --accent:#5fb3ab; --accent-dim:#15292a; --on-accent:#0f141a;
-  --yes:#74c49b; --yes-bg:#14251d; --no:#d5aa5c; --no-bg:#262015;
-}
+@media (prefers-color-scheme:dark){:root:not(.light){__DARK__}}
+:root.dark{__DARK__}
+
 *{box-sizing:border-box}
-body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--f-body);
-  font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
-.wrap{max-width:70rem;margin:0 auto;padding:clamp(1.75rem,4vw,3.5rem) clamp(1rem,3vw,2.5rem) 4rem;
+body{margin:0;background:var(--canvas);color:var(--body);font-family:var(--f-ui);
+  font-size:16px;line-height:1.62;-webkit-font-smoothing:antialiased}
+.wrap{max-width:70rem;margin:0 auto;padding:clamp(1.5rem,4vw,3.25rem) clamp(1rem,3vw,2.5rem) 4rem;
   display:grid;gap:2.5rem}
+
+.top{display:flex;justify-content:space-between;align-items:flex-start;gap:1.5rem;flex-wrap:wrap}
 .eyebrow{font-family:var(--f-mono);font-size:.68rem;letter-spacing:.14em;
-  text-transform:uppercase;color:var(--accent)}
-h1{font-family:var(--f-display);font-weight:600;font-size:clamp(2rem,5vw,2.9rem);
-  line-height:1.05;letter-spacing:-.02em;margin:.5rem 0 .6rem}
-h2{font-family:var(--f-display);font-weight:600;font-size:1.4rem;line-height:1.2;
-  margin:0 0 .35rem;text-wrap:balance}
-.lede{font-family:var(--f-display);font-size:1.1rem;line-height:1.5;color:var(--soft);
-  margin:0;max-width:56ch}
+  text-transform:uppercase;color:var(--primary)}
+h1{font-family:var(--f-display);font-weight:500;letter-spacing:-.015em;
+  font-size:clamp(2rem,5vw,2.9rem);line-height:1.06;margin:.45rem 0 .6rem;color:var(--ink)}
+h2{font-family:var(--f-display);font-weight:500;letter-spacing:-.015em;
+  font-size:1.4rem;line-height:1.22;margin:0 0 .35rem;color:var(--ink);text-wrap:balance}
+.lede{font-family:var(--f-display);font-weight:400;font-size:1.1rem;line-height:1.5;
+  color:var(--body);margin:0;max-width:56ch}
 p{margin:0 0 .85rem}p:last-child{margin-bottom:0}
-.note{font-size:.86rem;color:var(--faint);max-width:64ch}
-a{color:var(--accent);text-underline-offset:2px}
-:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.note{font-size:.86rem;color:var(--muted);max-width:64ch}
+a{color:var(--primary);text-underline-offset:2px}
+:focus-visible{outline:2px solid var(--primary);outline-offset:2px}
+
+/* theme toggle */
+.themebtn{display:inline-flex;align-items:center;gap:.45rem;flex:0 0 auto;
+  font-family:var(--f-mono);font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;
+  padding:.4rem .7rem;border:1px solid var(--hairline);border-radius:2px;
+  background:var(--surface);color:var(--muted);cursor:pointer}
+.themebtn:hover{color:var(--ink);border-color:var(--primary)}
+.themebtn svg{width:13px;height:13px;display:block}
 
 /* demo */
 .demo{display:grid;grid-template-columns:minmax(0,20rem) minmax(0,1fr);gap:1px;
-  background:var(--rule);border:1px solid var(--rule);border-radius:4px;overflow:hidden}
+  background:var(--hairline);border:1px solid var(--hairline);border-radius:3px;overflow:hidden}
 @media(max-width:52rem){.demo{grid-template-columns:1fr}}
 .pane{background:var(--surface);min-width:0}
 .picker{display:flex;flex-direction:column;max-height:34rem}
-.filters{padding:.75rem;border-bottom:1px solid var(--rule);display:flex;gap:.3rem;flex-wrap:wrap}
-.chip{font-family:var(--f-mono);font-size:.68rem;padding:.22rem .5rem;border-radius:2px;
-  border:1px solid var(--rule);background:transparent;color:var(--faint);cursor:pointer}
-.chip[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
+.filters{padding:.7rem;border-bottom:1px solid var(--hairline);display:flex;gap:.3rem;flex-wrap:wrap}
+.chip{font-family:var(--f-mono);font-size:.67rem;padding:.22rem .5rem;border-radius:2px;
+  border:1px solid var(--hairline);background:transparent;color:var(--muted);cursor:pointer}
+.chip:hover{color:var(--ink)}
+.chip[aria-pressed="true"]{background:var(--primary);border-color:var(--primary);color:var(--on-primary)}
 .qlist{overflow-y:auto;flex:1}
-.q{display:block;width:100%;text-align:left;border:0;border-bottom:1px solid var(--rule);
-  background:transparent;color:var(--ink);font:inherit;font-size:.85rem;line-height:1.4;
+.q{display:block;width:100%;text-align:left;border:0;border-bottom:1px solid var(--hairline);
+  background:transparent;color:var(--body);font:inherit;font-size:.85rem;line-height:1.4;
   padding:.7rem .85rem;cursor:pointer}
-.q:hover{background:var(--raise)}
-.q[aria-current="true"]{background:var(--accent-dim);box-shadow:inset 2px 0 0 var(--accent)}
-.q .qid{font-family:var(--f-mono);font-size:.68rem;color:var(--faint);display:block}
+.q:hover{background:var(--raise);color:var(--ink)}
+.q[aria-current="true"]{background:var(--pi-bg);color:var(--ink);box-shadow:inset 2px 0 0 var(--primary)}
+.q .qid{font-family:var(--f-mono);font-size:.67rem;color:var(--muted);display:block}
 .answer{padding:1.25rem}
-.qtext{font-family:var(--f-display);font-size:1.15rem;line-height:1.4;margin:0 0 .3rem}
-.meta{font-family:var(--f-mono);font-size:.72rem;color:var(--faint);
+.qtext{font-family:var(--f-display);font-size:1.15rem;line-height:1.4;margin:0 0 .3rem;color:var(--ink)}
+.meta{font-family:var(--f-mono);font-size:.71rem;color:var(--muted);
   display:flex;gap:.9rem;flex-wrap:wrap;margin-bottom:1rem}
-.verdict{font-family:var(--f-mono);font-size:.7rem;padding:.14rem .45rem;border-radius:2px}
-.v-yes{background:var(--yes-bg);color:var(--yes)}
-.v-no{background:var(--no-bg);color:var(--no)}
-.cite{border:1px solid var(--rule);border-left:2px solid var(--rule);border-radius:0 3px 3px 0;
-  padding:.7rem .85rem;margin-bottom:.6rem;background:var(--raise)}
-.cite.req{border-left-color:var(--accent)}
-.cite h4{font-family:var(--f-mono);font-size:.78rem;margin:0 0 .1rem;font-weight:500}
-.cite .doc{font-size:.75rem;color:var(--faint);margin:0 0 .45rem}
-.cite .ex{font-size:.85rem;margin:0 0 .5rem;color:var(--soft)}
+.verdict{font-family:var(--f-mono);font-size:.7rem;padding:.16rem .5rem;border-radius:2px}
+.v-yes{background:var(--po-bg);color:var(--po-fg)}
+.v-no{background:var(--pw-bg);color:var(--pw-fg)}
+.cite{border:1px solid var(--hairline);border-left:2px solid var(--hairline);
+  border-radius:0 3px 3px 0;padding:.7rem .85rem;margin-bottom:.6rem;background:var(--raise)}
+.cite.req{border-left-color:var(--primary)}
+.cite h4{font-family:var(--f-mono);font-size:.77rem;margin:0 0 .1rem;font-weight:500;color:var(--ink)}
+.cite .doc{font-size:.75rem;color:var(--muted);margin:0 0 .45rem}
+.cite .ex{font-size:.85rem;margin:0 0 .5rem;color:var(--body)}
 .cite .foot{display:flex;justify-content:space-between;align-items:center;gap:.75rem;
-  font-family:var(--f-mono);font-size:.7rem;flex-wrap:wrap}
-.cite .sc{color:var(--faint)}
-.declined{background:var(--no-bg);border:1px solid var(--rule);border-radius:3px;
-  padding:.9rem 1rem;font-size:.9rem;color:var(--no)}
+  font-family:var(--f-mono);font-size:.69rem;flex-wrap:wrap}
+.cite .sc{color:var(--muted)}
+.declined{background:var(--pw-bg);border:1px solid var(--hairline);border-radius:3px;
+  padding:.9rem 1rem;font-size:.9rem;color:var(--pw-fg)}
 
 /* threshold */
-.control{background:var(--surface);border:1px solid var(--rule);border-radius:4px;padding:1rem 1.15rem;
-  display:grid;gap:.6rem}
+.control{background:var(--surface);border:1px solid var(--hairline);border-radius:3px;
+  padding:1rem 1.15rem;display:grid;gap:.6rem}
 .control .row{display:flex;align-items:center;gap:.9rem;flex-wrap:wrap}
-.control input[type=range]{flex:1 1 14rem;accent-color:var(--accent);min-width:10rem}
-.tally{font-family:var(--f-mono);font-size:.78rem;color:var(--soft);
+.control input[type=range]{flex:1 1 14rem;accent-color:var(--primary);min-width:10rem}
+.tally{font-family:var(--f-mono);font-size:.78rem;color:var(--body);
   display:flex;gap:1.25rem;flex-wrap:wrap;font-variant-numeric:tabular-nums}
 .tally b{font-weight:500;color:var(--ink)}
-label{font-family:var(--f-mono);font-size:.72rem;letter-spacing:.06em;
-  text-transform:uppercase;color:var(--faint)}
+label{font-family:var(--f-mono);font-size:.71rem;letter-spacing:.06em;
+  text-transform:uppercase;color:var(--muted)}
 
 /* stats */
-.scroll{overflow-x:auto;border:1px solid var(--rule);border-radius:4px;background:var(--surface)}
+.scroll{overflow-x:auto;border:1px solid var(--hairline);border-radius:3px;background:var(--surface)}
 table{border-collapse:collapse;width:100%;font-size:.85rem}
 th,td{padding:.55rem .95rem;text-align:right;white-space:nowrap}
 th:first-child,td:first-child{text-align:left}
-thead th{font-weight:500;font-size:.7rem;letter-spacing:.06em;text-transform:uppercase;
-  color:var(--faint);border-bottom:1px solid var(--rule)}
-tbody tr+tr td{border-top:1px solid var(--rule)}
+thead th{font-weight:500;font-size:.69rem;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--muted);border-bottom:1px solid var(--hairline)}
+tbody td{color:var(--body)}
+tbody tr+tr td{border-top:1px solid var(--hairline)}
 td.n{font-family:var(--f-mono);font-variant-numeric:tabular-nums}
-tr.lead td{font-weight:600}
-tr.lead td:first-child{box-shadow:inset 2px 0 0 var(--accent)}
-footer{border-top:1px solid var(--rule);padding-top:1.25rem;font-size:.8rem;
-  color:var(--faint);max-width:64ch}
-footer strong{color:var(--soft)}
+tr.lead td{font-weight:600;color:var(--ink)}
+tr.lead td:first-child{box-shadow:inset 2px 0 0 var(--primary)}
+footer{border-top:1px solid var(--hairline);padding-top:1.25rem;font-size:.8rem;
+  color:var(--muted);max-width:64ch}
+footer strong{color:var(--body)}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
 </style>
 """
 
 BODY_TOP = """<div class="wrap">
 <header>
-  <div class="eyebrow">Retrieval over CBUAE insurance regulation</div>
-  <h1>ReguLens</h1>
+  <div class="top">
+    <div>
+      <div class="eyebrow">Retrieval over CBUAE insurance regulation</div>
+      <h1>ReguLens</h1>
+    </div>
+    <button class="themebtn" id="themebtn" type="button" aria-live="polite">
+      <span id="themeicon"></span><span id="themelabel">Theme</span>
+    </button>
+  </div>
   <p class="lede">Ask a regulatory question, get the exact articles that answer it &mdash; each one quoted, attributed and linked back to the source.</p>
 </header>
 
@@ -161,7 +200,7 @@ BODY_TOP = """<div class="wrap">
     <div class="row">
       <label for="thr">Decline below</label>
       <input id="thr" type="range" min="-10" max="7" step="0.25" value="-10">
-      <span class="mono" id="thrval" style="font-family:var(--f-mono);font-variant-numeric:tabular-nums">off</span>
+      <span id="thrval" style="font-family:var(--f-mono);font-variant-numeric:tabular-nums;color:var(--ink)">off</span>
     </div>
     <div class="tally" id="tally"></div>
   </div>
@@ -209,6 +248,47 @@ const el = (id) => document.getElementById(id);
 const esc = (s) => String(s).replace(/[&<>"']/g, c =>
   ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 
+/* ---- theme ------------------------------------------------------------ */
+const KEY = "regulens-theme";
+const SUN = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M19.1 4.9l-1.4 1.4M6.3 17.7l-1.4 1.4"/></svg>';
+const MOON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a6.8 6.8 0 0 0 10.5 10.5z"/></svg>';
+
+function stored() {
+  try { return localStorage.getItem(KEY); } catch (e) { return null; }
+}
+function remember(v) {
+  try { v ? localStorage.setItem(KEY, v) : localStorage.removeItem(KEY); } catch (e) {}
+}
+function hostPrefersDark() {
+  const stamped = document.documentElement.getAttribute("data-theme");
+  if (stamped === "dark") return true;
+  if (stamped === "light") return false;
+  return window.matchMedia("(prefers-color-scheme: dark)").matches;
+}
+function isDark() {
+  const s = stored();
+  return s ? s === "dark" : hostPrefersDark();
+}
+function paint() {
+  const dark = isDark();
+  document.documentElement.classList.toggle("dark", dark);
+  document.documentElement.classList.toggle("light", !dark);
+  el("themeicon").innerHTML = dark ? MOON : SUN;
+  el("themelabel").textContent = dark ? "Dark" : "Light";
+  el("themebtn").setAttribute("aria-label",
+    dark ? "Switch to light mode" : "Switch to dark mode");
+}
+el("themebtn").addEventListener("click", () => {
+  remember(isDark() ? "light" : "dark");
+  paint();
+});
+// With no explicit choice, keep following the host if it changes mid-session.
+window.matchMedia("(prefers-color-scheme: dark)")
+  .addEventListener("change", () => { if (!stored()) paint(); });
+new MutationObserver(() => { if (!stored()) paint(); })
+  .observe(document.documentElement, {attributes: true, attributeFilter: ["data-theme"]});
+
+/* ---- demo ------------------------------------------------------------- */
 function renderFilters() {
   el("filters").innerHTML = ["all", ...CATS].map(c =>
     `<button class="chip" data-c="${esc(c)}" aria-pressed="${c === cat}">${esc(c.replace(/_/g, " "))}</button>`
@@ -293,7 +373,7 @@ el("thr").addEventListener("input", (e) => {
   renderTally(); renderAnswer();
 });
 
-renderFilters(); renderList(); renderAnswer(); renderTally();
+paint(); renderFilters(); renderList(); renderAnswer(); renderTally();
 </script>"""
 
 
@@ -304,9 +384,10 @@ def main() -> int:
     # A literal </script> inside the data would close the tag early.
     payload = payload.replace("</", "<\\/")
 
+    head = HEAD.replace("__LIGHT__", LIGHT).replace("__DARK__", DARK)
     out = Path(sys.argv[1]) if len(sys.argv) > 1 else REPO_ROOT / "results" / "demo.html"
     out.write_text(
-        HEAD + BODY_TOP + BODY_BOTTOM + SCRIPT.replace("__DATA__", payload),
+        head + BODY_TOP + BODY_BOTTOM + SCRIPT.replace("__DATA__", payload),
         encoding="utf-8",
     )
     print(f"wrote {out}  ({out.stat().st_size / 1024:.0f} KB)")
