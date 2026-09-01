@@ -26,6 +26,42 @@ discriminating items beat fifty where thirty are free wins for every system.
 | `unanswerable` | 6 | Not covered by the corpus. Fills the abstention table in the README, which cannot be populated without these. |
 | `temporal` | 0 | Deferred from v1. The Rulebook has revision-history pages but they have not been checked for clean before/after pairs. If this category is ever built, the four future-commencement Takaful instruments below are its natural material. |
 
+## Expansion: 50 at a time
+
+The first 50 were sized by what one person could verify, not by a power
+calculation - none was possible before any effect had been measured. With
+Phase 4 measured, the numbers exist:
+
+| claim | questions needed for 80% power |
+|---|---:|
+| reranker beats dense, overall | 65 |
+| reranker beats BM25, overall | 204 |
+| hybrid beats BM25, overall | 338 |
+| reranker beats hybrid | 1,201 |
+| abstention AUC excludes 0.5 | 25 unanswerable |
+
+The last two rows are the useful negative: those effects are too small to be
+worth anyone's evenings, and the mix should not be sized for them.
+
+**Batch 2 (D051-D100) is spread roughly equally across the six categories**
+rather than repeating the original proportions. That is deliberate. The original
+mix was shaped by a 50-question budget; an equal split lifts `adversarial` from
+3 and `comparative` from 5 - the two categories currently too small to support
+any inference at all - and doubles `cross_document`, which is where the measured
+effect actually lives.
+
+| category | after batch 1 | batch 2 | target |
+|---|---:|---:|---:|
+| `single_hop` | 10 | 8 | 18 |
+| `cross_section` | 18 | 9 | 27 |
+| `cross_document` | 8 | 9 | 17 |
+| `comparative` | 5 | 8 | 13 |
+| `adversarial` | 3 | 8 | 11 |
+| `unanswerable` | 6 | 8 | 14 |
+
+Batch 2 also draws on 17 documents the first 50 never touched, so the benchmark
+stops concentrating on the governance and financial-regulation instruments.
+
 ## Construction rule for `cross_document`
 
 The calibration found that insurance regulations are **largely self-contained** —

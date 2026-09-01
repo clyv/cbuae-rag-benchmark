@@ -34,12 +34,12 @@ VALID_SOURCES = {"hand_written", "derived_from_document_structure", "llm_drafted
 # the by-category recall table is the one the project's question turns on, and a
 # category that quietly ends up with two items cannot support a column in it.
 TARGET_MIX = {
-    "single_hop": 10,
-    "cross_section": 18,
-    "cross_document": 8,
-    "comparative": 5,
-    "adversarial": 3,
-    "unanswerable": 6,
+    "single_hop": 18,
+    "cross_section": 27,
+    "cross_document": 17,
+    "comparative": 13,
+    "adversarial": 11,
+    "unanswerable": 14,
     "temporal": 0,
 }
 
