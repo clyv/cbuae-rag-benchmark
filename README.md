@@ -335,6 +335,44 @@ The cost is unchanged and still the main argument against it: **1042 ms against
 passes per query on CPU. Against hybrid alone it does not separate (+0.064,
 −0.012 – +0.134). What it does buy outright is abstention, below.
 
+### Questions no system could answer
+
+**6 of the 86 answerable questions scored recall@10 = 0 on all four systems**:
+Q001, Q003, Q028, Q042, Q078, Q083. A further **16 were never answered
+completely** by any system, with at least one required section always missing.
+
+Those were re-checked against their cited articles, on the theory that a
+question no system can answer is either genuinely hard or mislabelled. No label
+changed.
+
+### Why the absolute numbers are lower than they look
+
+The questions are **paraphrases, not quotations**. `benchmark/schema.json`
+requires it - "avoid quoting the regulation verbatim, that turns the task into
+string matching" - so a question asks about "exposure beyond the level its board
+signed off on" where the regulation says "deviation from the Risk Appetite".
+
+That choice costs a great deal of measured recall. Taking the six questions no
+system could answer and re-querying BM25 with the vocabulary of the cited
+sections' own headings instead of the question as written:
+
+| Question | rank as written | rank with keywords |
+|---|---|---|
+| Q001 | not in top 50 | **1** |
+| Q003 | 46 | **1** |
+| Q028 | 26 | **1** |
+| Q042 | not in top 50 | **3** |
+| Q078 | 27 | **1** |
+| Q083 | 23 | **1** |
+
+Every one is near-trivially retrievable by keyword. The systems are not failing
+to find these sections; they are failing to connect a paraphrase to them.
+
+This matters when comparing these figures to published benchmarks. A recall@10
+of 0.581 for BM25 looks weak next to numbers from datasets whose questions were
+generated *from* the passage they answer, and those are not measuring the same
+thing.
+
 ## Answering: citations and abstention
 
 Measured by `scripts/run_answering.py` over hybrid+reranker at k=5. Full
@@ -461,9 +499,9 @@ required.
 
 **Questions are paraphrases, so absolute recall is not comparable to benchmarks
 built from quoted text.** The schema requires it, and the cost is measurable:
-the four questions no system answered all have their required section in BM25's
-top 2 when queried with the regulation's own words. See "Why the absolute
-numbers are lower than they look".
+the six questions no system answered are all retrieved at rank 1 to 3 by BM25
+when queried with the vocabulary of their own cited sections. See "Why the
+absolute numbers are lower than they look".
 
 **The corpus is a snapshot.** Collected 2026-08-24 from a live site.
 `corpus/manifest.json` pins a SHA-256 per document so a result ties to an exact
