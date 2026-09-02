@@ -3,7 +3,7 @@
 
     python scripts/build_demo_page.py [output.html]
 
-The page carries the system's recorded output for all 50 benchmark questions:
+The page carries the system's recorded output for all 100 benchmark questions:
 real citations, real scores, and each question's labelled evidence so a reader
 can see whether the system found what a human said was required.
 
@@ -178,7 +178,7 @@ BODY_TOP = """<div class="wrap">
 
 <section>
   <h2>Try it</h2>
-  <p class="note">These are the 50 benchmark questions. Everything below is what the system
+  <p class="note">These are the 100 benchmark questions. Everything below is what the system
   actually returned when run over the corpus &mdash; real citations, real relevance scores,
   nothing mocked up. Because each question has labelled evidence, you can also see whether
   it found what a human said was required.</p>
@@ -193,7 +193,7 @@ BODY_TOP = """<div class="wrap">
 
 <section>
   <h2>When should it refuse to answer?</h2>
-  <p class="note">Six questions have no answer in this corpus. A system that answers them
+  <p class="note">Fourteen questions have no answer in this corpus. A system that answers them
   anyway is confidently wrong. Declining below a relevance score is the obvious fix &mdash;
   move the control and watch what it costs.</p>
   <div class="control">
@@ -214,17 +214,18 @@ BODY_BOTTOM = """
   <div class="scroll"><table>
     <thead><tr><th>System</th><th>recall@10</th><th>full recall@10</th><th>MRR</th><th>median latency</th></tr></thead>
     <tbody>
-      <tr><td>BM25</td><td class="n">0.659</td><td class="n">0.545</td><td class="n">0.493</td><td class="n">4 ms</td></tr>
-      <tr><td>Dense</td><td class="n">0.625</td><td class="n">0.432</td><td class="n">0.575</td><td class="n">28 ms</td></tr>
-      <tr><td>Hybrid</td><td class="n">0.705</td><td class="n">0.568</td><td class="n">0.593</td><td class="n">39 ms</td></tr>
-      <tr class="lead"><td>Hybrid + reranker</td><td class="n">0.727</td><td class="n">0.568</td><td class="n">0.653</td><td class="n">1996 ms</td></tr>
+      <tr><td>BM25</td><td class="n">0.581</td><td class="n">0.465</td><td class="n">0.448</td><td class="n">4 ms</td></tr>
+      <tr><td>Dense</td><td class="n">0.680</td><td class="n">0.523</td><td class="n">0.579</td><td class="n">44 ms</td></tr>
+      <tr><td>Hybrid</td><td class="n">0.686</td><td class="n">0.547</td><td class="n">0.558</td><td class="n">56 ms</td></tr>
+      <tr class="lead"><td>Hybrid + reranker</td><td class="n">0.750</td><td class="n">0.593</td><td class="n">0.674</td><td class="n">1042 ms</td></tr>
     </tbody>
   </table></div>
-  <p class="note">Measured over the 44 answerable questions, on CPU. The demo above uses the
-  last row. On <strong>cross-document</strong> questions &mdash; evidence spanning two
-  instruments &mdash; hybrid beats BM25 by <strong>+0.250</strong> (95% interval +0.062 to
-  +0.438), which is the one comparison the project predicted in advance. Most other
-  differences are inside what 44 questions can resolve, and are reported as such.</p>
+  <p class="note">Measured over the 86 answerable questions, on CPU. The demo above uses the
+  last row. <strong>Hybrid with reranking beats BM25 by +0.169</strong> (95% interval +0.087
+  to +0.250) and dense by +0.070 &mdash; both clear zero. At 50 questions neither did: the
+  systems and the code were identical, only the benchmark grew. On
+  <strong>cross-document</strong> questions, where evidence spans two instruments, hybrid
+  reaches 0.853 against BM25's 0.618.</p>
 </section>
 
 <footer>

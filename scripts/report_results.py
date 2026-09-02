@@ -5,11 +5,12 @@
 
 ## Why intervals rather than a ranking
 
-Forty-four answerable questions is a small sample. A system scoring 0.70 against
-one scoring 0.66 looks like an improvement and is, at that sample size, well
-inside the range either system would produce by chance on a different draw of 44
-questions. Reporting the point estimates alone invites a ranking narrative the
-data cannot support, which the README's limitations section commits to avoiding.
+This benchmark is small. A system scoring 0.70 against one scoring 0.66 looks
+like an improvement and may sit well inside the range either would produce on a
+different draw of the same size. Reporting point estimates alone invites a
+ranking narrative the data cannot support, which the README's limitations
+section commits to avoiding. The sample size is read from the data rather than
+written into the prose, so these tables stay honest as the benchmark grows.
 
 Two things are computed:
 
@@ -50,10 +51,12 @@ HEADLINE = ["recall@5", "recall@10", "full_recall@10", "ndcg@10", "mrr"]
 def load_reports() -> dict[str, dict]:
     reports = {}
     for path in RESULTS.glob("*.json"):
-        if path.name in {"summary.json"}:
-            continue
         data = json.loads(path.read_text(encoding="utf-8"))
-        if "per_question" in data:
+        # Identify a retriever report by its own shape rather than by excluding
+        # filenames. results/ also holds answering.json, which has per_question
+        # but no retriever, and demo.json, which has neither - a name-based
+        # exclusion list silently breaks every time something new is written here.
+        if "retriever" in data and "per_question" in data:
             reports[data["retriever"]] = data
     if not reports:
         sys.exit("No result files in results/. Run scripts/run_eval.py first.")
@@ -109,7 +112,8 @@ def main() -> int:
     lines: list[str] = []
     add = lines.append
 
-    add("### Overall, over the 44 answerable questions\n")
+    n_answerable = len(answerable(reports[order[0]]))
+    add(f"### Overall, over the {n_answerable} answerable questions\n")
     add("| System | " + " | ".join(HEADLINE) + " | median latency |")
     add("|---|" + "---|" * (len(HEADLINE) + 1))
     for name in order:

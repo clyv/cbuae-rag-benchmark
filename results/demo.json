@@ -2349,6 +2349,2332 @@
      "required": false
     }
    ]
+  },
+  {
+   "id": "Q051",
+   "question": "Someone has just bought a life policy and changed their mind. How long do they have to walk away, and when does that clock start?",
+   "category": "single_hop",
+   "difficulty": "easy",
+   "required": [
+    "INS-CON-004::Article 9"
+   ],
+   "found": [
+    "INS-CON-004::Article 9"
+   ],
+   "complete": true,
+   "top_score": -7.98,
+   "would_decline": true,
+   "citations": [
+    {
+     "id": "INS-OTH-001::Chapter Seven, Article 43",
+     "doc_id": "INS-OTH-001",
+     "section": "Chapter Seven, Article 43",
+     "document": "Insurance Authority's Board of Directors Decision No. (23) of 2019 Concerning Instructions Organizing Reinsurance Operations",
+     "excerpt": "Insurance and reinsurance companies must reconcile their positions with the provisions stipulated in these Instructions within eighteen months from the date they come into effect.",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/insurance-authority%E2%80%99s-board-directors-decision-no23-2019-concerning-instructions",
+     "score": -7.98,
+     "required": false
+    },
+    {
+     "id": "INS-CON-004::Article 9",
+     "doc_id": "INS-CON-004",
+     "section": "Article 9",
+     "document": "Insurance Authority Board of Directors' Decision No. (49) of 2019 Concerning Instructions for Life Insurance and Family Takaful Insurance",
+     "excerpt": "The Free Look Period starts on the date of policy issuance, the date when coverage commences, or the date when the policy documents are signed by the client, whichever is earlier. The Distribution Channels directly involved in the sale process cannot ask for an explanation from the policyholder in case the policyholder",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/insurance-authority-board-directors%E2%80%99-decision-no-49-2019-concerning-instructions-life",
+     "score": -7.99,
+     "required": true
+    },
+    {
+     "id": "INS-LIC-001::Article 6",
+     "doc_id": "INS-LIC-001",
+     "section": "Article 6",
+     "document": "Insurance Company Licensing Regulation",
+     "excerpt": "6.1 The date of commencement of the insurance activities is the date of conclusion of the first Insurance Policy. If the Company does not commence the insurance activities within the approved period, it must inform the Central Bank about this fact.",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/insurance-company-licensing-regulation",
+     "score": -8.98,
+     "required": false
+    }
+   ]
+  },
+  {
+   "id": "Q052",
+   "question": "Under the Cabinet Resolution on minimum capital, how much must a reinsurance company have subscribed and paid up?",
+   "category": "single_hop",
+   "difficulty": "easy",
+   "required": [
+    "INS-FIN-005::Article 3"
+   ],
+   "found": [
+    "INS-FIN-005::Article 3"
+   ],
+   "complete": true,
+   "top_score": 6.64,
+   "would_decline": false,
+   "citations": [
+    {
+     "id": "INS-FIN-005::Article 3",
+     "doc_id": "INS-FIN-005",
+     "section": "Article 3",
+     "document": "Cabinet Resolution No. 42 of 2009 Concerning Insurance Company Minimum Capital Regulations",
+     "excerpt": "The subscribed and paid up capital of a company may not be less than AED 100,000,000 (One Hundred Million UAE Dirhams). The subscribed and paid up capital of a reinsurance company may not be less than AED 250,000,000 (Two Hundred And Fifty Million UAE Dirham).",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/cabinet-resolution-no-42-2009-concerning-insurance-company-minimum-capital-regulations",
+     "score": 6.64,
+     "required": true
+    },
+    {
+     "id": "INS-FIN-001::Section 2, Article 1",
+     "doc_id": "INS-FIN-001",
+     "section": "Section 2, Article 1",
+     "document": "Insurance Authority Board Decision Number (25) of 2014 Pertinent to Financial Regulations for Insurance Companies",
+     "excerpt": "The Minimum Subscribed and Paid Up Capital of each Company should not be less than the following: AED 100 million for an insurance Company. AED 250 million for a reinsurance Company.",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/insurance-authority-board-decision-number-25-2014-pertinent-financial-regulations",
+     "score": 6.62,
+     "required": false
+    },
+    {
+     "id": "INS-OTH-001::Chapter Two, Article 12",
+     "doc_id": "INS-OTH-001",
+     "section": "Chapter Two, Article 12",
+     "document": "Insurance Authority's Board of Directors Decision No. (23) of 2019 Concerning Instructions Organizing Reinsurance Operations",
+     "excerpt": "The subscribed and paid up capital of the reinsurance company shall not be less than AED 250,000,000 (only two hundred and fifty million dirhams). The Authority may determine a minimum capital for the Company greater than that stipulated in the aforementioned sub-Article (1), if the Feasibility Study indicates that the",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/insurance-authority%E2%80%99s-board-directors-decision-no23-2019-concerning-instructions",
+     "score": 6.56,
+     "required": false
+    }
+   ]
+  },
+  {
+   "id": "Q053",
+   "question": "A motor claim arrives with documents missing. What must the insurer tell the claimant, and how quickly?",
+   "category": "single_hop",
+   "difficulty": "easy",
+   "required": [
+    "INS-MOT-001::Article 6"
+   ],
+   "found": [
+    "INS-MOT-001::Article 6"
+   ],
+   "complete": true,
+   "top_score": 1.52,
+   "would_decline": true,
+   "citations": [
+    {
+     "id": "INS-MOT-001::Article 6",
+     "doc_id": "INS-MOT-001",
+     "section": "Article 6",
+     "document": "Insurance Authority Board of Directors' Decision No. (25) of 2016 Pertinent to Regulation of the Unified Motor Vehicle Insurance Policies",
+     "excerpt": "Give the claimant a notice in writing of the receipt of the claim. In case of any missing items in the required documents, the company shall inform the claimant in writing within three days from receiving the claim about the documents required for completion. If the claim is rejected, the company shall inform the claim",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/insurance-authority-board-directors-decision-no-25-2016-pertinent-regulation-unified-motor",
+     "score": 1.52,
+     "required": true
+    },
+    {
+     "id": "INS-MOT-003::Chapter Three",
+     "doc_id": "INS-MOT-003",
+     "section": "Chapter Three",
+     "document": "The Unified Motor Vehicle Insurance Policy Against Third Party Liability",
+     "excerpt": "In case of any accident that gives rise to a claim according to the provisions of this Policy, the Insured or the Motor Vehicle Driver shall notify the concerned official authorities and the Insurer within a reasonable period of time after occurrence of the accident and furnish all documents and details pertaining to t",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/unified-motor-vehicle-insurance-policy-against-third-party-liability-issued-pursuant",
+     "score": 1.22,
+     "required": false
+    },
+    {
+     "id": "INS-MOT-001::Article 7",
+     "doc_id": "INS-MOT-001",
+     "section": "Article 7",
+     "document": "Insurance Authority Board of Directors' Decision No. (25) of 2016 Pertinent to Regulation of the Unified Motor Vehicle Insurance Policies",
+     "excerpt": "In case of total loss of the motor vehicle, the company shall: Promptly pay the amount of compensation, as the case may be, according to the relevant policy within a period not exceeding fifteen days from the date of completion of the claim documents. If the company delays settlement of the claim for more than fifteen",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/insurance-authority-board-directors-decision-no-25-2016-pertinent-regulation-unified-motor",
+     "score": -1.09,
+     "required": false
+    }
+   ]
+  },
+  {
+   "id": "Q054",
+   "question": "Can a motor insurer pick and choose which drivers it will cover, or decline to renew someone it would rather not keep?",
+   "category": "single_hop",
+   "difficulty": "medium",
+   "required": [
+    "INS-MOT-001::Article 4"
+   ],
+   "found": [
+    "INS-MOT-001::Article 4"
+   ],
+   "complete": true,
+   "top_score": -0.83,
+   "would_decline": true,
+   "citations": [
+    {
+     "id": "INS-MOT-001::Article 4",
+     "doc_id": "INS-MOT-001",
+     "section": "Article 4",
+     "document": "Insurance Authority Board of Directors' Decision No. (25) of 2016 Pertinent to Regulation of the Unified Motor Vehicle Insurance Policies",
+     "excerpt": "The company should issue a third party liability insurance policy on all motor vehicles licensed in the State when it is so requested by the related parties. The company may not refuse granting insurance against loss and damage, refuse to renew an insurance policy, or discriminate between the insured in relation to ins",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/insurance-authority-board-directors-decision-no-25-2016-pertinent-regulation-unified-motor",
+     "score": -0.83,
+     "required": true
+    },
+    {
+     "id": "INS-MOT-003::Chapter Five",
+     "doc_id": "INS-MOT-003",
+     "section": "Chapter Five",
+     "document": "The Unified Motor Vehicle Insurance Policy Against Third Party Liability",
+     "excerpt": "The Company may have recourse to the Insured, the Motor Vehicle Driver or the person responsible for the Accident, as the case may be, within the limit of the amount of compensation paid in the following cases: If it is proven that the insurance was concluded based upon the Insured's misrepresentation or non-disclosure",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/unified-motor-vehicle-insurance-policy-against-third-party-liability-issued-pursuant",
+     "score": -2.7,
+     "required": false
+    },
+    {
+     "id": "INS-MOT-002::Chapter Three",
+     "doc_id": "INS-MOT-002",
+     "section": "Chapter Three",
+     "document": "The Unified Motor Vehicle Insurance Policy Against Loss and Damage",
+     "excerpt": "All reasonable precautions must be taken to keep and protect the Insured Motor Vehicle from loss or damage and maintain the same in a good working condition. In case of any accident or breakdown of the Motor Vehicle, the Insured may not leave the Insured Motor Vehicle or any part thereof without taking necessary precau",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/unified-motor-vehicle-insurance-policy-against-loss-and-damage-issued-pursuant-regulation",
+     "score": -3.46,
+     "required": false
+    }
+   ]
+  },
+  {
+   "id": "Q055",
+   "question": "What has to go into the record an insurer keeps of customer complaints?",
+   "category": "single_hop",
+   "difficulty": "easy",
+   "required": [
+    "INS-CON-002::Article 10"
+   ],
+   "found": [
+    "INS-CON-002::Article 10"
+   ],
+   "complete": true,
+   "top_score": -0.89,
+   "would_decline": true,
+   "citations": [
+    {
+     "id": "INS-CON-002::Article 10",
+     "doc_id": "INS-CON-002",
+     "section": "Article 10",
+     "document": "Insurance Authority Board Resolution No. 3 of 2010 Instructions Concerning the Code of Conduct and Ethics",
+     "excerpt": "The Company shall maintain a register for complaints received from its Clients; where the complaint's date of submission, serial number, name of complainant, relevant policy number and summary of the subject thereof, and supporting documents attached thereto are recorded. The Company shall create a file for each compla",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/insurance-authority-board-resolution-no-3-2010-instructions-concerning-code-conduct-and",
+     "score": -0.89,
+     "required": true
+    },
+    {
+     "id": "INS-CON-006::Chapter Five, Article 21",
+     "doc_id": "INS-CON-006",
+     "section": "Chapter Five, Article 21",
+     "document": "Insurance Authority Board of Directors' Resolution No. (18) of 2020 Concerning the Electronic Insurance Regulations",
+     "excerpt": "Without prejudice to the provisions of the Code of Professional Practice and the legislations in force, the Company, the Insurance Agent and the Insurance Broker shall provide through their website, all the information necessary to the customer or the third party (the injured third party) to lodge complaints and follow",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/insurance-authority-board-directors-resolution-no-18-2020-concerning-electronic-insurance",
+     "score": -1.24,
+     "required": false
+    },
+    {
+     "id": "INS-CON-006::Chapter Five, Article 16",
+     "doc_id": "INS-CON-006",
+     "section": "Chapter Five, Article 16",
+     "document": "Insurance Authority Board of Directors' Resolution No. (18) of 2020 Concerning the Electronic Insurance Regulations",
+     "excerpt": "The Company and the Insurance Agent shall apply what is included in the legislations of anti- money laundering, combating the financing of terrorism and financing illegal organizations crimes, and they must inform the Competent Authority in accordance with electronic regulations or other approved means for any suspecte",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/insurance-authority-board-directors-resolution-no-18-2020-concerning-electronic-insurance",
+     "score": -3.37,
+     "required": false
+    }
+   ]
+  },
+  {
+   "id": "Q056",
+   "question": "What is an external Shari'ah audit actually for?",
+   "category": "single_hop",
+   "difficulty": "easy",
+   "required": [
+    "INS-TAK-005::Article 5"
+   ],
+   "found": [
+    "INS-TAK-005::Article 5"
+   ],
+   "complete": true,
+   "top_score": 7.32,
+   "would_decline": false,
+   "citations": [
+    {
+     "id": "INS-TAK-005::Article 5",
+     "doc_id": "INS-TAK-005",
+     "section": "Article 5",
+     "document": "Standard Re External Shari'ah Audit for Takaful Insurance Companies",
+     "excerpt": "The purpose of the External Shari'ah Audit is to reach reasonable and independent assurance regarding the Company's Compliance with Islamic Shari'ah Provisions through an expression of an opinion thereon from the External Shari'ah Auditor.",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/standard-re-external-shari%E2%80%99ah-audit-takaful-insurance-companies",
+     "score": 7.32,
+     "required": true
+    },
+    {
+     "id": "INS-TAK-005::Article 1",
+     "doc_id": "INS-TAK-005",
+     "section": "Article 1",
+     "document": "Standard Re External Shari'ah Audit for Takaful Insurance Companies",
+     "excerpt": "The Central Bank seeks to promote development of the Takaful Insurance activities to ensure their effectiveness and efficiency. To achieve this, Takaful Insurance Companies (\"the Company/Companies\") must comply with the requirements stated in this Standard when appointing a specialized external firm to conduct External",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/standard-re-external-shari%E2%80%99ah-audit-takaful-insurance-companies",
+     "score": 6.16,
+     "required": false
+    },
+    {
+     "id": "INS-TAK-002::Article 12",
+     "doc_id": "INS-TAK-002",
+     "section": "Article 12",
+     "document": "Standard re Shari'ah Governance for Takaful Insurance Companies",
+     "excerpt": "The Company may appoint a specialized external body to conduct External Shari'ah Audit. This task must be undertaken by an independent external Shari'ah audit company approved by the Central Bank (\"External Shari'ah Auditor\"). The External Shari'ah Auditor shall assess compliance of the Company with the Islamic Shari'a",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/standard-re-shari%E2%80%99ah-governance-takaful-insurance-companies",
+     "score": 6.15,
+     "required": false
+    }
+   ]
+  },
+  {
+   "id": "Q057",
+   "question": "Where do the committees that settle insurance disputes actually sit, and who decides if one needs to meet elsewhere?",
+   "category": "single_hop",
+   "difficulty": "medium",
+   "required": [
+    "INS-CON-001::Article 3"
+   ],
+   "found": [
+    "INS-CON-001::Article 3"
+   ],
+   "complete": true,
+   "top_score": 3.43,
+   "would_decline": true,
+   "citations": [
+    {
+     "id": "INS-CON-001::Article 3",
+     "doc_id": "INS-CON-001",
+     "section": "Article 3",
+     "document": "Insurance Authority Board Resolution No. (33) of 2019 Concerning the Regulation of the Committees for the Settlement and Resolution of Insurance Disputes",
+     "excerpt": "Standing committees shall be formed for the settlement and resolution of Insurance Disputes. These Committees shall hold their sessions in Abu Dhabi and Dubai, and the Committees shall hold their sessions in other cities and emirates of the UAE pursuant to common interest by a decision issued by the Director General. T",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/insurance-authority-board-resolution-no-33-2019-concerning-regulation-committees",
+     "score": 3.43,
+     "required": true
+    },
+    {
+     "id": "INS-CON-001::Article 14 (2)",
+     "doc_id": "INS-CON-001",
+     "section": "Article 14 (2)",
+     "document": "Insurance Authority Board Resolution No. (33) of 2019 Concerning the Regulation of the Committees for the Settlement and Resolution of Insurance Disputes",
+     "excerpt": "The Committee shall study and decide on the Insurance Disputes referred to it and the documents and details furnished to it within twenty working days from the end of its operations and receipt of all documents, details and information required for decision. When necessary, the Committee may extend this duration to sim",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/insurance-authority-board-resolution-no-33-2019-concerning-regulation-committees",
+     "score": 1.7,
+     "required": false
+    },
+    {
+     "id": "INS-CON-001::Article 6",
+     "doc_id": "INS-CON-001",
+     "section": "Article 6",
+     "document": "Insurance Authority Board Resolution No. (33) of 2019 Concerning the Regulation of the Committees for the Settlement and Resolution of Insurance Disputes",
+     "excerpt": "The Committee shall make its decision rejecting the Insurance Dispute referred to it in the following cases: If the same complaint was previously filed to one of the Committees and decided on. Any request or objection/defense made by a person that does not have an existing or potential capacity or interest in the Insur",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/insurance-authority-board-resolution-no-33-2019-concerning-regulation-committees",
+     "score": 1.57,
+     "required": false
+    }
+   ]
+  },
+  {
+   "id": "Q058",
+   "question": "An investor wants to come into an insurance company as a strategic partner. What must they be able to show?",
+   "category": "single_hop",
+   "difficulty": "medium",
+   "required": [
+    "INS-GOV-006::Article 4"
+   ],
+   "found": [
+    "INS-GOV-006::Article 4"
+   ],
+   "complete": true,
+   "top_score": 2.08,
+   "would_decline": true,
+   "citations": [
+    {
+     "id": "INS-GOV-006::Article 4",
+     "doc_id": "INS-GOV-006",
+     "section": "Article 4",
+     "document": "Board of Directors' Decision No. (15) of 2019 On the Instructions Concerning the Rules of Ownership Ratios in the Capital of Insurance Companies",
+     "excerpt": "The Following Requisites should be fulfilled in the Strategic Partner: A Strategic Partner may be a foreign person provided that his entry as a Strategic Partner in the company's capital shall not affect the UAE Nationals' ownership ratios or the company's articles of association; The Strategic Partner shall conclude a",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/board-directors%E2%80%99-decision-no-15-2019-instructions-concerning-rules-ownership-ratios",
+     "score": 2.08,
+     "required": true
+    },
+    {
+     "id": "INS-FIN-001::Section 1, Addendum (5)",
+     "doc_id": "INS-FIN-001",
+     "section": "Section 1, Addendum (5)",
+     "document": "Insurance Authority Board Decision Number (25) of 2014 Pertinent to Financial Regulations for Insurance Companies",
+     "excerpt": "The Company must establish comprehensive policies and procedures to govern the strategic investment policy of any outsourced insurance funds, establish an effective risk management system to monitor and continuously assess material risks, and for the insurance funds to be segregated and not co-mingled with other funds",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/insurance-authority-board-decision-number-25-2014-pertinent-financial-regulations",
+     "score": -1.58,
+     "required": false
+    },
+    {
+     "id": "INS-FIN-001::Section 1, Article 1",
+     "doc_id": "INS-FIN-001",
+     "section": "Section 1, Article 1",
+     "document": "Insurance Authority Board Decision Number (25) of 2014 Pertinent to Financial Regulations for Insurance Companies",
+     "excerpt": "For the purpose of matching of Assets and Liabilities subject to paragraph (6) of this Article, the assets held by a Company to cover its technical provisions and all other long-term insurance liabilities must: The assets referred to in paragraph (4) must be of a sufficient amount, and of an appropriate currency and ma",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/insurance-authority-board-decision-number-25-2014-pertinent-financial-regulations",
+     "score": -3.72,
+     "required": false
+    }
+   ]
+  },
+  {
+   "id": "Q059",
+   "question": "A policyholder is unhappy with how a claim was handled. How do they bring a complaint, and on what grounds can the committee refuse to hear it?",
+   "category": "cross_section",
+   "difficulty": "medium",
+   "required": [
+    "INS-CON-001::Article 7",
+    "INS-CON-001::Article 6"
+   ],
+   "found": [
+    "INS-CON-001::Article 7",
+    "INS-CON-001::Article 6"
+   ],
+   "complete": true,
+   "top_score": -0.28,
+   "would_decline": true,
+   "citations": [
+    {
+     "id": "INS-CON-001::Article 6",
+     "doc_id": "INS-CON-001",
+     "section": "Article 6",
+     "document": "Insurance Authority Board Resolution No. (33) of 2019 Concerning the Regulation of the Committees for the Settlement and Resolution of Insurance Disputes",
+     "excerpt": "The Committee shall make its decision rejecting the Insurance Dispute referred to it in the following cases: If the same complaint was previously filed to one of the Committees and decided on. If the Committee is not competent to hear the complaint.",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/insurance-authority-board-resolution-no-33-2019-concerning-regulation-committees",
+     "score": -0.28,
+     "required": true
+    },
+    {
+     "id": "INS-CON-001::Article 13",
+     "doc_id": "INS-CON-001",
+     "section": "Article 13",
+     "document": "Insurance Authority Board Resolution No. (33) of 2019 Concerning the Regulation of the Committees for the Settlement and Resolution of Insurance Disputes",
+     "excerpt": "If the Committee decides to hold its sessions in the presence of the parties or their representatives, they shall be informed of the date by registered mail, through a company (an office licensed by the concerned bodies), via electronic mail or through the remote communication technology. If the Complainant fails to at",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/insurance-authority-board-resolution-no-33-2019-concerning-regulation-committees",
+     "score": -1.24,
+     "required": false
+    },
+    {
+     "id": "INS-CON-001::Article 14",
+     "doc_id": "INS-CON-001",
+     "section": "Article 14",
+     "document": "Insurance Authority Board Resolution No. (33) of 2019 Concerning the Regulation of the Committees for the Settlement and Resolution of Insurance Disputes",
+     "excerpt": "The Complainant may join in the dispute whoever would rightfully have been a litigant when the case was initially filed. If the Defendant claims he is entitled to have recourse against a company that is not a party to the dispute, he shall submit a written request to the Committee showing the nature and grounds of his",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/insurance-authority-board-resolution-no-33-2019-concerning-regulation-committees",
+     "score": -1.29,
+     "required": false
+    }
+   ]
+  },
+  {
+   "id": "Q060",
+   "question": "Under a motor loss-and-damage policy, what will the insurer simply not pay for, and when can it come after the insured for money it has already paid out?",
+   "category": "cross_section",
+   "difficulty": "medium",
+   "required": [
+    "INS-MOT-002::Chapter Four",
+    "INS-MOT-002::Chapter Five"
+   ],
+   "found": [
+    "INS-MOT-002::Chapter Four"
+   ],
+   "complete": false,
+   "top_score": 3.11,
+   "would_decline": true,
+   "citations": [
+    {
+     "id": "INS-MOT-002::Chapter Three",
+     "doc_id": "INS-MOT-002",
+     "section": "Chapter Three",
+     "document": "The Unified Motor Vehicle Insurance Policy Against Loss and Damage",
+     "excerpt": "All reasonable precautions must be taken to keep and protect the Insured Motor Vehicle from loss or damage and maintain the same in a good working condition. If the Insured Motor Vehicle is driven before making necessary repairs by the Insured or the Motor Vehicle Driver, every increase of damage or every damage to the",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/unified-motor-vehicle-insurance-policy-against-loss-and-damage-issued-pursuant-regulation",
+     "score": 3.11,
+     "required": false
+    },
+    {
+     "id": "INS-MOT-001::Article 7",
+     "doc_id": "INS-MOT-001",
+     "section": "Article 7",
+     "document": "Insurance Authority Board of Directors' Decision No. (25) of 2016 Pertinent to Regulation of the Unified Motor Vehicle Insurance Policies",
+     "excerpt": "In case of total loss of the motor vehicle, the company shall: Pay compensation for the value of the motor vehicle according to the agreement between the company and the insured in the insurance policy against loss and damage. Compensation will be made on the basis of calculation of the market value of the motor vehicl",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/insurance-authority-board-directors-decision-no-25-2016-pertinent-regulation-unified-motor",
+     "score": 2.75,
+     "required": false
+    },
+    {
+     "id": "INS-MOT-002::Chapter Four",
+     "doc_id": "INS-MOT-002",
+     "section": "Chapter Four",
+     "document": "The Unified Motor Vehicle Insurance Policy Against Loss and Damage",
+     "excerpt": "The damage of tires if it does not occur at the same time as damage to the Insured Motor Vehicle. Loss or damage that occurs to the Motor Vehicle, or any part thereof, with respect to accidents while the Motor Vehicle is being driven under the influence of narcotics, alcohol or drugs that undermine the driver's ability",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/unified-motor-vehicle-insurance-policy-against-loss-and-damage-issued-pursuant-regulation",
+     "score": 2.17,
+     "required": true
+    }
+   ]
+  },
+  {
+   "id": "Q061",
+   "question": "Under a motor third party liability policy, which accidents fall outside cover, and when can the insurer recover what it paid?",
+   "category": "cross_section",
+   "difficulty": "medium",
+   "required": [
+    "INS-MOT-003::Chapter Four",
+    "INS-MOT-003::Chapter Five"
+   ],
+   "found": [
+    "INS-MOT-003::Chapter Four"
+   ],
+   "complete": false,
+   "top_score": 3.3,
+   "would_decline": true,
+   "citations": [
+    {
+     "id": "INS-MOT-003::Chapter Four",
+     "doc_id": "INS-MOT-003",
+     "section": "Chapter Four",
+     "document": "The Unified Motor Vehicle Insurance Policy Against Third Party Liability",
+     "excerpt": "This Insurance does not cover the Third Party Liability arising or emerging from accidents that are caused by the Insured Motor Vehicle in the following cases: The accidents that occur outside the borders of the State. The accidents that occur to the Insured, the Motor Vehicle Driver or the persons employed by the Insu",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/unified-motor-vehicle-insurance-policy-against-third-party-liability-issued-pursuant",
+     "score": 3.3,
+     "required": true
+    },
+    {
+     "id": "INS-MOT-003::Preamble",
+     "doc_id": "INS-MOT-003",
+     "section": "Preamble",
+     "document": "The Unified Motor Vehicle Insurance Policy Against Third Party Liability",
+     "excerpt": "\") for the insurance set herein below, and has agreed that the application is considered as the basis for and integral part of this Policy, and has paid or agreed to pay the applicable premium, and the Company has accepted and represented to pay compensation to a Third Party/ Injured Party in case of any accident subje",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/unified-motor-vehicle-insurance-policy-against-third-party-liability-issued-pursuant",
+     "score": 3.06,
+     "required": false
+    },
+    {
+     "id": "INS-MOT-003::Definitions",
+     "doc_id": "INS-MOT-003",
+     "section": "Definitions",
+     "document": "The Unified Motor Vehicle Insurance Policy Against Third Party Liability",
+     "excerpt": "The Unified Motor Vehicle Insurance Policy Against Third Party Liability whereby the Company undertakes to compensate the injured third party, on the occurrence of the damage hereby covered, and any endorsement to it, which governs the relationship between the parties, in return of the premium paid by the Insured. The",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/unified-motor-vehicle-insurance-policy-against-third-party-liability-issued-pursuant",
+     "score": 3.03,
+     "required": false
+    }
+   ]
+  },
+  {
+   "id": "Q062",
+   "question": "For a protection product sold through an agent, what is the ceiling on commission and what right does the buyer keep after signing?",
+   "category": "cross_section",
+   "difficulty": "medium",
+   "required": [
+    "INS-CON-004::Article 3",
+    "INS-CON-004::Article 9"
+   ],
+   "found": [
+    "INS-CON-004::Article 3"
+   ],
+   "complete": false,
+   "top_score": -4.24,
+   "would_decline": true,
+   "citations": [
+    {
+     "id": "INS-CON-004::Article 14",
+     "doc_id": "INS-CON-004",
+     "section": "Article 14",
+     "document": "Insurance Authority Board of Directors' Decision No. (49) of 2019 Concerning Instructions for Life Insurance and Family Takaful Insurance",
+     "excerpt": "In case Companies are selling Savings Products with different charges and different names that are deducted from the policyholder's account, it is the responsibility of the Actuary to ensure that the profitability of each Savings Product is achieved throughout the policy term and that the policyholder is not overburden",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/insurance-authority-board-directors%E2%80%99-decision-no-49-2019-concerning-instructions-life",
+     "score": -4.24,
+     "required": false
+    },
+    {
+     "id": "INS-CON-004::Article 3",
+     "doc_id": "INS-CON-004",
+     "section": "Article 3",
+     "document": "Insurance Authority Board of Directors' Decision No. (49) of 2019 Concerning Instructions for Life Insurance and Family Takaful Insurance",
+     "excerpt": "First: The total Commissions paid to any Distribution Channels, are subject to the following commission limit rules. Maximum Commission = [Protection Ratio x PBR] + [Savings Ratio x (1 – PBR)] The commission limit rules apply to all types of Life insurance policies, whether sold to individuals or groups, regardless of",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/insurance-authority-board-directors%E2%80%99-decision-no-49-2019-concerning-instructions-life",
+     "score": -6.0,
+     "required": true
+    },
+    {
+     "id": "INS-CON-006::Chapter Five, Article 17",
+     "doc_id": "INS-CON-006",
+     "section": "Chapter Five, Article 17",
+     "document": "Insurance Authority Board of Directors' Resolution No. (18) of 2020 Concerning the Electronic Insurance Regulations",
+     "excerpt": "The Company and Insurance Agent shall enable the customer to view, print and download a complete electronic copy of the policy through his electronic account on the Company's website at any time. The Company and Insurance Agent shall provide the customer at his request with a paper copy of the insurance policy issued e",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/insurance-authority-board-directors-resolution-no-18-2020-concerning-electronic-insurance",
+     "score": -6.17,
+     "required": false
+    }
+   ]
+  },
+  {
+   "id": "Q063",
+   "question": "What must an insurer's board collectively be able to do, and what structure must its risk governance framework follow?",
+   "category": "cross_section",
+   "difficulty": "medium",
+   "required": [
+    "INS-GOV-002::5",
+    "INS-GOV-002::7"
+   ],
+   "found": [
+    "INS-GOV-002::5",
+    "INS-GOV-002::7"
+   ],
+   "complete": true,
+   "top_score": 3.78,
+   "would_decline": true,
+   "citations": [
+    {
+     "id": "INS-GOV-002::5",
+     "doc_id": "INS-GOV-002",
+     "section": "5",
+     "document": "Corporate Governance Standards for Insurance Companies",
+     "excerpt": "and the risk committee to facilitate the exchange of information and effective coverage of all risks, including emerging risks, and any needed adjustments to the Company's Risk Governance Framework. The Board must ensure that new members of the Board participate in an appropriate induction programme that must include a",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/corporate-governance-standards-insurance-companies",
+     "score": 3.78,
+     "required": true
+    },
+    {
+     "id": "INS-GOV-001::Article 5",
+     "doc_id": "INS-GOV-001",
+     "section": "Article 5",
+     "document": "Corporate Governance Regulation for Insurance Companies",
+     "excerpt": "A Company's Board must be sufficiently diverse in its composition. Collectively, the Board must have knowledge of all significant businesses of the Company and, if applicable, the Group. The Board must have, and continue to maintain, an appropriate balance of skills, diversity and expertise commensurate with the size,",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/corporate-governance-regulation-insurance-companies",
+     "score": 3.66,
+     "required": false
+    },
+    {
+     "id": "INS-GOV-002::2",
+     "doc_id": "INS-GOV-002",
+     "section": "2",
+     "document": "Corporate Governance Standards for Insurance Companies",
+     "excerpt": "The Board and Senior Management must understand the structure and the risks associated with it. Branches of foreign Companies must establish local governance structures, such as a Senior Management committee or equivalent, that fulfill the responsibilities of a Board required by these Standards. The Group's Corporate G",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/corporate-governance-standards-insurance-companies",
+     "score": 3.29,
+     "required": false
+    }
+   ]
+  },
+  {
+   "id": "Q064",
+   "question": "An insurer is setting up its customer-facing processes. What must it put in place for handling claims, and what must it keep for complaints?",
+   "category": "cross_section",
+   "difficulty": "medium",
+   "required": [
+    "INS-CON-002::Article 9",
+    "INS-CON-002::Article 10"
+   ],
+   "found": [
+    "INS-CON-002::Article 9"
+   ],
+   "complete": false,
+   "top_score": 0.38,
+   "would_decline": true,
+   "citations": [
+    {
+     "id": "INS-CON-006::Chapter Five, Article 21",
+     "doc_id": "INS-CON-006",
+     "section": "Chapter Five, Article 21",
+     "document": "Insurance Authority Board of Directors' Resolution No. (18) of 2020 Concerning the Electronic Insurance Regulations",
+     "excerpt": "Without prejudice to the provisions of the Code of Professional Practice and the legislations in force, the Company, the Insurance Agent and the Insurance Broker shall provide through their website, all the information necessary to the customer or the third party (the injured third party) to lodge complaints and follow",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/insurance-authority-board-directors-resolution-no-18-2020-concerning-electronic-insurance",
+     "score": 0.38,
+     "required": false
+    },
+    {
+     "id": "INS-CON-001::Article 7",
+     "doc_id": "INS-CON-001",
+     "section": "Article 7",
+     "document": "Insurance Authority Board Resolution No. (33) of 2019 Concerning the Regulation of the Committees for the Settlement and Resolution of Insurance Disputes",
+     "excerpt": "The Defendant Company shall process claims in accordance with the Law and applicable legislations and the provisions of the Insurance Policies. If the Complainant has objection to the processing of application, it may file a complaint in writing to the Authority through the electronic system and all relevant documents",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/insurance-authority-board-resolution-no-33-2019-concerning-regulation-committees",
+     "score": -3.02,
+     "required": false
+    },
+    {
+     "id": "INS-CON-006::Chapter Five, Article 16",
+     "doc_id": "INS-CON-006",
+     "section": "Chapter Five, Article 16",
+     "document": "Insurance Authority Board of Directors' Resolution No. (18) of 2020 Concerning the Electronic Insurance Regulations",
+     "excerpt": "The Company and the Insurance Agent shall apply what is included in the legislations of anti- money laundering, combating the financing of terrorism and financing illegal organizations crimes, and they must inform the Competent Authority in accordance with electronic regulations or other approved means for any suspecte",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/insurance-authority-board-directors-resolution-no-18-2020-concerning-electronic-insurance",
+     "score": -3.22,
+     "required": false
+    }
+   ]
+  },
+  {
+   "id": "Q065",
+   "question": "What is an insurance company's minimum capital, and what does it have to do if it wants to reduce it?",
+   "category": "cross_section",
+   "difficulty": "medium",
+   "required": [
+    "INS-FIN-005::Article 3",
+    "INS-FIN-005::Article 6"
+   ],
+   "found": [
+    "INS-FIN-005::Article 3"
+   ],
+   "complete": false,
+   "top_score": 1.67,
+   "would_decline": true,
+   "citations": [
+    {
+     "id": "INS-FIN-001::Section 2, Article 1",
+     "doc_id": "INS-FIN-001",
+     "section": "Section 2, Article 1",
+     "document": "Insurance Authority Board Decision Number (25) of 2014 Pertinent to Financial Regulations for Insurance Companies",
+     "excerpt": "The Minimum Subscribed and Paid Up Capital of each Company should not be less than the following: AED 100 million for an insurance Company. AED 250 million for a reinsurance Company.",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/insurance-authority-board-decision-number-25-2014-pertinent-financial-regulations",
+     "score": 1.67,
+     "required": false
+    },
+    {
+     "id": "INS-FIN-005::Article 3",
+     "doc_id": "INS-FIN-005",
+     "section": "Article 3",
+     "document": "Cabinet Resolution No. 42 of 2009 Concerning Insurance Company Minimum Capital Regulations",
+     "excerpt": "The subscribed and paid up capital of a company may not be less than AED 100,000,000 (One Hundred Million UAE Dirhams). The subscribed and paid up capital of a reinsurance company may not be less than AED 250,000,000 (Two Hundred And Fifty Million UAE Dirham).",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/cabinet-resolution-no-42-2009-concerning-insurance-company-minimum-capital-regulations",
+     "score": 0.02,
+     "required": true
+    },
+    {
+     "id": "INS-FIN-002::First Article – Glossary",
+     "doc_id": "INS-FIN-002",
+     "section": "First Article – Glossary",
+     "document": "Insurance Authority Board Decision Number (26) of 2014 Pertinent to Financial Regulations for Takaful Insurance Companies",
+     "excerpt": "Funds that the Company is required to maintain to fulfill the obligations of the Minimum Capital Requirement, Minimum Guarantee Fund and Solvency Capital Requirement. The minimum capital required to be maintained by a Company at all times as directed by the Authority. The capital that an insurance Company has available",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/insurance-authority-board-decision-number-26-2014-pertinent-financial-regulations-takaful",
+     "score": -0.73,
+     "required": false
+    }
+   ]
+  },
+  {
+   "id": "Q066",
+   "question": "A foreign insurer runs a branch in the UAE. Which solvency rules apply to the branch, and what must it supply about its parent?",
+   "category": "cross_section",
+   "difficulty": "hard",
+   "required": [
+    "INS-FIN-003::Article 3",
+    "INS-FIN-003::Article 5"
+   ],
+   "found": [
+    "INS-FIN-003::Article 3",
+    "INS-FIN-003::Article 5"
+   ],
+   "complete": true,
+   "top_score": 0.96,
+   "would_decline": true,
+   "citations": [
+    {
+     "id": "INS-FIN-003::Article 4",
+     "doc_id": "INS-FIN-003",
+     "section": "Article 4",
+     "document": "Insurance Authority Board of Directors' Decision No. (14) of 2018 Pertinent to the Application of Financial Solvency Requirements",
+     "excerpt": "All branches of foreign insurance companies shall calculate and disclose the value of the net assets of the Parent Company available to meet risk exposures in the State according to the following: Guarantees or capital at the Parent Company's level allocated for financial solvency in other countries other than the Unit",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/insurance-authority-board-directors-decision-no-14-2018-pertinent-application-financial",
+     "score": 0.96,
+     "required": false
+    },
+    {
+     "id": "INS-FIN-003::Article 7",
+     "doc_id": "INS-FIN-003",
+     "section": "Article 7",
+     "document": "Insurance Authority Board of Directors' Decision No. (14) of 2018 Pertinent to the Application of Financial Solvency Requirements",
+     "excerpt": "(a) The foreign company branch shall rely on the net book value of the assets at the Parent Company's level according to the decision herein when assessing the available funds of the Parent Company from the basic own funds that are used to meet the Minimum Capital Requirement, and ancillary own funds that are used to m",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/insurance-authority-board-directors-decision-no-14-2018-pertinent-application-financial",
+     "score": 0.85,
+     "required": false
+    },
+    {
+     "id": "INS-FIN-003::Article 5",
+     "doc_id": "INS-FIN-003",
+     "section": "Article 5",
+     "document": "Insurance Authority Board of Directors' Decision No. (14) of 2018 Pertinent to the Application of Financial Solvency Requirements",
+     "excerpt": "(a) All branches of foreign insurance companies shall provide the Insurance Authority with a copy of the solvency margin calculations on an annual basis in accordance with the requirements and legislation of the home country, a copy of the annual financial statements of the Parent Company and the auditor's report on th",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/insurance-authority-board-directors-decision-no-14-2018-pertinent-application-financial",
+     "score": 0.59,
+     "required": true
+    }
+   ]
+  },
+  {
+   "id": "Q067",
+   "question": "What is a motor insurer obliged to do when a customer asks for cover, and what is it obliged to do once that customer claims?",
+   "category": "cross_section",
+   "difficulty": "medium",
+   "required": [
+    "INS-MOT-001::Article 4",
+    "INS-MOT-001::Article 6"
+   ],
+   "found": [],
+   "complete": false,
+   "top_score": -0.43,
+   "would_decline": true,
+   "citations": [
+    {
+     "id": "INS-MOT-003::Chapter Three",
+     "doc_id": "INS-MOT-003",
+     "section": "Chapter Three",
+     "document": "The Unified Motor Vehicle Insurance Policy Against Third Party Liability",
+     "excerpt": "In case of any accident that gives rise to a claim according to the provisions of this Policy, the Insured or the Motor Vehicle Driver shall notify the concerned official authorities and the Insurer within a reasonable period of time after occurrence of the accident and furnish all documents and details pertaining to t",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/unified-motor-vehicle-insurance-policy-against-third-party-liability-issued-pursuant",
+     "score": -0.43,
+     "required": false
+    },
+    {
+     "id": "INS-MOT-002::Chapter Three",
+     "doc_id": "INS-MOT-002",
+     "section": "Chapter Three",
+     "document": "The Unified Motor Vehicle Insurance Policy Against Loss and Damage",
+     "excerpt": "All reasonable precautions must be taken to keep and protect the Insured Motor Vehicle from loss or damage and maintain the same in a good working condition. The Insured shall furnish the Insurer as soon as possible for every claim, notice or judicial papers once they receive them. The Insurer may charge the Insured th",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/unified-motor-vehicle-insurance-policy-against-loss-and-damage-issued-pursuant-regulation",
+     "score": -2.07,
+     "required": false
+    },
+    {
+     "id": "INS-CON-006::Chapter Five, Article 21",
+     "doc_id": "INS-CON-006",
+     "section": "Chapter Five, Article 21",
+     "document": "Insurance Authority Board of Directors' Resolution No. (18) of 2020 Concerning the Electronic Insurance Regulations",
+     "excerpt": "Without prejudice to the provisions of the Code of Professional Practice and the legislations in force, the Company, the Insurance Agent and the Insurance Broker shall provide through their website, all the information necessary to the customer or the third party (the injured third party) to lodge complaints and follow",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/insurance-authority-board-directors-resolution-no-18-2020-concerning-electronic-insurance",
+     "score": -2.65,
+     "required": false
+    }
+   ]
+  },
+  {
+   "id": "Q068",
+   "question": "Two separate instruments set a minimum paid up capital for an insurance company. What do they each say, and do they agree?",
+   "category": "cross_document",
+   "difficulty": "medium",
+   "required": [
+    "INS-FIN-005::Article 3",
+    "INS-FIN-001::Section 2, Article 1"
+   ],
+   "found": [
+    "INS-FIN-005::Article 3",
+    "INS-FIN-001::Section 2, Article 1"
+   ],
+   "complete": true,
+   "top_score": 0.82,
+   "would_decline": true,
+   "citations": [
+    {
+     "id": "INS-FIN-001::Section 2, Article 1",
+     "doc_id": "INS-FIN-001",
+     "section": "Section 2, Article 1",
+     "document": "Insurance Authority Board Decision Number (25) of 2014 Pertinent to Financial Regulations for Insurance Companies",
+     "excerpt": "The Minimum Subscribed and Paid Up Capital of each Company should not be less than the following: AED 100 million for an insurance Company. AED 250 million for a reinsurance Company.",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/insurance-authority-board-decision-number-25-2014-pertinent-financial-regulations",
+     "score": 0.82,
+     "required": true
+    },
+    {
+     "id": "INS-FIN-005::Article 3",
+     "doc_id": "INS-FIN-005",
+     "section": "Article 3",
+     "document": "Cabinet Resolution No. 42 of 2009 Concerning Insurance Company Minimum Capital Regulations",
+     "excerpt": "The subscribed and paid up capital of a company may not be less than AED 100,000,000 (One Hundred Million UAE Dirhams). The subscribed and paid up capital of a reinsurance company may not be less than AED 250,000,000 (Two Hundred And Fifty Million UAE Dirham).",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/cabinet-resolution-no-42-2009-concerning-insurance-company-minimum-capital-regulations",
+     "score": -0.65,
+     "required": true
+    },
+    {
+     "id": "INS-FIN-002::First Article – Glossary",
+     "doc_id": "INS-FIN-002",
+     "section": "First Article – Glossary",
+     "document": "Insurance Authority Board Decision Number (26) of 2014 Pertinent to Financial Regulations for Takaful Insurance Companies",
+     "excerpt": "Funds that the Company is required to maintain to fulfill the obligations of the Minimum Capital Requirement, Minimum Guarantee Fund and Solvency Capital Requirement. The minimum capital required to be maintained by a Company at all times as directed by the Authority. The capital that an insurance Company has available",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/insurance-authority-board-decision-number-26-2014-pertinent-financial-regulations-takaful",
+     "score": -0.9,
+     "required": false
+    }
+   ]
+  },
+  {
+   "id": "Q069",
+   "question": "A reinsurance company is being set up. Which instruments fix its capital floor, and is the figure consistent between them?",
+   "category": "cross_document",
+   "difficulty": "hard",
+   "required": [
+    "INS-FIN-005::Article 3",
+    "INS-OTH-001::Chapter Two, Article 12"
+   ],
+   "found": [
+    "INS-OTH-001::Chapter Two, Article 12"
+   ],
+   "complete": false,
+   "top_score": -3.53,
+   "would_decline": true,
+   "citations": [
+    {
+     "id": "INS-OTH-001::Chapter Two, Article 12",
+     "doc_id": "INS-OTH-001",
+     "section": "Chapter Two, Article 12",
+     "document": "Insurance Authority's Board of Directors Decision No. (23) of 2019 Concerning Instructions Organizing Reinsurance Operations",
+     "excerpt": "The subscribed and paid up capital of the reinsurance company shall not be less than AED 250,000,000 (only two hundred and fifty million dirhams). The Authority may determine a minimum capital for the Company greater than that stipulated in the aforementioned sub-Article (1), if the Feasibility Study indicates that the",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/insurance-authority%E2%80%99s-board-directors-decision-no23-2019-concerning-instructions",
+     "score": -3.53,
+     "required": true
+    },
+    {
+     "id": "INS-FIN-002::Section 3, Addendum (3)",
+     "doc_id": "INS-FIN-002",
+     "section": "Section 3, Addendum (3)",
+     "document": "Insurance Authority Board Decision Number (26) of 2014 Pertinent to Financial Regulations for Takaful Insurance Companies",
+     "excerpt": "data is consistent, reliable, complete and in agreement with the financials. The estimation of provisions should be done pre- and post-adjusting for the reinsurance share (gross and net of reinsurance). The difference between the claim reserves booked by the Company and the claim reserves estimated by the Actuary must",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/insurance-authority-board-decision-number-26-2014-pertinent-financial-regulations-takaful",
+     "score": -4.08,
+     "required": false
+    },
+    {
+     "id": "INS-OTH-001::Chapter Four, Article 25",
+     "doc_id": "INS-OTH-001",
+     "section": "Chapter Four, Article 25",
+     "document": "Insurance Authority's Board of Directors Decision No. (23) of 2019 Concerning Instructions Organizing Reinsurance Operations",
+     "excerpt": "The reinsurance relationship between a local insurance company and a reinsurer may not be a (FINITE Reinsurance) type, where the relationship between the ceding company and the reinsurer is similar to that of a lender and borrower.",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/insurance-authority%E2%80%99s-board-directors-decision-no23-2019-concerning-instructions",
+     "score": -4.63,
+     "required": false
+    }
+   ]
+  },
+  {
+   "id": "Q070",
+   "question": "An insurer has drifted past an investment concentration limit but is still meeting its capital requirements. Where is the limit itself set, and what does the company then have to report?",
+   "category": "cross_document",
+   "difficulty": "hard",
+   "required": [
+    "INS-FIN-001::Section 1, Article 3",
+    "INS-FIN-004::Article 3"
+   ],
+   "found": [
+    "INS-FIN-004::Article 3"
+   ],
+   "complete": false,
+   "top_score": -3.01,
+   "would_decline": true,
+   "citations": [
+    {
+     "id": "INS-FIN-004::Article 3",
+     "doc_id": "INS-FIN-004",
+     "section": "Article 3",
+     "document": "Board of Directors' Decision No. (22) of 2017 Concerning the Application of the Investment Limits Stipulated in the Financial Regulations",
+     "excerpt": "If the Company has investments exceeding the investment limits or sub-limits without a deficit in the Minimum Capital, Solvency Capital or Minimum Guarantee Fund requirements , it shall include the annual and quarterly investment portfolio analysis reports stipulated in If the Company has a deficit in any of Minimum Ca",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/board-directors-decision-no-22-2017-concerning-application-investment-limits-stipulated",
+     "score": -3.01,
+     "required": true
+    },
+    {
+     "id": "INS-FIN-001::Section 1, Article 2",
+     "doc_id": "INS-FIN-001",
+     "section": "Section 1, Article 2",
+     "document": "Insurance Authority Board Decision Number (25) of 2014 Pertinent to Financial Regulations for Insurance Companies",
+     "excerpt": "To ensure proper investment of funds, each Company must put in place investment and risk management policies that are in line with the risk appetite set by the Board of Directors of the Company. Such requirements, restrictions or prohibitions will form part of supervisory actions as a result of the Authority assessment",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/insurance-authority-board-decision-number-25-2014-pertinent-financial-regulations",
+     "score": -3.68,
+     "required": false
+    },
+    {
+     "id": "INS-FIN-002::First Article – Glossary",
+     "doc_id": "INS-FIN-002",
+     "section": "First Article – Glossary",
+     "document": "Insurance Authority Board Decision Number (26) of 2014 Pertinent to Financial Regulations for Takaful Insurance Companies",
+     "excerpt": "Technical Provisions The provisions which the insurer (the Company) must deduct and maintain to meet the insured's accrued financial liabilities as per Law's stipulations. The process of identification, evaluation and mitigation of the economic effects of the past, present or future events, or their impact, that cause",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/insurance-authority-board-decision-number-26-2014-pertinent-financial-regulations-takaful",
+     "score": -4.92,
+     "required": false
+    }
+   ]
+  },
+  {
+   "id": "Q071",
+   "question": "How does the solvency regime reach a branch of a foreign insurer, and what is the underlying requirement it is layered onto?",
+   "category": "cross_document",
+   "difficulty": "hard",
+   "required": [
+    "INS-FIN-003::Article 3",
+    "INS-FIN-001::Section 2, Article 4"
+   ],
+   "found": [
+    "INS-FIN-003::Article 3"
+   ],
+   "complete": false,
+   "top_score": 0.87,
+   "would_decline": true,
+   "citations": [
+    {
+     "id": "INS-FIN-003::Article 3",
+     "doc_id": "INS-FIN-003",
+     "section": "Article 3",
+     "document": "Insurance Authority Board of Directors' Decision No. (14) of 2018 Pertinent to the Application of Financial Solvency Requirements",
+     "excerpt": "The foreign company branches licensed in the State shall comply to the provisions set forth in the decision herein, when applying the requirements of the financial solvency stipulated in chapter two of the Financial Regulations, and the provisions stipulated in this decision are complementary to the provisions stipulat",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/insurance-authority-board-directors-decision-no-14-2018-pertinent-application-financial",
+     "score": 0.87,
+     "required": true
+    },
+    {
+     "id": "INS-LIC-001::Table 3: Licence of a Company being a branch of a Foreign Insurance Company (in addition to documents listed in Table 1)",
+     "doc_id": "INS-LIC-001",
+     "section": "Table 3: Licence of a Company being a branch of a Foreign Insurance Company (in addition to documents listed in Table 1)",
+     "document": "Insurance Company Licensing Regulation",
+     "excerpt": "A statement of the Foreign Insurance Company regarding the solvency requirements applicable to that company in its home country and information about its compliance with the applicable solvency requirements A decision of the board of directors of the Foreign Insurance Company to open a branch in the State and a certifi",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/insurance-company-licensing-regulation",
+     "score": -1.11,
+     "required": false
+    },
+    {
+     "id": "INS-FIN-003::Article 7",
+     "doc_id": "INS-FIN-003",
+     "section": "Article 7",
+     "document": "Insurance Authority Board of Directors' Decision No. (14) of 2018 Pertinent to the Application of Financial Solvency Requirements",
+     "excerpt": "(a) The foreign company branch shall rely on the net book value of the assets at the Parent Company's level according to the decision herein when assessing the available funds of the Parent Company from the basic own funds that are used to meet the Minimum Capital Requirement, and ancillary own funds that are used to m",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/insurance-authority-board-directors-decision-no-14-2018-pertinent-application-financial",
+     "score": -1.89,
+     "required": false
+    }
+   ]
+  },
+  {
+   "id": "Q072",
+   "question": "What does the corporate governance framework require of an insurer's board, and where are the detailed expectations of its composition set out?",
+   "category": "cross_document",
+   "difficulty": "hard",
+   "required": [
+    "INS-GOV-001::Article 3",
+    "INS-GOV-002::5"
+   ],
+   "found": [],
+   "complete": false,
+   "top_score": 2.75,
+   "would_decline": true,
+   "citations": [
+    {
+     "id": "INS-GOV-002::2",
+     "doc_id": "INS-GOV-002",
+     "section": "2",
+     "document": "Corporate Governance Standards for Insurance Companies",
+     "excerpt": "There is a Corporate Governance framework at the Group level, with clearly defined roles and responsibilities, taking into account the complexity and significance of the individual entities; The Group's Corporate Governance framework includes adequate policies, processes and controls, and addresses risk management acro",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/corporate-governance-standards-insurance-companies",
+     "score": 0.34,
+     "required": false
+    },
+    {
+     "id": "INS-GOV-001::Article 2",
+     "doc_id": "INS-GOV-001",
+     "section": "Article 2",
+     "document": "Corporate Governance Regulation for Insurance Companies",
+     "excerpt": "A Company must have a Corporate Governance framework that offers comprehensive management and oversight of the Company's business in a manner that protects the rights of policyholders. The Corporate Governance framework must contain the following components, at a minimum: The Board is responsible for establishing and o",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/corporate-governance-regulation-insurance-companies",
+     "score": 1.72,
+     "required": false
+    },
+    {
+     "id": "INS-GOV-001::Introduction",
+     "doc_id": "INS-GOV-001",
+     "section": "Introduction",
+     "document": "Corporate Governance Regulation for Insurance Companies",
+     "excerpt": "To this end, Companies are required to implement comprehensive corporate governance frameworks to ensure their resiliency and enhance overall financial stability. The Central Bank expects that each Company will establish and implement a corporate governance framework, which provides for sound and prudent management and",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/corporate-governance-regulation-insurance-companies",
+     "score": 1.13,
+     "required": false
+    }
+   ]
+  },
+  {
+   "id": "Q073",
+   "question": "An insurer must publish audited annual accounts. Which instrument imposes that on the company, and which elaborates the governance expectations around it?",
+   "category": "cross_document",
+   "difficulty": "medium",
+   "required": [
+    "INS-GOV-001::Article 9",
+    "INS-GOV-002::9"
+   ],
+   "found": [
+    "INS-GOV-001::Article 9"
+   ],
+   "complete": false,
+   "top_score": 0.91,
+   "would_decline": true,
+   "citations": [
+    {
+     "id": "INS-GOV-001::Article 9",
+     "doc_id": "INS-GOV-001",
+     "section": "Article 9",
+     "document": "Corporate Governance Regulation for Insurance Companies",
+     "excerpt": "A Company must maintain appropriate records; and publish annual financial statements bearing the opinion of an external auditor approved by the Central Bank. Governance requirements for financial reporting and external audit must be adhered to according to the accompanying Standards, Financial Regulations, and",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/corporate-governance-regulation-insurance-companies",
+     "score": 0.91,
+     "required": true
+    },
+    {
+     "id": "INS-GOV-001::Article 10",
+     "doc_id": "INS-GOV-001",
+     "section": "Article 10",
+     "document": "Corporate Governance Regulation for Insurance Companies",
+     "excerpt": "The Company's Corporate Governance policies and processes must ensure effective engagement with the Central Bank, and that timely and accurate disclosure is made on all material matters regarding the Company, including the financial situation, performance, ownership, and governance of the Company. A Company must publis",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/corporate-governance-regulation-insurance-companies",
+     "score": 0.18,
+     "required": false
+    },
+    {
+     "id": "INS-SAN-001::The Annexed Schedule to the Cabinet Resolution No. (7) of 2019 Concerning the Administrative Fines Imposed by the Insurance Authority",
+     "doc_id": "INS-SAN-001",
+     "section": "The Annexed Schedule to the Cabinet Resolution No. (7) of 2019 Concerning the Administrative Fines Imposed by the Insurance Authority",
+     "document": "Cabinet Resolution No. (7) of 2019 Concerning the Administrative Fines Imposed by the Insurance Authority",
+     "excerpt": "annual report on its operations, including all audited annual financial statements, reports and lists in accordance with the requirements of the Law and Financial Regulations. Failure of the Company to provide the Authority with the consolidated annual report signed by the chairman of its board of directors, the author",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/cabinet-resolution-no-7-2019-concerning-administrative-fines-imposed-insurance-authority",
+     "score": -0.18,
+     "required": false
+    }
+   ]
+  },
+  {
+   "id": "Q074",
+   "question": "Who is responsible for an insurer's enterprise risk management framework, and which listed elements of the risk management system does that responsibility attach to?",
+   "category": "cross_document",
+   "difficulty": "hard",
+   "required": [
+    "INS-GOV-008::3.1",
+    "INS-GOV-003::Article 3"
+   ],
+   "found": [],
+   "complete": false,
+   "top_score": 1.41,
+   "would_decline": true,
+   "citations": [
+    {
+     "id": "INS-GOV-008::Objective",
+     "doc_id": "INS-GOV-008",
+     "section": "Objective",
+     "document": "Standards re Enterprise Risk Management for Solvency Purposes for Insurance Companies",
+     "excerpt": "In issuing these Standards the Central Bank is seeking to establish requirements for Companies to implement an Enterprise Risk Management (ERM) framework for solvency purposes with the objective to: assess the adequacy of Risk Management and capital relative to the Company's Risk Profile; promote sound risk governance",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/standards-re-enterprise-risk-management-solvency-purposes-insurance-companies",
+     "score": 1.41,
+     "required": false
+    },
+    {
+     "id": "INS-GOV-004::3",
+     "doc_id": "INS-GOV-004",
+     "section": "3",
+     "document": "Risk Management and Internal Controls Standards for Insurance Companies",
+     "excerpt": "The Risk Management system must address the following: Qualitative and quantitative assessments of all reasonably foreseeable and relevant material risks and risk interdependencies for risk and capital management. Must explain the relationship between the Risk Management system and how it addresses risks according to t",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/risk-management-and-internal-controls-standards-insurance-companies",
+     "score": 0.99,
+     "required": false
+    },
+    {
+     "id": "INS-FIN-001::Section 2, Article 6",
+     "doc_id": "INS-FIN-001",
+     "section": "Section 2, Article 6",
+     "document": "Insurance Authority Board Decision Number (25) of 2014 Pertinent to Financial Regulations for Insurance Companies",
+     "excerpt": "The Company shall have in place a documented risk management framework and strategy, risk management policies and procedures, and allocated responsibilities and controls. The Company shall establish a stress testing framework and policy. Further guidance on the risk management system and framework in",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/insurance-authority-board-decision-number-25-2014-pertinent-financial-regulations",
+     "score": 0.75,
+     "required": false
+    }
+   ]
+  },
+  {
+   "id": "Q075",
+   "question": "A motor insurer must issue third party liability cover when asked. Once issued, which accidents does that cover not reach?",
+   "category": "cross_document",
+   "difficulty": "medium",
+   "required": [
+    "INS-MOT-001::Article 4",
+    "INS-MOT-003::Chapter Four"
+   ],
+   "found": [
+    "INS-MOT-001::Article 4",
+    "INS-MOT-003::Chapter Four"
+   ],
+   "complete": true,
+   "top_score": 4.2,
+   "would_decline": true,
+   "citations": [
+    {
+     "id": "INS-MOT-003::Chapter Four",
+     "doc_id": "INS-MOT-003",
+     "section": "Chapter Four",
+     "document": "The Unified Motor Vehicle Insurance Policy Against Third Party Liability",
+     "excerpt": "This Insurance does not cover the Third Party Liability arising or emerging from accidents that are caused by the Insured Motor Vehicle in the following cases: The accidents that occur outside the borders of the State. The accidents that occur to the Insured, the Motor Vehicle Driver or the persons employed by the Insu",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/unified-motor-vehicle-insurance-policy-against-third-party-liability-issued-pursuant",
+     "score": 4.2,
+     "required": true
+    },
+    {
+     "id": "INS-MOT-001::Article 4",
+     "doc_id": "INS-MOT-001",
+     "section": "Article 4",
+     "document": "Insurance Authority Board of Directors' Decision No. (25) of 2016 Pertinent to Regulation of the Unified Motor Vehicle Insurance Policies",
+     "excerpt": "The company should issue a third party liability insurance policy on all motor vehicles licensed in the State when it is so requested by the related parties. The company may not refuse granting insurance against loss and damage, refuse to renew an insurance policy, or discriminate between the insured in relation to ins",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/insurance-authority-board-directors-decision-no-25-2016-pertinent-regulation-unified-motor",
+     "score": 3.79,
+     "required": true
+    },
+    {
+     "id": "INS-MOT-003::Preamble",
+     "doc_id": "INS-MOT-003",
+     "section": "Preamble",
+     "document": "The Unified Motor Vehicle Insurance Policy Against Third Party Liability",
+     "excerpt": "\") for the insurance set herein below, and has agreed that the application is considered as the basis for and integral part of this Policy, and has paid or agreed to pay the applicable premium, and the Company has accepted and represented to pay compensation to a Third Party/ Injured Party in case of any accident subje",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/unified-motor-vehicle-insurance-policy-against-third-party-liability-issued-pursuant",
+     "score": 3.07,
+     "required": false
+    }
+   ]
+  },
+  {
+   "id": "Q076",
+   "question": "Where is the external audit obligation for insurers set, and where is the auditor's own duty to report to the regulator set?",
+   "category": "cross_document",
+   "difficulty": "medium",
+   "required": [
+    "INS-GOV-002::9",
+    "INS-REP-004::Article 3"
+   ],
+   "found": [
+    "INS-GOV-002::9"
+   ],
+   "complete": false,
+   "top_score": 1.47,
+   "would_decline": true,
+   "citations": [
+    {
+     "id": "INS-FIN-001::Section 6, Addendum (1)",
+     "doc_id": "INS-FIN-001",
+     "section": "Section 6, Addendum (1)",
+     "document": "Insurance Authority Board Decision Number (25) of 2014 Pertinent to Financial Regulations for Insurance Companies",
+     "excerpt": "The duties of the External Auditor shall include the preparation of a report on the final and interim accounts. The report shall contain a statement on whether the Company's accounts are fairly stated and reflect materially, the actual state of affairs of the Company and whether the Company has provided the External Au",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/insurance-authority-board-decision-number-25-2014-pertinent-financial-regulations",
+     "score": 1.47,
+     "required": false
+    },
+    {
+     "id": "INS-REP-004::Article 5",
+     "doc_id": "INS-REP-004",
+     "section": "Article 5",
+     "document": "Financial Reporting and External Audit Regulation",
+     "excerpt": "External Auditors must promptly report to the Central Bank violations of the Central Bank Laws, Regulations, instructions and any Matters of Significance arising from their audit of the Company. Any material reservations of the External Auditor in relation to finalisation of accounts and issuing of a clean audit opinio",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/financial-reporting-and-external-audit-regulation",
+     "score": 0.93,
+     "required": false
+    },
+    {
+     "id": "INS-FIN-002::Section 6, Addendum (1)",
+     "doc_id": "INS-FIN-002",
+     "section": "Section 6, Addendum (1)",
+     "document": "Insurance Authority Board Decision Number (26) of 2014 Pertinent to Financial Regulations for Takaful Insurance Companies",
+     "excerpt": "The duties of the External Auditor shall include the preparation of a report on the final and interim accounts. The report shall contain a statement on whether the Company's accounts are fairly stated and reflect materially, the actual state of affairs of the Company and whether the Company has provided the External Au",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/insurance-authority-board-decision-number-26-2014-pertinent-financial-regulations-takaful",
+     "score": 0.77,
+     "required": false
+    }
+   ]
+  },
+  {
+   "id": "Q077",
+   "question": "Do the two unified motor policies exclude the same things, or does third party liability cover carve out different situations from loss and damage?",
+   "category": "comparative",
+   "difficulty": "hard",
+   "required": [
+    "INS-MOT-002::Chapter Four",
+    "INS-MOT-003::Chapter Four"
+   ],
+   "found": [],
+   "complete": false,
+   "top_score": 3.55,
+   "would_decline": true,
+   "citations": [
+    {
+     "id": "INS-MOT-001::Article 2",
+     "doc_id": "INS-MOT-001",
+     "section": "Article 2",
+     "document": "Insurance Authority Board of Directors' Decision No. (25) of 2016 Pertinent to Regulation of the Unified Motor Vehicle Insurance Policies",
+     "excerpt": "The company shall issue a motor vehicle insurance policy against third party liability and motor vehicle insurance policy against loss and damage according to the two forms attached hereto. The two forms attached hereto shall constitute an integral part thereof. The Takaful insurance company shall comply with the provi",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/insurance-authority-board-directors-decision-no-25-2016-pertinent-regulation-unified-motor",
+     "score": 3.55,
+     "required": false
+    },
+    {
+     "id": "INS-MOT-003::Preamble",
+     "doc_id": "INS-MOT-003",
+     "section": "Preamble",
+     "document": "The Unified Motor Vehicle Insurance Policy Against Third Party Liability",
+     "excerpt": "\") for the insurance set herein below, and has agreed that the application is considered as the basis for and integral part of this Policy, and has paid or agreed to pay the applicable premium, and the Company has accepted and represented to pay compensation to a Third Party/ Injured Party in case of any accident subje",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/unified-motor-vehicle-insurance-policy-against-third-party-liability-issued-pursuant",
+     "score": 3.38,
+     "required": false
+    },
+    {
+     "id": "INS-MOT-002::Preamble",
+     "doc_id": "INS-MOT-002",
+     "section": "Preamble",
+     "document": "The Unified Motor Vehicle Insurance Policy Against Loss and Damage",
+     "excerpt": "This Policy has been amended by \") for the insurance set herein below, and has agreed that the application is considered as the basis for and integral part of this Policy, and has paid or agreed to pay the applicable premium, and the Company has accepted and represented to pay compensation to the Insured in case of any",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/unified-motor-vehicle-insurance-policy-against-loss-and-damage-issued-pursuant-regulation",
+     "score": 2.97,
+     "required": false
+    }
+   ]
+  },
+  {
+   "id": "Q078",
+   "question": "When can an insurer recover money it has paid out, and does that differ between the loss-and-damage and third party liability motor policies?",
+   "category": "comparative",
+   "difficulty": "hard",
+   "required": [
+    "INS-MOT-002::Chapter Five",
+    "INS-MOT-003::Chapter Five"
+   ],
+   "found": [],
+   "complete": false,
+   "top_score": 1.75,
+   "would_decline": true,
+   "citations": [
+    {
+     "id": "INS-MOT-001::Article 4",
+     "doc_id": "INS-MOT-001",
+     "section": "Article 4",
+     "document": "Insurance Authority Board of Directors' Decision No. (25) of 2016 Pertinent to Regulation of the Unified Motor Vehicle Insurance Policies",
+     "excerpt": "The company should issue a third party liability insurance policy on all motor vehicles licensed in the State when it is so requested by the related parties. The company may not refuse granting insurance against loss and damage, refuse to renew an insurance policy, or discriminate between the insured in relation to ins",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/insurance-authority-board-directors-decision-no-25-2016-pertinent-regulation-unified-motor",
+     "score": 1.75,
+     "required": false
+    },
+    {
+     "id": "INS-MOT-001::Article 7",
+     "doc_id": "INS-MOT-001",
+     "section": "Article 7",
+     "document": "Insurance Authority Board of Directors' Decision No. (25) of 2016 Pertinent to Regulation of the Unified Motor Vehicle Insurance Policies",
+     "excerpt": "In case of total loss of the motor vehicle, the company shall: Pay compensation for the value of the motor vehicle according to the agreement between the company and the insured in the insurance policy against loss and damage. Compensation will be made on the basis of calculation of the market value of the motor vehicl",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/insurance-authority-board-directors-decision-no-25-2016-pertinent-regulation-unified-motor",
+     "score": 1.45,
+     "required": false
+    },
+    {
+     "id": "INS-MOT-002::Chapter Two",
+     "doc_id": "INS-MOT-002",
+     "section": "Chapter Two",
+     "document": "The Unified Motor Vehicle Insurance Policy Against Loss and Damage",
+     "excerpt": "The Company shall compensate the Insured for loss or damage that occurs to the Insured Motor Vehicle and its accessories while in the vehicle, including damaged parts and spare parts, in the following cases: If loss or damage arises from a third party willful act; If the Insured Motor Vehicle is lost, proves to be irre",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/unified-motor-vehicle-insurance-policy-against-loss-and-damage-issued-pursuant-regulation",
+     "score": 1.08,
+     "required": false
+    }
+   ]
+  },
+  {
+   "id": "Q079",
+   "question": "How does an external Shari'ah audit differ in purpose from an ordinary external audit of an insurer?",
+   "category": "comparative",
+   "difficulty": "hard",
+   "required": [
+    "INS-REP-004::Article 3",
+    "INS-TAK-005::Article 5"
+   ],
+   "found": [
+    "INS-TAK-005::Article 5"
+   ],
+   "complete": false,
+   "top_score": 6.71,
+   "would_decline": false,
+   "citations": [
+    {
+     "id": "INS-TAK-005::Article 5",
+     "doc_id": "INS-TAK-005",
+     "section": "Article 5",
+     "document": "Standard Re External Shari'ah Audit for Takaful Insurance Companies",
+     "excerpt": "The purpose of the External Shari'ah Audit is to reach reasonable and independent assurance regarding the Company's Compliance with Islamic Shari'ah Provisions through an expression of an opinion thereon from the External Shari'ah Auditor.",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/standard-re-external-shari%E2%80%99ah-audit-takaful-insurance-companies",
+     "score": 6.71,
+     "required": true
+    },
+    {
+     "id": "INS-TAK-002::Article 12",
+     "doc_id": "INS-TAK-002",
+     "section": "Article 12",
+     "document": "Standard re Shari'ah Governance for Takaful Insurance Companies",
+     "excerpt": "The Company may appoint a specialized external body to conduct External Shari'ah Audit. This task must be undertaken by an independent external Shari'ah audit company approved by the Central Bank (\"External Shari'ah Auditor\"). The External Shari'ah Auditor shall assess compliance of the Company with the Islamic Shari'a",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/standard-re-shari%E2%80%99ah-governance-takaful-insurance-companies",
+     "score": 4.78,
+     "required": false
+    },
+    {
+     "id": "INS-TAK-005::Article 6",
+     "doc_id": "INS-TAK-005",
+     "section": "Article 6",
+     "document": "Standard Re External Shari'ah Audit for Takaful Insurance Companies",
+     "excerpt": "6.1 The External Shari'ah Auditor's opinion must rely on the Shari'ah basis as per the order stated in If the External Shari'ah Auditor comes across an issue for which no provision is found in the list stated in Article (6.1), the External Shari'ah Auditor must refer to the Company's Internal Shari'ah Supervision Commi",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/standard-re-external-shari%E2%80%99ah-audit-takaful-insurance-companies",
+     "score": 4.39,
+     "required": false
+    }
+   ]
+  },
+  {
+   "id": "Q080",
+   "question": "Both the governance standards and the ERM standards put duties on the board. How do the two descriptions of that responsibility differ?",
+   "category": "comparative",
+   "difficulty": "hard",
+   "required": [
+    "INS-GOV-002::7",
+    "INS-GOV-008::3.1"
+   ],
+   "found": [
+    "INS-GOV-008::3.1"
+   ],
+   "complete": false,
+   "top_score": 0.04,
+   "would_decline": true,
+   "citations": [
+    {
+     "id": "INS-GOV-008::3.1",
+     "doc_id": "INS-GOV-008",
+     "section": "3.1",
+     "document": "Standards re Enterprise Risk Management for Solvency Purposes for Insurance Companies",
+     "excerpt": "The Board must be in control of the Company and bears ultimate responsibility for ensuring that there are effective systems of Risk Management at the Company. To this end the Board must: direct Senior Management on how the ERM framework, including ORSA process, can be improved and how their results can be used in decis",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/standards-re-enterprise-risk-management-solvency-purposes-insurance-companies",
+     "score": 0.04,
+     "required": true
+    },
+    {
+     "id": "INS-GOV-008::3",
+     "doc_id": "INS-GOV-008",
+     "section": "3",
+     "document": "Standards re Enterprise Risk Management for Solvency Purposes for Insurance Companies",
+     "excerpt": "The \"Relevant Regulations\" require Companies to have policies and procedures that describe the governance of Risk Management across the business including roles and responsibilities, reporting lines, methodologies, controls, systems and reviews in relation to Risk Management. This Article focuses on roles and responsib",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/standards-re-enterprise-risk-management-solvency-purposes-insurance-companies",
+     "score": -0.61,
+     "required": false
+    },
+    {
+     "id": "INS-GOV-001::Article 6",
+     "doc_id": "INS-GOV-001",
+     "section": "Article 6",
+     "document": "Corporate Governance Regulation for Insurance Companies",
+     "excerpt": "Members of the Board must act in good faith, honesty and integrity while exercising their Duty of Care, Duty of Confidentiality and Duty of Loyalty. Members of the Board must disclose to the Board, in a timely manner, any potential Conflict of Interest or apparent Conflict of Interest. Members of the Board must exercis",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/corporate-governance-regulation-insurance-companies",
+     "score": -0.75,
+     "required": false
+    }
+   ]
+  },
+  {
+   "id": "Q081",
+   "question": "Is the solvency requirement applied differently to a locally established insurer than to a branch of a foreign one?",
+   "category": "comparative",
+   "difficulty": "hard",
+   "required": [
+    "INS-FIN-001::Section 2, Article 4",
+    "INS-FIN-003::Article 3"
+   ],
+   "found": [
+    "INS-FIN-001::Section 2, Article 4",
+    "INS-FIN-003::Article 3"
+   ],
+   "complete": true,
+   "top_score": 2.21,
+   "would_decline": true,
+   "citations": [
+    {
+     "id": "INS-FIN-003::Article 3",
+     "doc_id": "INS-FIN-003",
+     "section": "Article 3",
+     "document": "Insurance Authority Board of Directors' Decision No. (14) of 2018 Pertinent to the Application of Financial Solvency Requirements",
+     "excerpt": "The foreign company branches licensed in the State shall comply to the provisions set forth in the decision herein, when applying the requirements of the financial solvency stipulated in chapter two of the Financial Regulations, and the provisions stipulated in this decision are complementary to the provisions stipulat",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/insurance-authority-board-directors-decision-no-14-2018-pertinent-application-financial",
+     "score": 2.21,
+     "required": true
+    },
+    {
+     "id": "INS-LIC-001::Table 1: Licence of a Company established in the State and a branch of a Foreign Insurance Company",
+     "doc_id": "INS-LIC-001",
+     "section": "Table 1: Licence of a Company established in the State and a branch of a Foreign Insurance Company",
+     "document": "Insurance Company Licensing Regulation",
+     "excerpt": "Estimates of the expected solvency position in accordance with the Central Bank Law and Regulations h. Financial resources intended to cover technical provisions and solvency requirements Evidence that the founders or the Foreign Insurance Company, as the case may be, possess financial resources free from encumbrances",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/insurance-company-licensing-regulation",
+     "score": 0.35,
+     "required": false
+    },
+    {
+     "id": "INS-LIC-001::Table 3: Licence of a Company being a branch of a Foreign Insurance Company (in addition to documents listed in Table 1)",
+     "doc_id": "INS-LIC-001",
+     "section": "Table 3: Licence of a Company being a branch of a Foreign Insurance Company (in addition to documents listed in Table 1)",
+     "document": "Insurance Company Licensing Regulation",
+     "excerpt": "A certificate from the supervisory authority responsible for supervision of the Foreign Insurance Company in its home country confirming that the company is established and registered in that country according to the applicable laws, its legal status and the amount of the subscribed and paid-up capital A statement of t",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/insurance-company-licensing-regulation",
+     "score": 0.35,
+     "required": false
+    }
+   ]
+  },
+  {
+   "id": "Q082",
+   "question": "What must an insurer give a customer who wants to complain, and does selling online change that?",
+   "category": "comparative",
+   "difficulty": "medium",
+   "required": [
+    "INS-CON-002::Article 10",
+    "INS-CON-006::Chapter Five, Article 21"
+   ],
+   "found": [
+    "INS-CON-006::Chapter Five, Article 21"
+   ],
+   "complete": false,
+   "top_score": -2.53,
+   "would_decline": true,
+   "citations": [
+    {
+     "id": "INS-CON-006::Chapter Five, Article 21",
+     "doc_id": "INS-CON-006",
+     "section": "Chapter Five, Article 21",
+     "document": "Insurance Authority Board of Directors' Resolution No. (18) of 2020 Concerning the Electronic Insurance Regulations",
+     "excerpt": "Without prejudice to the provisions of the Code of Professional Practice and the legislations in force, the Company, the Insurance Agent and the Insurance Broker shall provide through their website, all the information necessary to the customer or the third party (the injured third party) to lodge complaints and follow",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/insurance-authority-board-directors-resolution-no-18-2020-concerning-electronic-insurance",
+     "score": -2.53,
+     "required": true
+    },
+    {
+     "id": "INS-CON-006::Chapter Five, Article 16",
+     "doc_id": "INS-CON-006",
+     "section": "Chapter Five, Article 16",
+     "document": "Insurance Authority Board of Directors' Resolution No. (18) of 2020 Concerning the Electronic Insurance Regulations",
+     "excerpt": "The Company and the Insurance Agent, prior to selling or issuing any insurance policy through its website, shall verify the identity of its customers and the documents submitted by them and develop the necessary procedures in this regard. The Company and the Insurance Agent shall apply what is included in the legislati",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/insurance-authority-board-directors-resolution-no-18-2020-concerning-electronic-insurance",
+     "score": -2.54,
+     "required": false
+    },
+    {
+     "id": "INS-CON-006::Chapter Five, Article 17",
+     "doc_id": "INS-CON-006",
+     "section": "Chapter Five, Article 17",
+     "document": "Insurance Authority Board of Directors' Resolution No. (18) of 2020 Concerning the Electronic Insurance Regulations",
+     "excerpt": "They shall provide the customer with a copy of the entire policy in all available ways and means. Additionally, they must provide the customer with a thorough electronic copy of the policy in (PDF) format, which shall be sent by e-mail or other electronic means as soon as they are issued. The Company and Insurance Agen",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/insurance-authority-board-directors-resolution-no-18-2020-concerning-electronic-insurance",
+     "score": -3.69,
+     "required": false
+    }
+   ]
+  },
+  {
+   "id": "Q083",
+   "question": "Do the general claim-handling rules and the motor-specific ones ask for the same things?",
+   "category": "comparative",
+   "difficulty": "hard",
+   "required": [
+    "INS-CON-002::Article 9",
+    "INS-MOT-001::Article 6"
+   ],
+   "found": [],
+   "complete": false,
+   "top_score": -2.97,
+   "would_decline": true,
+   "citations": [
+    {
+     "id": "INS-MOT-002::Chapter One",
+     "doc_id": "INS-MOT-002",
+     "section": "Chapter One",
+     "document": "The Unified Motor Vehicle Insurance Policy Against Loss and Damage",
+     "excerpt": "power of attorney and attend before the competent departments, if necessary in order to transfer the ownership of the motor vehicle to the company. The Company may, at its expense, assume the judicial and settlement proceedings to represent the Insured or the Motor Vehicle Driver through an attorney in any investigatio",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/unified-motor-vehicle-insurance-policy-against-loss-and-damage-issued-pursuant-regulation",
+     "score": -3.89,
+     "required": false
+    },
+    {
+     "id": "INS-MOT-003::Chapter One",
+     "doc_id": "INS-MOT-003",
+     "section": "Chapter One",
+     "document": "The Unified Motor Vehicle Insurance Policy Against Third Party Liability",
+     "excerpt": "The Company may, at its expense, assume the judicial and settlement proceedings to represent the Insured or the Motor Vehicle Driver through an attorney in any investigation or interrogation and before any court in any lawsuit or intervention in any phase of the lawsuit in relation to a claim or accident for which the",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/unified-motor-vehicle-insurance-policy-against-third-party-liability-issued-pursuant",
+     "score": -4.77,
+     "required": false
+    }
+   ]
+  },
+  {
+   "id": "Q084",
+   "question": "How does the risk governance expected of a Takaful operator differ from that of a conventional insurer?",
+   "category": "comparative",
+   "difficulty": "hard",
+   "required": [
+    "INS-GOV-002::7",
+    "INS-TAK-002::Article 6"
+   ],
+   "found": [
+    "INS-GOV-002::7"
+   ],
+   "complete": false,
+   "top_score": 1.51,
+   "would_decline": true,
+   "citations": [
+    {
+     "id": "INS-TAK-006::Article 15",
+     "doc_id": "INS-TAK-006",
+     "section": "Article 15",
+     "document": "Standard Re the Operational Model of Takaful Insurance",
+     "excerpt": "The Company may cover some of the risks of the Takaful Insurance Fund to conventional reinsurance companies according to specific controls: The Company should prioritize Re takaful insurance companies before approaching conventional reinsurance. There are no Takaful Insurance Companies or Re-takaful insurance companies",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/standard-re-operational-model-takaful-insurance",
+     "score": 1.51,
+     "required": false
+    },
+    {
+     "id": "INS-GOV-008::4.1",
+     "doc_id": "INS-GOV-008",
+     "section": "4.1",
+     "document": "Standards re Enterprise Risk Management for Solvency Purposes for Insurance Companies",
+     "excerpt": "a. For ERM purposes a Company must identify and assess all reasonably foreseeable and relevant material risks and their interdependencies as detailed in the Risk Management and Internal Controls Regulation and Standards for Insurance Companies. For Takaful Insurance, a Company must take into consideration the unique ri",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/standards-re-enterprise-risk-management-solvency-purposes-insurance-companies",
+     "score": 1.32,
+     "required": false
+    },
+    {
+     "id": "INS-FIN-002::Section 1, Article 2",
+     "doc_id": "INS-FIN-002",
+     "section": "Section 1, Article 2",
+     "document": "Insurance Authority Board Decision Number (26) of 2014 Pertinent to Financial Regulations for Takaful Insurance Companies",
+     "excerpt": "The risk management systems must cover the risks associated with investment activities that may affect the coverage of Takaful liabilities and capital adequacy. For Participants Takaful operations, a Company shall also have separate investment strategies for 'participants' investment fund and 'participants' risk fund d",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/insurance-authority-board-decision-number-26-2014-pertinent-financial-regulations-takaful",
+     "score": 1.06,
+     "required": false
+    }
+   ]
+  },
+  {
+   "id": "Q085",
+   "question": "Given that the free look period on a life policy is seven days, when exactly does that week start running?",
+   "category": "adversarial",
+   "difficulty": "medium",
+   "required": [
+    "INS-CON-004::Article 9"
+   ],
+   "found": [
+    "INS-CON-004::Article 9"
+   ],
+   "complete": true,
+   "top_score": 2.65,
+   "would_decline": true,
+   "citations": [
+    {
+     "id": "INS-CON-004::Article 9",
+     "doc_id": "INS-CON-004",
+     "section": "Article 9",
+     "document": "Insurance Authority Board of Directors' Decision No. (49) of 2019 Concerning Instructions for Life Insurance and Family Takaful Insurance",
+     "excerpt": "A Free Look Period of at least 30 calendar days must be provided to the policyholder. The Free Look Period starts on the date of policy issuance, the date when coverage commences, or the date when the policy documents are signed by the client, whichever is earlier. The Distribution Channels directly involved in the sal",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/insurance-authority-board-directors%E2%80%99-decision-no-49-2019-concerning-instructions-life",
+     "score": 2.65,
+     "required": true
+    },
+    {
+     "id": "INS-MOT-002::Chapter Six",
+     "doc_id": "INS-MOT-002",
+     "section": "Chapter Six",
+     "document": "The Unified Motor Vehicle Insurance Policy Against Loss and Damage",
+     "excerpt": "The Company may terminate this Policy on the condition that there are serious grounds for termination during the Policy Period by a notice in writing to be sent to the Insured via e-mail, facsimile, hand delivery or registered letter thirty days prior to the fixed date of termination to the latest address of the Insure",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/unified-motor-vehicle-insurance-policy-against-loss-and-damage-issued-pursuant-regulation",
+     "score": -8.33,
+     "required": false
+    },
+    {
+     "id": "INS-CON-006::Chapter Five, Article 17",
+     "doc_id": "INS-CON-006",
+     "section": "Chapter Five, Article 17",
+     "document": "Insurance Authority Board of Directors' Resolution No. (18) of 2020 Concerning the Electronic Insurance Regulations",
+     "excerpt": "The Company and Insurance Agent shall issue dated electronic insurance policies and the issued electronic version shall include all the contents of the policy, including the insurance application, policy terms, limits of coverage and the annexes. They shall provide the customer with a copy of the entire policy in all a",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/insurance-authority-board-directors-resolution-no-18-2020-concerning-electronic-insurance",
+     "score": -8.89,
+     "required": false
+    }
+   ]
+  },
+  {
+   "id": "Q086",
+   "question": "Since a reinsurance company needs the same AED 100 million of paid up capital as an insurer, why is reinsurance treated as higher risk?",
+   "category": "adversarial",
+   "difficulty": "medium",
+   "required": [
+    "INS-FIN-005::Article 3"
+   ],
+   "found": [
+    "INS-FIN-005::Article 3"
+   ],
+   "complete": true,
+   "top_score": 2.7,
+   "would_decline": true,
+   "citations": [
+    {
+     "id": "INS-OTH-001::Chapter Two, Article 12",
+     "doc_id": "INS-OTH-001",
+     "section": "Chapter Two, Article 12",
+     "document": "Insurance Authority's Board of Directors Decision No. (23) of 2019 Concerning Instructions Organizing Reinsurance Operations",
+     "excerpt": "The subscribed and paid up capital of the reinsurance company shall not be less than AED 250,000,000 (only two hundred and fifty million dirhams). The Authority may determine a minimum capital for the Company greater than that stipulated in the aforementioned sub-Article (1), if the Feasibility Study indicates that the",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/insurance-authority%E2%80%99s-board-directors-decision-no23-2019-concerning-instructions",
+     "score": 2.7,
+     "required": false
+    },
+    {
+     "id": "INS-FIN-001::Section 2, Article 1",
+     "doc_id": "INS-FIN-001",
+     "section": "Section 2, Article 1",
+     "document": "Insurance Authority Board Decision Number (25) of 2014 Pertinent to Financial Regulations for Insurance Companies",
+     "excerpt": "The Minimum Subscribed and Paid Up Capital of each Company should not be less than the following: AED 100 million for an insurance Company. AED 250 million for a reinsurance Company.",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/insurance-authority-board-decision-number-25-2014-pertinent-financial-regulations",
+     "score": 2.38,
+     "required": false
+    },
+    {
+     "id": "INS-FIN-005::Article 3",
+     "doc_id": "INS-FIN-005",
+     "section": "Article 3",
+     "document": "Cabinet Resolution No. 42 of 2009 Concerning Insurance Company Minimum Capital Regulations",
+     "excerpt": "The subscribed and paid up capital of a company may not be less than AED 100,000,000 (One Hundred Million UAE Dirhams). The subscribed and paid up capital of a reinsurance company may not be less than AED 250,000,000 (Two Hundred And Fifty Million UAE Dirham).",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/cabinet-resolution-no-42-2009-concerning-insurance-company-minimum-capital-regulations",
+     "score": 2.09,
+     "required": true
+    }
+   ]
+  },
+  {
+   "id": "Q087",
+   "question": "A motor insurer wants to drop a customer with too many claims at renewal. What is the procedure for exercising that discretion?",
+   "category": "adversarial",
+   "difficulty": "medium",
+   "required": [
+    "INS-MOT-001::Article 4"
+   ],
+   "found": [
+    "INS-MOT-001::Article 4"
+   ],
+   "complete": true,
+   "top_score": -3.28,
+   "would_decline": true,
+   "citations": [
+    {
+     "id": "INS-MOT-004::Article 2",
+     "doc_id": "INS-MOT-004",
+     "section": "Article 2",
+     "document": "Insurance Authority Board of Directors' Decision No. (30) of 2016 Concerning issuing Regulation for Motor Vehicle Insurance Tariffs",
+     "excerpt": "hereof to all motor vehicle insurance policies to be issued as of the date of this Regulation comes into force e) 50% discount of the minimum insurance premium shall be granted to the owner of the motor vehicle upon renewal or issuance of new policies to the following categories: (4) The insurance company shall comply",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/insurance-authority-board-directors%E2%80%99-decision-no-30-2016-concerning-issuing-regulation",
+     "score": -3.28,
+     "required": false
+    },
+    {
+     "id": "INS-MOT-001::Article 4",
+     "doc_id": "INS-MOT-001",
+     "section": "Article 4",
+     "document": "Insurance Authority Board of Directors' Decision No. (25) of 2016 Pertinent to Regulation of the Unified Motor Vehicle Insurance Policies",
+     "excerpt": "The company should issue a third party liability insurance policy on all motor vehicles licensed in the State when it is so requested by the related parties. The company may not refuse granting insurance against loss and damage, refuse to renew an insurance policy, or discriminate between the insured in relation to ins",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/insurance-authority-board-directors-decision-no-25-2016-pertinent-regulation-unified-motor",
+     "score": -4.05,
+     "required": true
+    },
+    {
+     "id": "INS-MOT-003::Chapter Six",
+     "doc_id": "INS-MOT-003",
+     "section": "Chapter Six",
+     "document": "The Unified Motor Vehicle Insurance Policy Against Third Party Liability",
+     "excerpt": "Neither the Company nor the Insured may terminate this Policy during its term as long as the Motor Vehicle license is valid. Cancellation of the Motor Vehicle license; Submission of a new policy due to change of the Motor Vehicle details;",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/unified-motor-vehicle-insurance-policy-against-third-party-liability-issued-pursuant",
+     "score": -4.61,
+     "required": false
+    }
+   ]
+  },
+  {
+   "id": "Q088",
+   "question": "A UAE third party liability motor policy covers accidents abroad, so what documentation is needed to claim on a trip outside the country?",
+   "category": "adversarial",
+   "difficulty": "medium",
+   "required": [
+    "INS-MOT-003::Chapter Four"
+   ],
+   "found": [
+    "INS-MOT-003::Chapter Four"
+   ],
+   "complete": true,
+   "top_score": 2.12,
+   "would_decline": true,
+   "citations": [
+    {
+     "id": "INS-MOT-003::Chapter Four",
+     "doc_id": "INS-MOT-003",
+     "section": "Chapter Four",
+     "document": "The Unified Motor Vehicle Insurance Policy Against Third Party Liability",
+     "excerpt": "This Insurance does not cover the Third Party Liability arising or emerging from accidents that are caused by the Insured Motor Vehicle in the following cases: The accidents that occur outside the borders of the State. The accidents that occur to the Insured, the Motor Vehicle Driver or the persons employed by the Insu",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/unified-motor-vehicle-insurance-policy-against-third-party-liability-issued-pursuant",
+     "score": 2.12,
+     "required": true
+    },
+    {
+     "id": "INS-MOT-003::Chapter One",
+     "doc_id": "INS-MOT-003",
+     "section": "Chapter One",
+     "document": "The Unified Motor Vehicle Insurance Policy Against Third Party Liability",
+     "excerpt": "This Policy does not apply outside the State. The Third Party / Injured Party may submit a claim to the Company for compensation for damages caused to them by the Insured Motor Vehicle. With respect to a fleet insurance policy or any Motor Vehicle insured under this Policy, the Company may not enter into any agreement",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/unified-motor-vehicle-insurance-policy-against-third-party-liability-issued-pursuant",
+     "score": 1.88,
+     "required": false
+    },
+    {
+     "id": "INS-MOT-001::Article 3",
+     "doc_id": "INS-MOT-001",
+     "section": "Article 3",
+     "document": "Insurance Authority Board of Directors' Decision No. (25) of 2016 Pertinent to Regulation of the Unified Motor Vehicle Insurance Policies",
+     "excerpt": "The company shall comply with the international agreements ratified by the State, including the \"Unified Insurance Card Treaty on Motor Vehicles Across Arab Countries (the Orange Card)\". Extension of a third party liability insurance policy to Arab countries may only be accepted under the Orange Card, and this applies",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/insurance-authority-board-directors-decision-no-25-2016-pertinent-regulation-unified-motor",
+     "score": 1.54,
+     "required": false
+    }
+   ]
+  },
+  {
+   "id": "Q089",
+   "question": "Since the loss-and-damage motor policy is all-risks with no exclusions, why do insurers investigate the cause of a loss at all?",
+   "category": "adversarial",
+   "difficulty": "medium",
+   "required": [
+    "INS-MOT-002::Chapter Four"
+   ],
+   "found": [
+    "INS-MOT-002::Chapter Four"
+   ],
+   "complete": true,
+   "top_score": 2.43,
+   "would_decline": true,
+   "citations": [
+    {
+     "id": "INS-MOT-002::Chapter Four",
+     "doc_id": "INS-MOT-002",
+     "section": "Chapter Four",
+     "document": "The Unified Motor Vehicle Insurance Policy Against Loss and Damage",
+     "excerpt": "The loss or damage which occurs to the Motor Vehicle with respect to accidents resulting from: The damage to the Motor Vehicle from the accidents which occur during the Motor Vehicle being operated by a driver who is not licensed to drive according to the Traffic Laws or without obtaining a driving license for the kind",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/unified-motor-vehicle-insurance-policy-against-loss-and-damage-issued-pursuant-regulation",
+     "score": 0.79,
+     "required": true
+    },
+    {
+     "id": "INS-MOT-002::Preamble",
+     "doc_id": "INS-MOT-002",
+     "section": "Preamble",
+     "document": "The Unified Motor Vehicle Insurance Policy Against Loss and Damage",
+     "excerpt": "This Policy has been amended by \") for the insurance set herein below, and has agreed that the application is considered as the basis for and integral part of this Policy, and has paid or agreed to pay the applicable premium, and the Company has accepted and represented to pay compensation to the Insured in case of any",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/unified-motor-vehicle-insurance-policy-against-loss-and-damage-issued-pursuant-regulation",
+     "score": 1.33,
+     "required": false
+    },
+    {
+     "id": "INS-MOT-001::Article 4",
+     "doc_id": "INS-MOT-001",
+     "section": "Article 4",
+     "document": "Insurance Authority Board of Directors' Decision No. (25) of 2016 Pertinent to Regulation of the Unified Motor Vehicle Insurance Policies",
+     "excerpt": "The company should issue a third party liability insurance policy on all motor vehicles licensed in the State when it is so requested by the related parties. The company may not refuse granting insurance against loss and damage, refuse to renew an insurance policy, or discriminate between the insured in relation to ins",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/insurance-authority-board-directors-decision-no-25-2016-pertinent-regulation-unified-motor",
+     "score": 0.22,
+     "required": false
+    }
+   ]
+  },
+  {
+   "id": "Q090",
+   "question": "Insurers are not required to keep any record of customer complaints, so how is complaint volume monitored?",
+   "category": "adversarial",
+   "difficulty": "medium",
+   "required": [
+    "INS-CON-002::Article 10"
+   ],
+   "found": [
+    "INS-CON-002::Article 10"
+   ],
+   "complete": true,
+   "top_score": -0.91,
+   "would_decline": true,
+   "citations": [
+    {
+     "id": "INS-CON-002::Article 10",
+     "doc_id": "INS-CON-002",
+     "section": "Article 10",
+     "document": "Insurance Authority Board Resolution No. 3 of 2010 Instructions Concerning the Code of Conduct and Ethics",
+     "excerpt": "The Company shall maintain a register for complaints received from its Clients; They shall also have the right to review the file of any complaint that has been settled to verify the reasons on which the Company has based its decision. The Insured, the Beneficiary or any concerned party may appeal to the IA in case the",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/insurance-authority-board-resolution-no-3-2010-instructions-concerning-code-conduct-and",
+     "score": -0.91,
+     "required": true
+    },
+    {
+     "id": "INS-CON-006::Chapter Five, Article 21",
+     "doc_id": "INS-CON-006",
+     "section": "Chapter Five, Article 21",
+     "document": "Insurance Authority Board of Directors' Resolution No. (18) of 2020 Concerning the Electronic Insurance Regulations",
+     "excerpt": "Without prejudice to the provisions of the Code of Professional Practice and the legislations in force, the Company, the Insurance Agent and the Insurance Broker shall provide through their website, all the information necessary to the customer or the third party (the injured third party) to lodge complaints and follow",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/insurance-authority-board-directors-resolution-no-18-2020-concerning-electronic-insurance",
+     "score": -1.6,
+     "required": false
+    },
+    {
+     "id": "INS-REP-004::Article 2",
+     "doc_id": "INS-REP-004",
+     "section": "Article 2",
+     "document": "Financial Reporting and External Audit Regulation",
+     "excerpt": "supported by record keeping systems; the handling, frequency and nature of customer complaints, disputes, and litigation; means of communication used to address customer complaints, including but not limited to SMS text messages, telephone, email or social media platforms and the frequency of their update;",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/financial-reporting-and-external-audit-regulation",
+     "score": -4.4,
+     "required": false
+    }
+   ]
+  },
+  {
+   "id": "Q091",
+   "question": "Given that the external Shari'ah auditor certifies the profitability of the Takaful fund, how is that figure calculated?",
+   "category": "adversarial",
+   "difficulty": "hard",
+   "required": [
+    "INS-TAK-005::Article 5"
+   ],
+   "found": [],
+   "complete": false,
+   "top_score": 2.1,
+   "would_decline": true,
+   "citations": [
+    {
+     "id": "INS-TAK-005::Article 8",
+     "doc_id": "INS-TAK-005",
+     "section": "Article 8",
+     "document": "Standard Re External Shari'ah Audit for Takaful Insurance Companies",
+     "excerpt": "The Company must determine the External Shari'ah Auditor's terms of engagement in written contract, which at a minimum, provides that: the External Shari'ah Auditor must meet with the Central Bank as deemed necessary for supervisory purposes. the External Shari'ah Auditor bears no duty of confidentiality to the Company",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/standard-re-external-shari%E2%80%99ah-audit-takaful-insurance-companies",
+     "score": 2.1,
+     "required": false
+    },
+    {
+     "id": "INS-TAK-005::Article 7",
+     "doc_id": "INS-TAK-005",
+     "section": "Article 7",
+     "document": "Standard Re External Shari'ah Audit for Takaful Insurance Companies",
+     "excerpt": "To conduct External Shari'ah Audit for Companies, the external Shari'ah audit firm must be approved by the Central Bank. As for new firms, the approval may be granted to such external Shari'ah audit firms under special conditions that enable them to gain experience in External Shari'ah Audit, adequate resources to cond",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/standard-re-external-shari%E2%80%99ah-audit-takaful-insurance-companies",
+     "score": 1.68,
+     "required": false
+    },
+    {
+     "id": "INS-TAK-005::Article 1",
+     "doc_id": "INS-TAK-005",
+     "section": "Article 1",
+     "document": "Standard Re External Shari'ah Audit for Takaful Insurance Companies",
+     "excerpt": "The Central Bank seeks to promote development of the Takaful Insurance activities to ensure their effectiveness and efficiency. To achieve this, Takaful Insurance Companies (\"the Company/Companies\") must comply with the requirements stated in this Standard when appointing a specialized external firm to conduct External",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/standard-re-external-shari%E2%80%99ah-audit-takaful-insurance-companies",
+     "score": 1.45,
+     "required": false
+    }
+   ]
+  },
+  {
+   "id": "Q092",
+   "question": "An insurer wants to reduce its capital and can do so by a simple board resolution. What does it file afterwards?",
+   "category": "adversarial",
+   "difficulty": "medium",
+   "required": [
+    "INS-FIN-005::Article 6"
+   ],
+   "found": [
+    "INS-FIN-005::Article 6"
+   ],
+   "complete": true,
+   "top_score": 0.45,
+   "would_decline": true,
+   "citations": [
+    {
+     "id": "INS-FIN-005::Article 6",
+     "doc_id": "INS-FIN-005",
+     "section": "Article 6",
+     "document": "Cabinet Resolution No. 42 of 2009 Concerning Insurance Company Minimum Capital Regulations",
+     "excerpt": "Subject to the provisions of the Companies Law and of this Resolution, the company's capital may be reduced under a decision of the IA based on an application submitted by the Company in this regard in accordance with the form designated by the IA, provided that such application shall include a statement of the reasons",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/cabinet-resolution-no-42-2009-concerning-insurance-company-minimum-capital-regulations",
+     "score": 0.45,
+     "required": true
+    },
+    {
+     "id": "INS-GOV-004::3",
+     "doc_id": "INS-GOV-004",
+     "section": "3",
+     "document": "Risk Management and Internal Controls Standards for Insurance Companies",
+     "excerpt": "New activities and products must be subject to risk review and must be approved by the Board, including strategic affairs, such as corporate strategy, mergers, acquisitions, major projects and investments. Qualitative and quantitative assessments of all reasonably foreseeable and relevant material risks and risk interd",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/risk-management-and-internal-controls-standards-insurance-companies",
+     "score": -5.64,
+     "required": false
+    },
+    {
+     "id": "INS-FIN-002::First Article – Glossary",
+     "doc_id": "INS-FIN-002",
+     "section": "First Article – Glossary",
+     "document": "Insurance Authority Board Decision Number (26) of 2014 Pertinent to Financial Regulations for Takaful Insurance Companies",
+     "excerpt": "Technical Provisions The provisions which the insurer (the Company) must deduct and maintain to meet the insured's accrued financial liabilities as per Law's stipulations. These events can impact both the asset and liability side of the Company's balance sheet, the Company's profit and loss account, its cash flows, its",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/insurance-authority-board-decision-number-26-2014-pertinent-financial-regulations-takaful",
+     "score": -6.03,
+     "required": false
+    }
+   ]
+  },
+  {
+   "id": "Q093",
+   "question": "What licence does a firm need to offer virtual asset or cryptocurrency services in the UAE?",
+   "category": "unanswerable",
+   "difficulty": "easy",
+   "required": [],
+   "found": [],
+   "complete": false,
+   "top_score": -4.84,
+   "would_decline": true,
+   "citations": [
+    {
+     "id": "INS-LIC-001::Table 1: Licence of a Company established in the State and a branch of a Foreign Insurance Company",
+     "doc_id": "INS-LIC-001",
+     "section": "Table 1: Licence of a Company established in the State and a branch of a Foreign Insurance Company",
+     "document": "Insurance Company Licensing Regulation",
+     "excerpt": "reinsure, retrocession strategy and programs d. Description of arrangements for sales, distribution channels and the marketing plan e. Emiratisation plan for employment and training plan of UAE nationals",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/insurance-company-licensing-regulation",
+     "score": -4.84,
+     "required": false
+    },
+    {
+     "id": "INS-TAK-005::Article 7",
+     "doc_id": "INS-TAK-005",
+     "section": "Article 7",
+     "document": "Standard Re External Shari'ah Audit for Takaful Insurance Companies",
+     "excerpt": "To conduct External Shari'ah Audit for Companies, the external Shari'ah audit firm must be approved by the Central Bank. The firm will be granted the Central Bank approval after fulfilling certain criteria, including that the firm must have: a license issued by competent authorities to perform its business in the UAE,",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/standard-re-external-shari%E2%80%99ah-audit-takaful-insurance-companies",
+     "score": -5.26,
+     "required": false
+    },
+    {
+     "id": "INS-LIC-001::Introduction",
+     "doc_id": "INS-LIC-001",
+     "section": "Introduction",
+     "document": "Insurance Company Licensing Regulation",
+     "excerpt": "The Central Bank is seeking to enhance the organization, development and regulation of the insurance sector in the United Arab Emirates (UAE) in the context of the overall organization of the financial sector. issued by the Central Bank of the UAE through Circular 24/2022; and accompanying Standards issued by the Centr",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/insurance-company-licensing-regulation",
+     "score": -5.35,
+     "required": false
+    }
+   ]
+  },
+  {
+   "id": "Q094",
+   "question": "What is the minimum wage an insurance company must pay its employees?",
+   "category": "unanswerable",
+   "difficulty": "easy",
+   "required": [],
+   "found": [],
+   "complete": false,
+   "top_score": -0.16,
+   "would_decline": true,
+   "citations": [
+    {
+     "id": "INS-FIN-001::Section 2, Article 1",
+     "doc_id": "INS-FIN-001",
+     "section": "Section 2, Article 1",
+     "document": "Insurance Authority Board Decision Number (25) of 2014 Pertinent to Financial Regulations for Insurance Companies",
+     "excerpt": "The Minimum Subscribed and Paid Up Capital of each Company should not be less than the following: AED 100 million for an insurance Company. AED 250 million for a reinsurance Company.",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/insurance-authority-board-decision-number-25-2014-pertinent-financial-regulations",
+     "score": -0.16,
+     "required": false
+    },
+    {
+     "id": "INS-CON-004::Article 1",
+     "doc_id": "INS-CON-004",
+     "section": "Article 1",
+     "document": "Insurance Authority Board of Directors' Decision No. (49) of 2019 Concerning Instructions for Life Insurance and Family Takaful Insurance",
+     "excerpt": "Policy Premium Includes all regular amounts payable under the policy to the Company which are used for any protection or savings purposes. The minimum acceptable level of benefit payout, including options provided, non-guaranteed bonus rates, etc., based on information provided to the policyholder, and any other factor",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/insurance-authority-board-directors%E2%80%99-decision-no-49-2019-concerning-instructions-life",
+     "score": -3.58,
+     "required": false
+    },
+    {
+     "id": "INS-OTH-001::Chapter Five, Article 39",
+     "doc_id": "INS-OTH-001",
+     "section": "Chapter Five, Article 39",
+     "document": "Insurance Authority's Board of Directors Decision No. (23) of 2019 Concerning Instructions Organizing Reinsurance Operations",
+     "excerpt": "In order to accept the treaty reinsurance business, the insurance company established in the State is required to obtain approval from the Director General. The minimum subscribed and paid up capital of the Company should not be less than 350,000,000 (three hundred and fifty million dirhams). A certificate supports tha",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/insurance-authority%E2%80%99s-board-directors-decision-no23-2019-concerning-instructions",
+     "score": -4.03,
+     "required": false
+    }
+   ]
+  },
+  {
+   "id": "Q095",
+   "question": "What must a company satisfy to list its shares on a UAE stock exchange?",
+   "category": "unanswerable",
+   "difficulty": "medium",
+   "required": [],
+   "found": [],
+   "complete": false,
+   "top_score": -0.89,
+   "would_decline": true,
+   "citations": [
+    {
+     "id": "INS-GOV-001::Scope of Application",
+     "doc_id": "INS-GOV-001",
+     "section": "Scope of Application",
+     "document": "Corporate Governance Regulation for Insurance Companies",
+     "excerpt": "Companies established in the UAE with Group relationships including Subsidiaries, Affiliates, or international branches, must ensure that the Regulation and The Central Bank will decide on the extent to which a Company is expected to meet the requirements. are in addition to the provisions relating to Public Joint Stoc",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/corporate-governance-regulation-insurance-companies",
+     "score": -0.89,
+     "required": false
+    },
+    {
+     "id": "INS-FIN-005::Article 4",
+     "doc_id": "INS-FIN-005",
+     "section": "Article 4",
+     "document": "Cabinet Resolution No. 42 of 2009 Concerning Insurance Company Minimum Capital Regulations",
+     "excerpt": "A. At least 51% (fifty one percent) of the capital of a company incorporated in the State must be owned by natural persons of the UAE or GCC nationals or by juridical persons wholly owned by citizens holding UAE or GCC nationality. the Board of Directors shall issue a resolution specifying the regulations and condition",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/cabinet-resolution-no-42-2009-concerning-insurance-company-minimum-capital-regulations",
+     "score": -1.03,
+     "required": false
+    },
+    {
+     "id": "INS-FIN-001::Section 5, Article 1",
+     "doc_id": "INS-FIN-001",
+     "section": "Section 5, Article 1",
+     "document": "Insurance Authority Board Decision Number (25) of 2014 Pertinent to Financial Regulations for Insurance Companies",
+     "excerpt": "The Company must maintain complete transaction records for all local and international operations for as long as they are deemed relevant for the purposes for which they were made. Completed transaction records for business booked in the UAE must be maintained in the UAE and be easily accessible to the Authority. Any C",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/insurance-authority-board-decision-number-25-2014-pertinent-financial-regulations",
+     "score": -1.76,
+     "required": false
+    }
+   ]
+  },
+  {
+   "id": "Q096",
+   "question": "Does UAE competition law restrict insurers from agreeing common pricing between themselves?",
+   "category": "unanswerable",
+   "difficulty": "medium",
+   "required": [],
+   "found": [],
+   "complete": false,
+   "top_score": -3.25,
+   "would_decline": true,
+   "citations": [
+    {
+     "id": "INS-CON-002::Article 14",
+     "doc_id": "INS-CON-002",
+     "section": "Article 14",
+     "document": "Insurance Authority Board Resolution No. 3 of 2010 Instructions Concerning the Code of Conduct and Ethics",
+     "excerpt": "The payment of undisputed balances among the companies is required for the good conduct of transactions in the insurance market. The companies must settle all disputes arising among them by bilateral amicable methods or through the Emirates Insurance Association, if the parties so agree, prior to resorting to courts.",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/insurance-authority-board-resolution-no-3-2010-instructions-concerning-code-conduct-and",
+     "score": -3.25,
+     "required": false
+    },
+    {
+     "id": "INS-REP-005::Article 1",
+     "doc_id": "INS-REP-005",
+     "section": "Article 1",
+     "document": "Insurance Authority Board of Directors Decision No. (32) of 2017 Concerning the Common Reporting Standard Regulations",
+     "excerpt": "any term not otherwise defined in the Regulations or in the Common Reporting Standard will, unless the context otherwise requires or the UAE Competent Authority agreed to a common meaning pursuant to any treaty or competent authority agreement (as permitted by domestic law), have the meaning that it has at that time un",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/insurance-authority-board-directors-decision-no-32-2017-concerning-common-reporting",
+     "score": -4.0,
+     "required": false
+    },
+    {
+     "id": "INS-LIC-001::Introduction",
+     "doc_id": "INS-LIC-001",
+     "section": "Introduction",
+     "document": "Insurance Company Licensing Regulation",
+     "excerpt": "The Central Bank is seeking to enhance the organization, development and regulation of the insurance sector in the United Arab Emirates (UAE) in the context of the overall organization of the financial sector. Federal Decree-Law No. Federal Decree-Law No.",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/insurance-company-licensing-regulation",
+     "score": -4.33,
+     "required": false
+    }
+   ]
+  },
+  {
+   "id": "Q097",
+   "question": "What are the licensing requirements for a credit rating agency operating in the UAE?",
+   "category": "unanswerable",
+   "difficulty": "medium",
+   "required": [],
+   "found": [],
+   "complete": false,
+   "top_score": -0.13,
+   "would_decline": true,
+   "citations": [
+    {
+     "id": "INS-LIC-001::Introduction",
+     "doc_id": "INS-LIC-001",
+     "section": "Introduction",
+     "document": "Insurance Company Licensing Regulation",
+     "excerpt": "The Central Bank is seeking to enhance the organization, development and regulation of the insurance sector in the United Arab Emirates (UAE) in the context of the overall organization of the financial sector. This Regulation sets out a framework for licensing Insurance Companies, including branches of Foreign Insuranc",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/insurance-company-licensing-regulation",
+     "score": -0.13,
+     "required": false
+    },
+    {
+     "id": "INS-FIN-001::Section 5, Article 1",
+     "doc_id": "INS-FIN-001",
+     "section": "Section 5, Article 1",
+     "document": "Insurance Authority Board Decision Number (25) of 2014 Pertinent to Financial Regulations for Insurance Companies",
+     "excerpt": "The Company must maintain complete transaction records for all local and international operations for as long as they are deemed relevant for the purposes for which they were made. Records of completed transactions may be retained in either hard copy and/or electronic format, but must be kept in their original form. Co",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/insurance-authority-board-decision-number-25-2014-pertinent-financial-regulations",
+     "score": -0.54,
+     "required": false
+    },
+    {
+     "id": "INS-OTH-004::Article 5",
+     "doc_id": "INS-OTH-004",
+     "section": "Article 5",
+     "document": "Representation Offices Regulation",
+     "excerpt": "without the prior written consent of the Central Bank. Licensing requirements for branches of the Representation Office are as follows: a. approval of the competent authority in the relevant Emirate;",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/representation-offices-regulation",
+     "score": -0.64,
+     "required": false
+    }
+   ]
+  },
+  {
+   "id": "Q098",
+   "question": "What authorisation does a payment service provider need before operating in the UAE?",
+   "category": "unanswerable",
+   "difficulty": "easy",
+   "required": [],
+   "found": [],
+   "complete": false,
+   "top_score": -3.17,
+   "would_decline": true,
+   "citations": [
+    {
+     "id": "INS-REP-003::Sixth: The Reports on Anti-Money Laundering and Combating the Financing of Terrorism and Financing of Illegal Organizations",
+     "doc_id": "INS-REP-003",
+     "section": "Sixth: The Reports on Anti-Money Laundering and Combating the Financing of Terrorism and Financing of Illegal Organizations",
+     "document": "A Guide to the Regulatory Information, Data and Reports to be Provided by Insurance Companies and Insurance-Related Professions",
+     "excerpt": "the company applies all UAE requirements save for anything not permitted under the laws and regulations of the host country. - In the event that the branch or the subsidiary, which operates abroad, is unable to adhere to the highest standards, the company notifies the Insurance Authority of the matter and adheres to th",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/guide-regulatory-information-data-and-reports-be-provided-insurance-companies-and",
+     "score": -3.17,
+     "required": false
+    },
+    {
+     "id": "INS-GOV-003::Article 1",
+     "doc_id": "INS-GOV-003",
+     "section": "Article 1",
+     "document": "Risk Management and Internal Controls Regulation for Insurance Companies",
+     "excerpt": "any Subsidiary of the first entity or of any Parent of the first entity; c. An arrangement between a Company and a service provider, whether the service provider operates within or outside the UAE, for the latter to perform a process, service or activity which would otherwise be performed by the Company itself.",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/risk-management-and-internal-controls-regulation-insurance-companies",
+     "score": -3.7,
+     "required": false
+    },
+    {
+     "id": "INS-LIC-001::Table 1: Licence of a Company established in the State and a branch of a Foreign Insurance Company",
+     "doc_id": "INS-LIC-001",
+     "section": "Table 1: Licence of a Company established in the State and a branch of a Foreign Insurance Company",
+     "document": "Insurance Company Licensing Regulation",
+     "excerpt": "reinsure, retrocession strategy and programs d. Emiratisation plan for employment and training plan of UAE nationals Proof of payment of the applicable fees",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/insurance-company-licensing-regulation",
+     "score": -3.9,
+     "required": false
+    }
+   ]
+  },
+  {
+   "id": "Q099",
+   "question": "What customs duty applies to goods imported by an insurance company?",
+   "category": "unanswerable",
+   "difficulty": "easy",
+   "required": [],
+   "found": [],
+   "complete": false,
+   "top_score": -1.59,
+   "would_decline": true,
+   "citations": [
+    {
+     "id": "INS-REP-003::Sixth: The Reports on Anti-Money Laundering and Combating the Financing of Terrorism and Financing of Illegal Organizations",
+     "doc_id": "INS-REP-003",
+     "section": "Sixth: The Reports on Anti-Money Laundering and Combating the Financing of Terrorism and Financing of Illegal Organizations",
+     "document": "A Guide to the Regulatory Information, Data and Reports to be Provided by Insurance Companies and Insurance-Related Professions",
+     "excerpt": "the company applies all UAE requirements save for anything not permitted under the laws and regulations of the host country. - In the event that the branch or the subsidiary, which operates abroad, is unable to adhere to the highest standards, the company notifies the Insurance Authority of the matter and adheres to th",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/guide-regulatory-information-data-and-reports-be-provided-insurance-companies-and",
+     "score": -1.59,
+     "required": false
+    },
+    {
+     "id": "INS-GOV-002::1",
+     "doc_id": "INS-GOV-002",
+     "section": "1",
+     "document": "Corporate Governance Standards for Insurance Companies",
+     "excerpt": "Duty of Confidentiality: The duty to observe confidentiality applies to all information of a confidential nature with which a member of the Board is entrusted by the Company or which is brought to his or her attention during or at any time after the carrying out of his/her assignment. The duty to act in the good faith",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/corporate-governance-standards-insurance-companies",
+     "score": -2.68,
+     "required": false
+    },
+    {
+     "id": "INS-LIC-001::Scope",
+     "doc_id": "INS-LIC-001",
+     "section": "Scope",
+     "document": "Insurance Company Licensing Regulation",
+     "excerpt": "This Regulation applies to all Insurance Companies, including branches of Foreign Insurance Companies.",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/insurance-company-licensing-regulation",
+     "score": -3.21,
+     "required": false
+    }
+   ]
+  },
+  {
+   "id": "Q100",
+   "question": "What end-of-service gratuity is payable to staff of a Takaful operator?",
+   "category": "unanswerable",
+   "difficulty": "medium",
+   "required": [],
+   "found": [],
+   "complete": false,
+   "top_score": -0.77,
+   "would_decline": true,
+   "citations": [
+    {
+     "id": "INS-FIN-002::Section 7, Appendix 1",
+     "doc_id": "INS-FIN-002",
+     "section": "Section 7, Appendix 1",
+     "document": "Insurance Authority Board Decision Number (26) of 2014 Pertinent to Financial Regulations for Takaful Insurance Companies",
+     "excerpt": "Takaful Insurance Company Financial Statement Forms (with Disclosures) End of service Indemnity End of Service Benefits",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/insurance-authority-board-decision-number-26-2014-pertinent-financial-regulations-takaful",
+     "score": -1.36,
+     "required": false
+    },
+    {
+     "id": "INS-FIN-002::Section 5, Addendum",
+     "doc_id": "INS-FIN-002",
+     "section": "Section 5, Addendum",
+     "document": "Insurance Authority Board Decision Number (26) of 2014 Pertinent to Financial Regulations for Takaful Insurance Companies",
+     "excerpt": "a) Takaful application and proposal; b) Takaful policy; d) Agreement on any terms of Re-Takaful cover;",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/insurance-authority-board-decision-number-26-2014-pertinent-financial-regulations-takaful",
+     "score": -1.16,
+     "required": false
+    },
+    {
+     "id": "INS-FIN-002::Section 4, Addendum",
+     "doc_id": "INS-FIN-002",
+     "section": "Section 4, Addendum",
+     "document": "Insurance Authority Board Decision Number (26) of 2014 Pertinent to Financial Regulations for Takaful Insurance Companies",
+     "excerpt": "2) In the case of securities which are not transferable, the amount payable on surrender or redemption of such securities as at the date the security is being valued; Valuation of a loan secured by an insurance policy issued by the Company must be as the amount of the loan but not exceeding the amount payable on a surr",
+     "url": "https://rulebook.centralbank.ae/en/rulebook/insurance-authority-board-decision-number-26-2014-pertinent-financial-regulations-takaful",
+     "score": -1.43,
+     "required": false
+    }
+   ]
   }
  ]
 }
