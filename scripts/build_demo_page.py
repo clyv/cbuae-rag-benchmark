@@ -189,6 +189,13 @@ BODY_TOP = """<div class="wrap">
     </div>
     <div class="pane answer" id="answer"></div>
   </div>
+  <p class="note"><strong>Why quotes and not prose?</strong> Because a quote cannot say
+  something its source does not. The same pipeline was run through a local generative model
+  to measure what paraphrasing costs: it declined 69 of the 100 questions, and of the claims
+  it did write, only <strong>0.557</strong> could be traced back to the section it cited,
+  against <strong>0.972</strong> for the quoted answers above. That is a small model and the
+  figure is a floor, not a verdict on generation &mdash; but it is why the default here
+  quotes.</p>
 </section>
 
 <section>
