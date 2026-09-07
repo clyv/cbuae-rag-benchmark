@@ -184,17 +184,23 @@ def answer_question(
         )
 
     answer = generator.generate(question, context)
+    # A generator may decline on its own account - a model can judge that the
+    # passages do not answer, which the score threshold above cannot see.
+    # Overwriting that with False silently discards the refusal and reports a
+    # decline as an answer with no citations.
     return GroundedAnswer(
         text=answer.text,
         citations=answer.citations,
-        abstained=False,
+        abstained=answer.abstained,
         context_used=context,
-        reason="",
+        reason=answer.reason,
         top_score=top,
     )
 
 
-def validate_citations(answer: GroundedAnswer, min_overlap: int = 4) -> dict[str, float]:
+def validate_citations(
+    answer: GroundedAnswer, min_overlap: int = 4, min_overlap_ratio: float = 0.0
+) -> dict[str, float]:
     """Check every citation against the context it claims to come from.
 
     Two failures are counted separately because they are different faults:
@@ -230,9 +236,21 @@ def validate_citations(answer: GroundedAnswer, min_overlap: int = 4) -> dict[str
             continue
         # Verbatim first; fall back to token overlap so a quote that was
         # trimmed or rejoined across a line break is not counted as invented.
+        #
+        # `min_overlap_ratio` is off by default, which suits an extractive
+        # answerer whose quote is the source text. For a generated claim the
+        # absolute threshold is far too lenient - four shared content words is
+        # nothing in a sentence about regulation, where "company", "board" and
+        # "requirements" are everywhere - so the abstractive measurement sets a
+        # ratio and requires most of the claim's vocabulary to come from the
+        # section it cites.
+        needed = max(
+            min(min_overlap, len(quoted)),
+            int(round(min_overlap_ratio * len(quoted))),
+        )
         if citation.quote.strip() and citation.quote.strip() in source:
             supported += 1
-        elif len(quoted & _tokens(source)) >= min(min_overlap, len(quoted)):
+        elif len(quoted & _tokens(source)) >= needed:
             supported += 1
 
     n = len(answer.citations)

@@ -169,6 +169,29 @@ def test_partly_invented_citations_score_between():
     assert validate_citations(answer)["grounded"] == pytest.approx(0.5)
 
 
+def test_a_generator_that_declines_is_reported_as_declining():
+    """A model can judge that the passages do not answer, which the score
+    threshold cannot see. Overwriting that verdict turns a refusal into an
+    answer with no citations - which is a different, and much worse, thing."""
+
+    class Refuses:
+        name = "refuses"
+
+        def generate(self, question, context):
+            return GroundedAnswer(
+                text="Not covered by these passages.",
+                citations=[],
+                abstained=True,
+                context_used=context,
+                reason="model declined",
+            )
+
+    answer = answer_question("q", context(), generator=Refuses(), threshold=None)
+    assert answer.abstained is True
+    assert answer.reason == "model declined"
+    assert validate_citations(answer)["abstained"] == 1.0
+
+
 def test_an_answer_with_no_citations_scores_zero():
     answer = GroundedAnswer(text="Trust me.", citations=[], context_used=context())
     scores = validate_citations(answer)
