@@ -432,9 +432,122 @@ most answerable questions:
 A cross-encoder trained on topical relevance is *right* that the passage is
 about capital adequacy. What it cannot see is that the passage governs a
 different kind of entity. **That is a scope question, not a relevance question**,
-and no threshold on a relevance score will answer it. Every document in this
-corpus has a Scope of Application section, so the material for a real check
-exists - that is the obvious next experiment.
+and no threshold on a relevance score will answer it.
+
+### The cheap fix for that does not work
+
+Every instrument states near its start who it binds, so the obvious experiment
+was to build a scope profile from those framing sections and score the question
+against it with the same cross-encoder. That was tested. It failed.
+
+| Strategy | AUC | 95% interval |
+|---|---:|---|
+| **Relevance only** | **0.806** | 0.664 - 0.918 |
+| Scope only | 0.575 | 0.393 - 0.757 |
+| Relevance + scope | 0.675 | 0.512 - 0.823 |
+| min(relevance, scope) | 0.575 | 0.392 - 0.752 |
+
+Every combination is worse than relevance alone. The reason is in the medians:
+answerable questions score -10.06 against framing text and unanswerable ones
+-9.91, both at the floor. The cross-encoder scores *every* question poorly there,
+because framing text is not answer-shaped - "This Regulation applies to all
+Companies" does not look like a passage that answers anything.
+
+The model judges whether a passage answers a query. Whether a query falls inside
+a jurisdiction is not that task applied to different text. A real scope check
+needs entailment - entity extraction, or an NLI model that can call "this
+question concerns a finance company" a *contradiction* of "this instrument
+applies to insurance companies" rather than a low-relevance pair. That is a
+larger piece of work, which is exactly why the cheap version was worth testing
+first. Write-up in `results/scope_check.md`.
+
+### The price of fluency, measured
+
+The extractive 1.000 above is only meaningful next to a model that writes prose,
+so one was plugged in: **Qwen2.5-0.5B-Instruct**, local, CPU, 9.5 s per question,
+all 100 questions. Full write-up in `results/abstractive.md`.
+
+The first result is not the citation score. **The model declined 69 of 100
+questions** - including 55 of the 86 the corpus does answer and the retriever
+found. It refused every unanswerable question, which reads like perfect
+abstention until you notice that refusing *everything* scores the same, and that
+buying 14/14 cost 64% of the answerable set. It declines least on
+`cross_document` and most on `comparative` and `adversarial` - a capability
+ceiling, not caution.
+
+Of the 28 answers that cited anything, 74 citations:
+
+| | abstractive | extractive |
+|---|---|---|
+| Grounded | 1.000 | 1.000 |
+| Supported, lenient (4 shared words) | 0.851 | - |
+| Supported, strict (60% overlap) | **0.557** | **0.972** |
+
+**Grounded 1.000 is a design artifact, not a result.** Passages are numbered in
+the prompt and out-of-range tags are dropped rather than clamped, so an invented
+reference vanishes instead of surviving as a wrong citation.
+
+The distance between the two supported rows matters as much as either number:
+four shared content words is nothing in a corpus where "company" and "board"
+appear on every page, so the lenient figure mostly measures subject matter. The
+strict one is the honest figure, and the gap is a warning about how much a
+citation metric depends on its threshold.
+
+The failure underneath it is specific. The model copies a passage closely and
+then tags the sentence `[2][3]`, crediting one claim to several sections when
+only one contains it:
+
+| | answers | supported (strict) |
+|---|---:|---:|
+| Every claim names one passage | 14 | **0.738** |
+| At least one claim names several | 14 | **0.375** |
+
+Exactly half the answers do it, and it roughly halves their support - a fixable
+defect rather than general unreliability.
+
+**0.557 is a lower bound on abstractive citation validity, not an estimate of
+it.** It is what a 0.5B model does, and the 69 refusals say model size is the
+binding constraint. A larger model would refuse less and support more. What the
+measurement establishes is that the gap between quoting and paraphrasing is real
+and large on this corpus, and that reporting the extractive 1.000 without it
+would have been misleading.
+
+An earlier run of this was discarded: the citation parser split on sentence
+boundaries, which put the full stop before the model's tag and checked each
+citation against the *following* claim's words. It moved the headline number
+with no model behaving differently, and was caught by a test rather than by
+reading output that looked entirely plausible. `results/abstractive.md` records
+the before and after.
+
+### Deploying it
+
+```bash
+docker build -t regulens .
+docker run --rm -p 8000:8000 regulens
+```
+
+The build fetches the corpus, parses it, downloads both models and warms the
+embedding cache, so a container starts in seconds. Without that warming the
+first request spends about ninety seconds embedding 954 chunks while the service
+looks hung.
+
+**The built image contains CBUAE text, so it must not be pushed to a public
+registry.** `SOURCES.md` records that the terms permit download for
+non-commercial use but not redistribution, and a public image is redistribution.
+Keep it private, or build on the host that runs it. The repository itself stays
+clean - no source document is committed.
+
+**Measured footprint: 1,225 MB resident** with both models loaded and the index
+built. That is the number that decides where this can run, and it rules out the
+512 MB free tiers. Torch is most of it; the two models together are only about
+220 MB on disk. Realistic options are a small paid instance, or exporting the
+models to ONNX Runtime and dropping torch entirely - the larger piece of work,
+and the one that would make a free tier possible.
+
+Embeddings are cached to `corpus/processed/embeddings.npz`, keyed by a hash of
+the model name and every text encoded, so rebuilding the corpus or changing the
+model invalidates the cache automatically rather than silently serving vectors
+for text that no longer exists.
 
 ---
 
@@ -522,6 +635,12 @@ corpus state, but the published text may since have moved.
 - **Article numbering restarts inside compound instruments.** `Article 3` names
   two different provisions in INS-FIN-001, so labels there carry the document's
   own `Section N,` qualifier.
+- **The abstractive measurement was wrong the first time and looked fine.** The
+  citation parser split on sentence boundaries, so each citation was checked
+  against the next claim's words; the output read plausibly and the number was
+  off by six points. A test asserting that a quote is the claim it was attached
+  to found it. Measurement code needs tests as much as the system under
+  measurement does, and it is easier to forget.
 
 ---
 
@@ -543,7 +662,7 @@ src/regulens/
   ingest/               parsing and chunking
   retrieval/            the four systems, one interface
   evaluation/           metrics and harness
-  generation/           grounded answering, citation validation
+  generation/           extractive and abstractive answering, citation checks
 tests/
 results/                measured output, committed
 ```

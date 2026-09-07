@@ -18,3 +18,6 @@ venv/
 .pytest_cache/
 .ipynb_checkpoints/
 .DS_Store
+
+# Generated from results/demo.json by scripts/build_demo_page.py.
+results/demo.html

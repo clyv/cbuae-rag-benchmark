@@ -1,0 +1,1854 @@
+{
+  "summary": {
+    "generator": "Qwen/Qwen2.5-0.5B-Instruct",
+    "k": 4,
+    "strict_ratio": 0.6,
+    "questions": 100,
+    "answers_with_citations": 28,
+    "answers_without_citations": 3,
+    "declined": 69,
+    "grounded": 1.0,
+    "supported_lenient": 0.8511904761904762,
+    "supported_strict": 0.5565476190476191,
+    "extractive_supported_strict": 0.9716666666666667,
+    "supported_strict_one_source": 0.7380952380952381,
+    "supported_strict_over_attributed": 0.375,
+    "answers_over_attributed": 14,
+    "seconds_per_question": 9.5
+  },
+  "per_question": [
+    {
+      "id": "Q001",
+      "category": "single_hop",
+      "answerable": true,
+      "text": "Not covered by these passages.",
+      "declined": true,
+      "citations": 0,
+      "grounded": 1.0,
+      "supported_lenient": 1.0,
+      "supported_strict": 1.0,
+      "extractive_supported_strict": 1.0,
+      "over_attributed": false,
+      "cited": [],
+      "required": [
+        "INS-GOV-003::Article 3"
+      ]
+    },
+    {
+      "id": "Q002",
+      "category": "single_hop",
+      "answerable": true,
+      "text": "[AED 250,000,000]",
+      "declined": false,
+      "citations": 0,
+      "grounded": 0.0,
+      "supported_lenient": 0.0,
+      "supported_strict": 0.0,
+      "extractive_supported_strict": 1.0,
+      "over_attributed": false,
+      "cited": [],
+      "required": [
+        "INS-FIN-001::Section 2, Article 1"
+      ]
+    },
+    {
+      "id": "Q003",
+      "category": "single_hop",
+      "answerable": true,
+      "text": "Not covered by these passages.",
+      "declined": true,
+      "citations": 0,
+      "grounded": 1.0,
+      "supported_lenient": 1.0,
+      "supported_strict": 1.0,
+      "extractive_supported_strict": 1.0,
+      "over_attributed": false,
+      "cited": [],
+      "required": [
+        "INS-GOV-003::Article 5"
+      ]
+    },
+    {
+      "id": "Q004",
+      "category": "single_hop",
+      "answerable": true,
+      "text": "Not covered by these passages.",
+      "declined": true,
+      "citations": 0,
+      "grounded": 1.0,
+      "supported_lenient": 1.0,
+      "supported_strict": 1.0,
+      "extractive_supported_strict": 1.0,
+      "over_attributed": false,
+      "cited": [],
+      "required": [
+        "INS-FIN-001::Section 2, Article 2"
+      ]
+    },
+    {
+      "id": "Q005",
+      "category": "single_hop",
+      "answerable": true,
+      "text": "[1] 5-1\nAn external auditor is required to promptly report any violations of the Central Bank Laws, Regulations, instructions, or significant matters to the Central Bank. They must also provide evidence of their diligence and adherence to the law when reporting on breaches.\n\n[2][3] 3-7\nIf an external auditor finds that there are violations of relevant laws, regulations, instructions, or significant matters, they should immediately inform the Central Bank and obtain the non-objection from the Central Bank. Failure to do so could result",
+      "declined": false,
+      "citations": 3,
+      "grounded": 1.0,
+      "supported_lenient": 1.0,
+      "supported_strict": 0.0,
+      "extractive_supported_strict": 1.0,
+      "over_attributed": true,
+      "cited": [
+        "INS-REP-004::Article 5",
+        "INS-REP-004::Article 3",
+        "INS-TAK-005::Article 13"
+      ],
+      "required": [
+        "INS-REP-004::Article 5"
+      ]
+    },
+    {
+      "id": "Q006",
+      "category": "cross_section",
+      "answerable": true,
+      "text": "[1] 1.\nAn insurer must have effective Control Functions with the necessary independence, authority and resources covering Risk Management, internal audit, compliance and actuarial. The effectiveness of the Control Functions must be assessed periodically by the Board.\n[2][3]\nThe procedures and operations of the internal control, compliance and risk management have developed from the traditional to the modern methods emanating from the global professional associations, which laid down the international standards of the internal control, compliance, risk management operations in terms of planning and undertaking such activates, so that",
+      "declined": false,
+      "citations": 3,
+      "grounded": 1.0,
+      "supported_lenient": 1.0,
+      "supported_strict": 0.6666666666666666,
+      "extractive_supported_strict": 1.0,
+      "over_attributed": true,
+      "cited": [
+        "INS-GOV-003::Article 5",
+        "INS-REP-003::First: Introduction",
+        "INS-GOV-004::2"
+      ],
+      "required": [
+        "INS-GOV-003::Article 5",
+        "INS-GOV-003::Article 3"
+      ]
+    },
+    {
+      "id": "Q007",
+      "category": "cross_document",
+      "answerable": true,
+      "text": "Not covered by these passages.",
+      "declined": true,
+      "citations": 0,
+      "grounded": 1.0,
+      "supported_lenient": 1.0,
+      "supported_strict": 1.0,
+      "extractive_supported_strict": 1.0,
+      "over_attributed": false,
+      "cited": [],
+      "required": [
+        "INS-GOV-003::Article 3",
+        "INS-FIN-001::Section 2, Article 4"
+      ]
+    },
+    {
+      "id": "Q008",
+      "category": "cross_section",
+      "answerable": true,
+      "text": "Not covered by these passages.",
+      "declined": true,
+      "citations": 0,
+      "grounded": 1.0,
+      "supported_lenient": 1.0,
+      "supported_strict": 1.0,
+      "extractive_supported_strict": 1.0,
+      "over_attributed": false,
+      "cited": [],
+      "required": [
+        "INS-FIN-001::Section 2, Article 1",
+        "INS-FIN-001::Section 2, Article 2"
+      ]
+    },
+    {
+      "id": "Q009",
+      "category": "comparative",
+      "answerable": true,
+      "text": "Not covered by these passages.",
+      "declined": true,
+      "citations": 0,
+      "grounded": 1.0,
+      "supported_lenient": 1.0,
+      "supported_strict": 1.0,
+      "extractive_supported_strict": 1.0,
+      "over_attributed": false,
+      "cited": [],
+      "required": [
+        "INS-FIN-001::Section 2, Article 1",
+        "INS-FIN-002::Section 2, Article 1"
+      ]
+    },
+    {
+      "id": "Q010",
+      "category": "comparative",
+      "answerable": true,
+      "text": "Not covered by these passages.",
+      "declined": true,
+      "citations": 0,
+      "grounded": 1.0,
+      "supported_lenient": 1.0,
+      "supported_strict": 1.0,
+      "extractive_supported_strict": 1.0,
+      "over_attributed": false,
+      "cited": [],
+      "required": [
+        "INS-FIN-001::Section 2, Article 2",
+        "INS-FIN-002::Section 2, Article 2"
+      ]
+    },
+    {
+      "id": "Q011",
+      "category": "comparative",
+      "answerable": true,
+      "text": "Not covered by these passages.",
+      "declined": true,
+      "citations": 0,
+      "grounded": 1.0,
+      "supported_lenient": 1.0,
+      "supported_strict": 1.0,
+      "extractive_supported_strict": 1.0,
+      "over_attributed": false,
+      "cited": [],
+      "required": [
+        "INS-FIN-001::Section 2, Article 4",
+        "INS-FIN-002::Section 2, Article 4"
+      ]
+    },
+    {
+      "id": "Q012",
+      "category": "adversarial",
+      "answerable": true,
+      "text": "Not covered by these passages.",
+      "declined": true,
+      "citations": 0,
+      "grounded": 1.0,
+      "supported_lenient": 1.0,
+      "supported_strict": 1.0,
+      "extractive_supported_strict": 1.0,
+      "over_attributed": false,
+      "cited": [],
+      "required": [
+        "INS-FIN-001::Section 2, Article 1",
+        "INS-FIN-002::Section 2, Article 1"
+      ]
+    },
+    {
+      "id": "Q013",
+      "category": "cross_document",
+      "answerable": true,
+      "text": "Not covered by these passages.",
+      "declined": true,
+      "citations": 0,
+      "grounded": 1.0,
+      "supported_lenient": 1.0,
+      "supported_strict": 1.0,
+      "extractive_supported_strict": 1.0,
+      "over_attributed": false,
+      "cited": [],
+      "required": [
+        "INS-FIN-001::Section 2, Article 1",
+        "INS-OTH-001::Chapter Two, Article 12"
+      ]
+    },
+    {
+      "id": "Q014",
+      "category": "cross_section",
+      "answerable": true,
+      "text": "Not covered by these passages.",
+      "declined": true,
+      "citations": 0,
+      "grounded": 1.0,
+      "supported_lenient": 1.0,
+      "supported_strict": 1.0,
+      "extractive_supported_strict": 1.0,
+      "over_attributed": false,
+      "cited": [],
+      "required": [
+        "INS-GOV-003::Article 10",
+        "INS-GOV-003::Article 5"
+      ]
+    },
+    {
+      "id": "Q015",
+      "category": "cross_section",
+      "answerable": true,
+      "text": "Not covered by these passages.",
+      "declined": true,
+      "citations": 0,
+      "grounded": 1.0,
+      "supported_lenient": 1.0,
+      "supported_strict": 1.0,
+      "extractive_supported_strict": 1.0,
+      "over_attributed": false,
+      "cited": [],
+      "required": [
+        "INS-GOV-003::Article 6",
+        "INS-GOV-003::Article 5"
+      ]
+    },
+    {
+      "id": "Q016",
+      "category": "cross_section",
+      "answerable": true,
+      "text": "[1] An insurer's compliance function must establish and maintain appropriate mechanisms and activities to identify, assess, report on and address key legal and regulatory obligations, conduct training on key legal and regulatory obligations, facilitate confidential reporting, and conduct assessments on matters related to compliance. Ultimate responsibility for compliance culture sits with the Board.",
+      "declined": false,
+      "citations": 1,
+      "grounded": 1.0,
+      "supported_lenient": 1.0,
+      "supported_strict": 1.0,
+      "extractive_supported_strict": 1.0,
+      "over_attributed": false,
+      "cited": [
+        "INS-GOV-003::Article 9"
+      ],
+      "required": [
+        "INS-GOV-003::Article 9",
+        "INS-GOV-003::Article 5"
+      ]
+    },
+    {
+      "id": "Q017",
+      "category": "cross_document",
+      "answerable": true,
+      "text": "Not covered by these passages.",
+      "declined": true,
+      "citations": 0,
+      "grounded": 1.0,
+      "supported_lenient": 1.0,
+      "supported_strict": 1.0,
+      "extractive_supported_strict": 1.0,
+      "over_attributed": false,
+      "cited": [],
+      "required": [
+        "INS-GOV-003::Article 10",
+        "INS-FIN-001::Section 2, Article 4"
+      ]
+    },
+    {
+      "id": "Q018",
+      "category": "cross_document",
+      "answerable": true,
+      "text": "[1] 4.1\nThe Parent must report to the Central Bank any significant risk concentration at the level of the Group, at the frequency and within deadlines determined by the Central Bank.\n\n[2][3] Risk Management system must specifically take into account risks arising from the Group relationship and clearly identify:\n\na. Linkages and any significant differences between the Company's and the Group's Risk Governance System.\n\nb. Whether the Company's Risk Management function is derived wholly or partially from Group Risk Management functions.\n\nc. The process for monitoring by,",
+      "declined": false,
+      "citations": 3,
+      "grounded": 1.0,
+      "supported_lenient": 1.0,
+      "supported_strict": 0.6666666666666666,
+      "extractive_supported_strict": 1.0,
+      "over_attributed": true,
+      "cited": [
+        "INS-OTH-003::Article 4",
+        "INS-GOV-003::Article 3",
+        "INS-OTH-003::Article 5"
+      ],
+      "required": [
+        "INS-OTH-003::Article 4",
+        "INS-GOV-003::Article 3"
+      ]
+    },
+    {
+      "id": "Q019",
+      "category": "adversarial",
+      "answerable": true,
+      "text": "Not covered by these passages.",
+      "declined": true,
+      "citations": 0,
+      "grounded": 1.0,
+      "supported_lenient": 1.0,
+      "supported_strict": 1.0,
+      "extractive_supported_strict": 1.0,
+      "over_attributed": false,
+      "cited": [],
+      "required": [
+        "INS-GOV-003::Article 6",
+        "INS-GOV-003::Article 5"
+      ]
+    },
+    {
+      "id": "Q020",
+      "category": "cross_section",
+      "answerable": true,
+      "text": "Not covered by these passages.",
+      "declined": true,
+      "citations": 0,
+      "grounded": 1.0,
+      "supported_lenient": 1.0,
+      "supported_strict": 1.0,
+      "extractive_supported_strict": 1.0,
+      "over_attributed": false,
+      "cited": [],
+      "required": [
+        "INS-GOV-004::5",
+        "INS-GOV-004::6"
+      ]
+    },
+    {
+      "id": "Q021",
+      "category": "cross_section",
+      "answerable": true,
+      "text": "Not covered by these passages.",
+      "declined": true,
+      "citations": 0,
+      "grounded": 1.0,
+      "supported_lenient": 1.0,
+      "supported_strict": 1.0,
+      "extractive_supported_strict": 1.0,
+      "over_attributed": false,
+      "cited": [],
+      "required": [
+        "INS-GOV-004::10",
+        "INS-GOV-004::6"
+      ]
+    },
+    {
+      "id": "Q022",
+      "category": "cross_section",
+      "answerable": true,
+      "text": "Not covered by these passages.",
+      "declined": true,
+      "citations": 0,
+      "grounded": 1.0,
+      "supported_lenient": 1.0,
+      "supported_strict": 1.0,
+      "extractive_supported_strict": 1.0,
+      "over_attributed": false,
+      "cited": [],
+      "required": [
+        "INS-GOV-004::9",
+        "INS-GOV-004::12"
+      ]
+    },
+    {
+      "id": "Q023",
+      "category": "cross_section",
+      "answerable": true,
+      "text": "Not covered by these passages.",
+      "declined": true,
+      "citations": 0,
+      "grounded": 1.0,
+      "supported_lenient": 1.0,
+      "supported_strict": 1.0,
+      "extractive_supported_strict": 1.0,
+      "over_attributed": false,
+      "cited": [],
+      "required": [
+        "INS-GOV-003::Article 12",
+        "INS-GOV-003::Article 3"
+      ]
+    },
+    {
+      "id": "Q024",
+      "category": "cross_section",
+      "answerable": true,
+      "text": "Not covered by these passages.",
+      "declined": true,
+      "citations": 0,
+      "grounded": 1.0,
+      "supported_lenient": 1.0,
+      "supported_strict": 1.0,
+      "extractive_supported_strict": 1.0,
+      "over_attributed": false,
+      "cited": [],
+      "required": [
+        "INS-GOV-003::Article 12",
+        "INS-GOV-003::Article 6"
+      ]
+    },
+    {
+      "id": "Q025",
+      "category": "cross_document",
+      "answerable": true,
+      "text": "[1] 1.\nThe authority and responsibilities of each control function must be set out in writing and made part of the Company's governance documentation.\n[2][3]\n1.\nA Company must have effective Control Functions with the necessary independence, authority and resources covering Risk Management, internal audit, compliance and actuarial. The effectiveness of the Control Functions must be assessed periodically by the Board.\n2.\nThe existence of a control function does not relieve the Board and Senior Management of their responsibilities.\n3.\nControl functions must be well resourced, with",
+      "declined": false,
+      "citations": 3,
+      "grounded": 1.0,
+      "supported_lenient": 1.0,
+      "supported_strict": 0.3333333333333333,
+      "extractive_supported_strict": 1.0,
+      "over_attributed": true,
+      "cited": [
+        "INS-GOV-004::5",
+        "INS-GOV-003::Article 5",
+        "INS-REP-003::First: Introduction"
+      ],
+      "required": [
+        "INS-GOV-003::Article 5",
+        "INS-GOV-004::5"
+      ]
+    },
+    {
+      "id": "Q026",
+      "category": "cross_document",
+      "answerable": true,
+      "text": "[1] Applying methodologies and procedures to assess the sufficiency of the Company's liabilities, including policy provisions and aggregate claim liabilities, as well as determination or reserves for financial risks and to ensure that their calculation is consistent with the requirements set out in the Financial Regulations. This must also include a comparison of best estimates against experience, review the quality of past best estimates and use the insights gained from this assessment to improve the quality of current calculations. [2][3] Any. 10. Product development and design, including the terms and conditions of",
+      "declined": false,
+      "citations": 2,
+      "grounded": 1.0,
+      "supported_lenient": 1.0,
+      "supported_strict": 0.5,
+      "extractive_supported_strict": 0.6666666666666666,
+      "over_attributed": true,
+      "cited": [
+        "INS-GOV-004::10",
+        "INS-GOV-003::Article 10"
+      ],
+      "required": [
+        "INS-GOV-003::Article 10",
+        "INS-GOV-004::10"
+      ]
+    },
+    {
+      "id": "Q027",
+      "category": "cross_document",
+      "answerable": true,
+      "text": "Not covered by these passages.",
+      "declined": true,
+      "citations": 0,
+      "grounded": 1.0,
+      "supported_lenient": 1.0,
+      "supported_strict": 1.0,
+      "extractive_supported_strict": 0.5,
+      "over_attributed": false,
+      "cited": [],
+      "required": [
+        "INS-GOV-003::Article 12",
+        "INS-GOV-004::12"
+      ]
+    },
+    {
+      "id": "Q028",
+      "category": "comparative",
+      "answerable": true,
+      "text": "Not covered by these passages.",
+      "declined": true,
+      "citations": 0,
+      "grounded": 1.0,
+      "supported_lenient": 1.0,
+      "supported_strict": 1.0,
+      "extractive_supported_strict": 1.0,
+      "over_attributed": false,
+      "cited": [],
+      "required": [
+        "INS-GOV-003::Article 9",
+        "INS-TAK-002::Article 6"
+      ]
+    },
+    {
+      "id": "Q029",
+      "category": "single_hop",
+      "answerable": true,
+      "text": "[1] 6.1\nThe Company must commence the insurance activities within sixty (60) business days from the date of its registration in the Register. The date of commencement of the insurance activities is the date of conclusion of the first Insurance Policy.\n\n[2][3] 1- The registration period shall be for one year ending at the end of December. In case of obtaining the registration during the year, the first registration period shall commence from the date of the registration and ends at the end of the same year.\n2. The",
+      "declined": false,
+      "citations": 3,
+      "grounded": 1.0,
+      "supported_lenient": 1.0,
+      "supported_strict": 0.3333333333333333,
+      "extractive_supported_strict": 1.0,
+      "over_attributed": true,
+      "cited": [
+        "INS-LIC-001::Article 6",
+        "INS-OTH-001::Chapter Two, Article 14",
+        "INS-CON-006::Chapter Five, Article 16"
+      ],
+      "required": [
+        "INS-LIC-001::Article 6"
+      ]
+    },
+    {
+      "id": "Q030",
+      "category": "single_hop",
+      "answerable": true,
+      "text": "[1] The pertinent department in the Authority shall consider the application for the license and in case the application does not meet any of the required conditions, data or documents, it may request through the Electronic Means or other means adopted by the Authority the concerned parties to complete it within (60) sixty days from the date of application.\n\n[2] 4.1\nThe application for a Licence is regarded as formally received by the Central Bank after a complete application with all required documents and statements is submitted to the Central Bank.\n\n[2][3",
+      "declined": false,
+      "citations": 2,
+      "grounded": 1.0,
+      "supported_lenient": 1.0,
+      "supported_strict": 0.5,
+      "extractive_supported_strict": 1.0,
+      "over_attributed": false,
+      "cited": [
+        "INS-OTH-001::Chapter Two, Article 9",
+        "INS-LIC-001::Article 4"
+      ],
+      "required": [
+        "INS-LIC-001::Article 4"
+      ]
+    },
+    {
+      "id": "Q031",
+      "category": "cross_section",
+      "answerable": true,
+      "text": "[1] For the first case, the insurer must submit an application in the form determined by the Central Bank for that purpose.\n[2][3] For the second case, the insurer must also submit an application in the form determined by the Central Bank for that purpose.\nNot covered by these passages.",
+      "declined": false,
+      "citations": 3,
+      "grounded": 1.0,
+      "supported_lenient": 0.6666666666666666,
+      "supported_strict": 0.6666666666666666,
+      "extractive_supported_strict": 1.0,
+      "over_attributed": true,
+      "cited": [
+        "INS-LIC-001::Article 8",
+        "INS-LIC-001::Article 7",
+        "INS-LIC-001::Introduction"
+      ],
+      "required": [
+        "INS-LIC-001::Article 7",
+        "INS-LIC-001::Article 8"
+      ]
+    },
+    {
+      "id": "Q032",
+      "category": "cross_section",
+      "answerable": true,
+      "text": "[1] 4.1 - 60 business days\n[2] 60 business days\n[3] 3 months",
+      "declined": false,
+      "citations": 3,
+      "grounded": 1.0,
+      "supported_lenient": 0.3333333333333333,
+      "supported_strict": 0.3333333333333333,
+      "extractive_supported_strict": 1.0,
+      "over_attributed": false,
+      "cited": [
+        "INS-LIC-001::Article 4",
+        "INS-OTH-001::Chapter Two, Article 10",
+        "INS-OTH-004::Article 5"
+      ],
+      "required": [
+        "INS-LIC-001::Article 4",
+        "INS-LIC-001::Article 6"
+      ]
+    },
+    {
+      "id": "Q033",
+      "category": "cross_section",
+      "answerable": true,
+      "text": "Not covered by these passages.",
+      "declined": true,
+      "citations": 0,
+      "grounded": 1.0,
+      "supported_lenient": 1.0,
+      "supported_strict": 1.0,
+      "extractive_supported_strict": 1.0,
+      "over_attributed": false,
+      "cited": [],
+      "required": [
+        "INS-LIC-001::Article 3",
+        "INS-LIC-001::Article 5"
+      ]
+    },
+    {
+      "id": "Q034",
+      "category": "comparative",
+      "answerable": true,
+      "text": "[1] An applicant has to provide a completed application form, strategy overview, name, address, nationality, and certified true copies of the memorandum and articles of association of the applicant, along with the name, address, nationality, and ownership percentage of the shareholder controlling more than ten percent of voting rights in the applicant, certified by the competent authorities in the country of the applicant's registration. [2] No person is allowed to conduct the business of a representation office within the state without being licensed by the central bank. [3] Terms 1",
+      "declined": false,
+      "citations": 3,
+      "grounded": 1.0,
+      "supported_lenient": 0.6666666666666666,
+      "supported_strict": 0.3333333333333333,
+      "extractive_supported_strict": 0.6666666666666666,
+      "over_attributed": false,
+      "cited": [
+        "INS-OTH-004::Article 5",
+        "INS-OTH-004::Article 2",
+        "INS-OTH-004::Article 1"
+      ],
+      "required": [
+        "INS-OTH-004::Article 5",
+        "INS-LIC-001::Article 3"
+      ]
+    },
+    {
+      "id": "Q035",
+      "category": "adversarial",
+      "answerable": true,
+      "text": "[1] In the event that the period stipulated in the preceding Article lapsed without completing the conditions, data or documents required by the applicant, the competent department shall refer the matter to the Director General.\n[2] 4.1\nThe application for a Licence is regarded as formally received by the Central Bank after a complete application with all required documents and statements is submitted to the Central Bank.\n[3] 9.1\nThe Central Bank may at any time revoke, suspend, restrict or vary the License if any of the following",
+      "declined": false,
+      "citations": 3,
+      "grounded": 1.0,
+      "supported_lenient": 1.0,
+      "supported_strict": 0.3333333333333333,
+      "extractive_supported_strict": 1.0,
+      "over_attributed": false,
+      "cited": [
+        "INS-OTH-001::Chapter Two, Article 10",
+        "INS-LIC-001::Article 4",
+        "INS-OTH-004::Article 9"
+      ],
+      "required": [
+        "INS-LIC-001::Article 4"
+      ]
+    },
+    {
+      "id": "Q036",
+      "category": "single_hop",
+      "answerable": true,
+      "text": "Not covered by these passages.",
+      "declined": true,
+      "citations": 0,
+      "grounded": 1.0,
+      "supported_lenient": 1.0,
+      "supported_strict": 1.0,
+      "extractive_supported_strict": 1.0,
+      "over_attributed": false,
+      "cited": [],
+      "required": [
+        "INS-CON-006::Chapter Three, Article 9"
+      ]
+    },
+    {
+      "id": "Q037",
+      "category": "cross_section",
+      "answerable": true,
+      "text": "[1] The Company and Insurance-Related Professions, after satisfying the procedures set forth in the Regulations herein- when outsourcing the electronic insurance operations to other party, outsourcing the development, management or maintenance of its website or outsourcing any other operations related to its website, shall develop a special provision in the Outsourcing Contract thereunder the other party shall commit to apply the provisions of the Regulations herein, the code of professional practice issued by the Insurance Authority, and other related legislation. The Company and Insurance-Related Professions shall remain accountable to the IA.",
+      "declined": false,
+      "citations": 1,
+      "grounded": 1.0,
+      "supported_lenient": 1.0,
+      "supported_strict": 1.0,
+      "extractive_supported_strict": 1.0,
+      "over_attributed": false,
+      "cited": [
+        "INS-CON-006::Chapter Three, Article 13"
+      ],
+      "required": [
+        "INS-CON-006::Chapter Three, Article 13",
+        "INS-CON-006::Chapter Three, Article 9"
+      ]
+    },
+    {
+      "id": "Q038",
+      "category": "cross_section",
+      "answerable": true,
+      "text": "[1] The website should provide electronic claim forms for submitting claims and uploading electronic copies of the claim documents. After accepting the electronic claim, the company should provide the claimant with a reference number of his claim. [2][3] When the claim is reimbursed online, the company may require the original claim documents from the claimant to match them and verify their validity. [4] The defendant company shall process claims according to the law and applicable laws and regulations, and shall inform the competent authority in accordance with electronic regulations or other approved methods",
+      "declined": false,
+      "citations": 4,
+      "grounded": 1.0,
+      "supported_lenient": 0.75,
+      "supported_strict": 0.25,
+      "extractive_supported_strict": 1.0,
+      "over_attributed": true,
+      "cited": [
+        "INS-CON-006::Chapter Five, Article 21",
+        "INS-CON-006::Chapter Five, Article 22",
+        "INS-CON-006::Chapter Five, Article 16",
+        "INS-CON-001::Article 7"
+      ],
+      "required": [
+        "INS-CON-006::Chapter Five, Article 21",
+        "INS-CON-006::Chapter Five, Article 22"
+      ]
+    },
+    {
+      "id": "Q039",
+      "category": "cross_section",
+      "answerable": true,
+      "text": "Not covered by these passages.",
+      "declined": true,
+      "citations": 0,
+      "grounded": 1.0,
+      "supported_lenient": 1.0,
+      "supported_strict": 1.0,
+      "extractive_supported_strict": 1.0,
+      "over_attributed": false,
+      "cited": [],
+      "required": [
+        "INS-CON-006::Chapter Three, Article 11",
+        "INS-CON-006::Chapter Five, Article 21"
+      ]
+    },
+    {
+      "id": "Q040",
+      "category": "cross_section",
+      "answerable": true,
+      "text": "Not covered by these passages.",
+      "declined": true,
+      "citations": 0,
+      "grounded": 1.0,
+      "supported_lenient": 1.0,
+      "supported_strict": 1.0,
+      "extractive_supported_strict": 1.0,
+      "over_attributed": false,
+      "cited": [],
+      "required": [
+        "INS-GOV-001::Article 3",
+        "INS-GOV-001::Article 9"
+      ]
+    },
+    {
+      "id": "Q041",
+      "category": "cross_document",
+      "answerable": true,
+      "text": "[1] The Financial Regulations and Takaful Regulation require companies to publish audited annual accounts.\n[2][3] The Central Bank requires companies to publish a Corporate Governance statement.\n[4] The Insurance Authority's Broad of Directors' Decision No. (19) obligates the auditor to report breaches to the regulator.",
+      "declined": false,
+      "citations": 4,
+      "grounded": 1.0,
+      "supported_lenient": 0.75,
+      "supported_strict": 0.25,
+      "extractive_supported_strict": 1.0,
+      "over_attributed": true,
+      "cited": [
+        "INS-GOV-001::Article 9",
+        "INS-GOV-001::Article 10",
+        "INS-FIN-001::Section 6, Article 4",
+        "INS-FIN-002::Section 6, Article 4"
+      ],
+      "required": [
+        "INS-GOV-001::Article 9",
+        "INS-REP-004::Article 5"
+      ]
+    },
+    {
+      "id": "Q042",
+      "category": "single_hop",
+      "answerable": true,
+      "text": "Not covered by these passages.",
+      "declined": true,
+      "citations": 0,
+      "grounded": 1.0,
+      "supported_lenient": 1.0,
+      "supported_strict": 1.0,
+      "extractive_supported_strict": 0.5,
+      "over_attributed": false,
+      "cited": [],
+      "required": [
+        "INS-SAN-001::Article 4"
+      ]
+    },
+    {
+      "id": "Q043",
+      "category": "single_hop",
+      "answerable": true,
+      "text": "Not covered by these passages.",
+      "declined": true,
+      "citations": 0,
+      "grounded": 1.0,
+      "supported_lenient": 1.0,
+      "supported_strict": 1.0,
+      "extractive_supported_strict": 1.0,
+      "over_attributed": false,
+      "cited": [],
+      "required": [
+        "INS-TAK-002::Article 6"
+      ]
+    },
+    {
+      "id": "Q044",
+      "category": "cross_section",
+      "answerable": true,
+      "text": "[1] The Company shall appoint one or more qualified and experienced External Auditors for its accounts for every financial year.\n[2][3] The External Auditor shall review actuarial reports that represent immediate or future risks facing the Company, and the Authority shall be provided with copies of these reports in a timely manner.\n[3][4] Companies must, every year, appoint an External Auditor or more, approved by the Central Bank, for auditing their accounts.\n[4][2][3] The Board audit committee must establish a policy and processes",
+      "declined": false,
+      "citations": 4,
+      "grounded": 1.0,
+      "supported_lenient": 1.0,
+      "supported_strict": 0.5,
+      "extractive_supported_strict": 1.0,
+      "over_attributed": true,
+      "cited": [
+        "INS-FIN-002::Section 6, Article 4",
+        "INS-FIN-001::Section 6, Addendum (1)",
+        "INS-FIN-001::Section 6, Article 4",
+        "INS-REP-004::Article 3"
+      ],
+      "required": [
+        "INS-REP-004::Article 3",
+        "INS-REP-004::Article 5"
+      ]
+    },
+    {
+      "id": "Q045",
+      "category": "unanswerable",
+      "answerable": false,
+      "text": "Not covered by these passages.",
+      "declined": true,
+      "citations": 0,
+      "grounded": 1.0,
+      "supported_lenient": 1.0,
+      "supported_strict": 1.0,
+      "extractive_supported_strict": 1.0,
+      "over_attributed": false,
+      "cited": [],
+      "required": []
+    },
+    {
+      "id": "Q046",
+      "category": "unanswerable",
+      "answerable": false,
+      "text": "Not covered by these passages.",
+      "declined": true,
+      "citations": 0,
+      "grounded": 1.0,
+      "supported_lenient": 1.0,
+      "supported_strict": 1.0,
+      "extractive_supported_strict": 1.0,
+      "over_attributed": false,
+      "cited": [],
+      "required": []
+    },
+    {
+      "id": "Q047",
+      "category": "unanswerable",
+      "answerable": false,
+      "text": "Not covered by these passages.",
+      "declined": true,
+      "citations": 0,
+      "grounded": 1.0,
+      "supported_lenient": 1.0,
+      "supported_strict": 1.0,
+      "extractive_supported_strict": 1.0,
+      "over_attributed": false,
+      "cited": [],
+      "required": []
+    },
+    {
+      "id": "Q048",
+      "category": "unanswerable",
+      "answerable": false,
+      "text": "Not covered by these passages.",
+      "declined": true,
+      "citations": 0,
+      "grounded": 1.0,
+      "supported_lenient": 1.0,
+      "supported_strict": 1.0,
+      "extractive_supported_strict": 1.0,
+      "over_attributed": false,
+      "cited": [],
+      "required": []
+    },
+    {
+      "id": "Q049",
+      "category": "unanswerable",
+      "answerable": false,
+      "text": "Not covered by these passages.",
+      "declined": true,
+      "citations": 0,
+      "grounded": 1.0,
+      "supported_lenient": 1.0,
+      "supported_strict": 1.0,
+      "extractive_supported_strict": 1.0,
+      "over_attributed": false,
+      "cited": [],
+      "required": []
+    },
+    {
+      "id": "Q050",
+      "category": "unanswerable",
+      "answerable": false,
+      "text": "Not covered by these passages.",
+      "declined": true,
+      "citations": 0,
+      "grounded": 1.0,
+      "supported_lenient": 1.0,
+      "supported_strict": 1.0,
+      "extractive_supported_strict": 1.0,
+      "over_attributed": false,
+      "cited": [],
+      "required": []
+    },
+    {
+      "id": "Q051",
+      "category": "single_hop",
+      "answerable": true,
+      "text": "[1] Within eighteen months from the date they come into effect.\n[2][3] At least 30 calendar days.\n[4] Within six months from the date of change of mind.",
+      "declined": false,
+      "citations": 4,
+      "grounded": 1.0,
+      "supported_lenient": 0.25,
+      "supported_strict": 0.25,
+      "extractive_supported_strict": 1.0,
+      "over_attributed": true,
+      "cited": [
+        "INS-OTH-001::Chapter Seven, Article 43",
+        "INS-CON-004::Article 9",
+        "INS-LIC-001::Article 6",
+        "INS-MOT-001::Article 11"
+      ],
+      "required": [
+        "INS-CON-004::Article 9"
+      ]
+    },
+    {
+      "id": "Q052",
+      "category": "single_hop",
+      "answerable": true,
+      "text": "Not covered by these passages.",
+      "declined": true,
+      "citations": 0,
+      "grounded": 1.0,
+      "supported_lenient": 1.0,
+      "supported_strict": 1.0,
+      "extractive_supported_strict": 1.0,
+      "over_attributed": false,
+      "cited": [],
+      "required": [
+        "INS-FIN-005::Article 3"
+      ]
+    },
+    {
+      "id": "Q053",
+      "category": "single_hop",
+      "answerable": true,
+      "text": "[1] Give the claimant a notice in writing of the receipt of the claim. In case of any missing items in the required documents, the company shall inform the claimant in writing within three days from receiving the claim about the documents required for completion. On completion, the company shall notify the claimant thereof.\n[2] Notify the claimant in writing of the acceptance of the claim, whether by reparation of the vehicle or payment of a specific amount of money.\n[3] In case of total loss of the motor vehicle, the",
+      "declined": false,
+      "citations": 3,
+      "grounded": 1.0,
+      "supported_lenient": 0.6666666666666666,
+      "supported_strict": 0.3333333333333333,
+      "extractive_supported_strict": 1.0,
+      "over_attributed": false,
+      "cited": [
+        "INS-MOT-001::Article 6",
+        "INS-MOT-003::Chapter Three",
+        "INS-MOT-001::Article 7"
+      ],
+      "required": [
+        "INS-MOT-001::Article 6"
+      ]
+    },
+    {
+      "id": "Q054",
+      "category": "single_hop",
+      "answerable": true,
+      "text": "Not covered by these passages.",
+      "declined": true,
+      "citations": 0,
+      "grounded": 1.0,
+      "supported_lenient": 1.0,
+      "supported_strict": 1.0,
+      "extractive_supported_strict": 1.0,
+      "over_attributed": false,
+      "cited": [],
+      "required": [
+        "INS-MOT-001::Article 4"
+      ]
+    },
+    {
+      "id": "Q055",
+      "category": "single_hop",
+      "answerable": true,
+      "text": "[1] The Company shall maintain a register for complaints received from its Clients; where the complaint's date of submission, serial number, name of complainant, relevant policy number and summary of the subject thereof, and supporting documents attached thereto are recorded.\n[2] Without prejudice to the provisions of the Code of Professional Practice and the legislations in force, the Company, the Insurance Agent and the Insurance Broker shall provide through their website, all the information necessary to the customer or the third party (the injured third party) to lodge complaints and follow",
+      "declined": false,
+      "citations": 2,
+      "grounded": 1.0,
+      "supported_lenient": 0.5,
+      "supported_strict": 0.5,
+      "extractive_supported_strict": 1.0,
+      "over_attributed": false,
+      "cited": [
+        "INS-CON-002::Article 10",
+        "INS-CON-006::Chapter Five, Article 21"
+      ],
+      "required": [
+        "INS-CON-002::Article 10"
+      ]
+    },
+    {
+      "id": "Q056",
+      "category": "single_hop",
+      "answerable": true,
+      "text": "Not covered by these passages.",
+      "declined": true,
+      "citations": 0,
+      "grounded": 1.0,
+      "supported_lenient": 1.0,
+      "supported_strict": 1.0,
+      "extractive_supported_strict": 1.0,
+      "over_attributed": false,
+      "cited": [],
+      "required": [
+        "INS-TAK-005::Article 5"
+      ]
+    },
+    {
+      "id": "Q057",
+      "category": "single_hop",
+      "answerable": true,
+      "text": "Not covered by these passages.",
+      "declined": true,
+      "citations": 0,
+      "grounded": 1.0,
+      "supported_lenient": 1.0,
+      "supported_strict": 1.0,
+      "extractive_supported_strict": 1.0,
+      "over_attributed": false,
+      "cited": [],
+      "required": [
+        "INS-CON-001::Article 3"
+      ]
+    },
+    {
+      "id": "Q058",
+      "category": "single_hop",
+      "answerable": true,
+      "text": "Not covered by these passages.",
+      "declined": true,
+      "citations": 0,
+      "grounded": 1.0,
+      "supported_lenient": 1.0,
+      "supported_strict": 1.0,
+      "extractive_supported_strict": 1.0,
+      "over_attributed": false,
+      "cited": [],
+      "required": [
+        "INS-GOV-006::Article 4"
+      ]
+    },
+    {
+      "id": "Q059",
+      "category": "cross_section",
+      "answerable": true,
+      "text": "To bring a complaint, a policyholder must first file a claim with the insurer. If the claim is denied, the policyholder can then bring a complaint to the insurance committee. On the grounds that the fees of the experts appointed by the complainant were not paid, the committee will reject the complaint.",
+      "declined": false,
+      "citations": 0,
+      "grounded": 0.0,
+      "supported_lenient": 0.0,
+      "supported_strict": 0.0,
+      "extractive_supported_strict": 1.0,
+      "over_attributed": false,
+      "cited": [],
+      "required": [
+        "INS-CON-001::Article 7",
+        "INS-CON-001::Article 6"
+      ]
+    },
+    {
+      "id": "Q060",
+      "category": "cross_section",
+      "answerable": true,
+      "text": "Not covered by these passages. [1] Indirect losses that occur to the Insured or devaluation of the Motor Vehicle as a result of its use, breakdown, defect or breakage of the mechanical or electrical devices. [2][3] The damage arising as a result of overload or excess of the limits of permissible width, length or height or the excess of the number of passengers beyond the licensed number, provided that it is proved that this is the proximate cause of damage. [4] Loss or damage which occurs to the Motor Vehicle",
+      "declined": true,
+      "citations": 0,
+      "grounded": 1.0,
+      "supported_lenient": 1.0,
+      "supported_strict": 1.0,
+      "extractive_supported_strict": 1.0,
+      "over_attributed": true,
+      "cited": [],
+      "required": [
+        "INS-MOT-002::Chapter Four",
+        "INS-MOT-002::Chapter Five"
+      ]
+    },
+    {
+      "id": "Q061",
+      "category": "cross_section",
+      "answerable": true,
+      "text": "[1] Accidents that occur outside the borders of the State.\n[2][3] Within 90 days after the date of the accident.\n[4] Within 90 days after the date of the accident.",
+      "declined": false,
+      "citations": 4,
+      "grounded": 1.0,
+      "supported_lenient": 0.25,
+      "supported_strict": 0.25,
+      "extractive_supported_strict": 1.0,
+      "over_attributed": true,
+      "cited": [
+        "INS-MOT-003::Chapter Four",
+        "INS-MOT-003::Preamble",
+        "INS-MOT-003::Definitions",
+        "INS-MOT-003::Chapter One"
+      ],
+      "required": [
+        "INS-MOT-003::Chapter Four",
+        "INS-MOT-003::Chapter Five"
+      ]
+    },
+    {
+      "id": "Q062",
+      "category": "cross_section",
+      "answerable": true,
+      "text": "Not covered by these passages.",
+      "declined": true,
+      "citations": 0,
+      "grounded": 1.0,
+      "supported_lenient": 1.0,
+      "supported_strict": 1.0,
+      "extractive_supported_strict": 1.0,
+      "over_attributed": false,
+      "cited": [],
+      "required": [
+        "INS-CON-004::Article 3",
+        "INS-CON-004::Article 9"
+      ]
+    },
+    {
+      "id": "Q063",
+      "category": "cross_section",
+      "answerable": true,
+      "text": "Not covered by these passages.",
+      "declined": true,
+      "citations": 0,
+      "grounded": 1.0,
+      "supported_lenient": 1.0,
+      "supported_strict": 1.0,
+      "extractive_supported_strict": 1.0,
+      "over_attributed": false,
+      "cited": [],
+      "required": [
+        "INS-GOV-002::5",
+        "INS-GOV-002::7"
+      ]
+    },
+    {
+      "id": "Q064",
+      "category": "cross_section",
+      "answerable": true,
+      "text": "[1] Without prejudice to the provisions of the Code of Professional Practice and the legislations in force, the Company, the Insurance Agent and the Insurance Broker shall provide through their website, all the information necessary to the customer or the third party (the injured third party) to lodge complaints and follow-up their status. The information shall include the following as a minimum:\n- Complaint/Claims Forms.\n- Contact details of the concerned department for receiving complaints in the Company, the Insurance Agent and the Insurance Broker.\n- Available communication channels to inquire about complaints (",
+      "declined": false,
+      "citations": 1,
+      "grounded": 1.0,
+      "supported_lenient": 1.0,
+      "supported_strict": 1.0,
+      "extractive_supported_strict": 1.0,
+      "over_attributed": false,
+      "cited": [
+        "INS-CON-006::Chapter Five, Article 21"
+      ],
+      "required": [
+        "INS-CON-002::Article 9",
+        "INS-CON-002::Article 10"
+      ]
+    },
+    {
+      "id": "Q065",
+      "category": "cross_section",
+      "answerable": true,
+      "text": "[AED 100 million for an insurance company.]",
+      "declined": false,
+      "citations": 0,
+      "grounded": 0.0,
+      "supported_lenient": 0.0,
+      "supported_strict": 0.0,
+      "extractive_supported_strict": 1.0,
+      "over_attributed": false,
+      "cited": [],
+      "required": [
+        "INS-FIN-005::Article 3",
+        "INS-FIN-005::Article 6"
+      ]
+    },
+    {
+      "id": "Q066",
+      "category": "cross_section",
+      "answerable": true,
+      "text": "[1] All branches of foreign insurance companies shall calculate and disclose the value of the net assets of the Parent Company available to meet risk exposures in the State according to the following:\n[a] The paid-up capital at the Parent Company's level shall be calculated by the result of multiplying the number of the exported and paid shares by the nominal value of the share.\n[b] The additional paid-up capital at the Parent Company's level shall be calculated by the total amounts paid to the company for the exported shares, minus the nominal value of these shares.\n[c",
+      "declined": false,
+      "citations": 1,
+      "grounded": 1.0,
+      "supported_lenient": 1.0,
+      "supported_strict": 1.0,
+      "extractive_supported_strict": 1.0,
+      "over_attributed": false,
+      "cited": [
+        "INS-FIN-003::Article 4"
+      ],
+      "required": [
+        "INS-FIN-003::Article 3",
+        "INS-FIN-003::Article 5"
+      ]
+    },
+    {
+      "id": "Q067",
+      "category": "cross_section",
+      "answerable": true,
+      "text": "Not covered by these passages.",
+      "declined": true,
+      "citations": 0,
+      "grounded": 1.0,
+      "supported_lenient": 1.0,
+      "supported_strict": 1.0,
+      "extractive_supported_strict": 1.0,
+      "over_attributed": false,
+      "cited": [],
+      "required": [
+        "INS-MOT-001::Article 4",
+        "INS-MOT-001::Article 6"
+      ]
+    },
+    {
+      "id": "Q068",
+      "category": "cross_document",
+      "answerable": true,
+      "text": "[1] The Minimum Subscribed and Paid Up Capital of each Company should not be less than the following:\n[AED 100 million for an insurance Company.\nAED 250 million for a reinsurance Company.]\n\n[2] The subscribed and paid up capital of a company may not be less than AED 100,000,000 (One Hundred Million UAE Dirhams). The subscribed and paid up capital of a reinsurance company may not be less than AED 250,",
+      "declined": false,
+      "citations": 2,
+      "grounded": 1.0,
+      "supported_lenient": 1.0,
+      "supported_strict": 1.0,
+      "extractive_supported_strict": 1.0,
+      "over_attributed": false,
+      "cited": [
+        "INS-FIN-001::Section 2, Article 1",
+        "INS-FIN-005::Article 3"
+      ],
+      "required": [
+        "INS-FIN-005::Article 3",
+        "INS-FIN-001::Section 2, Article 1"
+      ]
+    },
+    {
+      "id": "Q069",
+      "category": "cross_document",
+      "answerable": true,
+      "text": "Not covered by these passages.",
+      "declined": true,
+      "citations": 0,
+      "grounded": 1.0,
+      "supported_lenient": 1.0,
+      "supported_strict": 1.0,
+      "extractive_supported_strict": 1.0,
+      "over_attributed": false,
+      "cited": [],
+      "required": [
+        "INS-FIN-005::Article 3",
+        "INS-OTH-001::Chapter Two, Article 12"
+      ]
+    },
+    {
+      "id": "Q070",
+      "category": "cross_document",
+      "answerable": true,
+      "text": "Not covered by these passages.",
+      "declined": true,
+      "citations": 0,
+      "grounded": 1.0,
+      "supported_lenient": 1.0,
+      "supported_strict": 1.0,
+      "extractive_supported_strict": 1.0,
+      "over_attributed": false,
+      "cited": [],
+      "required": [
+        "INS-FIN-001::Section 1, Article 3",
+        "INS-FIN-004::Article 3"
+      ]
+    },
+    {
+      "id": "Q071",
+      "category": "cross_document",
+      "answerable": true,
+      "text": "Not covered by these passages.",
+      "declined": true,
+      "citations": 0,
+      "grounded": 1.0,
+      "supported_lenient": 1.0,
+      "supported_strict": 1.0,
+      "extractive_supported_strict": 1.0,
+      "over_attributed": false,
+      "cited": [],
+      "required": [
+        "INS-FIN-003::Article 3",
+        "INS-FIN-001::Section 2, Article 4"
+      ]
+    },
+    {
+      "id": "Q072",
+      "category": "cross_document",
+      "answerable": true,
+      "text": "[1] A Company's organisational structure must be transparent and support the strategic objectives and operations of the Company. The Board and Senior Management must understand the structure and the risks associated with it.\n[2] A Company must have a Corporate Governance framework that offers comprehensive management and oversight of the Company's business in a manner that protects the rights of policyholders.\n[3] The Central Bank seeks to promote the effective and efficient development and functioning of the insurance sector. To this end, Companies are required to implement comprehensive corporate governance frameworks to ensure their res",
+      "declined": false,
+      "citations": 3,
+      "grounded": 1.0,
+      "supported_lenient": 1.0,
+      "supported_strict": 1.0,
+      "extractive_supported_strict": 0.6666666666666666,
+      "over_attributed": false,
+      "cited": [
+        "INS-GOV-002::2",
+        "INS-GOV-001::Article 2",
+        "INS-GOV-001::Introduction"
+      ],
+      "required": [
+        "INS-GOV-001::Article 3",
+        "INS-GOV-002::5"
+      ]
+    },
+    {
+      "id": "Q073",
+      "category": "cross_document",
+      "answerable": true,
+      "text": "[1] The Financial Regulations and Takaful Regulation require companies to publish audited annual financial statements bearing the opinion of an external auditor approved by the Central Bank.\n[2][3] The Governance Policies and Processes must ensure effective engagement with the Central Bank and timely and accurate disclosure on all material matters regarding the Company, including the financial situation, performance, ownership, and governance of the Company.\n[4] The Audit Committee must monitor the provision of non-audit services by the External Auditor to ensure their performance does not impair the External Auditor's object",
+      "declined": false,
+      "citations": 4,
+      "grounded": 1.0,
+      "supported_lenient": 1.0,
+      "supported_strict": 0.25,
+      "extractive_supported_strict": 1.0,
+      "over_attributed": true,
+      "cited": [
+        "INS-GOV-001::Article 9",
+        "INS-GOV-001::Article 10",
+        "INS-SAN-001::The Annexed Schedule to the Cabinet Resolution No. (7) of 2019 Concerning the Administrative Fines Imposed by the Insurance Authority",
+        "INS-REP-004::Article 4"
+      ],
+      "required": [
+        "INS-GOV-001::Article 9",
+        "INS-GOV-002::9"
+      ]
+    },
+    {
+      "id": "Q074",
+      "category": "cross_document",
+      "answerable": true,
+      "text": "Not covered by these passages.",
+      "declined": true,
+      "citations": 0,
+      "grounded": 1.0,
+      "supported_lenient": 1.0,
+      "supported_strict": 1.0,
+      "extractive_supported_strict": 1.0,
+      "over_attributed": false,
+      "cited": [],
+      "required": [
+        "INS-GOV-008::3.1",
+        "INS-GOV-003::Article 3"
+      ]
+    },
+    {
+      "id": "Q075",
+      "category": "cross_document",
+      "answerable": true,
+      "text": "Not covered by these passages.",
+      "declined": true,
+      "citations": 0,
+      "grounded": 1.0,
+      "supported_lenient": 1.0,
+      "supported_strict": 1.0,
+      "extractive_supported_strict": 1.0,
+      "over_attributed": false,
+      "cited": [],
+      "required": [
+        "INS-MOT-001::Article 4",
+        "INS-MOT-003::Chapter Four"
+      ]
+    },
+    {
+      "id": "Q076",
+      "category": "cross_document",
+      "answerable": true,
+      "text": "[1] Additional Tasks for the External Auditor:\nThe Authority may request additional duties from the External Auditor, including:\nSubmission of such additional information relating to the audited accounts as the Authority may specify;\nEnlarging the scope of the audit;\nNotifying the Authority of any financial violations discovered during the course of the audit;\nNotifying the Authority of any reservations regarding the accounts or the reserves of the Company;\nNotifying the Authority of any discrepancy in the financial systems, controls, and of any material inaccuracies or inconsistency in the Company's financial statements",
+      "declined": false,
+      "citations": 1,
+      "grounded": 1.0,
+      "supported_lenient": 1.0,
+      "supported_strict": 1.0,
+      "extractive_supported_strict": 1.0,
+      "over_attributed": false,
+      "cited": [
+        "INS-FIN-001::Section 6, Addendum (1)"
+      ],
+      "required": [
+        "INS-GOV-002::9",
+        "INS-REP-004::Article 3"
+      ]
+    },
+    {
+      "id": "Q077",
+      "category": "comparative",
+      "answerable": true,
+      "text": "Not covered by these passages.",
+      "declined": true,
+      "citations": 0,
+      "grounded": 1.0,
+      "supported_lenient": 1.0,
+      "supported_strict": 1.0,
+      "extractive_supported_strict": 1.0,
+      "over_attributed": false,
+      "cited": [],
+      "required": [
+        "INS-MOT-002::Chapter Four",
+        "INS-MOT-003::Chapter Four"
+      ]
+    },
+    {
+      "id": "Q078",
+      "category": "comparative",
+      "answerable": true,
+      "text": "Not covered by these passages.",
+      "declined": true,
+      "citations": 0,
+      "grounded": 1.0,
+      "supported_lenient": 1.0,
+      "supported_strict": 1.0,
+      "extractive_supported_strict": 1.0,
+      "over_attributed": false,
+      "cited": [],
+      "required": [
+        "INS-MOT-002::Chapter Five",
+        "INS-MOT-003::Chapter Five"
+      ]
+    },
+    {
+      "id": "Q079",
+      "category": "comparative",
+      "answerable": true,
+      "text": "[1] The purpose of the External Shari'ah Audit is to reach reasonable and independent assurance regarding the Company's Compliance with Islamic Shari'ah Provisions through an expression of an opinion thereon from the External Shari'ah Auditor.\n[2][3] 12.1\nThe Company may appoint a specialized external body to conduct External Shari'ah Audit. This task must be undertaken by an independent external Shari'ah audit company approved by the Central Bank (\"External Shari'ah Auditor\").\n12.2",
+      "declined": false,
+      "citations": 3,
+      "grounded": 1.0,
+      "supported_lenient": 1.0,
+      "supported_strict": 0.3333333333333333,
+      "extractive_supported_strict": 1.0,
+      "over_attributed": true,
+      "cited": [
+        "INS-TAK-005::Article 5",
+        "INS-TAK-002::Article 12",
+        "INS-TAK-005::Article 6"
+      ],
+      "required": [
+        "INS-REP-004::Article 3",
+        "INS-TAK-005::Article 5"
+      ]
+    },
+    {
+      "id": "Q080",
+      "category": "comparative",
+      "answerable": true,
+      "text": "Not covered by these passages.",
+      "declined": true,
+      "citations": 0,
+      "grounded": 1.0,
+      "supported_lenient": 1.0,
+      "supported_strict": 1.0,
+      "extractive_supported_strict": 1.0,
+      "over_attributed": false,
+      "cited": [],
+      "required": [
+        "INS-GOV-002::7",
+        "INS-GOV-008::3.1"
+      ]
+    },
+    {
+      "id": "Q081",
+      "category": "comparative",
+      "answerable": true,
+      "text": "Not covered by these passages.",
+      "declined": true,
+      "citations": 0,
+      "grounded": 1.0,
+      "supported_lenient": 1.0,
+      "supported_strict": 1.0,
+      "extractive_supported_strict": 1.0,
+      "over_attributed": false,
+      "cited": [],
+      "required": [
+        "INS-FIN-001::Section 2, Article 4",
+        "INS-FIN-003::Article 3"
+      ]
+    },
+    {
+      "id": "Q082",
+      "category": "comparative",
+      "answerable": true,
+      "text": "Not covered by these passages.",
+      "declined": true,
+      "citations": 0,
+      "grounded": 1.0,
+      "supported_lenient": 1.0,
+      "supported_strict": 1.0,
+      "extractive_supported_strict": 1.0,
+      "over_attributed": false,
+      "cited": [],
+      "required": [
+        "INS-CON-002::Article 10",
+        "INS-CON-006::Chapter Five, Article 21"
+      ]
+    },
+    {
+      "id": "Q083",
+      "category": "comparative",
+      "answerable": true,
+      "text": "Not covered by these passages.",
+      "declined": true,
+      "citations": 0,
+      "grounded": 1.0,
+      "supported_lenient": 1.0,
+      "supported_strict": 1.0,
+      "extractive_supported_strict": 0.5,
+      "over_attributed": false,
+      "cited": [],
+      "required": [
+        "INS-CON-002::Article 9",
+        "INS-MOT-001::Article 6"
+      ]
+    },
+    {
+      "id": "Q084",
+      "category": "comparative",
+      "answerable": true,
+      "text": "Not covered by these passages.",
+      "declined": true,
+      "citations": 0,
+      "grounded": 1.0,
+      "supported_lenient": 1.0,
+      "supported_strict": 1.0,
+      "extractive_supported_strict": 1.0,
+      "over_attributed": false,
+      "cited": [],
+      "required": [
+        "INS-GOV-002::7",
+        "INS-TAK-002::Article 6"
+      ]
+    },
+    {
+      "id": "Q085",
+      "category": "adversarial",
+      "answerable": true,
+      "text": "[1] The Free Look Period of at least 30 calendar days must be provided to the policyholder. The Free Look Period starts on the date of policy issuance, the date when coverage commences, or the date when the policy documents are signed by the client, whichever is earlier.",
+      "declined": false,
+      "citations": 1,
+      "grounded": 1.0,
+      "supported_lenient": 1.0,
+      "supported_strict": 1.0,
+      "extractive_supported_strict": 1.0,
+      "over_attributed": false,
+      "cited": [
+        "INS-CON-004::Article 9"
+      ],
+      "required": [
+        "INS-CON-004::Article 9"
+      ]
+    },
+    {
+      "id": "Q086",
+      "category": "adversarial",
+      "answerable": true,
+      "text": "Not covered by these passages.",
+      "declined": true,
+      "citations": 0,
+      "grounded": 1.0,
+      "supported_lenient": 1.0,
+      "supported_strict": 1.0,
+      "extractive_supported_strict": 1.0,
+      "over_attributed": false,
+      "cited": [],
+      "required": [
+        "INS-FIN-005::Article 3"
+      ]
+    },
+    {
+      "id": "Q087",
+      "category": "adversarial",
+      "answerable": true,
+      "text": "Not covered by these passages.",
+      "declined": true,
+      "citations": 0,
+      "grounded": 1.0,
+      "supported_lenient": 1.0,
+      "supported_strict": 1.0,
+      "extractive_supported_strict": 1.0,
+      "over_attributed": false,
+      "cited": [],
+      "required": [
+        "INS-MOT-001::Article 4"
+      ]
+    },
+    {
+      "id": "Q088",
+      "category": "adversarial",
+      "answerable": true,
+      "text": "Not covered by these passages.",
+      "declined": true,
+      "citations": 0,
+      "grounded": 1.0,
+      "supported_lenient": 1.0,
+      "supported_strict": 1.0,
+      "extractive_supported_strict": 1.0,
+      "over_attributed": false,
+      "cited": [],
+      "required": [
+        "INS-MOT-003::Chapter Four"
+      ]
+    },
+    {
+      "id": "Q089",
+      "category": "adversarial",
+      "answerable": true,
+      "text": "Not covered by these passages.",
+      "declined": true,
+      "citations": 0,
+      "grounded": 1.0,
+      "supported_lenient": 1.0,
+      "supported_strict": 1.0,
+      "extractive_supported_strict": 0.6666666666666666,
+      "over_attributed": false,
+      "cited": [],
+      "required": [
+        "INS-MOT-002::Chapter Four"
+      ]
+    },
+    {
+      "id": "Q090",
+      "category": "adversarial",
+      "answerable": true,
+      "text": "Not covered by these passages.",
+      "declined": true,
+      "citations": 0,
+      "grounded": 1.0,
+      "supported_lenient": 1.0,
+      "supported_strict": 1.0,
+      "extractive_supported_strict": 1.0,
+      "over_attributed": false,
+      "cited": [],
+      "required": [
+        "INS-CON-002::Article 10"
+      ]
+    },
+    {
+      "id": "Q091",
+      "category": "adversarial",
+      "answerable": true,
+      "text": "Not covered by these passages.",
+      "declined": true,
+      "citations": 0,
+      "grounded": 1.0,
+      "supported_lenient": 1.0,
+      "supported_strict": 1.0,
+      "extractive_supported_strict": 1.0,
+      "over_attributed": false,
+      "cited": [],
+      "required": [
+        "INS-TAK-005::Article 5"
+      ]
+    },
+    {
+      "id": "Q092",
+      "category": "adversarial",
+      "answerable": true,
+      "text": "Not covered by these passages.",
+      "declined": true,
+      "citations": 0,
+      "grounded": 1.0,
+      "supported_lenient": 1.0,
+      "supported_strict": 1.0,
+      "extractive_supported_strict": 1.0,
+      "over_attributed": false,
+      "cited": [],
+      "required": [
+        "INS-FIN-005::Article 6"
+      ]
+    },
+    {
+      "id": "Q093",
+      "category": "unanswerable",
+      "answerable": false,
+      "text": "Not covered by these passages.",
+      "declined": true,
+      "citations": 0,
+      "grounded": 1.0,
+      "supported_lenient": 1.0,
+      "supported_strict": 1.0,
+      "extractive_supported_strict": 1.0,
+      "over_attributed": false,
+      "cited": [],
+      "required": []
+    },
+    {
+      "id": "Q094",
+      "category": "unanswerable",
+      "answerable": false,
+      "text": "Not covered by these passages.",
+      "declined": true,
+      "citations": 0,
+      "grounded": 1.0,
+      "supported_lenient": 1.0,
+      "supported_strict": 1.0,
+      "extractive_supported_strict": 1.0,
+      "over_attributed": false,
+      "cited": [],
+      "required": []
+    },
+    {
+      "id": "Q095",
+      "category": "unanswerable",
+      "answerable": false,
+      "text": "Not covered by these passages.",
+      "declined": true,
+      "citations": 0,
+      "grounded": 1.0,
+      "supported_lenient": 1.0,
+      "supported_strict": 1.0,
+      "extractive_supported_strict": 1.0,
+      "over_attributed": false,
+      "cited": [],
+      "required": []
+    },
+    {
+      "id": "Q096",
+      "category": "unanswerable",
+      "answerable": false,
+      "text": "Not covered by these passages.",
+      "declined": true,
+      "citations": 0,
+      "grounded": 1.0,
+      "supported_lenient": 1.0,
+      "supported_strict": 1.0,
+      "extractive_supported_strict": 1.0,
+      "over_attributed": false,
+      "cited": [],
+      "required": []
+    },
+    {
+      "id": "Q097",
+      "category": "unanswerable",
+      "answerable": false,
+      "text": "Not covered by these passages.",
+      "declined": true,
+      "citations": 0,
+      "grounded": 1.0,
+      "supported_lenient": 1.0,
+      "supported_strict": 1.0,
+      "extractive_supported_strict": 1.0,
+      "over_attributed": false,
+      "cited": [],
+      "required": []
+    },
+    {
+      "id": "Q098",
+      "category": "unanswerable",
+      "answerable": false,
+      "text": "Not covered by these passages.",
+      "declined": true,
+      "citations": 0,
+      "grounded": 1.0,
+      "supported_lenient": 1.0,
+      "supported_strict": 1.0,
+      "extractive_supported_strict": 1.0,
+      "over_attributed": false,
+      "cited": [],
+      "required": []
+    },
+    {
+      "id": "Q099",
+      "category": "unanswerable",
+      "answerable": false,
+      "text": "Not covered by these passages.",
+      "declined": true,
+      "citations": 0,
+      "grounded": 1.0,
+      "supported_lenient": 1.0,
+      "supported_strict": 1.0,
+      "extractive_supported_strict": 1.0,
+      "over_attributed": false,
+      "cited": [],
+      "required": []
+    },
+    {
+      "id": "Q100",
+      "category": "unanswerable",
+      "answerable": false,
+      "text": "Not covered by these passages.",
+      "declined": true,
+      "citations": 0,
+      "grounded": 1.0,
+      "supported_lenient": 1.0,
+      "supported_strict": 1.0,
+      "extractive_supported_strict": 1.0,
+      "over_attributed": false,
+      "cited": [],
+      "required": []
+    }
+  ]
+}
