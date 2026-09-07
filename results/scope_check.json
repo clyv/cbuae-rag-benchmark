@@ -1,0 +1,1626 @@
+{
+  "model": "cross-encoder/ms-marco-MiniLM-L-6-v2",
+  "profile_chars": 1400,
+  "strategies": {
+    "relevance only": {
+      "auc": 0.8065,
+      "lo": 0.6636,
+      "hi": 0.9178
+    },
+    "scope only": {
+      "auc": 0.5748,
+      "lo": 0.3929,
+      "hi": 0.7575
+    },
+    "sum": {
+      "auc": 0.6752,
+      "lo": 0.5116,
+      "hi": 0.8231
+    },
+    "min of the two": {
+      "auc": 0.5748,
+      "lo": 0.392,
+      "hi": 0.7517
+    }
+  },
+  "per_question": [
+    {
+      "id": "Q001",
+      "category": "single_hop",
+      "answerable": true,
+      "top_score": -2.921794891357422,
+      "citations": 3,
+      "grounded": 1.0,
+      "supported": 1.0,
+      "cited": [
+        "INS-GOV-002::2",
+        "INS-FIN-001::Section 1, Addendum (4)",
+        "INS-FIN-002::Section 1, Addendum (4)"
+      ],
+      "top_doc": "INS-GOV-002",
+      "scope_score": -10.056
+    },
+    {
+      "id": "Q002",
+      "category": "single_hop",
+      "answerable": true,
+      "top_score": 5.899706840515137,
+      "citations": 3,
+      "grounded": 1.0,
+      "supported": 1.0,
+      "cited": [
+        "INS-FIN-005::Article 3",
+        "INS-OTH-001::Chapter Two, Article 12",
+        "INS-FIN-001::Section 2, Article 1"
+      ],
+      "top_doc": "INS-FIN-005",
+      "scope_score": -11.325
+    },
+    {
+      "id": "Q003",
+      "category": "single_hop",
+      "answerable": true,
+      "top_score": -0.7368053793907166,
+      "citations": 3,
+      "grounded": 1.0,
+      "supported": 1.0,
+      "cited": [
+        "INS-GOV-004::6",
+        "INS-GOV-003::Article 9",
+        "INS-LIC-001::Article 1"
+      ],
+      "top_doc": "INS-GOV-004",
+      "scope_score": -10.262
+    },
+    {
+      "id": "Q004",
+      "category": "single_hop",
+      "answerable": true,
+      "top_score": 5.333442211151123,
+      "citations": 3,
+      "grounded": 1.0,
+      "supported": 1.0,
+      "cited": [
+        "INS-FIN-001::Section 2, Article 2",
+        "INS-FIN-002::Section 2, Article 2",
+        "INS-FIN-001::Section 2, Article 8"
+      ],
+      "top_doc": "INS-FIN-001",
+      "scope_score": -4.526
+    },
+    {
+      "id": "Q005",
+      "category": "single_hop",
+      "answerable": true,
+      "top_score": 6.439859390258789,
+      "citations": 3,
+      "grounded": 1.0,
+      "supported": 1.0,
+      "cited": [
+        "INS-REP-004::Article 5",
+        "INS-REP-004::Article 3",
+        "INS-TAK-005::Article 13"
+      ],
+      "top_doc": "INS-REP-004",
+      "scope_score": -4.904
+    },
+    {
+      "id": "Q006",
+      "category": "cross_section",
+      "answerable": true,
+      "top_score": -0.08305612951517105,
+      "citations": 3,
+      "grounded": 1.0,
+      "supported": 1.0,
+      "cited": [
+        "INS-GOV-003::Article 5",
+        "INS-REP-003::First: Introduction",
+        "INS-GOV-004::2"
+      ],
+      "top_doc": "INS-GOV-003",
+      "scope_score": -10.916
+    },
+    {
+      "id": "Q007",
+      "category": "cross_document",
+      "answerable": true,
+      "top_score": 1.9351614713668823,
+      "citations": 3,
+      "grounded": 1.0,
+      "supported": 1.0,
+      "cited": [
+        "INS-FIN-001::Section 2, Addendum (2)",
+        "INS-GOV-003::Article 3",
+        "INS-FIN-001::Section 2, Article 4"
+      ],
+      "top_doc": "INS-FIN-001",
+      "scope_score": -9.515
+    },
+    {
+      "id": "Q008",
+      "category": "cross_section",
+      "answerable": true,
+      "top_score": -2.188182830810547,
+      "citations": 3,
+      "grounded": 1.0,
+      "supported": 1.0,
+      "cited": [
+        "INS-FIN-001::Section 2, Article 1",
+        "INS-FIN-002::First Article \u2013 Glossary",
+        "INS-FIN-002::Section 7, Appendix 1"
+      ],
+      "top_doc": "INS-FIN-001",
+      "scope_score": -10.383
+    },
+    {
+      "id": "Q009",
+      "category": "comparative",
+      "answerable": true,
+      "top_score": 3.866426944732666,
+      "citations": 3,
+      "grounded": 1.0,
+      "supported": 1.0,
+      "cited": [
+        "INS-FIN-002::Section 2, Article 1",
+        "INS-FIN-002::Section 1, Addendum (1)",
+        "INS-TAK-006::Article 15"
+      ],
+      "top_doc": "INS-FIN-002",
+      "scope_score": -4.057
+    },
+    {
+      "id": "Q010",
+      "category": "comparative",
+      "answerable": true,
+      "top_score": 0.4460727572441101,
+      "citations": 3,
+      "grounded": 1.0,
+      "supported": 1.0,
+      "cited": [
+        "INS-FIN-002::Section 1, Addendum (1)",
+        "INS-TAK-006::Article 15",
+        "INS-FIN-002::Section 2, Article 1"
+      ],
+      "top_doc": "INS-FIN-002",
+      "scope_score": -2.185
+    },
+    {
+      "id": "Q011",
+      "category": "comparative",
+      "answerable": true,
+      "top_score": -0.3058057129383087,
+      "citations": 3,
+      "grounded": 1.0,
+      "supported": 1.0,
+      "cited": [
+        "INS-TAK-001::Article 24",
+        "INS-TAK-006::Article 15",
+        "INS-FIN-002::Section 1, Addendum (1)"
+      ],
+      "top_doc": "INS-TAK-001",
+      "scope_score": -5.517
+    },
+    {
+      "id": "Q012",
+      "category": "adversarial",
+      "answerable": true,
+      "top_score": 3.7938363552093506,
+      "citations": 3,
+      "grounded": 1.0,
+      "supported": 1.0,
+      "cited": [
+        "INS-FIN-002::Section 2, Article 1",
+        "INS-TAK-006::Article 15",
+        "INS-FIN-002::First Article \u2013 Glossary"
+      ],
+      "top_doc": "INS-FIN-002",
+      "scope_score": -4.836
+    },
+    {
+      "id": "Q013",
+      "category": "cross_document",
+      "answerable": true,
+      "top_score": 2.1507339477539062,
+      "citations": 3,
+      "grounded": 1.0,
+      "supported": 1.0,
+      "cited": [
+        "INS-OTH-001::Chapter Two, Article 12",
+        "INS-FIN-005::Article 3",
+        "INS-FIN-001::Section 2, Article 1"
+      ],
+      "top_doc": "INS-OTH-001",
+      "scope_score": -10.825
+    },
+    {
+      "id": "Q014",
+      "category": "cross_section",
+      "answerable": true,
+      "top_score": -1.8440107107162476,
+      "citations": 3,
+      "grounded": 1.0,
+      "supported": 1.0,
+      "cited": [
+        "INS-CON-007::Article 4",
+        "INS-CON-007::Article 3",
+        "INS-FIN-002::Section 3, Article 4"
+      ],
+      "top_doc": "INS-CON-007",
+      "scope_score": -10.544
+    },
+    {
+      "id": "Q015",
+      "category": "cross_section",
+      "answerable": true,
+      "top_score": 1.3872654438018799,
+      "citations": 3,
+      "grounded": 1.0,
+      "supported": 1.0,
+      "cited": [
+        "INS-GOV-003::Article 6",
+        "INS-GOV-004::6",
+        "INS-GOV-008::3.4"
+      ],
+      "top_doc": "INS-GOV-003",
+      "scope_score": -10.716
+    },
+    {
+      "id": "Q016",
+      "category": "cross_section",
+      "answerable": true,
+      "top_score": 3.168884754180908,
+      "citations": 3,
+      "grounded": 1.0,
+      "supported": 1.0,
+      "cited": [
+        "INS-GOV-003::Article 9",
+        "INS-GOV-004::9",
+        "INS-GOV-004::11"
+      ],
+      "top_doc": "INS-GOV-003",
+      "scope_score": -11.086
+    },
+    {
+      "id": "Q017",
+      "category": "cross_document",
+      "answerable": true,
+      "top_score": 5.094133377075195,
+      "citations": 3,
+      "grounded": 1.0,
+      "supported": 1.0,
+      "cited": [
+        "INS-GOV-003::Article 10",
+        "INS-GOV-004::10",
+        "INS-GOV-001::Article 7"
+      ],
+      "top_doc": "INS-GOV-003",
+      "scope_score": -10.918
+    },
+    {
+      "id": "Q018",
+      "category": "cross_document",
+      "answerable": true,
+      "top_score": 4.985440254211426,
+      "citations": 3,
+      "grounded": 1.0,
+      "supported": 1.0,
+      "cited": [
+        "INS-OTH-003::Article 4",
+        "INS-GOV-003::Article 3",
+        "INS-OTH-003::Article 5"
+      ],
+      "top_doc": "INS-OTH-003",
+      "scope_score": -6.26
+    },
+    {
+      "id": "Q019",
+      "category": "adversarial",
+      "answerable": true,
+      "top_score": -1.079192042350769,
+      "citations": 3,
+      "grounded": 1.0,
+      "supported": 1.0,
+      "cited": [
+        "INS-GOV-004::6",
+        "INS-GOV-002::2",
+        "INS-GOV-002::1"
+      ],
+      "top_doc": "INS-GOV-004",
+      "scope_score": -8.677
+    },
+    {
+      "id": "Q020",
+      "category": "cross_section",
+      "answerable": true,
+      "top_score": 4.074355125427246,
+      "citations": 3,
+      "grounded": 1.0,
+      "supported": 1.0,
+      "cited": [
+        "INS-GOV-003::Article 5",
+        "INS-GOV-003::Article 6",
+        "INS-GOV-003::Introduction"
+      ],
+      "top_doc": "INS-GOV-003",
+      "scope_score": -9.052
+    },
+    {
+      "id": "Q021",
+      "category": "cross_section",
+      "answerable": true,
+      "top_score": 1.019252061843872,
+      "citations": 3,
+      "grounded": 1.0,
+      "supported": 1.0,
+      "cited": [
+        "INS-GOV-004::10",
+        "INS-GOV-004::6",
+        "INS-GOV-003::Article 6"
+      ],
+      "top_doc": "INS-GOV-004",
+      "scope_score": -8.115
+    },
+    {
+      "id": "Q022",
+      "category": "cross_section",
+      "answerable": true,
+      "top_score": 2.9839649200439453,
+      "citations": 3,
+      "grounded": 1.0,
+      "supported": 1.0,
+      "cited": [
+        "INS-GOV-003::Article 9",
+        "INS-GOV-004::9",
+        "INS-GOV-001::Article 8"
+      ],
+      "top_doc": "INS-GOV-003",
+      "scope_score": -10.524
+    },
+    {
+      "id": "Q023",
+      "category": "cross_section",
+      "answerable": true,
+      "top_score": 4.111186981201172,
+      "citations": 3,
+      "grounded": 1.0,
+      "supported": 1.0,
+      "cited": [
+        "INS-GOV-003::Article 12",
+        "INS-GOV-004::12",
+        "INS-GOV-004::3"
+      ],
+      "top_doc": "INS-GOV-003",
+      "scope_score": -10.041
+    },
+    {
+      "id": "Q024",
+      "category": "cross_section",
+      "answerable": true,
+      "top_score": 5.903088569641113,
+      "citations": 3,
+      "grounded": 1.0,
+      "supported": 1.0,
+      "cited": [
+        "INS-GOV-003::Article 12",
+        "INS-GOV-004::12",
+        "INS-GOV-003::Article 6"
+      ],
+      "top_doc": "INS-GOV-003",
+      "scope_score": -10.658
+    },
+    {
+      "id": "Q025",
+      "category": "cross_document",
+      "answerable": true,
+      "top_score": 2.686298131942749,
+      "citations": 3,
+      "grounded": 1.0,
+      "supported": 1.0,
+      "cited": [
+        "INS-GOV-004::5",
+        "INS-GOV-003::Article 5",
+        "INS-REP-003::First: Introduction"
+      ],
+      "top_doc": "INS-GOV-004",
+      "scope_score": -6.249
+    },
+    {
+      "id": "Q026",
+      "category": "cross_document",
+      "answerable": true,
+      "top_score": 4.382121562957764,
+      "citations": 3,
+      "grounded": 1.0,
+      "supported": 1.0,
+      "cited": [
+        "INS-GOV-004::10",
+        "INS-GOV-003::Article 10",
+        "INS-FIN-002::First Article \u2013 Glossary"
+      ],
+      "top_doc": "INS-GOV-004",
+      "scope_score": -10.367
+    },
+    {
+      "id": "Q027",
+      "category": "cross_document",
+      "answerable": true,
+      "top_score": 4.132359504699707,
+      "citations": 3,
+      "grounded": 1.0,
+      "supported": 1.0,
+      "cited": [
+        "INS-GOV-004::12",
+        "INS-GOV-003::Article 12",
+        "INS-FIN-001::Section 1, Addendum (5)"
+      ],
+      "top_doc": "INS-GOV-004",
+      "scope_score": -8.437
+    },
+    {
+      "id": "Q028",
+      "category": "comparative",
+      "answerable": true,
+      "top_score": 1.2892152070999146,
+      "citations": 3,
+      "grounded": 1.0,
+      "supported": 1.0,
+      "cited": [
+        "INS-TAK-005::Article 9",
+        "INS-TAK-008::Article 9",
+        "INS-TAK-002::Article 8"
+      ],
+      "top_doc": "INS-TAK-005",
+      "scope_score": -2.082
+    },
+    {
+      "id": "Q029",
+      "category": "single_hop",
+      "answerable": true,
+      "top_score": 3.07468843460083,
+      "citations": 3,
+      "grounded": 1.0,
+      "supported": 1.0,
+      "cited": [
+        "INS-LIC-001::Article 6",
+        "INS-OTH-001::Chapter Two, Article 14",
+        "INS-CON-006::Chapter Five, Article 16"
+      ],
+      "top_doc": "INS-LIC-001",
+      "scope_score": -10.751
+    },
+    {
+      "id": "Q030",
+      "category": "single_hop",
+      "answerable": true,
+      "top_score": 1.4278417825698853,
+      "citations": 3,
+      "grounded": 1.0,
+      "supported": 1.0,
+      "cited": [
+        "INS-OTH-001::Chapter Two, Article 9",
+        "INS-LIC-001::Article 4",
+        "INS-OTH-001::Chapter Two, Article 10"
+      ],
+      "top_doc": "INS-OTH-001",
+      "scope_score": -11.284
+    },
+    {
+      "id": "Q031",
+      "category": "cross_section",
+      "answerable": true,
+      "top_score": 2.45963454246521,
+      "citations": 3,
+      "grounded": 1.0,
+      "supported": 1.0,
+      "cited": [
+        "INS-LIC-001::Article 8",
+        "INS-LIC-001::Article 7",
+        "INS-LIC-001::Introduction"
+      ],
+      "top_doc": "INS-LIC-001",
+      "scope_score": 0.423
+    },
+    {
+      "id": "Q032",
+      "category": "cross_section",
+      "answerable": true,
+      "top_score": -0.6388301849365234,
+      "citations": 3,
+      "grounded": 1.0,
+      "supported": 1.0,
+      "cited": [
+        "INS-LIC-001::Article 4",
+        "INS-OTH-001::Chapter Two, Article 10",
+        "INS-OTH-004::Article 5"
+      ],
+      "top_doc": "INS-LIC-001",
+      "scope_score": -11.118
+    },
+    {
+      "id": "Q033",
+      "category": "cross_section",
+      "answerable": true,
+      "top_score": 0.7386062145233154,
+      "citations": 3,
+      "grounded": 1.0,
+      "supported": 1.0,
+      "cited": [
+        "INS-LIC-001::Article 4",
+        "INS-OTH-001::Chapter Two, Article 10",
+        "INS-LIC-001::Article 5"
+      ],
+      "top_doc": "INS-LIC-001",
+      "scope_score": -9.085
+    },
+    {
+      "id": "Q034",
+      "category": "comparative",
+      "answerable": true,
+      "top_score": 2.187546730041504,
+      "citations": 3,
+      "grounded": 1.0,
+      "supported": 1.0,
+      "cited": [
+        "INS-OTH-004::Article 5",
+        "INS-OTH-004::Article 2",
+        "INS-OTH-004::Article 1"
+      ],
+      "top_doc": "INS-OTH-004",
+      "scope_score": -5.939
+    },
+    {
+      "id": "Q035",
+      "category": "adversarial",
+      "answerable": true,
+      "top_score": 0.8600916862487793,
+      "citations": 3,
+      "grounded": 1.0,
+      "supported": 1.0,
+      "cited": [
+        "INS-OTH-001::Chapter Two, Article 10",
+        "INS-LIC-001::Article 4",
+        "INS-OTH-004::Article 9"
+      ],
+      "top_doc": "INS-OTH-001",
+      "scope_score": -11.275
+    },
+    {
+      "id": "Q036",
+      "category": "single_hop",
+      "answerable": true,
+      "top_score": 2.674631118774414,
+      "citations": 3,
+      "grounded": 1.0,
+      "supported": 1.0,
+      "cited": [
+        "INS-CON-006::Chapter Five, Article 16",
+        "INS-CON-006::Chapter Five, Article 17",
+        "INS-CON-006::Chapter Five, Article 19"
+      ],
+      "top_doc": "INS-CON-006",
+      "scope_score": -9.535
+    },
+    {
+      "id": "Q037",
+      "category": "cross_section",
+      "answerable": true,
+      "top_score": -1.426692247390747,
+      "citations": 3,
+      "grounded": 1.0,
+      "supported": 1.0,
+      "cited": [
+        "INS-CON-006::Chapter Three, Article 13",
+        "INS-CON-006::Chapter Three, Article 7",
+        "INS-CON-006::Chapter Three, Article 11"
+      ],
+      "top_doc": "INS-CON-006",
+      "scope_score": -10.306
+    },
+    {
+      "id": "Q038",
+      "category": "cross_section",
+      "answerable": true,
+      "top_score": 2.269808053970337,
+      "citations": 3,
+      "grounded": 1.0,
+      "supported": 1.0,
+      "cited": [
+        "INS-CON-006::Chapter Five, Article 21",
+        "INS-CON-006::Chapter Five, Article 22",
+        "INS-CON-006::Chapter Five, Article 16"
+      ],
+      "top_doc": "INS-CON-006",
+      "scope_score": -10.564
+    },
+    {
+      "id": "Q039",
+      "category": "cross_section",
+      "answerable": true,
+      "top_score": 0.31176942586898804,
+      "citations": 3,
+      "grounded": 1.0,
+      "supported": 1.0,
+      "cited": [
+        "INS-CON-006::Chapter Five, Article 16",
+        "INS-CON-006::Chapter Five, Article 17",
+        "INS-CON-006::Chapter Five, Article 19"
+      ],
+      "top_doc": "INS-CON-006",
+      "scope_score": -10.691
+    },
+    {
+      "id": "Q040",
+      "category": "cross_section",
+      "answerable": true,
+      "top_score": 3.477802038192749,
+      "citations": 3,
+      "grounded": 1.0,
+      "supported": 1.0,
+      "cited": [
+        "INS-GOV-001::Article 10",
+        "INS-GOV-001::Article 3",
+        "INS-GOV-001::Article 5"
+      ],
+      "top_doc": "INS-GOV-001",
+      "scope_score": -5.216
+    },
+    {
+      "id": "Q041",
+      "category": "cross_document",
+      "answerable": true,
+      "top_score": 1.5111382007598877,
+      "citations": 3,
+      "grounded": 1.0,
+      "supported": 1.0,
+      "cited": [
+        "INS-GOV-001::Article 9",
+        "INS-GOV-001::Article 10",
+        "INS-FIN-001::Section 6, Article 4"
+      ],
+      "top_doc": "INS-GOV-001",
+      "scope_score": -8.918
+    },
+    {
+      "id": "Q042",
+      "category": "single_hop",
+      "answerable": true,
+      "top_score": -2.4868953227996826,
+      "citations": 2,
+      "grounded": 1.0,
+      "supported": 1.0,
+      "cited": [
+        "INS-SAN-001::The Annexed Schedule to the Cabinet Resolution No. (7) of 2019 Concerning the Administrative Fines Imposed by the Insurance Authority",
+        "INS-CON-006::Chapter Six, Article 24"
+      ],
+      "top_doc": "INS-SAN-001",
+      "scope_score": -10.573
+    },
+    {
+      "id": "Q043",
+      "category": "single_hop",
+      "answerable": true,
+      "top_score": 3.4386067390441895,
+      "citations": 3,
+      "grounded": 1.0,
+      "supported": 1.0,
+      "cited": [
+        "INS-TAK-003::Article 6",
+        "INS-TAK-002::Article 5",
+        "INS-TAK-002::Article 8"
+      ],
+      "top_doc": "INS-TAK-003",
+      "scope_score": -1.58
+    },
+    {
+      "id": "Q044",
+      "category": "cross_section",
+      "answerable": true,
+      "top_score": 1.5844923257827759,
+      "citations": 3,
+      "grounded": 1.0,
+      "supported": 1.0,
+      "cited": [
+        "INS-FIN-002::Section 6, Article 4",
+        "INS-FIN-001::Section 6, Addendum (1)",
+        "INS-FIN-001::Section 6, Article 4"
+      ],
+      "top_doc": "INS-FIN-002",
+      "scope_score": -10.701
+    },
+    {
+      "id": "Q045",
+      "category": "unanswerable",
+      "answerable": false,
+      "top_score": 0.9558866024017334,
+      "citations": 3,
+      "grounded": 1.0,
+      "supported": 1.0,
+      "cited": [
+        "INS-FIN-004::Article 1",
+        "INS-FIN-003::Article 6",
+        "INS-OTH-001::Chapter Three, Article 20"
+      ],
+      "top_doc": "INS-FIN-004",
+      "scope_score": -10.964
+    },
+    {
+      "id": "Q046",
+      "category": "unanswerable",
+      "answerable": false,
+      "top_score": -9.960980415344238,
+      "citations": 3,
+      "grounded": 1.0,
+      "supported": 1.0,
+      "cited": [
+        "INS-FIN-001::Section 1, Article 3",
+        "INS-MOT-004::Article 2",
+        "INS-FIN-002::Section 1, Article 3"
+      ],
+      "top_doc": "INS-FIN-001",
+      "scope_score": -11.408
+    },
+    {
+      "id": "Q047",
+      "category": "unanswerable",
+      "answerable": false,
+      "top_score": -7.000295162200928,
+      "citations": 3,
+      "grounded": 1.0,
+      "supported": 1.0,
+      "cited": [
+        "INS-CON-002::Article 15",
+        "INS-FIN-004::Article 1",
+        "INS-FIN-001::Section 5, Addendum"
+      ],
+      "top_doc": "INS-CON-002",
+      "scope_score": -11.335
+    },
+    {
+      "id": "Q048",
+      "category": "unanswerable",
+      "answerable": false,
+      "top_score": -2.421842575073242,
+      "citations": 3,
+      "grounded": 1.0,
+      "supported": 1.0,
+      "cited": [
+        "INS-GOV-008::Introduction",
+        "INS-GOV-008::4.4",
+        "INS-REP-004::Article 2"
+      ],
+      "top_doc": "INS-GOV-008",
+      "scope_score": -5.023
+    },
+    {
+      "id": "Q049",
+      "category": "unanswerable",
+      "answerable": false,
+      "top_score": 0.14055579900741577,
+      "citations": 3,
+      "grounded": 1.0,
+      "supported": 1.0,
+      "cited": [
+        "INS-LIC-001::Introduction",
+        "INS-LIC-001::Table 1: Licence of a Company established in the State and a branch of a Foreign Insurance Company",
+        "INS-LIC-001::Table 3: Licence of a Company being a branch of a Foreign Insurance Company (in addition to documents listed in Table 1)"
+      ],
+      "top_doc": "INS-LIC-001",
+      "scope_score": -2.323
+    },
+    {
+      "id": "Q050",
+      "category": "unanswerable",
+      "answerable": false,
+      "top_score": 4.212392330169678,
+      "citations": 3,
+      "grounded": 1.0,
+      "supported": 1.0,
+      "cited": [
+        "INS-FIN-001::Section 2, Article 3",
+        "INS-FIN-002::Section 2, Article 3",
+        "INS-GOV-008::7"
+      ],
+      "top_doc": "INS-FIN-001",
+      "scope_score": -10.416
+    },
+    {
+      "id": "Q051",
+      "category": "single_hop",
+      "answerable": true,
+      "top_score": -7.980106353759766,
+      "citations": 3,
+      "grounded": 1.0,
+      "supported": 1.0,
+      "cited": [
+        "INS-OTH-001::Chapter Seven, Article 43",
+        "INS-CON-004::Article 9",
+        "INS-LIC-001::Article 6"
+      ],
+      "top_doc": "INS-OTH-001",
+      "scope_score": -11.342
+    },
+    {
+      "id": "Q052",
+      "category": "single_hop",
+      "answerable": true,
+      "top_score": 6.639032363891602,
+      "citations": 3,
+      "grounded": 1.0,
+      "supported": 1.0,
+      "cited": [
+        "INS-FIN-005::Article 3",
+        "INS-FIN-001::Section 2, Article 1",
+        "INS-OTH-001::Chapter Two, Article 12"
+      ],
+      "top_doc": "INS-FIN-005",
+      "scope_score": -8.281
+    },
+    {
+      "id": "Q053",
+      "category": "single_hop",
+      "answerable": true,
+      "top_score": 1.518117904663086,
+      "citations": 3,
+      "grounded": 1.0,
+      "supported": 1.0,
+      "cited": [
+        "INS-MOT-001::Article 6",
+        "INS-MOT-003::Chapter Three",
+        "INS-MOT-001::Article 7"
+      ],
+      "top_doc": "INS-MOT-001",
+      "scope_score": -10.634
+    },
+    {
+      "id": "Q054",
+      "category": "single_hop",
+      "answerable": true,
+      "top_score": -0.834103524684906,
+      "citations": 3,
+      "grounded": 1.0,
+      "supported": 1.0,
+      "cited": [
+        "INS-MOT-001::Article 4",
+        "INS-MOT-003::Chapter Five",
+        "INS-MOT-002::Chapter Three"
+      ],
+      "top_doc": "INS-MOT-001",
+      "scope_score": -9.762
+    },
+    {
+      "id": "Q055",
+      "category": "single_hop",
+      "answerable": true,
+      "top_score": -0.8915086388587952,
+      "citations": 3,
+      "grounded": 1.0,
+      "supported": 1.0,
+      "cited": [
+        "INS-CON-002::Article 10",
+        "INS-CON-006::Chapter Five, Article 21",
+        "INS-CON-006::Chapter Five, Article 16"
+      ],
+      "top_doc": "INS-CON-002",
+      "scope_score": -11.326
+    },
+    {
+      "id": "Q056",
+      "category": "single_hop",
+      "answerable": true,
+      "top_score": 7.318572044372559,
+      "citations": 3,
+      "grounded": 1.0,
+      "supported": 1.0,
+      "cited": [
+        "INS-TAK-005::Article 5",
+        "INS-TAK-005::Article 1",
+        "INS-TAK-002::Article 12"
+      ],
+      "top_doc": "INS-TAK-005",
+      "scope_score": 5.054
+    },
+    {
+      "id": "Q057",
+      "category": "single_hop",
+      "answerable": true,
+      "top_score": 3.4253382682800293,
+      "citations": 3,
+      "grounded": 1.0,
+      "supported": 1.0,
+      "cited": [
+        "INS-CON-001::Article 3",
+        "INS-CON-001::Article 14 (2)",
+        "INS-CON-001::Article 6"
+      ],
+      "top_doc": "INS-CON-001",
+      "scope_score": -10.78
+    },
+    {
+      "id": "Q058",
+      "category": "single_hop",
+      "answerable": true,
+      "top_score": 2.0845932960510254,
+      "citations": 3,
+      "grounded": 1.0,
+      "supported": 1.0,
+      "cited": [
+        "INS-GOV-006::Article 4",
+        "INS-FIN-001::Section 1, Addendum (5)",
+        "INS-FIN-001::Section 1, Article 1"
+      ],
+      "top_doc": "INS-GOV-006",
+      "scope_score": -10.249
+    },
+    {
+      "id": "Q059",
+      "category": "cross_section",
+      "answerable": true,
+      "top_score": -0.27926409244537354,
+      "citations": 3,
+      "grounded": 1.0,
+      "supported": 1.0,
+      "cited": [
+        "INS-CON-001::Article 6",
+        "INS-CON-001::Article 13",
+        "INS-CON-001::Article 14"
+      ],
+      "top_doc": "INS-CON-001",
+      "scope_score": -10.991
+    },
+    {
+      "id": "Q060",
+      "category": "cross_section",
+      "answerable": true,
+      "top_score": 3.1130247116088867,
+      "citations": 3,
+      "grounded": 1.0,
+      "supported": 1.0,
+      "cited": [
+        "INS-MOT-002::Chapter Three",
+        "INS-MOT-001::Article 7",
+        "INS-MOT-002::Chapter Four"
+      ],
+      "top_doc": "INS-MOT-002",
+      "scope_score": -1.004
+    },
+    {
+      "id": "Q061",
+      "category": "cross_section",
+      "answerable": true,
+      "top_score": 3.2954347133636475,
+      "citations": 3,
+      "grounded": 1.0,
+      "supported": 1.0,
+      "cited": [
+        "INS-MOT-003::Chapter Four",
+        "INS-MOT-003::Preamble",
+        "INS-MOT-003::Definitions"
+      ],
+      "top_doc": "INS-MOT-003",
+      "scope_score": 1.969
+    },
+    {
+      "id": "Q062",
+      "category": "cross_section",
+      "answerable": true,
+      "top_score": -4.236209392547607,
+      "citations": 3,
+      "grounded": 1.0,
+      "supported": 1.0,
+      "cited": [
+        "INS-CON-004::Article 14",
+        "INS-CON-004::Article 3",
+        "INS-CON-006::Chapter Five, Article 17"
+      ],
+      "top_doc": "INS-CON-004",
+      "scope_score": -11.132
+    },
+    {
+      "id": "Q063",
+      "category": "cross_section",
+      "answerable": true,
+      "top_score": 3.7752761840820312,
+      "citations": 3,
+      "grounded": 1.0,
+      "supported": 1.0,
+      "cited": [
+        "INS-GOV-002::5",
+        "INS-GOV-001::Article 5",
+        "INS-GOV-002::2"
+      ],
+      "top_doc": "INS-GOV-002",
+      "scope_score": -2.051
+    },
+    {
+      "id": "Q064",
+      "category": "cross_section",
+      "answerable": true,
+      "top_score": 0.38275250792503357,
+      "citations": 3,
+      "grounded": 1.0,
+      "supported": 1.0,
+      "cited": [
+        "INS-CON-006::Chapter Five, Article 21",
+        "INS-CON-001::Article 7",
+        "INS-CON-006::Chapter Five, Article 16"
+      ],
+      "top_doc": "INS-CON-006",
+      "scope_score": -10.438
+    },
+    {
+      "id": "Q065",
+      "category": "cross_section",
+      "answerable": true,
+      "top_score": 1.6719229221343994,
+      "citations": 3,
+      "grounded": 1.0,
+      "supported": 1.0,
+      "cited": [
+        "INS-FIN-001::Section 2, Article 1",
+        "INS-FIN-005::Article 3",
+        "INS-FIN-002::First Article \u2013 Glossary"
+      ],
+      "top_doc": "INS-FIN-001",
+      "scope_score": -7.375
+    },
+    {
+      "id": "Q066",
+      "category": "cross_section",
+      "answerable": true,
+      "top_score": 0.9637752771377563,
+      "citations": 3,
+      "grounded": 1.0,
+      "supported": 1.0,
+      "cited": [
+        "INS-FIN-003::Article 4",
+        "INS-FIN-003::Article 7",
+        "INS-FIN-003::Article 5"
+      ],
+      "top_doc": "INS-FIN-003",
+      "scope_score": -10.289
+    },
+    {
+      "id": "Q067",
+      "category": "cross_section",
+      "answerable": true,
+      "top_score": -0.4259628355503082,
+      "citations": 3,
+      "grounded": 1.0,
+      "supported": 1.0,
+      "cited": [
+        "INS-MOT-003::Chapter Three",
+        "INS-MOT-002::Chapter Three",
+        "INS-CON-006::Chapter Five, Article 21"
+      ],
+      "top_doc": "INS-MOT-003",
+      "scope_score": -7.183
+    },
+    {
+      "id": "Q068",
+      "category": "cross_document",
+      "answerable": true,
+      "top_score": 0.8177542686462402,
+      "citations": 3,
+      "grounded": 1.0,
+      "supported": 1.0,
+      "cited": [
+        "INS-FIN-001::Section 2, Article 1",
+        "INS-FIN-005::Article 3",
+        "INS-FIN-002::First Article \u2013 Glossary"
+      ],
+      "top_doc": "INS-FIN-001",
+      "scope_score": -7.821
+    },
+    {
+      "id": "Q069",
+      "category": "cross_document",
+      "answerable": true,
+      "top_score": -3.5272414684295654,
+      "citations": 3,
+      "grounded": 1.0,
+      "supported": 1.0,
+      "cited": [
+        "INS-OTH-001::Chapter Two, Article 12",
+        "INS-FIN-002::Section 3, Addendum (3)",
+        "INS-OTH-001::Chapter Four, Article 25"
+      ],
+      "top_doc": "INS-OTH-001",
+      "scope_score": -11.123
+    },
+    {
+      "id": "Q070",
+      "category": "cross_document",
+      "answerable": true,
+      "top_score": -3.0073156356811523,
+      "citations": 3,
+      "grounded": 1.0,
+      "supported": 1.0,
+      "cited": [
+        "INS-FIN-004::Article 3",
+        "INS-FIN-001::Section 1, Article 2",
+        "INS-FIN-002::First Article \u2013 Glossary"
+      ],
+      "top_doc": "INS-FIN-004",
+      "scope_score": -10.54
+    },
+    {
+      "id": "Q071",
+      "category": "cross_document",
+      "answerable": true,
+      "top_score": 0.873253583908081,
+      "citations": 3,
+      "grounded": 1.0,
+      "supported": 1.0,
+      "cited": [
+        "INS-FIN-003::Article 3",
+        "INS-LIC-001::Table 3: Licence of a Company being a branch of a Foreign Insurance Company (in addition to documents listed in Table 1)",
+        "INS-FIN-003::Article 7"
+      ],
+      "top_doc": "INS-FIN-003",
+      "scope_score": -11.075
+    },
+    {
+      "id": "Q072",
+      "category": "cross_document",
+      "answerable": true,
+      "top_score": 2.7451415061950684,
+      "citations": 3,
+      "grounded": 1.0,
+      "supported": 1.0,
+      "cited": [
+        "INS-GOV-002::2",
+        "INS-GOV-001::Article 2",
+        "INS-GOV-001::Introduction"
+      ],
+      "top_doc": "INS-GOV-002",
+      "scope_score": -4.945
+    },
+    {
+      "id": "Q073",
+      "category": "cross_document",
+      "answerable": true,
+      "top_score": 0.9095840454101562,
+      "citations": 3,
+      "grounded": 1.0,
+      "supported": 1.0,
+      "cited": [
+        "INS-GOV-001::Article 9",
+        "INS-GOV-001::Article 10",
+        "INS-SAN-001::The Annexed Schedule to the Cabinet Resolution No. (7) of 2019 Concerning the Administrative Fines Imposed by the Insurance Authority"
+      ],
+      "top_doc": "INS-GOV-001",
+      "scope_score": -8.873
+    },
+    {
+      "id": "Q074",
+      "category": "cross_document",
+      "answerable": true,
+      "top_score": 1.4127482175827026,
+      "citations": 3,
+      "grounded": 1.0,
+      "supported": 1.0,
+      "cited": [
+        "INS-GOV-008::Objective",
+        "INS-GOV-004::3",
+        "INS-FIN-001::Section 2, Article 6"
+      ],
+      "top_doc": "INS-GOV-008",
+      "scope_score": -4.657
+    },
+    {
+      "id": "Q075",
+      "category": "cross_document",
+      "answerable": true,
+      "top_score": 4.20189094543457,
+      "citations": 3,
+      "grounded": 1.0,
+      "supported": 1.0,
+      "cited": [
+        "INS-MOT-003::Chapter Four",
+        "INS-MOT-001::Article 4",
+        "INS-MOT-003::Preamble"
+      ],
+      "top_doc": "INS-MOT-003",
+      "scope_score": -0.688
+    },
+    {
+      "id": "Q076",
+      "category": "cross_document",
+      "answerable": true,
+      "top_score": 1.4654552936553955,
+      "citations": 3,
+      "grounded": 1.0,
+      "supported": 1.0,
+      "cited": [
+        "INS-FIN-001::Section 6, Addendum (1)",
+        "INS-REP-004::Article 5",
+        "INS-FIN-002::Section 6, Addendum (1)"
+      ],
+      "top_doc": "INS-FIN-001",
+      "scope_score": -10.356
+    },
+    {
+      "id": "Q077",
+      "category": "comparative",
+      "answerable": true,
+      "top_score": 3.5501532554626465,
+      "citations": 3,
+      "grounded": 1.0,
+      "supported": 1.0,
+      "cited": [
+        "INS-MOT-001::Article 2",
+        "INS-MOT-003::Preamble",
+        "INS-MOT-002::Preamble"
+      ],
+      "top_doc": "INS-MOT-001",
+      "scope_score": -8.286
+    },
+    {
+      "id": "Q078",
+      "category": "comparative",
+      "answerable": true,
+      "top_score": 1.746429204940796,
+      "citations": 3,
+      "grounded": 1.0,
+      "supported": 1.0,
+      "cited": [
+        "INS-MOT-001::Article 4",
+        "INS-MOT-001::Article 7",
+        "INS-MOT-002::Chapter Two"
+      ],
+      "top_doc": "INS-MOT-001",
+      "scope_score": -10.372
+    },
+    {
+      "id": "Q079",
+      "category": "comparative",
+      "answerable": true,
+      "top_score": 6.705008029937744,
+      "citations": 3,
+      "grounded": 1.0,
+      "supported": 1.0,
+      "cited": [
+        "INS-TAK-005::Article 5",
+        "INS-TAK-002::Article 12",
+        "INS-TAK-005::Article 6"
+      ],
+      "top_doc": "INS-TAK-005",
+      "scope_score": 3.767
+    },
+    {
+      "id": "Q080",
+      "category": "comparative",
+      "answerable": true,
+      "top_score": 0.037707142531871796,
+      "citations": 3,
+      "grounded": 1.0,
+      "supported": 1.0,
+      "cited": [
+        "INS-GOV-008::3.1",
+        "INS-GOV-008::3",
+        "INS-GOV-001::Article 6"
+      ],
+      "top_doc": "INS-GOV-008",
+      "scope_score": -8.254
+    },
+    {
+      "id": "Q081",
+      "category": "comparative",
+      "answerable": true,
+      "top_score": 2.211416721343994,
+      "citations": 3,
+      "grounded": 1.0,
+      "supported": 1.0,
+      "cited": [
+        "INS-FIN-003::Article 3",
+        "INS-LIC-001::Table 1: Licence of a Company established in the State and a branch of a Foreign Insurance Company",
+        "INS-LIC-001::Table 3: Licence of a Company being a branch of a Foreign Insurance Company (in addition to documents listed in Table 1)"
+      ],
+      "top_doc": "INS-FIN-003",
+      "scope_score": -10.208
+    },
+    {
+      "id": "Q082",
+      "category": "comparative",
+      "answerable": true,
+      "top_score": -2.5261802673339844,
+      "citations": 3,
+      "grounded": 1.0,
+      "supported": 1.0,
+      "cited": [
+        "INS-CON-006::Chapter Five, Article 21",
+        "INS-CON-006::Chapter Five, Article 16",
+        "INS-CON-006::Chapter Five, Article 17"
+      ],
+      "top_doc": "INS-CON-006",
+      "scope_score": -11.104
+    },
+    {
+      "id": "Q083",
+      "category": "comparative",
+      "answerable": true,
+      "top_score": -2.966977119445801,
+      "citations": 2,
+      "grounded": 1.0,
+      "supported": 1.0,
+      "cited": [
+        "INS-MOT-002::Chapter One",
+        "INS-MOT-003::Chapter One"
+      ],
+      "top_doc": "INS-MOT-002",
+      "scope_score": -10.726
+    },
+    {
+      "id": "Q084",
+      "category": "comparative",
+      "answerable": true,
+      "top_score": 1.5140221118927002,
+      "citations": 3,
+      "grounded": 1.0,
+      "supported": 1.0,
+      "cited": [
+        "INS-TAK-006::Article 15",
+        "INS-GOV-008::4.1",
+        "INS-FIN-002::Section 1, Article 2"
+      ],
+      "top_doc": "INS-TAK-006",
+      "scope_score": -2.034
+    },
+    {
+      "id": "Q085",
+      "category": "adversarial",
+      "answerable": true,
+      "top_score": 2.6491003036499023,
+      "citations": 3,
+      "grounded": 1.0,
+      "supported": 1.0,
+      "cited": [
+        "INS-CON-004::Article 9",
+        "INS-MOT-002::Chapter Six",
+        "INS-CON-006::Chapter Five, Article 17"
+      ],
+      "top_doc": "INS-CON-004",
+      "scope_score": -11.422
+    },
+    {
+      "id": "Q086",
+      "category": "adversarial",
+      "answerable": true,
+      "top_score": 2.7033302783966064,
+      "citations": 3,
+      "grounded": 1.0,
+      "supported": 1.0,
+      "cited": [
+        "INS-OTH-001::Chapter Two, Article 12",
+        "INS-FIN-001::Section 2, Article 1",
+        "INS-FIN-005::Article 3"
+      ],
+      "top_doc": "INS-OTH-001",
+      "scope_score": -10.216
+    },
+    {
+      "id": "Q087",
+      "category": "adversarial",
+      "answerable": true,
+      "top_score": -3.2835328578948975,
+      "citations": 3,
+      "grounded": 1.0,
+      "supported": 1.0,
+      "cited": [
+        "INS-MOT-004::Article 2",
+        "INS-MOT-001::Article 4",
+        "INS-MOT-003::Chapter Six"
+      ],
+      "top_doc": "INS-MOT-004",
+      "scope_score": -10.072
+    },
+    {
+      "id": "Q088",
+      "category": "adversarial",
+      "answerable": true,
+      "top_score": 2.1248302459716797,
+      "citations": 3,
+      "grounded": 1.0,
+      "supported": 1.0,
+      "cited": [
+        "INS-MOT-003::Chapter Four",
+        "INS-MOT-003::Chapter One",
+        "INS-MOT-001::Article 3"
+      ],
+      "top_doc": "INS-MOT-003",
+      "scope_score": -0.428
+    },
+    {
+      "id": "Q089",
+      "category": "adversarial",
+      "answerable": true,
+      "top_score": 2.4345004558563232,
+      "citations": 3,
+      "grounded": 1.0,
+      "supported": 1.0,
+      "cited": [
+        "INS-MOT-002::Chapter Four",
+        "INS-MOT-002::Preamble",
+        "INS-MOT-001::Article 4"
+      ],
+      "top_doc": "INS-MOT-002",
+      "scope_score": -2.89
+    },
+    {
+      "id": "Q090",
+      "category": "adversarial",
+      "answerable": true,
+      "top_score": -0.9138051867485046,
+      "citations": 3,
+      "grounded": 1.0,
+      "supported": 1.0,
+      "cited": [
+        "INS-CON-002::Article 10",
+        "INS-CON-006::Chapter Five, Article 21",
+        "INS-REP-004::Article 2"
+      ],
+      "top_doc": "INS-CON-002",
+      "scope_score": -11.147
+    },
+    {
+      "id": "Q091",
+      "category": "adversarial",
+      "answerable": true,
+      "top_score": 2.1003236770629883,
+      "citations": 3,
+      "grounded": 1.0,
+      "supported": 1.0,
+      "cited": [
+        "INS-TAK-005::Article 8",
+        "INS-TAK-005::Article 7",
+        "INS-TAK-005::Article 1"
+      ],
+      "top_doc": "INS-TAK-005",
+      "scope_score": 1.537
+    },
+    {
+      "id": "Q092",
+      "category": "adversarial",
+      "answerable": true,
+      "top_score": 0.4477997422218323,
+      "citations": 3,
+      "grounded": 1.0,
+      "supported": 1.0,
+      "cited": [
+        "INS-FIN-005::Article 6",
+        "INS-GOV-004::3",
+        "INS-FIN-002::First Article \u2013 Glossary"
+      ],
+      "top_doc": "INS-FIN-005",
+      "scope_score": -10.449
+    },
+    {
+      "id": "Q093",
+      "category": "unanswerable",
+      "answerable": false,
+      "top_score": -4.842761516571045,
+      "citations": 3,
+      "grounded": 1.0,
+      "supported": 1.0,
+      "cited": [
+        "INS-LIC-001::Table 1: Licence of a Company established in the State and a branch of a Foreign Insurance Company",
+        "INS-TAK-005::Article 7",
+        "INS-LIC-001::Introduction"
+      ],
+      "top_doc": "INS-LIC-001",
+      "scope_score": -6.377
+    },
+    {
+      "id": "Q094",
+      "category": "unanswerable",
+      "answerable": false,
+      "top_score": -0.15756186842918396,
+      "citations": 3,
+      "grounded": 1.0,
+      "supported": 1.0,
+      "cited": [
+        "INS-FIN-001::Section 2, Article 1",
+        "INS-CON-004::Article 1",
+        "INS-OTH-001::Chapter Five, Article 39"
+      ],
+      "top_doc": "INS-FIN-001",
+      "scope_score": -8.528
+    },
+    {
+      "id": "Q095",
+      "category": "unanswerable",
+      "answerable": false,
+      "top_score": -0.8928736448287964,
+      "citations": 3,
+      "grounded": 1.0,
+      "supported": 1.0,
+      "cited": [
+        "INS-GOV-001::Scope of Application",
+        "INS-FIN-005::Article 4",
+        "INS-FIN-001::Section 5, Article 1"
+      ],
+      "top_doc": "INS-GOV-001",
+      "scope_score": -11.201
+    },
+    {
+      "id": "Q096",
+      "category": "unanswerable",
+      "answerable": false,
+      "top_score": -3.2460031509399414,
+      "citations": 3,
+      "grounded": 1.0,
+      "supported": 1.0,
+      "cited": [
+        "INS-CON-002::Article 14",
+        "INS-REP-005::Article 1",
+        "INS-LIC-001::Introduction"
+      ],
+      "top_doc": "INS-CON-002",
+      "scope_score": -11.157
+    },
+    {
+      "id": "Q097",
+      "category": "unanswerable",
+      "answerable": false,
+      "top_score": -0.1319011002779007,
+      "citations": 3,
+      "grounded": 1.0,
+      "supported": 1.0,
+      "cited": [
+        "INS-LIC-001::Introduction",
+        "INS-FIN-001::Section 5, Article 1",
+        "INS-OTH-004::Article 5"
+      ],
+      "top_doc": "INS-LIC-001",
+      "scope_score": -2.323
+    },
+    {
+      "id": "Q098",
+      "category": "unanswerable",
+      "answerable": false,
+      "top_score": -3.167555093765259,
+      "citations": 3,
+      "grounded": 1.0,
+      "supported": 1.0,
+      "cited": [
+        "INS-REP-003::Sixth: The Reports on Anti-Money Laundering and Combating the Financing of Terrorism and Financing of Illegal Organizations",
+        "INS-GOV-003::Article 1",
+        "INS-LIC-001::Table 1: Licence of a Company established in the State and a branch of a Foreign Insurance Company"
+      ],
+      "top_doc": "INS-REP-003",
+      "scope_score": -11.185
+    },
+    {
+      "id": "Q099",
+      "category": "unanswerable",
+      "answerable": false,
+      "top_score": -1.594193458557129,
+      "citations": 3,
+      "grounded": 1.0,
+      "supported": 1.0,
+      "cited": [
+        "INS-REP-003::Sixth: The Reports on Anti-Money Laundering and Combating the Financing of Terrorism and Financing of Illegal Organizations",
+        "INS-GOV-002::1",
+        "INS-LIC-001::Scope"
+      ],
+      "top_doc": "INS-REP-003",
+      "scope_score": -9.404
+    },
+    {
+      "id": "Q100",
+      "category": "unanswerable",
+      "answerable": false,
+      "top_score": -0.7697787284851074,
+      "citations": 3,
+      "grounded": 1.0,
+      "supported": 1.0,
+      "cited": [
+        "INS-FIN-002::Section 7, Appendix 1",
+        "INS-FIN-002::Section 5, Addendum",
+        "INS-FIN-002::Section 4, Addendum"
+      ],
+      "top_doc": "INS-FIN-002",
+      "scope_score": -4.31
+    }
+  ]
+}
