@@ -28,6 +28,19 @@ everything runs locally on a laptop with no paid API, and CPU timings are the
 ones that support it - a latency figure measured on a GPU would not describe
 what a reader reproducing this would see.
 
+## Why the embeddings are cached
+
+Encoding 954 chunks on CPU takes most of a minute, and it produces the same
+vectors every time. The cache turns a cold start from about ninety seconds into
+a few, which is the difference between a deployable service and one that looks
+hung on its first request.
+
+The cache key is a hash of the model name and every text encoded, so changing
+the model or rebuilding the corpus with different chunking invalidates it
+automatically. Keying on anything less specific would let a stale cache serve
+vectors for text that no longer exists - silently, with no error, and with no
+way to notice from the results.
+
 ## Why there is no FAISS here
 
 954 chunks by 384 dimensions is a 1.4 MB matrix. A brute-force matrix multiply
@@ -39,12 +52,35 @@ vectors; this corpus is two orders of magnitude short of that.
 
 from __future__ import annotations
 
+import hashlib
+from pathlib import Path
+
 import numpy as np
 
 from regulens.retrieval.base import Chunk, RetrievalResult
 from regulens.retrieval.text import indexable_text
 
 QUERY_INSTRUCTION = "Represent this sentence for searching relevant passages: "
+
+DEFAULT_CACHE = Path(__file__).resolve().parents[3] / "corpus" / "processed" / "embeddings.npz"
+
+
+SEPARATOR = bytes([0])
+
+
+def _fingerprint(model_name: str, texts: list[str]) -> str:
+    """Identity of an embedding set: the model plus exactly what it encoded.
+
+    A cache keyed on anything less specific is a correctness bug waiting to
+    happen - rebuild the corpus with different chunking and a stale cache would
+    silently serve vectors for text that no longer exists, with no error and no
+    way to notice from the results.
+    """
+    digest = hashlib.sha256(model_name.encode("utf-8"))
+    for text in texts:
+        digest.update(SEPARATOR)
+        digest.update(text.encode("utf-8"))
+    return digest.hexdigest()
 
 
 class DenseRetriever:
@@ -56,6 +92,7 @@ class DenseRetriever:
         model_name: str = "BAAI/bge-small-en-v1.5",
         batch_size: int = 32,
         device: str = "cpu",
+        cache: Path | None = DEFAULT_CACHE,
     ) -> None:
         if not chunks:
             raise ValueError("DenseRetriever needs at least one chunk")
@@ -67,13 +104,36 @@ class DenseRetriever:
         self.model_name = model_name
         self.device = device
         self.model = SentenceTransformer(model_name, device=device)
-        self.embeddings = self.model.encode(
-            [indexable_text(c) for c in chunks],
-            batch_size=batch_size,
-            normalize_embeddings=True,
-            convert_to_numpy=True,
-            show_progress_bar=False,
-        ).astype(np.float32)
+
+        texts = [indexable_text(c) for c in chunks]
+        key = _fingerprint(model_name, texts)
+        self.cached = False
+
+        if cache is not None and cache.exists():
+            try:
+                stored = np.load(cache, allow_pickle=False)
+                if str(stored["key"]) == key:
+                    self.embeddings = stored["embeddings"].astype(np.float32)
+                    self.cached = True
+            except Exception:
+                # A corrupt or unreadable cache is not worth failing over; the
+                # embeddings can always be recomputed.
+                pass
+
+        if not self.cached:
+            self.embeddings = self.model.encode(
+                texts,
+                batch_size=batch_size,
+                normalize_embeddings=True,
+                convert_to_numpy=True,
+                show_progress_bar=False,
+            ).astype(np.float32)
+            if cache is not None:
+                try:
+                    cache.parent.mkdir(parents=True, exist_ok=True)
+                    np.savez_compressed(cache, key=np.array(key), embeddings=self.embeddings)
+                except OSError:
+                    pass
 
     @property
     def dimension(self) -> int:

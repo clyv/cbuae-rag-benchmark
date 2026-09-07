@@ -1,0 +1,14 @@
+# The corpus is fetched during the build, never copied in - see the Dockerfile.
+corpus/raw/
+corpus/processed/
+corpus/manifest.json
+
+.git/
+.pytest_cache/
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+results/
+notebooks/
+tests/
