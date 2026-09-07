@@ -6,6 +6,9 @@ Most RAG projects ship a chatbot and assert that it works. This one ships a
 benchmark and measures four retrieval architectures against it. The chatbot is
 the demo; the evaluation is the project.
 
+> **[Try the demo](https://clyv.github.io/cbuae-rag-benchmark/)** — 100 questions,
+> the system's real recorded output, scored against a human-labelled answer key.
+>
 > **Status:** all six phases complete. Corpus, benchmark, the four-system
 > comparison, grounded answering with citation validation and abstention, and
 > the cross-reference graph are measured and reported below. Two of those
@@ -167,6 +170,16 @@ redistribution** — which is why no source document is committed here and why t
 Phase 5 demo links to the Rulebook rather than mirroring it. The CBUAE Open Data
 policy is more permissive but its stated scope is reports and studies, not the
 Rulebook's regulatory text, so the more restrictive reading is the one applied.
+
+**The demo has two builds for this reason.** `scripts/build_demo_page.py` quotes
+short excerpts, which is fine for a private link or a container on one machine.
+`--public` builds `docs/index.html`, which contains **no CBUAE text at all** — a
+public page of excerpts would be onward publication, while a public page of
+identifiers and links is not, and disclaimer clause 1.2 expressly permits direct
+links. In place of each excerpt the public build shows the labeller's own note on
+why that provision answers the question: this project's text rather than the
+Rulebook's, and the part a reader cannot get by clicking through. The build fails
+rather than ships if an excerpt field survives into the public page.
 
 Full record, including what was checked and when: `SOURCES.md`.
 

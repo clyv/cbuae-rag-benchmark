@@ -2,6 +2,25 @@
 """Build the shareable demo page from results/demo.json.
 
     python scripts/build_demo_page.py [output.html]
+    python scripts/build_demo_page.py --public       # -> docs/index.html
+
+## Two builds, because the licence is not the same for both
+
+The default build quotes short excerpts of each cited article. That is fine for
+a private link and for a container running on one machine, and it is what makes
+the page immediately legible.
+
+`--public` builds the version that goes on a public website. It carries no
+CBUAE text at all. SOURCES.md records that the terms permit download for
+non-commercial use and prohibit onward publication (clause 2.5), while direct
+links to pages are expressly permitted (disclaimer 1.2). A public page of
+excerpts would be republication; a public page of identifiers and links is not.
+
+What replaces the excerpt is better for the demo's actual purpose anyway: the
+labeller's own note on *why* that article answers the question. That is original
+commentary, it is the part a reader cannot get by clicking through, and showing
+it turns each answer into a visible piece of the benchmark rather than a snippet
+of regulation.
 
 The page carries the system's recorded output for all 100 benchmark questions:
 real citations, real scores, and each question's labelled evidence so a reader
@@ -34,6 +53,7 @@ from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 DATA = REPO_ROOT / "results" / "demo.json"
+BENCHMARK = REPO_ROOT / "benchmark" / "questions.jsonl"
 
 # Direction D - Oxblood. Light and dark values both from the theme source.
 LIGHT = """
@@ -126,6 +146,10 @@ a{color:var(--primary);text-underline-offset:2px}
 .cite h4{font-family:var(--f-mono);font-size:.77rem;margin:0 0 .1rem;font-weight:500;color:var(--ink)}
 .cite .doc{font-size:.75rem;color:var(--muted);margin:0 0 .45rem}
 .cite .ex{font-size:.85rem;margin:0 0 .5rem;color:var(--body)}
+.cite .why{font-size:.85rem;margin:0 0 .5rem;color:var(--body);border-left:2px solid var(--primary);
+  padding-left:.6rem}
+.cite .why b{color:var(--primary);font-weight:600}
+.cite .nolink{font-size:.8rem;margin:0 0 .5rem;color:var(--muted);font-style:italic}
 .cite .foot{display:flex;justify-content:space-between;align-items:center;gap:.75rem;
   font-family:var(--f-mono);font-size:.69rem;flex-wrap:wrap}
 .cite .sc{color:var(--muted)}
@@ -173,7 +197,7 @@ BODY_TOP = """<div class="wrap">
       <span id="themeicon"></span><span id="themelabel">Theme</span>
     </button>
   </div>
-  <p class="lede">Ask a regulatory question, get the exact articles that answer it &mdash; each one quoted, attributed and linked back to the source.</p>
+  <p class="lede">__LEDE__</p>
 </header>
 
 <section>
@@ -193,9 +217,10 @@ BODY_TOP = """<div class="wrap">
   something its source does not. The same pipeline was run through a local generative model
   to measure what paraphrasing costs: it declined 69 of the 100 questions, and of the claims
   it did write, only <strong>0.557</strong> could be traced back to the section it cited,
-  against <strong>0.972</strong> for the quoted answers above. That is a small model and the
+  against <strong>0.972</strong> when it quotes instead. That is a small model and the
   figure is a floor, not a verdict on generation &mdash; but it is why the default here
   quotes.</p>
+__EXCERPT_NOTE__
 </section>
 
 <section>
@@ -236,9 +261,7 @@ BODY_BOTTOM = """
 </section>
 
 <footer>
-  <p>Runs locally on CPU, no paid API keys. Source documents are not redistributed: the corpus
-  is fetched at clone time, and this page shows short excerpts with links to the source rather
-  than article text.</p>
+  <p>__NOTICE__</p>
   <p>Corpus <strong>&copy; Central Bank of the UAE</strong>, used for non-commercial research
   under the CBUAE website terms. <strong>Not affiliated with, endorsed by, or connected to the
   Central Bank of the UAE.</strong> Nothing here is legal, regulatory or compliance advice.</p>
@@ -351,7 +374,9 @@ function renderAnswer() {
     <div class="cite ${c.required ? "req" : ""}">
       <h4>${esc(c.doc_id)} &middot; ${esc(c.section)}</h4>
       <p class="doc">${esc(c.document)}</p>
-      <p class="ex">${esc(c.excerpt)}&hellip;</p>
+      ${c.excerpt ? `<p class="ex">${esc(c.excerpt)}&hellip;</p>`
+        : c.why ? `<p class="why"><b>Why this answers it:</b> ${esc(c.why)}</p>`
+        : `<p class="nolink">Article text not reproduced here &mdash; open it at the source.</p>`}
       <div class="foot">
         <a href="${esc(c.url)}" target="_blank" rel="noopener noreferrer">Read at the CBUAE Rulebook &rarr;</a>
         <span class="sc">${c.required ? "required evidence &middot; " : ""}score ${c.score}</span>
@@ -385,20 +410,104 @@ paint(); renderFilters(); renderList(); renderAnswer(); renderTally();
 </script>"""
 
 
+PRIVATE_LEDE = (
+    "Ask a regulatory question, get the exact articles that answer it &mdash; each one "
+    "quoted, attributed and linked back to the source."
+)
+
+PUBLIC_LEDE = (
+    "Ask a regulatory question, get the exact articles that answer it &mdash; each one "
+    "identified, scored against a human-labelled answer key, and linked back to the source."
+)
+
+PRIVATE_NOTICE = (
+    "Runs locally on CPU, no paid API keys. Source documents are not redistributed: the "
+    "corpus is fetched at clone time, and this page shows short excerpts with links to the "
+    "source rather than article text."
+)
+
+PUBLIC_NOTICE = (
+    "Runs locally on CPU, no paid API keys. <strong>No CBUAE text is reproduced on this "
+    "page.</strong> The corpus is fetched from the Rulebook at clone time and never "
+    "redistributed; every citation here is an identifier and a direct link, which the CBUAE "
+    "terms expressly permit."
+)
+
+PUBLIC_EXCERPT_NOTE = """  <p class="note"><strong>Why you cannot read the article text here.</strong>
+  The CBUAE website terms permit downloading regulation for non-commercial use but not
+  republishing it, and expressly permit direct links instead. So this public page shows which
+  provision answers each question, how confident the system was, and whether it matched the
+  labelled answer &mdash; then links you to the Central Bank's own page for the words. In place
+  of the article text each required citation carries the labeller's note on <em>why</em> that
+  provision answers the question, which is the part you cannot get by clicking through.</p>"""
+
+
+def why_notes() -> dict[str, dict[str, str]]:
+    """Each question's own note on why a required provision answers it.
+
+    Written by the labeller, so it is this project's text and not the Rulebook's -
+    which is exactly what makes it publishable where an excerpt is not.
+    """
+    notes: dict[str, dict[str, str]] = {}
+    for line in BENCHMARK.read_text(encoding="utf-8").splitlines():
+        if not line.strip():
+            continue
+        row = json.loads(line)
+        notes[row["id"]] = {
+            f"{e['doc_id']}::{e['section']}": e.get("why", "") for e in row["required_evidence"]
+        }
+    return notes
+
+
+def make_public(data: dict) -> dict:
+    """Strip every excerpt, and attach the labeller's notes in their place."""
+    notes = why_notes()
+    for question in data["questions"]:
+        for citation in question["citations"]:
+            citation.pop("excerpt", None)
+            note = notes.get(question["id"], {}).get(citation["id"], "")
+            if note:
+                citation["why"] = note
+    data["excerpt_cap"] = 0
+    return data
+
+
 def main() -> int:
+    public = "--public" in sys.argv
+    args = [a for a in sys.argv[1:] if a != "--public"]
+
     if not DATA.exists():
         sys.exit(f"{DATA} not found. Run scripts/export_demo.py first.")
-    payload = json.dumps(json.loads(DATA.read_text(encoding="utf-8")), ensure_ascii=False)
+    data = json.loads(DATA.read_text(encoding="utf-8"))
+    if public:
+        data = make_public(data)
+    payload = json.dumps(data, ensure_ascii=False)
     # A literal </script> inside the data would close the tag early.
     payload = payload.replace("</", "<\\/")
 
     head = HEAD.replace("__LIGHT__", LIGHT).replace("__DARK__", DARK)
-    out = Path(sys.argv[1]) if len(sys.argv) > 1 else REPO_ROOT / "results" / "demo.html"
+    body = BODY_TOP.replace("__EXCERPT_NOTE__", PUBLIC_EXCERPT_NOTE if public else "")
+    body = body.replace("__LEDE__", PUBLIC_LEDE if public else PRIVATE_LEDE)
+    bottom = BODY_BOTTOM.replace("__NOTICE__", PUBLIC_NOTICE if public else PRIVATE_NOTICE)
+
+    if args:
+        out = Path(args[0])
+    elif public:
+        out = REPO_ROOT / "docs" / "index.html"
+    else:
+        out = REPO_ROOT / "results" / "demo.html"
+    out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(
-        head + BODY_TOP + BODY_BOTTOM + SCRIPT.replace("__DATA__", payload),
+        head + body + bottom + SCRIPT.replace("__DATA__", payload),
         encoding="utf-8",
     )
-    print(f"wrote {out}  ({out.stat().st_size / 1024:.0f} KB)")
+    # A public build that still carries article text would be the exact thing
+    # SOURCES.md says is not permitted, so it is checked rather than trusted.
+    if public and '"excerpt"' in out.read_text(encoding="utf-8"):
+        sys.exit("refusing to ship: the public build still contains an excerpt field")
+
+    label = "  [public: no CBUAE text]" if public else ""
+    print(f"wrote {out}  ({out.stat().st_size / 1024:.0f} KB){label}")
     return 0
 
 
