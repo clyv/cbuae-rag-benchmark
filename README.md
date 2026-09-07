@@ -6,10 +6,10 @@ Most RAG projects ship a chatbot and assert that it works. This one ships a
 benchmark and measures four retrieval architectures against it. The chatbot is
 the demo; the evaluation is the project.
 
-> **Status:** Phases 1-5 complete. Corpus, benchmark, the four-system
-> comparison, and grounded answering with citation validation and abstention are
-> all measured and reported below. Phase 6 (cross-reference graph) is optional
-> and not built.
+> **Status:** all six phases complete. Corpus, benchmark, the four-system
+> comparison, grounded answering with citation validation and abstention, and
+> the cross-reference graph are measured and reported below. Two of those
+> experiments failed, and are reported as failures.
 
 ---
 
@@ -549,6 +549,62 @@ the model name and every text encoded, so rebuilding the corpus or changing the
 model invalidates the cache automatically rather than silently serving vectors
 for text that no longer exists.
 
+## Phase 6: the cross-reference graph
+
+Regulation names the provisions it depends on, and no retriever can see those
+pointers - BM25 and embeddings both score a passage on its own words, so a
+section that *points at* the answer scores badly for the question the answer
+belongs to. Extract the pointers, follow them, recover what the ranker missed.
+That is the standard graph-RAG argument. It does not work here. Full write-up in
+`results/graph.md`.
+
+**The graph is real.** 193 Article and Clause references across 763 sections
+resolve to **102 edges**, 97 within a document and 5 across. Resolution is
+checked against the corpus, so an edge exists only if its target is a real
+section - a rule that guesses wrong produces no edge rather than a wrong one.
+122 of 763 sections have any edge at all.
+
+**The premise fails.** Phase 6 assumes that when a question needs two
+provisions, the regulation links them. 59 benchmark questions require exactly
+two sections:
+
+> **2 of 59 co-required pairs are joined by an explicit reference — 3.4%.**
+
+**The ceiling confirms it.** Before building anything: how many questions could a
+*perfect* expansion rescue? This bounds any expansion policy, not just one
+implementation.
+
+| system | missing evidence | 1 hop | 2 hops | 3 hops |
+|---|---:|---:|---:|---:|
+| BM25 | 46 | 2 | 4 | 4 |
+| Dense | 41 | 2 | 5 | 5 |
+| Hybrid RRF | 39 | 3 | 4 | 4 |
+| **Hybrid + reranker** | **35** | **1** | **1** | **1** |
+
+**Measured anyway**, because "cannot help" and "actively hurts" are different
+claims. Expansion adds a median of 3 sections per query and hands the reranker 64
+candidates where the baseline gives it 50 — a wider budget than the baseline
+has, biasing in the graph's favour.
+
+| | recall@10 |
+|---|---|
+| hybrid + reranker | 0.750 |
+| graph-expanded + reranker | 0.750 |
+| difference | **+0.000**, 95% interval +0.000 to +0.000 |
+
+Not one question changed. The graph neither helps nor hurts — the cross-encoder
+ranks everything it contributes below the tenth result.
+
+**Why, which is the part worth keeping.** Cross-references encode *procedural
+dependency*: do this in accordance with that provision. Questions need *topical
+completeness*: the two rules that together answer them. Those rules sit next to
+each other in subject matter and have no reason to cite one another, because
+neither is a step in the other's procedure. The structure the corpus writes down
+is not the structure the questions need — which also says what a useful graph
+would have to be built from: co-citation, shared defined terms, or the Rulebook's
+own topical hierarchy. All latent rather than stated, and none a regular
+expression away.
+
 ---
 
 ## Limitations
@@ -685,6 +741,8 @@ pytest
 | 3 | 50 labelled benchmark questions | done |
 | 4 | Four systems built and measured; results tables filled | done |
 | 5 | Grounded answering, citation validation, API and UI | done |
-| 6 | *Optional:* cross-reference graph expansion | |
+| 6 | *Optional:* cross-reference graph expansion | done — negative result |
 
-Phase 6 is optional and should not be started until 1–5 are complete.
+Phase 6 was optional and was left until 1–5 were complete. It was built and
+measured: the graph exists, and following it changes nothing
+(`results/graph.md`).

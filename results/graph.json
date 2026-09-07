@@ -1,0 +1,432 @@
+{
+  "sections": 763,
+  "documents": 46,
+  "census": {
+    "mentions": 193,
+    "self": 27,
+    "external": 12,
+    "unresolved_other_instrument": 4,
+    "unresolved_target": 21,
+    "resolved_intra": 97,
+    "resolved_cross": 5
+  },
+  "edges": 102,
+  "cross_document_edges": 5,
+  "sections_with_any_edge": 122,
+  "companion_pairs": {
+    "INS-GOV-001": "INS-GOV-002",
+    "INS-GOV-002": "INS-GOV-001",
+    "INS-GOV-003": "INS-GOV-004",
+    "INS-GOV-004": "INS-GOV-003"
+  },
+  "edge_list": [
+    [
+      "INS-LIC-001::Article 4",
+      "INS-LIC-001::Article 3"
+    ],
+    [
+      "INS-LIC-001::Article 10",
+      "INS-LIC-001::Article 5"
+    ],
+    [
+      "INS-LIC-001::Article 10",
+      "INS-LIC-001::Article 4"
+    ],
+    [
+      "INS-LIC-001::Table 1: Licence of a Company established in the State and a branch of a Foreign Insurance Company",
+      "INS-LIC-001::Article 3"
+    ],
+    [
+      "INS-GOV-001::Scope of Application",
+      "INS-GOV-001::Article 5"
+    ],
+    [
+      "INS-GOV-001::Scope of Application",
+      "INS-GOV-001::Article 2"
+    ],
+    [
+      "INS-GOV-001::Scope of Application",
+      "INS-GOV-001::Article 3"
+    ],
+    [
+      "INS-GOV-001::Scope of Application",
+      "INS-GOV-001::Article 4"
+    ],
+    [
+      "INS-GOV-001::Article 11",
+      "INS-GOV-001::Article 5"
+    ],
+    [
+      "INS-GOV-003::Introduction",
+      "INS-GOV-003::Article 1"
+    ],
+    [
+      "INS-GOV-004::10",
+      "INS-GOV-003::Article 10"
+    ],
+    [
+      "INS-GOV-006::Article 9",
+      "INS-GOV-006::Article 3"
+    ],
+    [
+      "INS-GOV-006::Article 9",
+      "INS-GOV-006::Article 4"
+    ],
+    [
+      "INS-GOV-006::Article 9",
+      "INS-GOV-006::Article 5"
+    ],
+    [
+      "INS-GOV-008::7",
+      "INS-GOV-003::Article 6"
+    ],
+    [
+      "INS-FIN-001::Section 1, Article 1",
+      "INS-FIN-001::Section 1, Article 3"
+    ],
+    [
+      "INS-FIN-001::Section 1, Article 2",
+      "INS-FIN-001::Section 1, Article 3"
+    ],
+    [
+      "INS-FIN-001::Section 1, Article 3",
+      "INS-FIN-001::Section 1, Article 10"
+    ],
+    [
+      "INS-FIN-001::Section 1, Article 4",
+      "INS-FIN-001::Section 1, Article 3"
+    ],
+    [
+      "INS-FIN-001::Section 1, Article 6",
+      "INS-FIN-001::Section 3, Article 2"
+    ],
+    [
+      "INS-FIN-001::Section 1, Article 10",
+      "INS-FIN-001::Section 1, Article 3"
+    ],
+    [
+      "INS-FIN-001::Section 2, Article 8",
+      "INS-FIN-001::Section 2, Article 7"
+    ],
+    [
+      "INS-FIN-001::Section 2, Article 10",
+      "INS-FIN-001::Section 2, Article 5"
+    ],
+    [
+      "INS-FIN-001::Section 2, Article 10",
+      "INS-FIN-001::Section 2, Article 9"
+    ],
+    [
+      "INS-FIN-001::Section 3, Article 2",
+      "INS-FIN-001::Section 1, Article 6"
+    ],
+    [
+      "INS-FIN-001::Section 3, Article 2",
+      "INS-FIN-001::Section 3, Article 1"
+    ],
+    [
+      "INS-FIN-002::Section 1, Article 1",
+      "INS-FIN-002::Section 1, Article 3"
+    ],
+    [
+      "INS-FIN-002::Section 1, Article 2",
+      "INS-FIN-002::Section 1, Article 3"
+    ],
+    [
+      "INS-FIN-002::Section 1, Article 3",
+      "INS-FIN-002::Section 1, Article 10"
+    ],
+    [
+      "INS-FIN-002::Section 1, Article 4",
+      "INS-FIN-002::Section 1, Article 3"
+    ],
+    [
+      "INS-FIN-002::Section 1, Article 6",
+      "INS-FIN-002::Section 3, Article 2"
+    ],
+    [
+      "INS-FIN-002::Section 1, Article 10",
+      "INS-FIN-002::Section 1, Article 3"
+    ],
+    [
+      "INS-FIN-002::Section 2, Article 8",
+      "INS-FIN-002::Section 2, Article 7"
+    ],
+    [
+      "INS-FIN-002::Section 2, Article 10",
+      "INS-FIN-002::Section 2, Article 5"
+    ],
+    [
+      "INS-FIN-002::Section 2, Article 10",
+      "INS-FIN-002::Section 2, Article 9"
+    ],
+    [
+      "INS-FIN-002::Section 3, Article 2",
+      "INS-FIN-002::Section 1, Article 6"
+    ],
+    [
+      "INS-FIN-002::Section 3, Article 2",
+      "INS-FIN-002::Section 3, Article 1"
+    ],
+    [
+      "INS-FIN-004::Article 3",
+      "INS-FIN-001::Section 1, Article 10"
+    ],
+    [
+      "INS-FIN-004::Article 3",
+      "INS-FIN-001::Section 2, Article 8"
+    ],
+    [
+      "INS-FIN-004::Article 5",
+      "INS-FIN-001::Section 2, Article 11"
+    ],
+    [
+      "INS-FIN-005::Article 6",
+      "INS-FIN-005::Article 3"
+    ],
+    [
+      "INS-REP-005::Article 7",
+      "INS-REP-005::Article 5"
+    ],
+    [
+      "INS-REP-005::Article 8",
+      "INS-REP-005::Article 5"
+    ],
+    [
+      "INS-TAK-002::Article 9",
+      "INS-TAK-002::Article 10"
+    ],
+    [
+      "INS-TAK-002::Article 9",
+      "INS-TAK-002::Article 11"
+    ],
+    [
+      "INS-TAK-003::Article 4",
+      "INS-TAK-003::Article 6"
+    ],
+    [
+      "INS-TAK-003::Article 5",
+      "INS-TAK-003::Article 6"
+    ],
+    [
+      "INS-TAK-005::Article 6",
+      "INS-TAK-005::Article 4"
+    ],
+    [
+      "INS-TAK-005::Article 8",
+      "INS-TAK-005::Article 7"
+    ],
+    [
+      "INS-TAK-005::Article 14",
+      "INS-TAK-005::Article 7"
+    ],
+    [
+      "INS-TAK-006::Article 12",
+      "INS-TAK-006::Article 15"
+    ],
+    [
+      "INS-TAK-006::Article 13",
+      "INS-TAK-006::Article 15"
+    ],
+    [
+      "INS-TAK-008::Article 7",
+      "INS-TAK-008::Article 6"
+    ],
+    [
+      "INS-CON-002::Article 7",
+      "INS-CON-002::Article 2"
+    ],
+    [
+      "INS-CON-002::Article 8",
+      "INS-CON-002::Article 2"
+    ],
+    [
+      "INS-CON-002::Article 8",
+      "INS-CON-002::Article 6"
+    ],
+    [
+      "INS-CON-004::Article 3",
+      "INS-CON-004::Article 13"
+    ],
+    [
+      "INS-CON-004::Article 7",
+      "INS-CON-004::Article 8"
+    ],
+    [
+      "INS-CON-004::Article 7",
+      "INS-CON-004::Article 9"
+    ],
+    [
+      "INS-CON-004::Article 7",
+      "INS-CON-004::Article 10"
+    ],
+    [
+      "INS-CON-004::Article 7",
+      "INS-CON-004::Article 11"
+    ],
+    [
+      "INS-CON-004::Article 7",
+      "INS-CON-004::Article 12"
+    ],
+    [
+      "INS-CON-004::Article 7",
+      "INS-CON-004::Article 13"
+    ],
+    [
+      "INS-CON-004::Article 9",
+      "INS-CON-004::Article 17"
+    ],
+    [
+      "INS-CON-004::Article 15",
+      "INS-CON-004::Article 8"
+    ],
+    [
+      "INS-CON-004::Article 15",
+      "INS-CON-004::Article 9"
+    ],
+    [
+      "INS-CON-004::Article 15",
+      "INS-CON-004::Article 10"
+    ],
+    [
+      "INS-CON-004::Article 15",
+      "INS-CON-004::Article 11"
+    ],
+    [
+      "INS-CON-004::Article 15",
+      "INS-CON-004::Article 12"
+    ],
+    [
+      "INS-CON-004::Article 15",
+      "INS-CON-004::Article 13"
+    ],
+    [
+      "INS-CON-004::Article 15",
+      "INS-CON-004::Article 3"
+    ],
+    [
+      "INS-CON-004::Article 15",
+      "INS-CON-004::Article 4"
+    ],
+    [
+      "INS-CON-004::Article 15",
+      "INS-CON-004::Article 5"
+    ],
+    [
+      "INS-CON-004::Article 15",
+      "INS-CON-004::Article 6"
+    ],
+    [
+      "INS-CON-004::Article 15",
+      "INS-CON-004::Article 7"
+    ],
+    [
+      "INS-CON-004::Article 15",
+      "INS-CON-004::Article 14"
+    ],
+    [
+      "INS-CON-004::Article 18",
+      "INS-CON-004::Article 3"
+    ],
+    [
+      "INS-CON-004::Article 18",
+      "INS-CON-004::Article 4"
+    ],
+    [
+      "INS-CON-004::Article 18",
+      "INS-CON-004::Article 5"
+    ],
+    [
+      "INS-CON-004::Article 18",
+      "INS-CON-004::Article 6"
+    ],
+    [
+      "INS-CON-006::Chapter Two, Article 6",
+      "INS-CON-006::Chapter One, Article 3"
+    ],
+    [
+      "INS-CON-006::Chapter Two, Article 6",
+      "INS-CON-006::Chapter Two, Article 4"
+    ],
+    [
+      "INS-CON-006::Chapter Two, Article 6",
+      "INS-CON-006::Chapter Two, Article 5"
+    ],
+    [
+      "INS-CON-006::Chapter Six, Article 25",
+      "INS-CON-006::Chapter Six, Article 24"
+    ],
+    [
+      "INS-MOT-004::Article 2",
+      "INS-MOT-004::Article 1"
+    ],
+    [
+      "INS-MOT-004::Article 3",
+      "INS-MOT-004::Article 1"
+    ],
+    [
+      "INS-OTH-001::Chapter One, Article 5",
+      "INS-OTH-001::Chapter Five, Article 39"
+    ],
+    [
+      "INS-OTH-001::Chapter One, Article 6",
+      "INS-OTH-001::Chapter Five, Article 39"
+    ],
+    [
+      "INS-OTH-001::Chapter Two, Article 14",
+      "INS-OTH-001::Chapter Two, Article 15"
+    ],
+    [
+      "INS-OTH-001::Chapter Three, Article 17",
+      "INS-OTH-001::Chapter Two, Article 12"
+    ],
+    [
+      "INS-OTH-001::Chapter Four, Article 26",
+      "INS-OTH-001::Chapter Three, Article 18"
+    ],
+    [
+      "INS-OTH-001::Chapter Four, Article 31",
+      "INS-OTH-001::Chapter Three, Article 18"
+    ],
+    [
+      "INS-OTH-001::Chapter Five, Article 39",
+      "INS-OTH-001::Chapter Two, Article 13"
+    ],
+    [
+      "INS-OTH-001::Chapter Five, Article 39",
+      "INS-OTH-001::Chapter Three, Article 18"
+    ],
+    [
+      "INS-OTH-002::Article 4",
+      "INS-OTH-002::Article 1"
+    ],
+    [
+      "INS-OTH-003::Scope of Application",
+      "INS-OTH-003::Article 6"
+    ],
+    [
+      "INS-OTH-003::Scope of Application",
+      "INS-OTH-003::Article 9"
+    ],
+    [
+      "INS-OTH-003::Article 1",
+      "INS-OTH-003::Article 6"
+    ],
+    [
+      "INS-OTH-003::Article 7",
+      "INS-OTH-003::Article 4"
+    ],
+    [
+      "INS-OTH-003::Article 7",
+      "INS-OTH-003::Article 5"
+    ],
+    [
+      "INS-OTH-004::Article 11",
+      "INS-OTH-004::Article 3"
+    ],
+    [
+      "INS-OTH-004::Article 15",
+      "INS-OTH-004::Article 3"
+    ]
+  ]
+}
