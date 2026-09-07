@@ -61,17 +61,17 @@ h2{font-family:var(--f-display);font-weight:500;letter-spacing:-.015em;
   color:var(--body);margin:0;max-width:62ch}
 p{margin:0 0 .85rem}p:last-child{margin-bottom:0}
 .note{font-size:.86rem;color:var(--muted);max-width:68ch}
-/* Long text has to fill a wide screen without becoming a 1400px line, and the
-   two ways to do that are different shapes of the same idea.
-   .cols lays SEPARATE paragraphs side by side; .wide flows ONE paragraph into
-   columns. Both collapse to a single column when there is no room. Without them
-   a capped measure sits beside a full-width panel and half the page is empty,
-   which is what reads as broken rather than as typography. */
+/* Two ways of using the full width, for two different shapes of content.
+   .cols lays SEPARATE paragraphs side by side, which reads as a deliberate pair.
+   .full lets a SINGLE paragraph run the width as one column - flowing one
+   paragraph into two columns instead made the reader's eye travel back up the
+   page mid-sentence, which is worse than a long line. */
 .cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(21rem,1fr));gap:.6rem 2.25rem;
   align-items:start}
 .cols>*{max-width:none}
-.wide{columns:21rem 2;column-gap:2.25rem;max-width:none}
-.wide>*{break-inside:avoid}
+.full{max-width:none}
+/* The panel above sits flush against the text that explains it without this. */
+.demo+.cols,.demo+.note,.control+.note{margin-top:1.75rem}
 /* The lede keeps a reading measure, so on a wide screen the space beside it is
    dead. The headline numbers go there rather than nothing. */
 .hero{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:1.5rem 3rem;align-items:end}
@@ -208,7 +208,7 @@ footer strong{color:var(--body)}
 
 <section>
   <h2>Try it</h2>
-  <p class="note wide">These are the 100 benchmark questions. Everything below is what the system
+  <p class="note full">These are the 100 benchmark questions. Everything below is what the system
   actually returned when run over the corpus &mdash; real citations, real relevance scores,
   nothing mocked up. Because each question has labelled evidence, you can also see whether
   it found what a human said was required.</p>
@@ -239,7 +239,7 @@ footer strong{color:var(--body)}
 
 <section>
   <h2>When should it refuse to answer?</h2>
-  <p class="note wide">Fourteen questions have no answer in this corpus. A system that answers them
+  <p class="note full">Fourteen questions have no answer in this corpus. A system that answers them
   anyway is confidently wrong. Declining below a relevance score is the obvious fix &mdash;
   move the control and watch what it costs.</p>
   <div class="control">
@@ -264,7 +264,7 @@ footer strong{color:var(--body)}
       <tr class="lead"><td>Hybrid + reranker</td><td class="n">0.750</td><td class="n">0.593</td><td class="n">0.674</td><td class="n">1042 ms</td></tr>
     </tbody>
   </table></div>
-  <p class="note wide">Measured over the 86 answerable questions, on CPU. The demo above uses the
+  <p class="note full">Measured over the 86 answerable questions, on CPU. The demo above uses the
   last row. <strong>Hybrid with reranking beats BM25 by +0.169</strong> (95% interval +0.087
   to +0.250) and dense by +0.070 &mdash; both clear zero. At 50 questions neither did: the
   systems and the code were identical, only the benchmark grew. On
@@ -274,7 +274,7 @@ footer strong{color:var(--body)}
 
 <section>
   <h2>What was built, in six phases</h2>
-  <p class="note wide">Each phase produced a measurement rather than a claim. Full write-ups, with
+  <p class="note full">Each phase produced a measurement rather than a claim. Full write-ups, with
   the raw output behind every number:
   <a href="https://github.com/clyv/cbuae-rag-benchmark/blob/main/results/tables.md">retrieval</a> &middot;
   <a href="https://github.com/clyv/cbuae-rag-benchmark/blob/main/results/abstention.md">abstention</a> &middot;
