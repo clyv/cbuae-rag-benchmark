@@ -1,3 +1,10 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="description" content="A retrieval benchmark over UAE Central Bank insurance regulation: 100 labelled questions, four retrieval architectures measured against them.">
 <title>ReguLens</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -35,8 +42,13 @@
 *{box-sizing:border-box}
 body{margin:0;background:var(--canvas);color:var(--body);font-family:var(--f-ui);
   font-size:16px;line-height:1.62;-webkit-font-smoothing:antialiased}
-.wrap{max-width:70rem;margin:0 auto;padding:clamp(1.5rem,4vw,3.25rem) clamp(1rem,3vw,2.5rem) 4rem;
+.wrap{max-width:84rem;margin:0 auto;padding:clamp(1.5rem,4vw,3.25rem) clamp(1rem,3vw,2.5rem) 4rem;
   display:grid;gap:2.5rem}
+/* A grid item defaults to min-width:auto, so the widest thing inside it sets a
+   floor the container cannot go below. The comparison table does not wrap, so
+   without this it pushes the whole page wider than a phone screen and scrolls
+   the body sideways instead of scrolling inside its own box. */
+.wrap>*,section,.scroll,.demo{min-width:0}
 
 .top{display:flex;justify-content:space-between;align-items:flex-start;gap:1.5rem;flex-wrap:wrap}
 .eyebrow{font-family:var(--f-mono);font-size:.68rem;letter-spacing:.14em;
@@ -46,9 +58,30 @@ h1{font-family:var(--f-display);font-weight:500;letter-spacing:-.015em;
 h2{font-family:var(--f-display);font-weight:500;letter-spacing:-.015em;
   font-size:1.4rem;line-height:1.22;margin:0 0 .35rem;color:var(--ink);text-wrap:balance}
 .lede{font-family:var(--f-display);font-weight:400;font-size:1.1rem;line-height:1.5;
-  color:var(--body);margin:0;max-width:56ch}
+  color:var(--body);margin:0;max-width:62ch}
 p{margin:0 0 .85rem}p:last-child{margin-bottom:0}
-.note{font-size:.86rem;color:var(--muted);max-width:64ch}
+.note{font-size:.86rem;color:var(--muted);max-width:68ch}
+/* Long text has to fill a wide screen without becoming a 1400px line, and the
+   two ways to do that are different shapes of the same idea.
+   .cols lays SEPARATE paragraphs side by side; .wide flows ONE paragraph into
+   columns. Both collapse to a single column when there is no room. Without them
+   a capped measure sits beside a full-width panel and half the page is empty,
+   which is what reads as broken rather than as typography. */
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(21rem,1fr));gap:.6rem 2.25rem;
+  align-items:start}
+.cols>*{max-width:none}
+.wide{columns:21rem 2;column-gap:2.25rem;max-width:none}
+.wide>*{break-inside:avoid}
+/* The lede keeps a reading measure, so on a wide screen the space beside it is
+   dead. The headline numbers go there rather than nothing. */
+.hero{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:1.5rem 3rem;align-items:end}
+@media(max-width:52rem){.hero{grid-template-columns:1fr;align-items:start}}
+.facts{display:grid;grid-template-columns:repeat(2,auto);gap:.7rem 2rem;margin:0}
+.facts div{display:grid;gap:.1rem}
+.facts dt{font-family:var(--f-mono);font-size:.63rem;letter-spacing:.09em;
+  text-transform:uppercase;color:var(--muted)}
+.facts dd{margin:0;font-family:var(--f-display);font-size:1.5rem;line-height:1;color:var(--ink);
+  font-variant-numeric:tabular-nums}
 a{color:var(--primary);text-underline-offset:2px}
 :focus-visible{outline:2px solid var(--primary);outline-offset:2px}
 
@@ -125,10 +158,32 @@ td.n{font-family:var(--f-mono);font-variant-numeric:tabular-nums}
 tr.lead td{font-weight:600;color:var(--ink)}
 tr.lead td:first-child{box-shadow:inset 2px 0 0 var(--primary)}
 footer{border-top:1px solid var(--hairline);padding-top:1.25rem;font-size:.8rem;
-  color:var(--muted);max-width:64ch}
+  color:var(--muted)}
+footer p{max-width:72ch}
 footer strong{color:var(--body)}
+
+/* phases */
+.phase{border:1px solid var(--hairline);border-radius:3px;background:var(--surface);
+  padding:.85rem 1rem;display:grid;gap:.3rem}
+.phase h3{font-family:var(--f-mono);font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--primary);margin:0;font-weight:500}
+.phase p{font-size:.85rem;margin:0;color:var(--body)}
+.phase .out{font-size:.8rem;color:var(--muted)}
+.phase .out b{font-family:var(--f-mono);font-weight:500;color:var(--ink)}
+.grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));gap:.7rem}
+.fail{border-left:2px solid var(--pw-fg)}
+
+@media(max-width:52rem){
+  /* A 34rem question list fills a phone screen before the answer is reachable. */
+  .picker{max-height:19rem}
+  .answer{padding:1rem}
+  .wrap{gap:2rem}
+  .qtext{font-size:1.05rem}
+}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
 </style>
+</head>
+<body>
 <div class="wrap">
 <header>
   <div class="top">
@@ -140,12 +195,20 @@ footer strong{color:var(--body)}
       <span id="themeicon"></span><span id="themelabel">Theme</span>
     </button>
   </div>
-  <p class="lede">Ask a regulatory question, get the exact articles that answer it &mdash; each one identified, scored against a human-labelled answer key, and linked back to the source.</p>
+  <div class="hero">
+    <p class="lede">Ask a regulatory question, get the exact articles that answer it &mdash; each one identified, scored against a human-labelled answer key, and linked back to the source.</p>
+    <dl class="facts">
+      <div><dt>Instruments indexed</dt><dd>46</dd></div>
+      <div><dt>Labelled questions</dt><dd>100</dd></div>
+      <div><dt>Best recall@10</dt><dd>0.750</dd></div>
+      <div><dt>Architectures compared</dt><dd>4</dd></div>
+    </dl>
+  </div>
 </header>
 
 <section>
   <h2>Try it</h2>
-  <p class="note">These are the 100 benchmark questions. Everything below is what the system
+  <p class="note wide">These are the 100 benchmark questions. Everything below is what the system
   actually returned when run over the corpus &mdash; real citations, real relevance scores,
   nothing mocked up. Because each question has labelled evidence, you can also see whether
   it found what a human said was required.</p>
@@ -156,6 +219,7 @@ footer strong{color:var(--body)}
     </div>
     <div class="pane answer" id="answer"></div>
   </div>
+  <div class="cols">
   <p class="note"><strong>Why quotes and not prose?</strong> Because a quote cannot say
   something its source does not. The same pipeline was run through a local generative model
   to measure what paraphrasing costs: it declined 69 of the 100 questions, and of the claims
@@ -170,11 +234,12 @@ footer strong{color:var(--body)}
   labelled answer &mdash; then links you to the Central Bank's own page for the words. In place
   of the article text each required citation carries the labeller's note on <em>why</em> that
   provision answers the question, which is the part you cannot get by clicking through.</p>
+  </div>
 </section>
 
 <section>
   <h2>When should it refuse to answer?</h2>
-  <p class="note">Fourteen questions have no answer in this corpus. A system that answers them
+  <p class="note wide">Fourteen questions have no answer in this corpus. A system that answers them
   anyway is confidently wrong. Declining below a relevance score is the obvious fix &mdash;
   move the control and watch what it costs.</p>
   <div class="control">
@@ -199,7 +264,7 @@ footer strong{color:var(--body)}
       <tr class="lead"><td>Hybrid + reranker</td><td class="n">0.750</td><td class="n">0.593</td><td class="n">0.674</td><td class="n">1042 ms</td></tr>
     </tbody>
   </table></div>
-  <p class="note">Measured over the 86 answerable questions, on CPU. The demo above uses the
+  <p class="note wide">Measured over the 86 answerable questions, on CPU. The demo above uses the
   last row. <strong>Hybrid with reranking beats BM25 by +0.169</strong> (95% interval +0.087
   to +0.250) and dense by +0.070 &mdash; both clear zero. At 50 questions neither did: the
   systems and the code were identical, only the benchmark grew. On
@@ -207,11 +272,89 @@ footer strong{color:var(--body)}
   reaches 0.853 against BM25's 0.618.</p>
 </section>
 
+<section>
+  <h2>What was built, in six phases</h2>
+  <p class="note wide">Each phase produced a measurement rather than a claim. Full write-ups, with
+  the raw output behind every number:
+  <a href="https://github.com/clyv/cbuae-rag-benchmark/blob/main/results/tables.md">retrieval</a> &middot;
+  <a href="https://github.com/clyv/cbuae-rag-benchmark/blob/main/results/abstention.md">abstention</a> &middot;
+  <a href="https://github.com/clyv/cbuae-rag-benchmark/blob/main/results/abstractive.md">the price of fluency</a> &middot;
+  <a href="https://github.com/clyv/cbuae-rag-benchmark/blob/main/results/graph.md">the graph</a> &middot;
+  <a href="https://github.com/clyv/cbuae-rag-benchmark/blob/main/results/scope_check.md">the scope check</a> &middot;
+  <a href="https://github.com/clyv/cbuae-rag-benchmark/blob/main/results/label_verification_control.md">the planted-error control</a> &middot;
+  <a href="https://github.com/clyv/cbuae-rag-benchmark">the repository</a></p>
+  <div class="grid3">
+    <div class="phase">
+      <h3>1&ndash;2 &middot; Corpus</h3>
+      <p>46 insurance instruments, 763 sections, parsed from the Rulebook's own HTML rather
+      than from PDFs.</p>
+      <p class="out">Section identity is citable, which is what makes evidence scoreable at
+      all. Three registry rows initially fetched a whole category &mdash; catching that
+      stopped one article being indexed under four document ids.</p>
+    </div>
+    <div class="phase">
+      <h3>3 &middot; Benchmark</h3>
+      <p>100 questions across six categories, each labelled with the sections that must be
+      found to answer it.</p>
+      <p class="out">Deliberate errors were planted in the answer key to test the review
+      process: <b>5 of 8 caught</b>, so the benchmark is reported as holding at most about
+      three label errors rather than claimed clean.</p>
+    </div>
+    <div class="phase">
+      <h3>4 &middot; Retrieval</h3>
+      <p>Four architectures behind one interface, measured on identical inputs with paired
+      bootstrap intervals.</p>
+      <p class="out">Hybrid + reranking <b>0.750</b> against BM25's <b>0.581</b>. At 50
+      questions the same comparison could not be established at all.</p>
+    </div>
+    <div class="phase">
+      <h3>5 &middot; Answering</h3>
+      <p>Extractive answers, citation validation, and abstention driven by the reranker's
+      score.</p>
+      <p class="out">Citations are grounded <b>1.000</b> by construction. Abstention separates
+      answerable from unanswerable at <b>AUC 0.806</b> (95% interval 0.671&ndash;0.915).</p>
+    </div>
+    <div class="phase fail">
+      <h3>6 &middot; Cross-reference graph</h3>
+      <p>Regulation cites itself constantly, so following those citations should recover
+      evidence the search missed. 193 references resolved to <b>102 edges</b>.</p>
+      <p class="out">It changes nothing: recall@10 <b>0.750 either way</b>, interval +0.000 to
+      +0.000, and not one question moved.</p>
+    </div>
+    <div class="phase fail">
+      <h3>&times; &middot; Scope check</h3>
+      <p>The hardest refusals are questions about entities the corpus does not govern. Every
+      instrument states who it binds, so scoring the question against that should catch them.</p>
+      <p class="out">Worse than relevance alone: <b>0.806</b> falls to <b>0.675</b> when scope
+      is added.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Why the graph failed, which is the interesting part</h2>
+  <div class="cols">
+    <p class="note">Following a citation only helps if the provisions a question needs are the
+    ones the text links. 59 questions require exactly two sections &mdash; and <strong>2 of
+    those 59 pairs are joined by an explicit reference</strong>. Before building anything, the
+    ceiling said the same: a flawless expansion could rescue <strong>one</strong> of the 35
+    questions the system misses evidence on, and more hops do not help because the graph runs
+    out of edges.</p>
+    <p class="note">Cross-references encode <em>procedural dependency</em> &mdash; do this in
+    accordance with that provision. A question needs <em>topical completeness</em>: the two
+    rules that together answer it. Two rules about capital adequacy answer a question together
+    and have no reason to cite one another, because neither is a step in the other's procedure.
+    The structure the corpus writes down is not the structure the questions need.</p>
+  </div>
+</section>
+
 <footer>
+  <div class="cols">
   <p>Runs locally on CPU, no paid API keys. <strong>No CBUAE text is reproduced on this page.</strong> The corpus is fetched from the Rulebook at clone time and never redistributed; every citation here is an identifier and a direct link, which the CBUAE terms expressly permit.</p>
   <p>Corpus <strong>&copy; Central Bank of the UAE</strong>, used for non-commercial research
   under the CBUAE website terms. <strong>Not affiliated with, endorsed by, or connected to the
   Central Bank of the UAE.</strong> Nothing here is legal, regulatory or compliance advice.</p>
+  </div>
 </footer>
 </div>
 <script>
@@ -353,3 +496,5 @@ el("thr").addEventListener("input", (e) => {
 
 paint(); renderFilters(); renderList(); renderAnswer(); renderTally();
 </script>
+</body>
+</html>
