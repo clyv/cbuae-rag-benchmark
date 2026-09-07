@@ -118,8 +118,8 @@ p{margin:0 0 .85rem}p:last-child{margin-bottom:0}
   align-items:start}
 .cols>*{max-width:none}
 .full{max-width:none}
-/* The panel above sits flush against the text that explains it without this. */
-.demo+.cols,.demo+.note,.control+.note{margin-top:1.75rem}
+/* Every panel sits flush against the text that explains it without this. */
+.demo+.cols,.demo+.note,.control+.note,.scroll+.note,.grid3+.note{margin-top:1.75rem}
 /* The lede keeps a reading measure, so on a wide screen the space beside it is
    dead. The headline numbers go there rather than nothing. */
 .hero{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:1.5rem 3rem;align-items:end}
