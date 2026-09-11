@@ -9,10 +9,12 @@ the demo; the evaluation is the project.
 > **[Try the demo](https://clyv.github.io/cbuae-rag-benchmark/)** — 100 questions,
 > the system's real recorded output, scored against a human-labelled answer key.
 >
-> **Status:** all six phases complete. Corpus, benchmark, the four-system
-> comparison, grounded answering with citation validation and abstention, and
-> the cross-reference graph are measured and reported below. Two of those
-> experiments failed, and are reported as failures.
+> **Status:** all six phases complete, and the benchmark has since been turned
+> on the system's own defaults. Corpus, benchmark, the four-system comparison,
+> grounded answering with citation validation and abstention, and the
+> cross-reference graph are all measured below. Two of those experiments failed
+> and are reported as failures; a third found that two unexamined configuration
+> choices were worth 69% of the entire architecture gap.
 
 ---
 
@@ -617,6 +619,129 @@ is not the structure the questions need — which also says what a useful graph
 would have to be built from: co-citation, shared defined terms, or the Rulebook's
 own topical hierarchy. All latent rather than stated, and none a regular
 expression away.
+
+## Turning the benchmark on the system's own defaults
+
+Phases 1-6 compared *architectures* while holding everything around them fixed:
+one chunk size, one embedding model, one reranker, chosen early and never
+examined. The benchmark can measure those too. It turns out they were carrying
+more of the result than the architecture was.
+
+### Chunk size moves recall almost as much as the architecture does
+
+Every number above was measured at 512 words with 64 of overlap. Eight settings
+later (`results/chunking.md`), on hybrid + reranker:
+
+| chunking | chunks | recall@10 | vs shipped | 95% interval |
+|---|---:|---:|---:|---|
+| **whole sections** | 763 | **0.791** | **+0.041** | +0.006 to +0.081 |
+| 512 / 0 | 932 | 0.779 | +0.029 | +0.006 to +0.064 |
+| 512 / 64 *(shipped)* | 954 | 0.750 | — | |
+| 128 / 16 | 2433 | 0.703 | −0.047 | −0.093 to +0.000 |
+| 64 / 8 | 4860 | 0.669 | −0.081 | −0.145 to −0.017 |
+
+**Not splitting at all is best**, and degradation is monotonic in chunk size. The
+hypothesis was written down before the run: regulatory sections are already
+semantic units — one article is one obligation, bounded by the drafter rather
+than a token budget — so splitting cuts an obligation away from the condition
+governing it.
+
+**Overlap is a cost, not insurance.** Holding size at 512, zero overlap beats 64
+words of it by +0.029. Every overlapped window is a near-duplicate competing for
+the same retrieval budget — which is `metrics._top_k`'s deduplication decision
+showing up as a result.
+
+The uncomfortable number: **the spread across chunking settings is 0.122, and the
+spread across the four architectures is 0.169.**
+
+### A field that was in the metadata and never indexed
+
+`results/failures.md` classified all 39 missed sections and found four where a
+matched instrument outranked its counterpart — `INS-FIN-002::Section 2, Article 1`
+returned when the answer is in `INS-FIN-001`. Same article number, same heading,
+near-identical body. The word that separates them is *Takaful*, and it appears
+only in the document title — which `indexable_text` did not index, because
+`section_title` equals it for just 44 of 763 sections.
+
+Indexing it: **0.750 → 0.802**, +0.052 (95% interval +0.012 to +0.093).
+
+The prediction was right about direction and wrong about mechanism. Of the four
+matched-instrument misses it was built to fix, **one** moved. The FIN-001/FIN-002
+pair did not, because those titles are fifteen words of shared boilerplate around
+one distinguishing token. Nine of the ten gains were the title carrying the
+instrument's *topic*, not its identity.
+
+### Together they are worth 69% of the architecture gap
+
+| configuration | recall@10 | full recall@10 | vs shipped |
+|---|---:|---:|---:|
+| shipped | 0.750 | 0.593 | — |
+| whole sections | 0.791 | 0.663 | +0.041 |
+| doc title | 0.802 | 0.674 | +0.052 |
+| **both** | **0.866** | **0.756** | **+0.116** |
+
+They were expected to overlap, since both plausibly fix the same failures.
+Instead they are **superadditive by +0.023** — a whole section gives the title a
+coherent unit to attach to instead of smearing it across competing fragments.
+
+**+0.116 is about 69% of the +0.169 span between BM25 and hybrid + reranker** that
+Phase 4 exists to establish, from two changes needing no new model, dependency or
+idea. The architecture comparison stays internally fair — every system in it was
+measured at one identical configuration — but a reported RAG number describes a
+*configuration* at least as much as a technique.
+
+Neither gain would have been visible without the benchmark. They produce no
+error and no symptom. The system just quietly found less.
+
+**The defaults have not been changed.** Both gains were measured on the only 100
+questions this project has, so +0.116 is an upper estimate, and switching to the
+configuration that scores best on the test set is the trap the abstention
+threshold was deliberately left untuned to avoid. The argument both ways is in
+`results/combined.md` rather than resolved quietly.
+
+### Why retrieval misses what it misses
+
+| | missed sections | |
+|---|---:|---|
+| **Same document, wrong article** | **24** | **62%** |
+| No signal | 8 | 21% |
+| Matched instrument outranked | 4 | 10% |
+| Same label, unrelated instrument | 2 | 5% |
+| Lexical gap | 1 | 3% |
+
+The dominant failure is not the one this README previously implied. **Lexical gap
+explains one missed section out of 39.** The six paraphrase questions highlighted
+above are real, but they are questions the strong system *solves* — paraphrase is
+where reranking earns its place, not where the remaining failures live. Telling
+sibling articles apart is the actual problem. Full taxonomy in
+`results/failures.md`.
+
+### Does an answer keep the obligation the regulation stated?
+
+Regulation's content is carried by *shall*, *must*, *may* and *should*, and
+citation validity is blind to it: "an insurer **may** appoint an actuary" and "an
+insurer **shall** appoint an actuary" share every content word but one.
+
+| | abstractive | extractive |
+|---|---:|---:|
+| Claims stating an obligation | 51 | 240 |
+| Preserved | 46 | 240 |
+| Strengthened | 1 | 0 |
+| **Weakened** | **4** | **0** |
+| **Obligation fidelity** | **0.902** | **1.000** |
+
+Four of the five errors are **weakenings** — the direction that tells a firm it
+may skip something it must do. One, verbatim:
+
+> **Source:** "The company **shall** provide electronic claim forms…"
+> **Model wrote:** "The website **should** provide electronic claim forms…"
+
+Every other word is the source's own, so citation validity passes it comfortably.
+
+This *disagrees* with citation support, which is the useful part: the same run
+measures support at 0.557 and obligation fidelity at 0.902. The model is bad at
+being traceable and good at preserving force. A single "faithfulness" number
+would hide both. Write-up in `results/obligation.md`.
 
 ---
 

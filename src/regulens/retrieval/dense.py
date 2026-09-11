@@ -62,6 +62,29 @@ from regulens.retrieval.text import indexable_text
 
 QUERY_INSTRUCTION = "Represent this sentence for searching relevant passages: "
 
+# Asymmetric embedding models are trained with a prefix on one side or both, and
+# using the wrong one - or none - measures the prefix rather than the model. BGE
+# instructs the query only; E5 and GTE-family checkpoints prefix both sides.
+# Swapping a model without swapping its prefixes would understate it, so the
+# pairing lives with the model name rather than in the caller.
+INSTRUCTIONS: dict[str, tuple[str, str]] = {
+    "BAAI/bge": (QUERY_INSTRUCTION, ""),
+    "intfloat/e5": ("query: ", "passage: "),
+    "intfloat/multilingual-e5": ("query: ", "passage: "),
+    "thenlper/gte": ("", ""),
+    "sentence-transformers/": ("", ""),
+}
+
+
+def instructions_for(model_name: str) -> tuple[str, str]:
+    """The (query, passage) prefixes a checkpoint expects. Unknown models get
+    none, which is the safe default: a spurious prefix is worse than no prefix
+    for a model never trained on one."""
+    for prefix, pair in INSTRUCTIONS.items():
+        if model_name.startswith(prefix):
+            return pair
+    return ("", "")
+
 DEFAULT_CACHE = Path(__file__).resolve().parents[3] / "corpus" / "processed" / "embeddings.npz"
 
 
@@ -107,7 +130,8 @@ class DenseRetriever:
         self.model = SentenceTransformer(model_name, device=device)
 
         self.include_doc_title = include_doc_title
-        texts = [indexable_text(c, include_doc_title) for c in chunks]
+        self.query_prefix, passage_prefix = instructions_for(model_name)
+        texts = [passage_prefix + indexable_text(c, include_doc_title) for c in chunks]
         key = _fingerprint(model_name, texts)
         self.cached = False
 
@@ -143,7 +167,7 @@ class DenseRetriever:
 
     def retrieve(self, query: str, k: int) -> list[RetrievalResult]:
         vector = self.model.encode(
-            QUERY_INSTRUCTION + query,
+            self.query_prefix + query,
             normalize_embeddings=True,
             convert_to_numpy=True,
             show_progress_bar=False,
