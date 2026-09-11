@@ -40,7 +40,24 @@ import numpy as np
 from regulens.retrieval.base import Chunk, RetrievalResult
 from regulens.retrieval.text import indexable_text
 
-DEFAULT_MODEL = "naver/splade-cocondenser-ensembledistil"
+# The OpenSearch checkpoint rather than naver/splade-cocondenser-ensembledistil,
+# and the reason is an environment constraint worth recording rather than
+# working around.
+#
+# The naver checkpoints publish only `pytorch_model.bin`. transformers refuses to
+# load a pickle checkpoint unless torch is 2.6 or newer (CVE-2025-32434), and
+# this project pins torch 2.5.1 - in requirements, in the Dockerfile, and in
+# every measurement already reported. Upgrading torch to run one more experiment
+# would mean every prior number was measured on a different stack, and loading
+# the pickle anyway would be executing downloaded code past a check that exists
+# for good reason.
+#
+# This checkpoint is the same family and the same inference path, encodes queries
+# and documents symmetrically, and ships safetensors. `expansion_for` confirms it
+# behaves: on a passage about deviation from risk appetite it weights "appetite",
+# "deviation", "board" and "approval" from the text, and expands to "hunger",
+# "risks" and "approved", which are not in it.
+DEFAULT_MODEL = "opensearch-project/opensearch-neural-sparse-encoding-v2-distill"
 MAX_LENGTH = 512
 
 

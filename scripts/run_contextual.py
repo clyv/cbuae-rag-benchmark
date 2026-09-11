@@ -39,6 +39,7 @@ from regulens.retrieval.contextual import (  # noqa: E402
     ContextCache,
     build_context,
     contextualise,
+    migrate,
 )
 
 SECTIONS = REPO_ROOT / "corpus" / "processed" / "sections.jsonl"
@@ -72,6 +73,16 @@ def generate_contexts(chunks: list[Chunk]) -> None:
 
     model = AbstractiveGenerator(model_name=GENERATOR, max_new_tokens=48)
     cache = ContextCache(GENERATOR)
+
+    # Entries written under the old text-only key are still good wherever the
+    # text was unique, so they are carried forward rather than regenerated.
+    carried = migrate(cache.entries, chunks, GENERATOR)
+    if carried:
+        before = len(cache.entries)
+        cache.entries = carried
+        cache.save()
+        print(f"carried {len(carried)} contexts forward from {before} legacy entries; "
+              f"{len(chunks) - len(carried)} to regenerate")
     started = time.perf_counter()
     written = 0
 

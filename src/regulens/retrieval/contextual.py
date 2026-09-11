@@ -70,10 +70,52 @@ PROMPT_CHARS = 600
 
 
 def _key(model_name: str, chunk: Chunk) -> str:
+    """Everything the prompt is built from, and nothing less.
+
+    A first version hashed only the model and the chunk text. That was wrong in
+    the one way that mattered most: this corpus contains matched instruments
+    whose articles are textually identical, so 61 chunks in 25 groups collided -
+    including the INS-FIN-001 / INS-FIN-002 pairs. Both twins received whichever
+    context was generated first, which said "insurance companies in the UAE" and
+    named no Takaful distinction at all.
+
+    The prompt carries the document title and the section label, so the key must
+    too, or the cache silently answers a question it was never asked.
+    """
     digest = hashlib.sha256(model_name.encode("utf-8"))
-    digest.update(bytes([0]))
-    digest.update(chunk.text.encode("utf-8"))
+    for part in (
+        chunk.metadata.get("doc_title", chunk.doc_id),
+        chunk.section,
+        chunk.text,
+    ):
+        digest.update(bytes([0]))
+        digest.update(part.encode("utf-8"))
     return digest.hexdigest()[:32]
+
+
+def migrate(old_entries: dict[str, str], chunks: list[Chunk], model_name: str) -> dict[str, str]:
+    """Carry forward the entries the old key could not have got wrong.
+
+    A chunk whose text is unique in the corpus had no collision available, so the
+    context cached under the old key was generated from that chunk's own prompt
+    and is correct. Chunks sharing text with another are dropped and regenerated.
+    Saves regenerating 700 sentences to fix 61.
+    """
+    counts: dict[str, int] = {}
+    for chunk in chunks:
+        counts[chunk.text] = counts.get(chunk.text, 0) + 1
+
+    migrated: dict[str, str] = {}
+    for chunk in chunks:
+        if counts[chunk.text] > 1:
+            continue
+        legacy = hashlib.sha256(model_name.encode("utf-8"))
+        legacy.update(bytes([0]))
+        legacy.update(chunk.text.encode("utf-8"))
+        value = old_entries.get(legacy.hexdigest()[:32])
+        if value:
+            migrated[_key(model_name, chunk)] = value
+    return migrated
 
 
 def _clean(text: str) -> str:
