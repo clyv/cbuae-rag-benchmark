@@ -215,7 +215,7 @@ def main() -> int:
           f"{ob['preserved']} preserved, {ob['strengthened']} strengthened, "
           f"{ob['weakened']} weakened")
     print(f"    {ob['no_force']} of {ob['claims']} claims state no obligation at all")
-    print(f"\nWrote {OUT.relative_to(REPO_ROOT)}")
+    print(f"\nWrote {out.relative_to(REPO_ROOT)}")
     return 0
 
 

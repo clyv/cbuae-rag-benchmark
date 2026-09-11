@@ -125,11 +125,26 @@ pins both failure shapes.
 
 ## What this number is and is not
 
-**0.557 is a lower bound on abstractive citation validity, not an estimate of
-it.** It is what a 0.5B parameter model does, and model size is the binding
-constraint here - the 69 refusals say so directly. A 7B model, or a hosted
-frontier model, would very likely refuse far less and support far more. Nothing
-here licenses a claim about abstractive generation in general.
+**This was originally written as a lower bound, and that was wrong.** The claim
+was that 0.557 is what a 0.5B model does, that model size is the binding
+constraint, and that a larger model "would very likely refuse far less and
+support far more".
+
+A 1.5B model was then measured. It refused 66 of 100 rather than 69, and scored
+**0.366** rather than more - worse by 0.191, with a bootstrap interval of −0.358
+to −0.025 that clears zero. See `results/generator_size.md`.
+
+The reason is the metric, not the model. Median claim length falls from 31 words
+to 20: the larger model *paraphrases* where the smaller one *copies*, and
+`supported_strict` asks how much of a claim's vocabulary came from the cited
+section. It cannot distinguish "said something the source does not" from "said
+the same thing in different words". On the semantic metric that can -
+`results/obligation.md` - the larger model is better: 0.944 against 0.902, with
+weakenings falling from four to one.
+
+So the honest reading of 0.557 is narrower than a bound on abstractive
+generation: it is what one small model's copying scores on a measure that rewards
+copying. Nothing here licenses a claim about abstractive generation in general.
 
 What it does establish, on this corpus with these questions:
 

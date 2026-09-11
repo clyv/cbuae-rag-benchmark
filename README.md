@@ -812,6 +812,94 @@ existing. Unknown is kept distinct from future: four instruments publish no date
 at all and are reported separately, never counted as premature.
 `results/temporal.md`.
 
+### A fifth retrieval system, and the same answer the graph gave
+
+SPLADE is the family the four-system table does not cover: sparse like BM25, but
+with learned weights that put mass on terms the passage never uses. On a passage
+about *deviation from the Risk Appetite* it weights *appetite, deviation, board,
+approval* — and expands to **hunger**, *risks*, *approved*.
+
+| system | recall@10 | vs shipped | interval |
+|---|---:|---:|---|
+| **bm25 + dense + reranker** *(shipped)* | **0.750** | — | |
+| bm25 + dense + splade + reranker | 0.750 | **+0.000** | **+0.000 to +0.000** |
+| bm25 + dense + splade | 0.709 | −0.041 | −0.099 to +0.017 |
+| splade alone | 0.686 | −0.064 | −0.128 to −0.006 |
+
+Unreranked, fusing it in is worth +0.023. Reranked it is worth *nothing* — the
+interval is not centred on zero, it **is** zero, because the top 10 is identical
+on all 86 questions.
+
+"It added nothing" is the wrong reading. Candidate-pool overlap at depth 50 is
+**79%**, and SPLADE newly introduced **1,048 sections** across 100 questions. The
+reranker discarded every one, because recall@50 is **0.930 either way** — the
+sections it brought in contained no required evidence that was not already there.
+
+**That completes a pattern.** Three candidate-expansion strategies now measured:
+
+| | what it added | effect |
+|---|---|---|
+| Cross-reference graph | median 3 sections/query | +0.000 |
+| Learned sparse fusion | 1,048 sections/100 queries | +0.000 |
+| Query rewriting | expanded + hypothetical queries | −0.012, −0.006 |
+| **Chunking + document title** | **what a candidate *is*** | **+0.116** |
+
+**Candidate generation is not the bottleneck on this corpus. Representation is.**
+The pool holds 93% of required evidence while the reranked top 10 reaches 0.750,
+so the 0.180 between them is *ranking* — which is what the failure taxonomy said
+from the other direction. `results/splade.md`.
+
+### Contextual retrieval loses to a field already in the metadata
+
+A 0.5B model wrote a situating sentence for each of 763 sections:
+
+| configuration | recall@10 | vs base | interval |
+|---|---:|---:|---|
+| whole sections | 0.791 | — | |
+| **+ document title** | **0.866** | **+0.076** | **+0.035 to +0.122** |
+| + generated context | 0.837 | +0.047 | +0.000 to +0.099 |
+| + context + title | 0.826 | +0.035 | −0.017 to +0.087 |
+
+The free option wins, and the two **interfere** — context on top of the title
+drops recall by 0.041. Both put text in front of the provision and compete for
+the same embedding budget, unlike chunking and the title, which were
+superadditive because one made room for the other.
+
+And the failure a score alone would hide: `INS-LIC-001::Article 1` is a glossary
+of forty-odd defined terms, and the model described it as *"the qualifications
+and requirements for an actuary"* — because it saw the first 600 characters, and
+those are the definition of "Actuary". Every word traces to text it saw; it is
+wrong about what the section *is*, and that is now indexed. The document title
+cannot do this, because it is metadata and true by construction.
+`results/contextual.md`.
+
+### A three times larger generator scores worse, and the metric is why
+
+`results/abstractive.md` predicted, in bold, that 0.557 was a floor and a larger
+model "would refuse far less and support far more". Measured at 1.5B:
+
+| | 0.5B | 1.5B |
+|---|---:|---:|
+| Declined | 69 | 66 |
+| **Supported, strict** | **0.557** | **0.366** |
+| **Obligation fidelity** | **0.902** | **0.944** |
+| Claims weakening an obligation | 4 | **1** |
+| Median claim length | 31 words | **20 words** |
+
+Both halves of the prediction were wrong: refusals barely moved, and support fell
+by 0.191 (interval −0.358 to −0.025, clears zero).
+
+**The reason is the metric.** The larger model *paraphrases* where the smaller
+one *copies*, and `supported_strict` asks how much of a claim's vocabulary came
+from the cited section. The whole ladder is a ladder of verbatimness — extractive
+0.972, 0.5B 0.557, 1.5B 0.366 — not a ranking of faithfulness.
+
+The semantic metric moves the other way. Obligation fidelity, which asks whether
+*shall / must / may / should* survived and does not care what words carry it,
+rises to 0.944 with weakenings falling from four to one. Two metrics, opposite
+directions, both correct — which is the argument for having built the second one.
+`results/generator_size.md`.
+
 ---
 
 ## Limitations
