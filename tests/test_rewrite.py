@@ -61,6 +61,17 @@ def test_domain_noise_is_not_used_as_an_expansion_term():
     assert "company" not in terms
 
 
+def test_english_stopwords_are_not_used_as_expansion_terms():
+    """tokenize() does not strip these, because BM25's IDF discounts them
+    anyway. Pseudo-relevance feedback counts raw occurrences and has no such
+    protection - a first version of this appended "into related from this
+    between" to every query."""
+    base = Fixed([chunk("The actuary shall report from within the period between reviews.")])
+    terms = PseudoRelevanceRewriter(base).expansion_terms("reporting duty")
+    for noise in ("from", "within", "between", "shall", "this", "related"):
+        assert noise not in terms
+
+
 def test_short_terms_and_bare_numbers_are_skipped():
     base = Fixed([chunk("The fund shall hold AED 250 000 000 in reserve.")])
     terms = PseudoRelevanceRewriter(base).expansion_terms("how much")

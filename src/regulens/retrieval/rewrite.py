@@ -45,14 +45,36 @@ from typing import Protocol
 from regulens.retrieval.base import RetrievalResult, Retriever
 from regulens.retrieval.text import indexable_text, tokenize
 
+# Two separate reasons a term is useless as an expansion, and both are needed.
+#
+# English function words: `tokenize` deliberately does not strip these, because
+# BM25's inverse document frequency discounts them to nothing anyway. Pseudo-
+# relevance feedback has no such protection - it counts raw occurrences, and
+# without this filter it harvests "into", "from", "this", "between" and appends
+# them to the query, which is what a first version of this module actually did.
+STOPWORDS = frozenset(
+    """about above after again against all also among and any are because been
+    before being below between both but came come could does doing down during
+    each either else even ever every from further had has have having here hers
+    herself him himself his how however into its itself just like made make many
+    more most much must nor not now only other ought our ours ourselves out over
+    own same shall should since some such than that the their theirs them
+    themselves then there these they this those through thus too under until upon
+    very was were what when where whether which while who whom whose why will
+    with within without would your yours yourself subject related effective
+    legal general specific include including includes""".split()
+)
+
 # Terms too common in this corpus to discriminate between its own documents.
-# Harvested from the corpus rather than a general stoplist: "insurance" carries
-# no information here, however informative it is in English at large.
+# Separate from the above because these are informative English and uninformative
+# here: "insurance" says nothing when every document is about insurance.
 DOMAIN_NOISE = frozenset(
     """insurance insurer company companies central bank authority regulation
-    regulations article articles section sections shall must may board
-    provisions accordance provided respect relevant applicable""".split()
+    regulations article articles section sections may board provisions
+    accordance provided respect relevant applicable requirements pursuant""".split()
 )
+
+USELESS = STOPWORDS | DOMAIN_NOISE
 
 
 class Rewriter(Protocol):
@@ -90,7 +112,7 @@ class PseudoRelevanceRewriter:
             for term in set(tokenize(indexable_text(result.chunk))):
                 if (
                     term not in seen
-                    and term not in DOMAIN_NOISE
+                    and term not in USELESS
                     and len(term) >= self.min_length
                     and not term.isdigit()
                 ):
