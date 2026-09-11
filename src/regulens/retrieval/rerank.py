@@ -36,6 +36,16 @@ from regulens.retrieval.base import RetrievalResult, Retriever
 DEFAULT_CANDIDATES = 50
 
 
+def _wrapped_setting(retriever) -> bool:
+    """Whether the system underneath indexes the document title."""
+    if hasattr(retriever, "include_doc_title"):
+        return bool(retriever.include_doc_title)
+    for inner in getattr(retriever, "retrievers", []):
+        if _wrapped_setting(inner):
+            return True
+    return False
+
+
 class RerankedRetriever:
     name = "hybrid+reranker"
 
@@ -58,6 +68,10 @@ class RerankedRetriever:
         # cannot run kernels on this machine's GPU, and CPU latency is the
         # figure that describes what a reader reproducing this would measure.
         self.model = CrossEncoder(model_name, device=device)
+        # Read off the wrapped system rather than set here: showing the reranker
+        # more of the document than the stage that fed it would make a
+        # difference between them uninterpretable.
+        self.include_doc_title = _wrapped_setting(base)
 
     def retrieve(self, query: str, k: int) -> list[RetrievalResult]:
         pool = self.base.retrieve(query, self.candidates)
@@ -70,7 +84,7 @@ class RerankedRetriever:
         from regulens.retrieval.text import indexable_text
 
         scores = self.model.predict(
-            [(query, indexable_text(r.chunk)) for r in pool],
+            [(query, indexable_text(r.chunk, self.include_doc_title)) for r in pool],
             show_progress_bar=False,
         )
 

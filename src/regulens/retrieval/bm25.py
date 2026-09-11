@@ -20,11 +20,14 @@ from regulens.retrieval.text import indexable_text, tokenize
 class BM25Retriever:
     name = "bm25"
 
-    def __init__(self, chunks: list[Chunk]) -> None:
+    def __init__(self, chunks: list[Chunk], include_doc_title: bool = False) -> None:
         if not chunks:
             raise ValueError("BM25Retriever needs at least one chunk")
         self.chunks = chunks
-        self._index = BM25Okapi([tokenize(indexable_text(c)) for c in chunks])
+        self.include_doc_title = include_doc_title
+        self._index = BM25Okapi(
+            [tokenize(indexable_text(c, include_doc_title)) for c in chunks]
+        )
 
     def retrieve(self, query: str, k: int) -> list[RetrievalResult]:
         terms = tokenize(query)

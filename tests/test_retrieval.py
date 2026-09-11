@@ -57,6 +57,55 @@ def test_indexed_text_survives_missing_metadata():
     assert indexable_text(bare) == "text only"
 
 
+# --- the document title, which separates matched instruments ----------------
+
+
+def titled(doc_id: str, doc_title: str) -> Chunk:
+    """Two instruments whose articles are identical apart from their title -
+    the shape that produces 15% of this corpus's missed evidence."""
+    return Chunk(
+        chunk_id=f"{doc_id}::Section 2, Article 1",
+        doc_id=doc_id,
+        section="Section 2, Article 1",
+        text="The Minimum Subscribed and Paid Up Capital of each Company shall be:",
+        metadata={
+            "section_title": "Article (1) - Minimum Capital Requirement",
+            "section_heading": "Article (1) - Minimum Capital Requirement",
+            "doc_title": doc_title,
+        },
+    )
+
+
+def test_the_document_title_is_left_out_by_default():
+    """Off by default so the switch is a measured change, not a silent one."""
+    c = titled("INS-FIN-002", "Financial Regulations for Takaful Insurance Companies")
+    assert "Takaful" not in indexable_text(c)
+
+
+def test_the_document_title_is_indexed_when_asked_for():
+    c = titled("INS-FIN-002", "Financial Regulations for Takaful Insurance Companies")
+    assert "Takaful" in indexable_text(c, include_doc_title=True)
+
+
+def test_the_title_is_what_separates_two_otherwise_identical_articles():
+    conventional = titled("INS-FIN-001", "Financial Regulations for Insurance Companies")
+    takaful = titled("INS-FIN-002", "Financial Regulations for Takaful Insurance Companies")
+    assert indexable_text(conventional) == indexable_text(takaful)
+    assert indexable_text(conventional, True) != indexable_text(takaful, True)
+
+
+def test_a_title_already_used_as_the_heading_adds_nothing():
+    """A document's opening section is titled by the document itself. Adding the
+    title there would weight one section's heading against every other section's
+    body, so for those 44 sections the switch is a no-op."""
+    c = Chunk(
+        chunk_id="D::Introduction", doc_id="D", section="Introduction", text="body",
+        metadata={"section_title": "Licensing Regulation", "section_heading": "Licensing Regulation",
+                  "doc_title": "Licensing Regulation"},
+    )
+    assert indexable_text(c, include_doc_title=True) == indexable_text(c)
+
+
 # --- BM25 -------------------------------------------------------------------
 
 

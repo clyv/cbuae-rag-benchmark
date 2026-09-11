@@ -93,6 +93,7 @@ class DenseRetriever:
         batch_size: int = 32,
         device: str = "cpu",
         cache: Path | None = DEFAULT_CACHE,
+        include_doc_title: bool = False,
     ) -> None:
         if not chunks:
             raise ValueError("DenseRetriever needs at least one chunk")
@@ -105,7 +106,8 @@ class DenseRetriever:
         self.device = device
         self.model = SentenceTransformer(model_name, device=device)
 
-        texts = [indexable_text(c) for c in chunks]
+        self.include_doc_title = include_doc_title
+        texts = [indexable_text(c, include_doc_title) for c in chunks]
         key = _fingerprint(model_name, texts)
         self.cached = False
 

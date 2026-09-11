@@ -1,0 +1,356 @@
+{
+  "system": "hybrid+reranker",
+  "questions_with_required_evidence": 86,
+  "questions": {
+    "total": 8,
+    "complete": 51,
+    "partial": 27
+  },
+  "missed_sections": 39,
+  "by_kind": {
+    "no signal": 8,
+    "same document, wrong article": 24,
+    "matched instrument outranked": 4,
+    "same label, unrelated instrument": 2,
+    "lexical gap": 1
+  },
+  "by_kind_and_category": {
+    "no signal": {
+      "single_hop": 1,
+      "comparative": 5,
+      "cross_document": 2
+    },
+    "same document, wrong article": {
+      "single_hop": 1,
+      "cross_section": 13,
+      "comparative": 4,
+      "adversarial": 2,
+      "cross_document": 4
+    },
+    "matched instrument outranked": {
+      "comparative": 3,
+      "adversarial": 1
+    },
+    "same label, unrelated instrument": {
+      "comparative": 1,
+      "single_hop": 1
+    },
+    "lexical gap": {
+      "comparative": 1
+    }
+  },
+  "missed": [
+    {
+      "id": "Q001",
+      "category": "single_hop",
+      "missed": "INS-GOV-003::Article 3",
+      "kind": "no signal",
+      "question_overlap_with_target": 0.154,
+      "twin_retrieved": null
+    },
+    {
+      "id": "Q003",
+      "category": "single_hop",
+      "missed": "INS-GOV-003::Article 5",
+      "kind": "same document, wrong article",
+      "question_overlap_with_target": 0.3,
+      "twin_retrieved": null
+    },
+    {
+      "id": "Q006",
+      "category": "cross_section",
+      "missed": "INS-GOV-003::Article 3",
+      "kind": "same document, wrong article",
+      "question_overlap_with_target": 0.222,
+      "twin_retrieved": null
+    },
+    {
+      "id": "Q009",
+      "category": "comparative",
+      "missed": "INS-FIN-001::Section 2, Article 1",
+      "kind": "matched instrument outranked",
+      "question_overlap_with_target": 0.364,
+      "twin_retrieved": "INS-FIN-002::Section 2, Article 1"
+    },
+    {
+      "id": "Q010",
+      "category": "comparative",
+      "missed": "INS-FIN-001::Section 2, Article 2",
+      "kind": "no signal",
+      "question_overlap_with_target": 0.364,
+      "twin_retrieved": null
+    },
+    {
+      "id": "Q010",
+      "category": "comparative",
+      "missed": "INS-FIN-002::Section 2, Article 2",
+      "kind": "same document, wrong article",
+      "question_overlap_with_target": 0.364,
+      "twin_retrieved": null
+    },
+    {
+      "id": "Q011",
+      "category": "comparative",
+      "missed": "INS-FIN-001::Section 2, Article 4",
+      "kind": "matched instrument outranked",
+      "question_overlap_with_target": 0.333,
+      "twin_retrieved": "INS-FIN-002::Section 2, Article 4"
+    },
+    {
+      "id": "Q012",
+      "category": "adversarial",
+      "missed": "INS-FIN-001::Section 2, Article 1",
+      "kind": "matched instrument outranked",
+      "question_overlap_with_target": 0.333,
+      "twin_retrieved": "INS-FIN-002::Section 2, Article 1"
+    },
+    {
+      "id": "Q014",
+      "category": "cross_section",
+      "missed": "INS-GOV-003::Article 5",
+      "kind": "same document, wrong article",
+      "question_overlap_with_target": 0.25,
+      "twin_retrieved": null
+    },
+    {
+      "id": "Q016",
+      "category": "cross_section",
+      "missed": "INS-GOV-003::Article 5",
+      "kind": "same document, wrong article",
+      "question_overlap_with_target": 0.333,
+      "twin_retrieved": null
+    },
+    {
+      "id": "Q017",
+      "category": "cross_document",
+      "missed": "INS-FIN-001::Section 2, Article 4",
+      "kind": "no signal",
+      "question_overlap_with_target": 0.286,
+      "twin_retrieved": null
+    },
+    {
+      "id": "Q019",
+      "category": "adversarial",
+      "missed": "INS-GOV-003::Article 5",
+      "kind": "same document, wrong article",
+      "question_overlap_with_target": 0.364,
+      "twin_retrieved": null
+    },
+    {
+      "id": "Q028",
+      "category": "comparative",
+      "missed": "INS-GOV-003::Article 9",
+      "kind": "same label, unrelated instrument",
+      "question_overlap_with_target": 0.25,
+      "twin_retrieved": "INS-TAK-005::Article 9"
+    },
+    {
+      "id": "Q028",
+      "category": "comparative",
+      "missed": "INS-TAK-002::Article 6",
+      "kind": "same document, wrong article",
+      "question_overlap_with_target": 0.25,
+      "twin_retrieved": null
+    },
+    {
+      "id": "Q032",
+      "category": "cross_section",
+      "missed": "INS-LIC-001::Article 6",
+      "kind": "same document, wrong article",
+      "question_overlap_with_target": 0.154,
+      "twin_retrieved": null
+    },
+    {
+      "id": "Q037",
+      "category": "cross_section",
+      "missed": "INS-CON-006::Chapter Three, Article 9",
+      "kind": "same document, wrong article",
+      "question_overlap_with_target": 0.154,
+      "twin_retrieved": null
+    },
+    {
+      "id": "Q039",
+      "category": "cross_section",
+      "missed": "INS-CON-006::Chapter Five, Article 21",
+      "kind": "same document, wrong article",
+      "question_overlap_with_target": 0.167,
+      "twin_retrieved": null
+    },
+    {
+      "id": "Q040",
+      "category": "cross_section",
+      "missed": "INS-GOV-001::Article 9",
+      "kind": "same document, wrong article",
+      "question_overlap_with_target": 0.3,
+      "twin_retrieved": null
+    },
+    {
+      "id": "Q041",
+      "category": "cross_document",
+      "missed": "INS-REP-004::Article 5",
+      "kind": "same document, wrong article",
+      "question_overlap_with_target": 0.25,
+      "twin_retrieved": null
+    },
+    {
+      "id": "Q042",
+      "category": "single_hop",
+      "missed": "INS-SAN-001::Article 4",
+      "kind": "same label, unrelated instrument",
+      "question_overlap_with_target": 0.0,
+      "twin_retrieved": "INS-MOT-001::Article 4"
+    },
+    {
+      "id": "Q044",
+      "category": "cross_section",
+      "missed": "INS-REP-004::Article 5",
+      "kind": "same document, wrong article",
+      "question_overlap_with_target": 0.286,
+      "twin_retrieved": null
+    },
+    {
+      "id": "Q060",
+      "category": "cross_section",
+      "missed": "INS-MOT-002::Chapter Five",
+      "kind": "same document, wrong article",
+      "question_overlap_with_target": 0.533,
+      "twin_retrieved": null
+    },
+    {
+      "id": "Q061",
+      "category": "cross_section",
+      "missed": "INS-MOT-003::Chapter Five",
+      "kind": "same document, wrong article",
+      "question_overlap_with_target": 0.615,
+      "twin_retrieved": null
+    },
+    {
+      "id": "Q062",
+      "category": "cross_section",
+      "missed": "INS-CON-004::Article 9",
+      "kind": "same document, wrong article",
+      "question_overlap_with_target": 0.167,
+      "twin_retrieved": null
+    },
+    {
+      "id": "Q064",
+      "category": "cross_section",
+      "missed": "INS-CON-002::Article 10",
+      "kind": "same document, wrong article",
+      "question_overlap_with_target": 0.091,
+      "twin_retrieved": null
+    },
+    {
+      "id": "Q067",
+      "category": "cross_section",
+      "missed": "INS-MOT-001::Article 6",
+      "kind": "same document, wrong article",
+      "question_overlap_with_target": 0.125,
+      "twin_retrieved": null
+    },
+    {
+      "id": "Q072",
+      "category": "cross_document",
+      "missed": "INS-GOV-002::5",
+      "kind": "same document, wrong article",
+      "question_overlap_with_target": 0.833,
+      "twin_retrieved": null
+    },
+    {
+      "id": "Q073",
+      "category": "cross_document",
+      "missed": "INS-GOV-002::9",
+      "kind": "no signal",
+      "question_overlap_with_target": 0.167,
+      "twin_retrieved": null
+    },
+    {
+      "id": "Q074",
+      "category": "cross_document",
+      "missed": "INS-GOV-008::3.1",
+      "kind": "same document, wrong article",
+      "question_overlap_with_target": 0.364,
+      "twin_retrieved": null
+    },
+    {
+      "id": "Q076",
+      "category": "cross_document",
+      "missed": "INS-REP-004::Article 3",
+      "kind": "same document, wrong article",
+      "question_overlap_with_target": 0.455,
+      "twin_retrieved": null
+    },
+    {
+      "id": "Q077",
+      "category": "comparative",
+      "missed": "INS-MOT-002::Chapter Four",
+      "kind": "matched instrument outranked",
+      "question_overlap_with_target": 0.294,
+      "twin_retrieved": "INS-MOT-003::Chapter Four"
+    },
+    {
+      "id": "Q078",
+      "category": "comparative",
+      "missed": "INS-MOT-002::Chapter Five",
+      "kind": "same document, wrong article",
+      "question_overlap_with_target": 0.357,
+      "twin_retrieved": null
+    },
+    {
+      "id": "Q078",
+      "category": "comparative",
+      "missed": "INS-MOT-003::Chapter Five",
+      "kind": "same document, wrong article",
+      "question_overlap_with_target": 0.357,
+      "twin_retrieved": null
+    },
+    {
+      "id": "Q079",
+      "category": "comparative",
+      "missed": "INS-REP-004::Article 3",
+      "kind": "no signal",
+      "question_overlap_with_target": 0.571,
+      "twin_retrieved": null
+    },
+    {
+      "id": "Q082",
+      "category": "comparative",
+      "missed": "INS-CON-002::Article 10",
+      "kind": "lexical gap",
+      "question_overlap_with_target": 0.0,
+      "twin_retrieved": null
+    },
+    {
+      "id": "Q083",
+      "category": "comparative",
+      "missed": "INS-CON-002::Article 9",
+      "kind": "no signal",
+      "question_overlap_with_target": 0.2,
+      "twin_retrieved": null
+    },
+    {
+      "id": "Q083",
+      "category": "comparative",
+      "missed": "INS-MOT-001::Article 6",
+      "kind": "no signal",
+      "question_overlap_with_target": 0.2,
+      "twin_retrieved": null
+    },
+    {
+      "id": "Q084",
+      "category": "comparative",
+      "missed": "INS-TAK-002::Article 6",
+      "kind": "no signal",
+      "question_overlap_with_target": 0.375,
+      "twin_retrieved": null
+    },
+    {
+      "id": "Q091",
+      "category": "adversarial",
+      "missed": "INS-TAK-005::Article 5",
+      "kind": "same document, wrong article",
+      "question_overlap_with_target": 0.3,
+      "twin_retrieved": null
+    }
+  ]
+}

@@ -21,3 +21,6 @@ venv/
 
 # Generated from results/demo.json by scripts/build_demo_page.py.
 results/demo.html
+
+# Local experiment caches (embedding matrices, not source).
+.cache/

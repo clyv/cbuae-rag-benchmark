@@ -32,8 +32,28 @@ def tokenize(text: str) -> list[str]:
     return TOKEN_RE.findall(text.lower())
 
 
-def indexable_text(chunk: Chunk) -> str:
-    """Heading plus body.
+def indexable_text(chunk: Chunk, include_doc_title: bool = False) -> str:
+    """Heading plus body, and optionally the instrument's own title.
+
+    ## Why the document title is a switch rather than always on
+
+    This corpus contains matched instruments: a conventional regulation and its
+    Takaful counterpart, a Regulation and its Standards. Their articles carry the
+    same numbers, the same headings, and near-identical bodies. The only text
+    that separates `INS-FIN-001::Section 2, Article 1` from
+    `INS-FIN-002::Section 2, Article 1` is the word *Takaful*, and it appears in
+    the document title alone - which `section_title` equals for only 44 of 763
+    sections, so for the rest it is invisible to every retriever.
+
+    `results/failures.md` measured what that costs: 15% of all missed evidence is
+    the right provision retrieved from the wrong instrument.
+
+    It is a switch because adding it is not free. Every chunk gains a dozen words
+    of formal boilerplate - "Insurance Authority Board Decision Number (25) of
+    2014 Pertinent to..." - which dilutes the body's own vocabulary in a dense
+    embedding and adds terms to the lexical index. Whether the disambiguation is
+    worth the dilution is an empirical question, so both settings are measured
+    rather than one being assumed.
 
     The section heading carries the topical words a query is most likely to
     share - 'Grievance', 'Outsourcing', 'Actuarial Function' - and several
@@ -47,5 +67,10 @@ def indexable_text(chunk: Chunk) -> str:
     """
     title = chunk.metadata.get("section_title", "")
     heading = chunk.metadata.get("section_heading", "")
-    parts = [p for p in (title, heading, chunk.text) if p]
+    doc_title = chunk.metadata.get("doc_title", "") if include_doc_title else ""
+    # Not repeated when the section already carries it as its own title, which
+    # happens on a document's opening section.
+    if doc_title and doc_title in (title, heading):
+        doc_title = ""
+    parts = [p for p in (doc_title, title, heading, chunk.text) if p]
     return "\n".join(parts)

@@ -32,6 +32,7 @@ from pathlib import Path
 REPO_ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(REPO_ROOT / "src"))
 
+from regulens.evaluation.obligation import score_claims  # noqa: E402
 from regulens.evaluation.runner import load_benchmark  # noqa: E402
 from regulens.generation.abstractive import split_claims  # noqa: E402
 from regulens.generation.answer import ExtractiveGenerator, answer_question, validate_citations  # noqa: E402
@@ -71,6 +72,22 @@ def _mean(rows: list[dict], key: str) -> float:
     return statistics.fmean(r[key] for r in rows) if rows else 0.0
 
 
+def obligation_pairs(answer, results) -> list[tuple[str, str]]:
+    """Pair each claim with the text of the section it cites.
+
+    Citation validity asks whether a claim's words appear in its source. That
+    check passes on "an insurer may appoint an actuary" cited to a section
+    saying "shall" - almost every word matches, and the obligation is inverted.
+    These pairs are what `score_claims` uses to catch that.
+    """
+    sources = {f"{r.chunk.doc_id}::{r.chunk.section}": r.chunk.text for r in results}
+    return [
+        (c.quote, sources[c.evidence_id])
+        for c in answer.citations
+        if c.evidence_id in sources and c.quote.strip()
+    ]
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("--limit", type=int, default=0, help="score only the first N questions")
@@ -100,6 +117,8 @@ def main() -> int:
     extractive = ExtractiveGenerator()
 
     records = []
+    abstractive_pairs: list[tuple[str, str]] = []
+    extractive_pairs: list[tuple[str, str]] = []
     started = time.perf_counter()
     for n, item in enumerate(items, start=1):
         elapsed = time.perf_counter() - started
@@ -108,6 +127,9 @@ def main() -> int:
 
         abstractive = answer_question(item.question, results, generator=generator, threshold=None)
         quoted = answer_question(item.question, results, generator=extractive, threshold=None)
+
+        abstractive_pairs += obligation_pairs(abstractive, results)
+        extractive_pairs += obligation_pairs(quoted, results)
 
         lenient = validate_citations(abstractive)
         strict = validate_citations(abstractive, min_overlap_ratio=STRICT_RATIO)
@@ -157,6 +179,8 @@ def main() -> int:
             [r for r in cited if r["over_attributed"]], "supported_strict"
         ),
         "answers_over_attributed": sum(r["over_attributed"] for r in cited),
+        "obligation": score_claims(abstractive_pairs),
+        "extractive_obligation": score_claims(extractive_pairs),
         "seconds_per_question": round((time.perf_counter() - started) / len(records), 1),
     }
     OUT.write_text(json.dumps({"summary": summary, "per_question": records}, indent=2, ensure_ascii=False), encoding="utf-8")

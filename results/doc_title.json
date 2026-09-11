@@ -1,0 +1,211 @@
+{
+  "metric": "recall@10",
+  "systems": {
+    "hybrid": {
+      "baseline": 0.686046511627907,
+      "with_title": 0.7209302325581395,
+      "difference": 0.03488372093023256,
+      "interval": [
+        0.0,
+        0.0755813953488372
+      ],
+      "questions_improved": 7,
+      "questions_worsened": 2,
+      "by_category": {
+        "adversarial": {
+          "n": 11,
+          "baseline": 0.8181818181818182,
+          "with_title": 0.7727272727272727
+        },
+        "comparative": {
+          "n": 13,
+          "baseline": 0.4230769230769231,
+          "with_title": 0.46153846153846156
+        },
+        "cross_document": {
+          "n": 17,
+          "baseline": 0.8529411764705882,
+          "with_title": 0.8529411764705882
+        },
+        "cross_section": {
+          "n": 27,
+          "baseline": 0.5925925925925926,
+          "with_title": 0.6666666666666666
+        },
+        "single_hop": {
+          "n": 18,
+          "baseline": 0.7777777777777778,
+          "with_title": 0.8333333333333334
+        }
+      },
+      "moved": [
+        {
+          "id": "Q012",
+          "category": "adversarial",
+          "baseline": 1.0,
+          "with_title": 0.5
+        },
+        {
+          "id": "Q015",
+          "category": "cross_section",
+          "baseline": 0.5,
+          "with_title": 1.0
+        },
+        {
+          "id": "Q043",
+          "category": "single_hop",
+          "baseline": 0.0,
+          "with_title": 1.0
+        },
+        {
+          "id": "Q060",
+          "category": "cross_section",
+          "baseline": 0.5,
+          "with_title": 1.0
+        },
+        {
+          "id": "Q063",
+          "category": "cross_section",
+          "baseline": 0.5,
+          "with_title": 1.0
+        },
+        {
+          "id": "Q065",
+          "category": "cross_section",
+          "baseline": 0.0,
+          "with_title": 0.5
+        },
+        {
+          "id": "Q070",
+          "category": "cross_document",
+          "baseline": 0.5,
+          "with_title": 1.0
+        },
+        {
+          "id": "Q076",
+          "category": "cross_document",
+          "baseline": 1.0,
+          "with_title": 0.5
+        },
+        {
+          "id": "Q083",
+          "category": "comparative",
+          "baseline": 0.0,
+          "with_title": 0.5
+        }
+      ]
+    },
+    "hybrid+reranker": {
+      "baseline": 0.75,
+      "with_title": 0.8023255813953488,
+      "difference": 0.05232558139534884,
+      "interval": [
+        0.011627906976744186,
+        0.09302325581395349
+      ],
+      "questions_improved": 10,
+      "questions_worsened": 2,
+      "by_category": {
+        "adversarial": {
+          "n": 11,
+          "baseline": 0.8181818181818182,
+          "with_title": 0.9090909090909091
+        },
+        "comparative": {
+          "n": 13,
+          "baseline": 0.46153846153846156,
+          "with_title": 0.5384615384615384
+        },
+        "cross_document": {
+          "n": 17,
+          "baseline": 0.8235294117647058,
+          "with_title": 0.8529411764705882
+        },
+        "cross_section": {
+          "n": 27,
+          "baseline": 0.7592592592592593,
+          "with_title": 0.8333333333333334
+        },
+        "single_hop": {
+          "n": 18,
+          "baseline": 0.8333333333333334,
+          "with_title": 0.8333333333333334
+        }
+      },
+      "moved": [
+        {
+          "id": "Q010",
+          "category": "comparative",
+          "baseline": 0.0,
+          "with_title": 0.5
+        },
+        {
+          "id": "Q016",
+          "category": "cross_section",
+          "baseline": 0.5,
+          "with_title": 1.0
+        },
+        {
+          "id": "Q032",
+          "category": "cross_section",
+          "baseline": 0.5,
+          "with_title": 1.0
+        },
+        {
+          "id": "Q060",
+          "category": "cross_section",
+          "baseline": 0.5,
+          "with_title": 1.0
+        },
+        {
+          "id": "Q061",
+          "category": "cross_section",
+          "baseline": 0.5,
+          "with_title": 1.0
+        },
+        {
+          "id": "Q076",
+          "category": "cross_document",
+          "baseline": 0.5,
+          "with_title": 1.0
+        },
+        {
+          "id": "Q077",
+          "category": "comparative",
+          "baseline": 0.5,
+          "with_title": 1.0
+        },
+        {
+          "id": "Q081",
+          "category": "comparative",
+          "baseline": 1.0,
+          "with_title": 0.5
+        },
+        {
+          "id": "Q082",
+          "category": "comparative",
+          "baseline": 0.5,
+          "with_title": 1.0
+        },
+        {
+          "id": "Q083",
+          "category": "comparative",
+          "baseline": 0.0,
+          "with_title": 0.5
+        },
+        {
+          "id": "Q084",
+          "category": "comparative",
+          "baseline": 0.5,
+          "with_title": 0.0
+        },
+        {
+          "id": "Q091",
+          "category": "adversarial",
+          "baseline": 0.0,
+          "with_title": 1.0
+        }
+      ]
+    }
+  }
+}
