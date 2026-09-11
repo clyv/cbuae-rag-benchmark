@@ -9,12 +9,13 @@ the demo; the evaluation is the project.
 > **[Try the demo](https://clyv.github.io/cbuae-rag-benchmark/)** — 100 questions,
 > the system's real recorded output, scored against a human-labelled answer key.
 >
-> **Status:** all six phases complete, and the benchmark has since been turned
-> on the system's own defaults. Corpus, benchmark, the four-system comparison,
-> grounded answering with citation validation and abstention, and the
-> cross-reference graph are all measured below. Two of those experiments failed
-> and are reported as failures; a third found that two unexamined configuration
-> choices were worth 69% of the entire architecture gap.
+> **Status:** all six phases complete, and the benchmark has since been turned on
+> the system's own defaults and on nine further techniques. Everything below is
+> measured, failures included — and most of them are failures. Three
+> candidate-expansion strategies moved the shipped system by zero; a larger
+> generator scored *worse*; contextual retrieval lost to a field already sitting
+> in the metadata. What did work was two configuration defaults nobody had
+> questioned, worth **69% of the entire architecture gap**.
 
 ---
 
