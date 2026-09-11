@@ -743,6 +743,75 @@ measures support at 0.557 and obligation fidelity at 0.902. The model is bad at
 being traceable and good at preserving force. A single "faithfulness" number
 would hide both. Write-up in `results/obligation.md`.
 
+### Swapping models is the lever everyone reaches for first, and it moved least
+
+Three embedding models against three reranker conditions, everything else held
+fixed (`results/model_sweep.md`):
+
+| embedding | reranker | recall@10 | vs shipped | established |
+|---|---|---:|---:|---|
+| bge-base | MiniLM-L6 | **0.773** | +0.023 | no |
+| **bge-small** | **MiniLM-L6** | **0.750** | *shipped* | |
+| bge-small | bge-reranker-base | 0.698 | −0.052 | no |
+| e5-base | bge-reranker-base | 0.680 | −0.070 | **yes** |
+
+**Exactly one of nine rows clears zero, and it is the worst one.** The best
+configuration found is +0.023 with a lower bound of exactly +0.000. Set against
+the +0.116 from two configuration defaults, the ordering is uncomfortable: the
+first thing most RAG projects try moved least here.
+
+`bge-reranker-base` is worse in every pairing despite being 1.1 GB against
+MiniLM-L6's 90 MB. That was surprising enough to verify rather than report — it
+produces well-spread scores, genuinely reorders, and its top two match MiniLM's
+exactly. It works; it is not better here.
+
+Reranking itself reproduces on all three embeddings at +0.058 to +0.076, which
+is steadier than any embedding swap. The actionable conclusion is about the
+benchmark, not the models: **n=100 resolves a +0.116 effect and cannot resolve a
++0.023 one.**
+
+### Query rewriting does not help, and the taxonomy said so first
+
+| system | recall@10 | vs baseline | latency |
+|---|---:|---:|---:|
+| baseline | **0.750** | — | 159s |
+| Pseudo-relevance feedback | 0.738 | −0.012 | 150s |
+| HyDE | 0.744 | −0.006 | **706s** |
+
+Neither is established, both are slightly negative, and HyDE costs 4.4x the
+wall-clock time to get there. The prediction was committed *before* the run:
+vocabulary mismatch explains one of 39 missed sections, so attacking vocabulary
+had nothing to win. Full write-up in `results/rewrite.md`.
+
+The first version of this measured PRF at exactly 0.000 and was wrong — the
+expansion filter excluded corpus noise but not English function words, so every
+query gained *"into related effective subject from this legal between"*. A null
+result from a broken implementation looks identical to a null result from a
+technique that does not work; the only thing separating them was printing what
+the rewriter actually did.
+
+### Is the provision this answer cites actually law yet?
+
+Every other metric here is timeless. Four instruments are listed **In-Force**
+while commencing later — INS-TAK-001 on 2026-09-14, three more on 2027-07-15.
+
+| system | questions citing something not yet law | at rank 1 |
+|---|---:|---:|
+| BM25 | 15/100 | 1 |
+| Dense | 17/100 | 2 |
+| **Hybrid + reranker** | **7/100** | **2** |
+
+Better retrieval more than halves the exposure and never removes it. **Ranking
+quality is not a temporal check and will never become one.** Five of the seven
+are `comparative` questions, which is what the corpus predicts: comparing
+conventional with Takaful treatment reaches for Takaful instruments.
+
+Run as of 2027-08-01 the same corpus is clean on every system — nothing about
+the code changes and the answer does. That is the argument for the check
+existing. Unknown is kept distinct from future: four instruments publish no date
+at all and are reported separately, never counted as premature.
+`results/temporal.md`.
+
 ---
 
 ## Limitations
