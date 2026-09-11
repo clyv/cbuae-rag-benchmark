@@ -67,6 +67,7 @@ class AbstractiveGenerator:
         model_name: str = DEFAULT_MODEL,
         max_new_tokens: int = 110,
         passage_chars: int = 700,
+        dtype: str = "float32",
     ) -> None:
         import torch
         from transformers import AutoModelForCausalLM, AutoTokenizer
@@ -76,8 +77,13 @@ class AbstractiveGenerator:
         self.max_new_tokens = max_new_tokens
         self.passage_chars = passage_chars
         self.tokenizer = AutoTokenizer.from_pretrained(model_name)
+        # float32 for the small model, where it costs 2 GB and removes a
+        # variable. A 1.5B model in float32 needs 6 GB, which this machine does
+        # not have free, so larger models run in bfloat16 - halving memory at
+        # some cost in speed on a CPU without native bf16 matmul.
+        self.dtype = dtype
         self.model = AutoModelForCausalLM.from_pretrained(
-            model_name, dtype=torch.float32
+            model_name, dtype=getattr(torch, dtype)
         ).eval()
 
     def _prompt(self, question: str, context: list[RetrievalResult]) -> str:

@@ -45,6 +45,7 @@ OUT = REPO_ROOT / "results" / "abstractive.json"
 DENSE_MODEL = "BAAI/bge-small-en-v1.5"
 RERANK_MODEL = "cross-encoder/ms-marco-MiniLM-L-6-v2"
 STRICT_RATIO = 0.6
+DEFAULT_GENERATOR = "Qwen/Qwen2.5-0.5B-Instruct"
 
 
 def over_attributed(text: str) -> bool:
@@ -92,6 +93,9 @@ def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("--limit", type=int, default=0, help="score only the first N questions")
     parser.add_argument("--k", type=int, default=4)
+    parser.add_argument("--model", default=None, help="generator checkpoint")
+    parser.add_argument("--dtype", default="float32", choices=["float32", "bfloat16", "float16"])
+    parser.add_argument("--out", default=None, help="where to write; defaults to the model's own file")
     args = parser.parse_args()
 
     if hasattr(sys.stdout, "reconfigure"):
@@ -113,7 +117,10 @@ def main() -> int:
         RERANK_MODEL,
     )
     print("loading the generator...", flush=True)
-    generator = AbstractiveGenerator()
+    kwargs = {"dtype": args.dtype}
+    if args.model:
+        kwargs["model_name"] = args.model
+    generator = AbstractiveGenerator(**kwargs)
     extractive = ExtractiveGenerator()
 
     records = []
@@ -183,7 +190,12 @@ def main() -> int:
         "extractive_obligation": score_claims(extractive_pairs),
         "seconds_per_question": round((time.perf_counter() - started) / len(records), 1),
     }
-    OUT.write_text(json.dumps({"summary": summary, "per_question": records}, indent=2, ensure_ascii=False), encoding="utf-8")
+    # A second generator must not overwrite the first's numbers.
+    out = Path(args.out) if args.out else (
+        OUT if generator.model_name == DEFAULT_GENERATOR
+        else OUT.with_name(f"abstractive-{generator.model_name.split('/')[-1].lower()}.json")
+    )
+    out.write_text(json.dumps({"summary": summary, "per_question": records}, indent=2, ensure_ascii=False), encoding="utf-8")
 
     print(f"generator   {summary['generator']}")
     print(f"questions   {summary['questions']}  ({summary['seconds_per_question']}s each)")
