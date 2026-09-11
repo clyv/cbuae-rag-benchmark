@@ -4,40 +4,75 @@
     "baseline": {
       "recall@10": 0.75,
       "full_recall@10": 0.5930232558139535,
-      "seconds": 136.4
+      "seconds": 158.8
     },
     "prf": {
-      "recall@10": 0.75,
-      "full_recall@10": 0.5930232558139535,
-      "seconds": 144.2,
+      "recall@10": 0.7383720930232558,
+      "full_recall@10": 0.5813953488372093,
+      "seconds": 149.8,
       "examples": [
         {
           "question": "An insurer wants to take on exposure beyond the level its board signed off on. Who has to approve that departure, and what must be in place for it to happen?",
-          "rewritten": "An insurer wants to take on exposure beyond the level its board signed off on. Who has to approve that departure, and what must be in place for it to happen? into related effective subject from this legal between"
+          "rewritten": "An insurer wants to take on exposure beyond the level its board signed off on. Who has to approve that departure, and what must be in place for it to happen? classes prescribe market system marketing location reconciliation segregation"
         },
         {
           "question": "What is the smallest amount of subscribed and paid up capital a reinsurance company is allowed to have?",
-          "rewritten": "What is the smallest amount of subscribed and paid up capital a reinsurance company is allowed to have? million than less minimum dirhams hundred fifty dirham"
+          "rewritten": "What is the smallest amount of subscribed and paid up capital a reinsurance company is allowed to have? less minimum million fifty dirhams hundred dirham requirement"
         },
         {
           "question": "Can the person heading an insurer's compliance function also carry responsibility for underwriting decisions?",
-          "rewritten": "Can the person heading an insurer's compliance function also carry responsibility for underwriting decisions? with that which these management such facilitate other"
+          "rewritten": "Can the person heading an insurer's compliance function also carry responsibility for underwriting decisions? management facilitate risk establish officer purpose reporting asset"
         },
         {
           "question": "How is the floor on the Minimum Guarantee Fund expressed in relation to the Solvency Capital Requirement?",
-          "rewritten": "How is the floor on the Minimum Guarantee Fund expressed in relation to the Solvency Capital Requirement? funds based time three general event unable director"
+          "rewritten": "How is the floor on the Minimum Guarantee Fund expressed in relation to the Solvency Capital Requirement? funds time based extend stipulations concern take unable"
         },
         {
           "question": "An external auditor discovers during the audit that the company has breached Central Bank regulations. What are they required to do?",
-          "rewritten": "An external auditor discovers during the audit that the company has breached Central Bank regulations. What are they required to do? laws report matters such case instructions their duty"
+          "rewritten": "An external auditor discovers during the audit that the company has breached Central Bank regulations. What are they required to do? matters laws case report duty violations change obligations"
         }
       ],
       "queries_unchanged": 0,
       "vs_baseline": {
-        "difference": 0.0,
+        "difference": -0.011627906976744186,
         "interval": [
-          -0.03488372093023256,
-          0.03488372093023256
+          -0.046511627906976744,
+          0.01744186046511628
+        ]
+      }
+    },
+    "hyde": {
+      "recall@10": 0.7441860465116279,
+      "full_recall@10": 0.5930232558139535,
+      "seconds": 705.7,
+      "examples": [
+        {
+          "question": "An insurer wants to take on exposure beyond the level its board signed off on. Who has to approve that departure, and what must be in place for it to happen?",
+          "rewritten": "An insurer wants to take on exposure beyond the level its board signed off on. Who has to approve that departure, and what must be in place for it to happen? An insurer seeking to expand its coverage beyond the limits approved by its board must obtain approval from the appropriate regulatory body before proceeding. This involves submitting a detailed plan outlining the new scope of business, including any necessary approvals, legal requirements, and risk management strategies. The regulatory body will review this application to ensure compliance with all relevant laws and regulations."
+        },
+        {
+          "question": "What is the smallest amount of subscribed and paid up capital a reinsurance company is allowed to have?",
+          "rewritten": "What is the smallest amount of subscribed and paid up capital a reinsurance company is allowed to have? The smallest amount of subscribed and paid-up capital a reinsurer may hold is determined by the relevant regulations set forth by the Insurance Regulatory Authority of the United Arab Emirates (IRAU)."
+        },
+        {
+          "question": "Can the person heading an insurer's compliance function also carry responsibility for underwriting decisions?",
+          "rewritten": "Can the person heading an insurer's compliance function also carry responsibility for underwriting decisions? An insurer's compliance function should be separate from its underwriting responsibilities to ensure impartiality and prevent conflicts of interest."
+        },
+        {
+          "question": "How is the floor on the Minimum Guarantee Fund expressed in relation to the Solvency Capital Requirement?",
+          "rewritten": "How is the floor on the Minimum Guarantee Fund expressed in relation to the Solvency Capital Requirement? The floor for the Minimum Guarantee Fund (MGF) shall be equal to 10% of the Tier 2 Capital of the Group, with any excess being allocated to the MGF."
+        },
+        {
+          "question": "An external auditor discovers during the audit that the company has breached Central Bank regulations. What are they required to do?",
+          "rewritten": "An external auditor discovers during the audit that the company has breached Central Bank regulations. What are they required to do? An external auditor is required to report the findings of their audit immediately to the relevant authorities, including the Central Bank, in accordance with their duties under the law."
+        }
+      ],
+      "queries_unchanged": 0,
+      "vs_baseline": {
+        "difference": -0.005813953488372093,
+        "interval": [
+          -0.040697674418604654,
+          0.023255813953488372
         ]
       }
     }
@@ -171,6 +206,94 @@
       "Q037": 0.5,
       "Q038": 1.0,
       "Q039": 0.5,
+      "Q040": 1.0,
+      "Q041": 0.5,
+      "Q042": 0.0,
+      "Q043": 1.0,
+      "Q044": 0.5,
+      "Q051": 1.0,
+      "Q052": 1.0,
+      "Q053": 1.0,
+      "Q054": 1.0,
+      "Q055": 1.0,
+      "Q056": 1.0,
+      "Q057": 1.0,
+      "Q058": 1.0,
+      "Q059": 1.0,
+      "Q060": 0.5,
+      "Q061": 0.5,
+      "Q062": 0.5,
+      "Q063": 1.0,
+      "Q064": 0.5,
+      "Q065": 0.5,
+      "Q066": 0.5,
+      "Q067": 0.5,
+      "Q068": 1.0,
+      "Q069": 0.0,
+      "Q070": 1.0,
+      "Q071": 1.0,
+      "Q072": 1.0,
+      "Q073": 0.5,
+      "Q074": 0.5,
+      "Q075": 1.0,
+      "Q076": 0.5,
+      "Q077": 0.5,
+      "Q078": 0.0,
+      "Q079": 0.5,
+      "Q080": 1.0,
+      "Q081": 1.0,
+      "Q082": 0.5,
+      "Q083": 0.0,
+      "Q084": 0.5,
+      "Q085": 1.0,
+      "Q086": 1.0,
+      "Q087": 1.0,
+      "Q088": 1.0,
+      "Q089": 1.0,
+      "Q090": 1.0,
+      "Q091": 0.0,
+      "Q092": 1.0
+    },
+    "hyde": {
+      "Q001": 0.0,
+      "Q002": 1.0,
+      "Q003": 0.0,
+      "Q004": 1.0,
+      "Q005": 1.0,
+      "Q006": 0.5,
+      "Q007": 1.0,
+      "Q008": 1.0,
+      "Q009": 0.5,
+      "Q010": 0.0,
+      "Q011": 0.5,
+      "Q012": 0.5,
+      "Q013": 1.0,
+      "Q014": 0.5,
+      "Q015": 1.0,
+      "Q016": 0.5,
+      "Q017": 0.5,
+      "Q018": 1.0,
+      "Q019": 1.0,
+      "Q020": 1.0,
+      "Q021": 1.0,
+      "Q022": 1.0,
+      "Q023": 1.0,
+      "Q024": 1.0,
+      "Q025": 1.0,
+      "Q026": 1.0,
+      "Q027": 1.0,
+      "Q028": 0.0,
+      "Q029": 1.0,
+      "Q030": 1.0,
+      "Q031": 1.0,
+      "Q032": 0.5,
+      "Q033": 1.0,
+      "Q034": 1.0,
+      "Q035": 1.0,
+      "Q036": 1.0,
+      "Q037": 0.5,
+      "Q038": 1.0,
+      "Q039": 0.5,
       "Q040": 0.5,
       "Q041": 0.5,
       "Q042": 0.0,
@@ -199,10 +322,10 @@
       "Q071": 1.0,
       "Q072": 0.5,
       "Q073": 0.5,
-      "Q074": 1.0,
+      "Q074": 0.5,
       "Q075": 1.0,
       "Q076": 0.5,
-      "Q077": 0.5,
+      "Q077": 1.0,
       "Q078": 0.0,
       "Q079": 0.5,
       "Q080": 1.0,
@@ -216,7 +339,7 @@
       "Q088": 1.0,
       "Q089": 1.0,
       "Q090": 1.0,
-      "Q091": 1.0,
+      "Q091": 0.0,
       "Q092": 1.0
     }
   }
