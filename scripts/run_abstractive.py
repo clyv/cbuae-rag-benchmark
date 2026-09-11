@@ -195,6 +195,14 @@ def main() -> int:
     print(f"  supported, lenient          {summary['supported_lenient']:.3f}   (extractive: 1.000)")
     print(f"  supported, strict {STRICT_RATIO:.0%} overlap {summary['supported_strict']:.3f}"
           f"   (extractive: {summary['extractive_supported_strict']:.3f})")
+    ob, base = summary["obligation"], summary["extractive_obligation"]
+    print()
+    print(f"  obligation fidelity         {ob['obligation_fidelity']:.3f}"
+          f"   (extractive: {base['obligation_fidelity']:.3f})")
+    print(f"    of {ob['force_bearing']} claims that state an obligation: "
+          f"{ob['preserved']} preserved, {ob['strengthened']} strengthened, "
+          f"{ob['weakened']} weakened")
+    print(f"    {ob['no_force']} of {ob['claims']} claims state no obligation at all")
     print(f"\nWrote {OUT.relative_to(REPO_ROOT)}")
     return 0
 
