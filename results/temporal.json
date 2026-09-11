@@ -1,0 +1,527 @@
+{
+  "as_of": "2026-09-11",
+  "not_yet_commenced": [
+    "INS-TAK-001",
+    "INS-TAK-006",
+    "INS-TAK-007",
+    "INS-TAK-008"
+  ],
+  "unknown_date": [
+    "INS-GOV-005",
+    "INS-GOV-007",
+    "INS-GOV-008",
+    "INS-OTH-004"
+  ],
+  "systems": {
+    "bm25": {
+      "questions_affected": 15,
+      "questions": 100,
+      "premature_sections": 23,
+      "at_rank_1": 1,
+      "by_category": {
+        "comparative": 5,
+        "single_hop": 3,
+        "cross_section": 2,
+        "unanswerable": 3,
+        "cross_document": 2
+      },
+      "affected": [
+        {
+          "id": "Q010",
+          "category": "comparative",
+          "premature": [
+            "INS-TAK-001::Article 22",
+            "INS-TAK-006::Article 15"
+          ],
+          "rank": 5
+        },
+        {
+          "id": "Q011",
+          "category": "comparative",
+          "premature": [
+            "INS-TAK-006::Article 15",
+            "INS-TAK-001::Article 22",
+            "INS-TAK-006::Article 13",
+            "INS-TAK-006::Article 12"
+          ],
+          "rank": 4
+        },
+        {
+          "id": "Q028",
+          "category": "comparative",
+          "premature": [
+            "INS-TAK-006::Article 15",
+            "INS-TAK-008::Article 9"
+          ],
+          "rank": 1
+        },
+        {
+          "id": "Q030",
+          "category": "single_hop",
+          "premature": [
+            "INS-TAK-006::Article 18"
+          ],
+          "rank": 10
+        },
+        {
+          "id": "Q039",
+          "category": "cross_section",
+          "premature": [
+            "INS-TAK-001::Article 19"
+          ],
+          "rank": 4
+        },
+        {
+          "id": "Q040",
+          "category": "cross_section",
+          "premature": [
+            "INS-TAK-001::Article 10"
+          ],
+          "rank": 9
+        },
+        {
+          "id": "Q042",
+          "category": "single_hop",
+          "premature": [
+            "INS-TAK-006::Article 18"
+          ],
+          "rank": 6
+        },
+        {
+          "id": "Q045",
+          "category": "unanswerable",
+          "premature": [
+            "INS-TAK-001::Article 18"
+          ],
+          "rank": 10
+        },
+        {
+          "id": "Q058",
+          "category": "single_hop",
+          "premature": [
+            "INS-TAK-001::Article 31"
+          ],
+          "rank": 3
+        },
+        {
+          "id": "Q068",
+          "category": "cross_document",
+          "premature": [
+            "INS-TAK-008::Article 6"
+          ],
+          "rank": 3
+        },
+        {
+          "id": "Q073",
+          "category": "cross_document",
+          "premature": [
+            "INS-TAK-006::Article 2",
+            "INS-TAK-008::Article 2"
+          ],
+          "rank": 4
+        },
+        {
+          "id": "Q080",
+          "category": "comparative",
+          "premature": [
+            "INS-TAK-008::Article 6"
+          ],
+          "rank": 4
+        },
+        {
+          "id": "Q084",
+          "category": "comparative",
+          "premature": [
+            "INS-TAK-006::Article 15",
+            "INS-TAK-006::Article 13"
+          ],
+          "rank": 3
+        },
+        {
+          "id": "Q094",
+          "category": "unanswerable",
+          "premature": [
+            "INS-TAK-008::Article 9",
+            "INS-TAK-001::Article 10"
+          ],
+          "rank": 6
+        },
+        {
+          "id": "Q099",
+          "category": "unanswerable",
+          "premature": [
+            "INS-TAK-001::Article 3"
+          ],
+          "rank": 8
+        }
+      ]
+    },
+    "dense": {
+      "questions_affected": 17,
+      "questions": 100,
+      "premature_sections": 38,
+      "at_rank_1": 2,
+      "by_category": {
+        "single_hop": 2,
+        "cross_section": 1,
+        "comparative": 6,
+        "adversarial": 3,
+        "cross_document": 3,
+        "unanswerable": 2
+      },
+      "affected": [
+        {
+          "id": "Q004",
+          "category": "single_hop",
+          "premature": [
+            "INS-TAK-001::Article 24"
+          ],
+          "rank": 9
+        },
+        {
+          "id": "Q008",
+          "category": "cross_section",
+          "premature": [
+            "INS-TAK-001::Article 24",
+            "INS-TAK-001::Article 20"
+          ],
+          "rank": 5
+        },
+        {
+          "id": "Q009",
+          "category": "comparative",
+          "premature": [
+            "INS-TAK-001::Article 7",
+            "INS-TAK-001::Article 6",
+            "INS-TAK-001::Article 18",
+            "INS-TAK-006::Article 13",
+            "INS-TAK-008::Article 2"
+          ],
+          "rank": 4
+        },
+        {
+          "id": "Q010",
+          "category": "comparative",
+          "premature": [
+            "INS-TAK-001::Article 7",
+            "INS-TAK-001::Article 24",
+            "INS-TAK-008::Article 9",
+            "INS-TAK-008::Article 2",
+            "INS-TAK-001::Article 22",
+            "INS-TAK-006::Article 15",
+            "INS-TAK-008::Article 5"
+          ],
+          "rank": 1
+        },
+        {
+          "id": "Q011",
+          "category": "comparative",
+          "premature": [
+            "INS-TAK-001::Article 24",
+            "INS-TAK-001::Article 6",
+            "INS-TAK-006::Article 7"
+          ],
+          "rank": 1
+        },
+        {
+          "id": "Q012",
+          "category": "adversarial",
+          "premature": [
+            "INS-TAK-006::Article 2",
+            "INS-TAK-006::Article 1",
+            "INS-TAK-006::Article 13",
+            "INS-TAK-008::Article 2"
+          ],
+          "rank": 4
+        },
+        {
+          "id": "Q017",
+          "category": "cross_document",
+          "premature": [
+            "INS-TAK-001::Article 24"
+          ],
+          "rank": 4
+        },
+        {
+          "id": "Q028",
+          "category": "comparative",
+          "premature": [
+            "INS-TAK-001::Article 6",
+            "INS-TAK-001::Article 7"
+          ],
+          "rank": 5
+        },
+        {
+          "id": "Q043",
+          "category": "single_hop",
+          "premature": [
+            "INS-TAK-001::Article 5"
+          ],
+          "rank": 10
+        },
+        {
+          "id": "Q070",
+          "category": "cross_document",
+          "premature": [
+            "INS-TAK-001::Article 24"
+          ],
+          "rank": 5
+        },
+        {
+          "id": "Q071",
+          "category": "cross_document",
+          "premature": [
+            "INS-TAK-001::Article 24"
+          ],
+          "rank": 3
+        },
+        {
+          "id": "Q081",
+          "category": "comparative",
+          "premature": [
+            "INS-TAK-001::Article 24"
+          ],
+          "rank": 5
+        },
+        {
+          "id": "Q084",
+          "category": "comparative",
+          "premature": [
+            "INS-TAK-001::Article 16",
+            "INS-TAK-001::Article 6"
+          ],
+          "rank": 6
+        },
+        {
+          "id": "Q086",
+          "category": "adversarial",
+          "premature": [
+            "INS-TAK-006::Article 15"
+          ],
+          "rank": 5
+        },
+        {
+          "id": "Q091",
+          "category": "adversarial",
+          "premature": [
+            "INS-TAK-008::Article 2",
+            "INS-TAK-006::Article 14"
+          ],
+          "rank": 6
+        },
+        {
+          "id": "Q096",
+          "category": "unanswerable",
+          "premature": [
+            "INS-TAK-006::Article 16"
+          ],
+          "rank": 3
+        },
+        {
+          "id": "Q100",
+          "category": "unanswerable",
+          "premature": [
+            "INS-TAK-006::Article 4",
+            "INS-TAK-001::Article 6",
+            "INS-TAK-008::Article 4"
+          ],
+          "rank": 3
+        }
+      ]
+    },
+    "hybrid-rrf": {
+      "questions_affected": 11,
+      "questions": 100,
+      "premature_sections": 23,
+      "at_rank_1": 2,
+      "by_category": {
+        "cross_section": 1,
+        "comparative": 5,
+        "adversarial": 1,
+        "cross_document": 2,
+        "single_hop": 1,
+        "unanswerable": 1
+      },
+      "affected": [
+        {
+          "id": "Q008",
+          "category": "cross_section",
+          "premature": [
+            "INS-TAK-001::Article 24"
+          ],
+          "rank": 5
+        },
+        {
+          "id": "Q009",
+          "category": "comparative",
+          "premature": [
+            "INS-TAK-006::Article 13",
+            "INS-TAK-006::Article 15",
+            "INS-TAK-006::Article 14"
+          ],
+          "rank": 2
+        },
+        {
+          "id": "Q010",
+          "category": "comparative",
+          "premature": [
+            "INS-TAK-001::Article 22",
+            "INS-TAK-008::Article 9",
+            "INS-TAK-006::Article 15",
+            "INS-TAK-008::Article 2",
+            "INS-TAK-006::Article 13",
+            "INS-TAK-006::Article 2"
+          ],
+          "rank": 1
+        },
+        {
+          "id": "Q011",
+          "category": "comparative",
+          "premature": [
+            "INS-TAK-001::Article 24",
+            "INS-TAK-006::Article 15"
+          ],
+          "rank": 2
+        },
+        {
+          "id": "Q012",
+          "category": "adversarial",
+          "premature": [
+            "INS-TAK-006::Article 13",
+            "INS-TAK-006::Article 14"
+          ],
+          "rank": 4
+        },
+        {
+          "id": "Q017",
+          "category": "cross_document",
+          "premature": [
+            "INS-TAK-001::Article 24"
+          ],
+          "rank": 7
+        },
+        {
+          "id": "Q028",
+          "category": "comparative",
+          "premature": [
+            "INS-TAK-006::Article 15",
+            "INS-TAK-008::Article 9",
+            "INS-TAK-006::Article 7"
+          ],
+          "rank": 2
+        },
+        {
+          "id": "Q042",
+          "category": "single_hop",
+          "premature": [
+            "INS-TAK-006::Article 18"
+          ],
+          "rank": 1
+        },
+        {
+          "id": "Q071",
+          "category": "cross_document",
+          "premature": [
+            "INS-TAK-001::Article 24"
+          ],
+          "rank": 3
+        },
+        {
+          "id": "Q084",
+          "category": "comparative",
+          "premature": [
+            "INS-TAK-006::Article 15",
+            "INS-TAK-001::Article 16"
+          ],
+          "rank": 2
+        },
+        {
+          "id": "Q100",
+          "category": "unanswerable",
+          "premature": [
+            "INS-TAK-001::Article 4"
+          ],
+          "rank": 10
+        }
+      ]
+    },
+    "hybrid+reranker": {
+      "questions_affected": 7,
+      "questions": 100,
+      "premature_sections": 16,
+      "at_rank_1": 2,
+      "by_category": {
+        "comparative": 5,
+        "adversarial": 1,
+        "unanswerable": 1
+      },
+      "affected": [
+        {
+          "id": "Q009",
+          "category": "comparative",
+          "premature": [
+            "INS-TAK-006::Article 15",
+            "INS-TAK-006::Article 12",
+            "INS-TAK-006::Article 13"
+          ],
+          "rank": 3
+        },
+        {
+          "id": "Q010",
+          "category": "comparative",
+          "premature": [
+            "INS-TAK-006::Article 15",
+            "INS-TAK-008::Article 2",
+            "INS-TAK-006::Article 2",
+            "INS-TAK-001::Article 22"
+          ],
+          "rank": 2
+        },
+        {
+          "id": "Q011",
+          "category": "comparative",
+          "premature": [
+            "INS-TAK-001::Article 24",
+            "INS-TAK-006::Article 15"
+          ],
+          "rank": 1
+        },
+        {
+          "id": "Q012",
+          "category": "adversarial",
+          "premature": [
+            "INS-TAK-006::Article 15"
+          ],
+          "rank": 2
+        },
+        {
+          "id": "Q028",
+          "category": "comparative",
+          "premature": [
+            "INS-TAK-008::Article 9",
+            "INS-TAK-006::Article 15"
+          ],
+          "rank": 2
+        },
+        {
+          "id": "Q045",
+          "category": "unanswerable",
+          "premature": [
+            "INS-TAK-001::Article 18"
+          ],
+          "rank": 6
+        },
+        {
+          "id": "Q084",
+          "category": "comparative",
+          "premature": [
+            "INS-TAK-006::Article 15",
+            "INS-TAK-001::Article 22",
+            "INS-TAK-006::Article 12"
+          ],
+          "rank": 1
+        }
+      ]
+    }
+  }
+}
